@@ -1,0 +1,122 @@
+domwalk.o: ../../gcc/domwalk.cc config.h auto-host.h \
+ ../../gcc/../include/ansidecl.h ../../gcc/system.h \
+ ../../gcc/../include/safe-ctype.h ../../gcc/../include/filenames.h \
+ ../../gcc/../include/hashtab.h ../../gcc/../include/ansidecl.h \
+ ../../gcc/../include/libiberty.h ../../gcc/hwint.h ../../gcc/coretypes.h \
+ insn-modes.h ../../gcc/signop.h ../../gcc/wide-int.h \
+ ../../gcc/wide-int-print.h ../../gcc/poly-int.h \
+ ../../gcc/poly-int-types.h insn-modes-inline.h ../../gcc/machmode.h \
+ ../../gcc/mode-classes.def ../../gcc/double-int.h ../../gcc/align.h \
+ ../../gcc/iterator-utils.h ../../gcc/real.h ../../gcc/fixed-value.h \
+ ../../gcc/hash-table.h ../../gcc/statistics.h ../../gcc/ggc.h \
+ gtype-desc.h ../../gcc/vec.h ../../gcc/../include/hashtab.h \
+ ../../gcc/inchash.h ../../gcc/mem-stats-traits.h ../../gcc/hash-traits.h \
+ ../../gcc/hash-map-traits.h ../../gcc/mem-stats.h ../../gcc/hash-map.h \
+ ../../gcc/hash-set.h ../../gcc/input.h \
+ ../../gcc/../libcpp/include/line-map.h ../../gcc/is-a.h \
+ ../../gcc/memory-block.h ../../gcc/dumpfile.h ../../gcc/profile-count.h \
+ ../../gcc/backend.h tm.h options.h ../../gcc/flag-types.h \
+ ../../gcc/config/i386/i386-opts.h ../../gcc/config/i386/stringop.def \
+ insn-constants.h ../../gcc/config/vxworks-dummy.h \
+ ../../gcc/config/i386/biarch64.h ../../gcc/config/i386/i386.h \
+ ../../gcc/config/i386/x86-tune.def ../../gcc/wide-int-bitmask.h \
+ ../../gcc/config/i386/i386-isa.def insn-attr-common.h \
+ ../../gcc/common/config/i386/i386-cpuinfo.h ../../gcc/config/i386/unix.h \
+ ../../gcc/config/i386/att.h ../../gcc/config/elfos.h \
+ ../../gcc/config/gnu-user.h ../../gcc/config/glibc-stdint.h \
+ ../../gcc/config/i386/x86-64.h ../../gcc/config/i386/gnu-user-common.h \
+ ../../gcc/config/i386/gnu-user64.h ../../gcc/config/linux.h \
+ ../../gcc/config/linux-android.h ../../gcc/config/i386/linux-common.h \
+ ../../gcc/config/i386/linux64.h ../../gcc/config/initfini-array.h \
+ insn-flags.h insn-modes.h ../../gcc/defaults.h ../../gcc/function.h \
+ ../../gcc/bitmap.h ../../gcc/../include/obstack.h \
+ ../../gcc/array-traits.h ../../gcc/sbitmap.h ../../gcc/basic-block.h \
+ ../../gcc/profile-count.h ../../gcc/cfg-flags.def ../../gcc/cfg.h \
+ ../../gcc/dominance.h ../../gcc/cfganal.h ../../gcc/domwalk.h
+config.h:
+auto-host.h:
+../../gcc/../include/ansidecl.h:
+../../gcc/system.h:
+../../gcc/../include/safe-ctype.h:
+../../gcc/../include/filenames.h:
+../../gcc/../include/hashtab.h:
+../../gcc/../include/ansidecl.h:
+../../gcc/../include/libiberty.h:
+../../gcc/hwint.h:
+../../gcc/coretypes.h:
+insn-modes.h:
+../../gcc/signop.h:
+../../gcc/wide-int.h:
+../../gcc/wide-int-print.h:
+../../gcc/poly-int.h:
+../../gcc/poly-int-types.h:
+insn-modes-inline.h:
+../../gcc/machmode.h:
+../../gcc/mode-classes.def:
+../../gcc/double-int.h:
+../../gcc/align.h:
+../../gcc/iterator-utils.h:
+../../gcc/real.h:
+../../gcc/fixed-value.h:
+../../gcc/hash-table.h:
+../../gcc/statistics.h:
+../../gcc/ggc.h:
+gtype-desc.h:
+../../gcc/vec.h:
+../../gcc/../include/hashtab.h:
+../../gcc/inchash.h:
+../../gcc/mem-stats-traits.h:
+../../gcc/hash-traits.h:
+../../gcc/hash-map-traits.h:
+../../gcc/mem-stats.h:
+../../gcc/hash-map.h:
+../../gcc/hash-set.h:
+../../gcc/input.h:
+../../gcc/../libcpp/include/line-map.h:
+../../gcc/is-a.h:
+../../gcc/memory-block.h:
+../../gcc/dumpfile.h:
+../../gcc/profile-count.h:
+../../gcc/backend.h:
+tm.h:
+options.h:
+../../gcc/flag-types.h:
+../../gcc/config/i386/i386-opts.h:
+../../gcc/config/i386/stringop.def:
+insn-constants.h:
+../../gcc/config/vxworks-dummy.h:
+../../gcc/config/i386/biarch64.h:
+../../gcc/config/i386/i386.h:
+../../gcc/config/i386/x86-tune.def:
+../../gcc/wide-int-bitmask.h:
+../../gcc/config/i386/i386-isa.def:
+insn-attr-common.h:
+../../gcc/common/config/i386/i386-cpuinfo.h:
+../../gcc/config/i386/unix.h:
+../../gcc/config/i386/att.h:
+../../gcc/config/elfos.h:
+../../gcc/config/gnu-user.h:
+../../gcc/config/glibc-stdint.h:
+../../gcc/config/i386/x86-64.h:
+../../gcc/config/i386/gnu-user-common.h:
+../../gcc/config/i386/gnu-user64.h:
+../../gcc/config/linux.h:
+../../gcc/config/linux-android.h:
+../../gcc/config/i386/linux-common.h:
+../../gcc/config/i386/linux64.h:
+../../gcc/config/initfini-array.h:
+insn-flags.h:
+insn-modes.h:
+../../gcc/defaults.h:
+../../gcc/function.h:
+../../gcc/bitmap.h:
+../../gcc/../include/obstack.h:
+../../gcc/array-traits.h:
+../../gcc/sbitmap.h:
+../../gcc/basic-block.h:
+../../gcc/profile-count.h:
+../../gcc/cfg-flags.def:
+../../gcc/cfg.h:
+../../gcc/dominance.h:
+../../gcc/cfganal.h:
+../../gcc/domwalk.h:

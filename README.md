@@ -72,6 +72,7 @@ cd build
 ```
 
 ### 3. Configure Build
+**NOTE: You will need a molecular compiler to compile this source tree!**
 
 ```bash
 # Configure with Molecular focused options

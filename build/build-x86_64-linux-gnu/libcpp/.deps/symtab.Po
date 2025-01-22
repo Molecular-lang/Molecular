@@ -1,0 +1,16 @@
+symtab.o: ../../../libcpp/symtab.cc config.h ../../../libcpp/system.h \
+ ../../../libcpp/../include/filenames.h \
+ ../../../libcpp/../include/hashtab.h \
+ ../../../libcpp/../include/ansidecl.h \
+ ../../../libcpp/../include/libiberty.h \
+ ../../../libcpp/../include/safe-ctype.h ../../../libcpp/include/symtab.h \
+ ../../../libcpp/../include/obstack.h
+config.h:
+../../../libcpp/system.h:
+../../../libcpp/../include/filenames.h:
+../../../libcpp/../include/hashtab.h:
+../../../libcpp/../include/ansidecl.h:
+../../../libcpp/../include/libiberty.h:
+../../../libcpp/../include/safe-ctype.h:
+../../../libcpp/include/symtab.h:
+../../../libcpp/../include/obstack.h:

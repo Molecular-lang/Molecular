@@ -1,0 +1,32 @@
+charset.o: ../../../libcpp/charset.cc config.h ../../../libcpp/system.h \
+ ../../../libcpp/../include/filenames.h \
+ ../../../libcpp/../include/hashtab.h \
+ ../../../libcpp/../include/ansidecl.h \
+ ../../../libcpp/../include/libiberty.h \
+ ../../../libcpp/../include/safe-ctype.h ../../../libcpp/include/cpplib.h \
+ ../../../libcpp/include/symtab.h ../../../libcpp/../include/obstack.h \
+ ../../../libcpp/include/line-map.h ../../../libcpp/internal.h \
+ ../../../libcpp/include/symtab.h ../../../libcpp/include/rich-location.h \
+ ../../../libcpp/include/label-text.h ../../../libcpp/ucnid.h \
+ ../../../libcpp/uname2c.h ../../../libcpp/generated_cpp_wcwidth.h \
+ ../../../libcpp/combining-chars.inc ../../../libcpp/printable-chars.inc
+config.h:
+../../../libcpp/system.h:
+../../../libcpp/../include/filenames.h:
+../../../libcpp/../include/hashtab.h:
+../../../libcpp/../include/ansidecl.h:
+../../../libcpp/../include/libiberty.h:
+../../../libcpp/../include/safe-ctype.h:
+../../../libcpp/include/cpplib.h:
+../../../libcpp/include/symtab.h:
+../../../libcpp/../include/obstack.h:
+../../../libcpp/include/line-map.h:
+../../../libcpp/internal.h:
+../../../libcpp/include/symtab.h:
+../../../libcpp/include/rich-location.h:
+../../../libcpp/include/label-text.h:
+../../../libcpp/ucnid.h:
+../../../libcpp/uname2c.h:
+../../../libcpp/generated_cpp_wcwidth.h:
+../../../libcpp/combining-chars.inc:
+../../../libcpp/printable-chars.inc:

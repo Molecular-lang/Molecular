@@ -1,0 +1,27 @@
+lex.o: ../../../libcpp/lex.cc config.h ../../../libcpp/system.h \
+ ../../../libcpp/../include/filenames.h \
+ ../../../libcpp/../include/hashtab.h \
+ ../../../libcpp/../include/ansidecl.h \
+ ../../../libcpp/../include/libiberty.h \
+ ../../../libcpp/../include/safe-ctype.h ../../../libcpp/include/cpplib.h \
+ ../../../libcpp/include/symtab.h ../../../libcpp/../include/obstack.h \
+ ../../../libcpp/include/line-map.h ../../../libcpp/internal.h \
+ ../../../libcpp/include/symtab.h ../../../libcpp/include/rich-location.h \
+ ../../../libcpp/include/label-text.h \
+ ../../../libcpp/../gcc/config/i386/cpuid.h
+config.h:
+../../../libcpp/system.h:
+../../../libcpp/../include/filenames.h:
+../../../libcpp/../include/hashtab.h:
+../../../libcpp/../include/ansidecl.h:
+../../../libcpp/../include/libiberty.h:
+../../../libcpp/../include/safe-ctype.h:
+../../../libcpp/include/cpplib.h:
+../../../libcpp/include/symtab.h:
+../../../libcpp/../include/obstack.h:
+../../../libcpp/include/line-map.h:
+../../../libcpp/internal.h:
+../../../libcpp/include/symtab.h:
+../../../libcpp/include/rich-location.h:
+../../../libcpp/include/label-text.h:
+../../../libcpp/../gcc/config/i386/cpuid.h:

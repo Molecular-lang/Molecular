@@ -157,6 +157,33 @@ molecular -std=c++20 test_cpp20.ml -o test_cpp20
 ./test_cpp20
 ```
 
+## Creating a Release Package
+If you want to create a distributable package of your built compiler:
+
+1. Run the following script ```bash create_molecular_package.sh``` in the source tree.
+2. Run the script as root:
+```bash
+sudo ./create_molecular_package.sh
+```
+3. The script will create a ```bash molecular-compiler_amd64_1.0.0.deb``` package in your current directory - You can distribute and instal this on any amd compliant linux architecture.
+
+### Installing the release package
+4. To install the built .deb package, use these commands:
+```bash
+sudo dpkg -i molecular_1.0.0.deb
+sudo apt-get install -f  # This will install any missing dependencies
+```
+
+5. After installation, you may want to reload your shell or run:
+```bash
+source /etc/profile.d/molecular.sh
+```
+
+6. To verify the installation:
+```bash
+molecular --version
+```
+
 ## Troubleshooting
 
 ### Common Issues

@@ -18,13 +18,14 @@ along with GCC; see the file COPYING3.  If not see
 <http://www.gnu.org/licenses/>.  */
 
 /* This is the contribution to the `default_compilers' array in gcc.cc for
-   g++.  */
+   g++. Modified for molecular  */
 
 #ifndef CPLUSPLUS_CPP_SPEC
 #define CPLUSPLUS_CPP_SPEC 0
 #endif
 
   {".cc",  "@c++", 0, 0, 0},
+  {".ml",  "@c++", 0, 0, 0},
   {".cp",  "@c++", 0, 0, 0},
   {".cxx", "@c++", 0, 0, 0},
   {".cpp", "@c++", 0, 0, 0},
@@ -32,6 +33,7 @@ along with GCC; see the file COPYING3.  If not see
   {".C",   "@c++", 0, 0, 0},
   {".CPP", "@c++", 0, 0, 0},
   {".H",   "@c++-header", 0, 0, 0},
+  {".mh",   "@c++-header", 0, 0, 0},
   {".hpp", "@c++-header", 0, 0, 0},
   {".hp",  "@c++-header", 0, 0, 0},
   {".hxx", "@c++-header", 0, 0, 0},

@@ -1,8 +1,8 @@
-# Molecular
-
 <div align="center">
-  <img src="assets/molecular-logo.png" alt="Molecular Programming Language" width="200"/>
+  <img src="./Molecular Logo Black 1.png" alt="Molecular Programming Language" width="200"/>
 </div>
+
+# Molecular
 
 The Molecular Programming Language Official Repository
 

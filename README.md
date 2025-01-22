@@ -6,7 +6,7 @@
 
 The Molecular Programming Language Official Repository
 
-This guide provides detailed instructions for building LLVM and Molecular from source on Linux systems, with support for C++ and libc++.
+This guide provides detailed instructions for building Molecular from source on Linux systems, with support for GNU C++ and GNU libstdc++.
 
 ## Table of Contents
 - [Prerequisites](#prerequisites)
@@ -20,7 +20,7 @@ This guide provides detailed instructions for building LLVM and Molecular from s
 
 ### Hardware Requirements
 - Minimum 8GB RAM (16GB recommended)
-- At least 40GB free disk space
+- At least 25GB free disk space
 - Multi-core processor (build time improves significantly with more cores)
 
 ### System Requirements
@@ -41,38 +41,30 @@ sudo apt-get update
 sudo apt-get install -y \
     build-essential \
     cmake \
-    ninja-build \
     git \
-    python3 \
-    python3-pip \
-    python3-dev \
-    pkg-config \
-    libssl-dev
+    python3
 
-# Install required libraries
+# Install Molecular prerequisites
 sudo apt-get install -y \
-    zlib1g-dev \
-    libedit-dev \
-    libxml2-dev \
-    libtinfo-dev \
-    libsqlite3-dev
+    libgmp-dev \
+    libmpfr-dev \
+    libmpc-dev \
+    flex \
+    bison \
+    zlib1g-dev
 
 # Install optional but recommended tools
 sudo apt-get install -y \
     ccache \
-    lld \
     htop
 ```
 
 ### 2. Get Source Code
 
 ```bash
-# Clone LLVM repository
-git clone https://github.com/llvm/llvm-project.git
-cd llvm-project
-
-# Rename clang directory to molecular
-mv clang molecular
+# Download Molecular source
+git clone https://github.com/Molecular-lang/Molecular
+cd Molecular
 
 # Create build directory
 mkdir build
@@ -82,62 +74,58 @@ cd build
 ### 3. Configure Build
 
 ```bash
-# Configure with CMake
-cmake -G Ninja \
-    -DLLVM_ENABLE_PROJECTS="molecular" \
-    -DLLVM_ENABLE_RUNTIMES="libcxx;libcxxabi" \
-    -DCMAKE_BUILD_TYPE=Release \
-    -DLLVM_TARGETS_TO_BUILD="X86" \
-    -DLLVM_ENABLE_ASSERTIONS=OFF \
-    -DCMAKE_INSTALL_PREFIX=/usr/local/molecular \
-    ../llvm
+# Configure with Molecular focused options
+../configure \
+    --prefix=/usr/local/molecular \
+    --enable-languages=c,c++ \
+    --disable-multilib \
+    -disable-bootstrap \
+    --enable-shared \
+    --enable-threads=posix \
+    --enable-checking=release \
+    --with-system-zlib \
+    --enable-__cxa_atexit \
+    --disable-libunwind-exceptions \
+    --enable-gnu-unique-object \
+    --with-gcc-major-version-only \
+    --with-tune=generic \
+    --build=x86_64-linux-gnu
 ```
 
-#### CMake Options Explained
-- `LLVM_ENABLE_PROJECTS`: Specifies Molecular as the main project
-- `LLVM_ENABLE_RUNTIMES`: Specifies which runtime libraries to build
-- `CMAKE_BUILD_TYPE`: Build type (Release for optimized build)
-- `LLVM_TARGETS_TO_BUILD`: Target architectures (X86 for standard Intel/AMD)
-- `CMAKE_INSTALL_PREFIX`: Installation directory (changed to /usr/local/molecular)
+#### Configure Options Explained
+- `--prefix`: Installation directory
+- `--enable-languages=c,c++`: Enable only C and C++ (C++ is required for Molecular)
+- `--disable-multilib`: Build for single architecture (64-bit only)
+- `--enable-bootstrap`: Compile Molecular with itself for better optimization
+- `--with-system-zlib`: Use system zlib instead of building it
+- Additional options optimize for Molecular compilation
 
 ### 4. Build and Install
 
 ```bash
-# Build LLVM/Molecular (this will take significant time)
-ninja
+# Build Molecular (this will take significant time)
+make -j$(nproc)
+
+# Run tests (optional but recommended)
+make check-c++
 
 # Install (requires root privileges)
-sudo ninja install
-```
-
-### 5. Rename Binary Files
-```bash
-# Navigate to installation binary directory
-cd /usr/local/molecular/bin
-
-# Rename clang binaries to molecular
-sudo mv clang molecular
-sudo mv clang++ molecular++
-sudo mv clang-cpp molecular-cpp
-
-# Create symbolic links if needed
-sudo ln -s molecular clang
-sudo ln -s molecular++ clang++
+sudo make install
 ```
 
 ## Environment Setup
 
-Add the following to your `~/.bashrc` or equivalent:
+Add the following to your `~/.bashrc`:
 
 ```bash
 # Add Molecular to your PATH
-export PATH=/usr/local/molecular/bin:$PATH
+export PATH=/usr/local/molecular-1.0.0/bin:$PATH
 
 # Add Molecular libraries to library path
-export LD_LIBRARY_PATH=/usr/local/molecular/lib:$LD_LIBRARY_PATH
+export LD_LIBRARY_PATH=/usr/local/molecular-1.0.0/lib64:$LD_LIBRARY_PATH
 
 # Set Molecular home directory
-export MOLECULAR_HOME=/usr/local/molecular
+export Molecular_HOME=/usr/local/molecular-1.0.0
 ```
 
 Apply the changes:
@@ -151,67 +139,75 @@ source ~/.bashrc
 
 ```bash
 # Check Molecular version
-molecular++ --version
+molecular --version
 ```
 
-### 2. Test Basic Compilation
+### 2. Test Basic Molecular Compilation
 
 Create a test file:
 ```bash
 echo '#include <iostream>
-int main() { std::cout << "Hello World!\n"; }' > test.cpp
+main() int { std::cout << "Hello World!\n"; }' > test.ml
 ```
 
-Compile with libc++:
+Compile with the new Molecular:
 ```bash
-molecular++ -stdlib=libc++ test.cpp -o test
+molecular -std=c++20 test.ml -o test
 ./test
 ```
 
-### 3. Test Molecular Syntax
+### 3. Test Molecular Features
 
 ```bash
-# Create a test file with Molecular syntax
-echo 'main() int { 
-    println("Hello from Molecular!");
-    return 0; 
-}' > test.mol
+echo '#include <iostream>
+#include <span>
+#include <vector>
 
-# Compile Molecular code
-molecular++ test.mol -o test
-./test
+main() int {
+    std::vector<int> v = {1, 2, 3, 4, 5};
+    std::span<int> sp{v};
+    for(const auto& i : sp) {
+        std::cout << i << " ";
+    }
+    std::cout << "\n";
+    return 0;
+}' > test_cpp20.ml
+
+molecular -std=c++20 test_cpp20.ml -o test_cpp20
+./test_cpp20
 ```
 
 ## Troubleshooting
 
 ### Common Issues
 
-1. **CMake Configuration Fails**
-   - Ensure all dependencies are installed
-   - Check CMake version (`cmake --version`)
-   - Verify you're in the correct directory
+1. **Configure Fails**
+   - Check for missing dependencies
+   - Verify system meets requirements
+   - Review config.log for specific errors
 
 2. **Build Fails Due to Memory**
-   - Reduce parallel jobs: `ninja -j4` (replace 4 with number of cores - 1)
+   - Reduce parallel jobs: `make -j4` (replace 4 with number of cores - 1)
    - Close memory-intensive applications
    - Consider adding swap space
 
 3. **Library Path Issues**
    - Verify LD_LIBRARY_PATH is set correctly
    - Run `ldconfig` if needed: `sudo ldconfig`
+   - Check library dependencies with `ldd`
 
-4. **Binary Renaming Issues**
-   - Check file permissions
-   - Verify original files exist before renaming
-   - Ensure no processes are using the files
+4. **Compilation Issues**
+   - Ensure Molecular standard library headers are correctly installed
+   - Verify PATH and LD_LIBRARY_PATH settings
+   - Check for ABI compatibility issues
 
 ### Getting Help
-- Check project issues on GitHub
-- Join our Discord community
-- Stack Overflow with tags: [llvm] [molecular]
+- Check Molecular documentation
+- Molecular Bugzilla for known issues
+- Stack Overflow with tags [molecular]
 
 ## Contributing
-Feel free to submit issues and enhancement requests!
+For contributing to Molecular development, please refer to the official Molecular contribution guidelines.
 
 ## License
-This installation guide is available under the --------------------- (Coming briefly)
+Molecular is licensed under the GNU General Public License version 3 or later.

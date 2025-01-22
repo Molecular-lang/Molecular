@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="./Molecular Logo Black 1.png" alt="Molecular Programming Language" width="200"/>
+  <img src="./Molecular Logo Black 1.png" alt="Molecular Programming Language" width="400"/>
 </div>
 
 # Molecular

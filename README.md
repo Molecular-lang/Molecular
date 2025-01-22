@@ -76,7 +76,7 @@ cd build
 ```bash
 # Configure with Molecular focused options
 ../configure \
-    --prefix=/usr/local/molecular \
+    --prefix=/usr/local/molecular-1.0.0 \
     --enable-languages=c,c++ \
     --disable-multilib \
     -disable-bootstrap \

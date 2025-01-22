@@ -1,0 +1,311 @@
+2025-01-20  Harald Anlauf  <anlauf@gmx.de>
+
+	PR fortran/107122
+	* openmp.cc (resolve_omp_clauses): Add 'with' to error message text.
+
+2025-01-20  Harald Anlauf  <anlauf@gmx.de>
+
+	PR fortran/81978
+	* trans-array.cc (gfc_conv_array_parameter): Do not copy back data
+	if actual array parameter has the PARAMETER attribute.
+	* trans-expr.cc (gfc_conv_subref_array_arg): Likewise.
+
+2025-01-16  Tobias Burnus  <tburnus@baylibre.com>
+
+	PR fortran/118321
+	* trans-openmp.cc (gfc_trans_omp_declare_variant): Honor hidden
+	arguments for append_arg's need_device_ptr.
+
+2025-01-16  Thomas Koenig  <tkoenig@gcc.gnu.org>
+
+	PR fortran/118359
+	* dump-parse-tree.cc (show_external_symbol): New function.
+	(write_type): Add prototype, put in restrictions on what not to dump.
+	(has_cfi_cdesc): New function.
+	(need_iso_fortran_binding): New function.
+	(gfc_dump_c_prototypes): Adjust to take only a file output.  Add
+	"#include <ISO_Fortran_binding.h" if CFI_cdesc_t is found.
+	Traverse global namespaces to dump types and the globalsymol list
+	to dump external symbols.
+	(gfc_dump_external_c_prototypes): Traverse global namespaces.
+	(get_c_type_name): Handle CFI_cdesc_t.
+	(write_proc): Also pass array spec to get_c_type_name.
+	* gfortran.h (gfc_dump_c_prototypes): Adjust prototype.
+	* parse.cc (gfc_parse_file): Adjust call to gfc_dump_c_prototypes.
+
+2025-01-16  Sandra Loosemore  <sloosemore@baylibre.com>
+
+	* openmp.cc (gfc_omp_absent_contains_clause): Use an Oxford comma
+	in the message.
+
+2025-01-16  Tobias Burnus  <tburnus@baylibre.com>
+
+	PR fortran/118441
+	* trans-intrinsic.cc (gfc_get_symbol_for_expr): Use
+	gfc_new_charlen for character-returning functions.
+
+2025-01-15  Harald Anlauf  <anlauf@gmx.de>
+
+	PR fortran/71884
+	* resolve.cc (resolve_allocate_expr): Reject intrinsic NULL as
+	source-expr.
+
+2025-01-14  Sandra Loosemore  <sloosemore@baylibre.com>
+	    Kwok Cheung Yeung  <kcy@codesourcery.com>
+	    Sandra Loosemore  <sandra@codesourcery.com>
+	    Marcel Vollweiler  <marcel@codesourcery.com>
+
+	PR middle-end/114596
+	PR middle-end/112779
+	PR middle-end/113904
+	* trans-openmp.cc (gfc_trans_omp_declare_variant): Update for changes
+	to omp-general.h interfaces.
+
+2025-01-14  Anuj Mohite  <anujmohite001@gmail.com>
+
+	* dump-parse-tree.cc (show_code_node):  Updated to use
+	c->ext.concur.forall_iterator instead of c->ext.forall_iterator.
+	* frontend-passes.cc (index_interchange): Updated to
+	use c->ext.concur.forall_iterator instead of c->ext.forall_iterator.
+	(gfc_code_walker): Likewise.
+	* gfortran.h (enum locality_type): Added new enum for locality types
+	in DO CONCURRENT constructs.
+	* match.cc (match_simple_forall): Updated to use
+	new_st.ext.concur.forall_iterator instead of new_st.ext.forall_iterator.
+	(gfc_match_forall): Likewise.
+	(gfc_match_do):  Implemented support for matching DO CONCURRENT locality
+	specifiers (LOCAL, LOCAL_INIT, SHARED, DEFAULT(NONE), and REDUCE).
+	* parse.cc (parse_do_block): Updated to use
+	new_st.ext.concur.forall_iterator instead of new_st.ext.forall_iterator.
+	* resolve.cc (struct check_default_none_data): Added struct
+	check_default_none_data.
+	(do_concur_locality_specs_f2023): New function to check compliance
+	with F2023's C1133 constraint for DO CONCURRENT.
+	(check_default_none_expr): New function to check DEFAULT(NONE)
+	compliance.
+	(resolve_locality_spec): New function to resolve locality specs.
+	(gfc_count_forall_iterators): Updated to use
+	code->ext.concur.forall_iterator.
+	(gfc_resolve_forall): Updated to use code->ext.concur.forall_iterator.
+	* st.cc (gfc_free_statement): Updated to free locality specifications
+	and use p->ext.concur.forall_iterator.
+	* trans-stmt.cc (gfc_trans_forall_1): Updated to use
+	code->ext.concur.forall_iterator.
+
+2025-01-13  Thomas Koenig  <tkoenig@gcc.gnu.org>
+
+	* dump-parse-tree.cc (show_attr): Fix typos for in_equivalence.
+
+2025-01-13  Paul-Antoine Arras  <parras@baylibre.com>
+
+	* openmp.cc (gfc_match_omp_declare_variant): Match comma after directive
+	name and between clauses. Emit more useful diagnostics.
+
+2025-01-12  Thomas Koenig  <tkoenig@gcc.gnu.org>
+
+	* dump-parse-tree.cc (show_attr): Dump all symbol attributes.
+
+2025-01-12  Harald Anlauf  <anlauf@gmx.de>
+
+	PR fortran/115788
+	* check.cc (gfc_check_out_of_range): Check arguments to intrinsic.
+	* expr.cc (free_expr0): Fix a memleak with unsigned literals.
+	* gfortran.h (enum gfc_isym_id): Define GFC_ISYM_OUT_OF_RANGE.
+	* gfortran.texi: Add OUT_OF_RANGE to list of intrinsics supporting
+	UNSIGNED.
+	* intrinsic.cc (add_functions): Add Fortran prototype.  Break some
+	nearby lines with excessive length.
+	* intrinsic.h (gfc_check_out_of_range): Add prototypes.
+	* intrinsic.texi: Fortran documentation of OUT_OF_RANGE.
+	* simplify.cc (gfc_simplify_out_of_range): Compile-time simplification
+	of OUT_OF_RANGE.
+	* trans-intrinsic.cc (gfc_conv_intrinsic_out_of_range): Generate
+	inline expansion of runtime code for OUT_OF_RANGE.
+	(gfc_conv_intrinsic_function): Use it.
+
+2025-01-12  Thomas Koenig  <tkoenig@gcc.gnu.org>
+
+	PR fortran/118432
+	* frontend-passes.cc (doloop_code): Select correct member
+	of co->ext.union for inquire.
+
+2025-01-11  Tobias Burnus  <tburnus@baylibre.com>
+
+	* gfortran.h: Add OMP_LIST_INTEROP to the unnamed OMP_LIST_ enum.
+	* openmp.cc (gfc_match_omp_variable_list): Add reverse_order
+	boolean argument, defaulting to false.
+	(enum omp_mask2, OMP_DISPATCH_CLAUSES): Add OMP_CLAUSE_INTEROP.
+	(gfc_match_omp_clauses, resolve_omp_clauses): Handle dispatch's
+	'interop' clause.
+	* trans-decl.cc (gfc_get_extern_function_decl): Use sym->declared_at
+	instead input_location as DECL_SOURCE_LOCATION.
+	* trans-openmp.cc (gfc_trans_omp_clauses): Handle OMP_LIST_INTEROP.
+
+2025-01-11  Paul Thomas  <pault@gcc.gnu.org>
+
+	PR fortran/108434
+	* class.cc (generate_finalization_wrapper): To avoid memory
+	leaks from callocs, return immediately if the derived type
+	error flag is set.
+	* decl.cc (build_struct): If the declaration of a derived type
+	or class component does not have a deferred arrayspec, correct,
+	set the error flag of the derived type and emit an immediate
+	error.
+
+2025-01-10  Jakub Jelinek  <jakub@redhat.com>
+
+	PR fortran/118337
+	* module.cc (use_iso_fortran_env_module): Add a comment explaining
+	the optimization performed.  Add gcc_checking_assert that i was
+	incremented for all the elements.  Formatting fix.
+
+2025-01-09  Andre Vehreschild  <vehre@gcc.gnu.org>
+
+	PR fortran/118337
+	* resolve.cc (resolve_fl_derived0): Exempt vtypes from cycle
+	detection.
+
+2025-01-09  Jakub Jelinek  <jakub@redhat.com>
+
+	PR fortran/118337
+	* module.cc (COMPAT_MOD_VERSIONS): Define.
+	(use_iso_fortran_env_module): Don't assume all NAMED_INTCSTs come
+	first followed by NAMED_UINTCSTs.
+	(gfc_use_module): Accept also COMPAT_MOD_VERSIONS for compatibility.
+	* iso-c-binding.def: Reorder entries so that the GCC 14 ones come
+	before the ones new in GCC 15.
+	* iso-fortran-env.def: Likewise.
+
+2025-01-09  Tobias Burnus  <tburnus@baylibre.com>
+
+	* types.def (BT_FN_PTRMODE_PTR_INT_PTR): Add.
+
+2025-01-08  Jakub Jelinek  <jakub@redhat.com>
+
+	PR fortran/118337
+	* module.cc (MOD_VERSION): Bump to "16".
+
+2025-01-07  Thomas Koenig  <tkoenig@gcc.gnu.org>
+
+	* intrinsic.texi (ISO_FORTRAN_ENV):  Also mention INT8 in the
+	text. Document UINT8, UINT16, UINT32 and UINT64.
+	(ISO_C_BINDING): New table for unsigned KIND numbers.
+
+2025-01-07  Andre Vehreschild  <vehre@gcc.gnu.org>
+
+	PR fortran/114612
+	* trans-array.cc (structure_alloc_comps): Ensure deep copy is
+	also done for types having cycles.
+
+2025-01-07  Andre Vehreschild  <vehre@gcc.gnu.org>
+
+	PR fortran/116669
+	* class.cc (gfc_find_derived_vtab): Use attr to determine cyclic
+	type dependendies.
+	* expr.cc (gfc_has_default_initializer): Prevent endless
+	recursion by storing already visited derived types.
+	* resolve.cc (resolve_cyclic_derived_type): Determine if a type
+	is used in its hierarchy in a cyclic way.
+	(resolve_fl_derived0): Call resolve_cyclic_derived_type.
+	(resolve_fl_derived): Ensure vtab is generated when cyclic
+	derived types have allocatable components.
+	* trans-array.cc (structure_alloc_comps): Prevent endless loop
+	for derived type cycles.
+	* trans-expr.cc (gfc_get_ultimate_alloc_ptr_comps_caf_token):
+	Off topic, just prevent memory leaks.
+
+2025-01-03  Thomas Koenig  <tkoenig@gcc.gnu.org>
+
+	* gfortran.texi: New subsection "Generating C prototypes from
+	Fortran".
+
+2025-01-03  Harald Anlauf  <anlauf@gmx.de>
+
+	PR fortran/106692
+	* trans-expr.cc (gfc_conv_expr_op): Inhibit excessive optimization
+	of Cray pointers by treating them as volatile in comparisons.
+
+2025-01-03  Sandra Loosemore  <sloosemore@baylibre.com>
+
+	* intrinsic.texi (ATAN): Add missing verb.
+
+2025-01-02  Tobias Burnus  <tburnus@baylibre.com>
+
+	* openmp.cc (OMP_DISPATCH_CLAUSES): Add OMP_CLAUSE_HAS_DEVICE_ADDR.
+
+2025-01-02  Paul-Antoine Arras  <parras@baylibre.com>
+
+	* dump-parse-tree.cc (show_omp_clauses): Handle novariants and nocontext
+	clauses.
+	(show_omp_node): Handle EXEC_OMP_DISPATCH.
+	(show_code_node): Likewise.
+	* frontend-passes.cc (gfc_code_walker): Handle novariants and nocontext.
+	* gfortran.h (enum gfc_statement): Add ST_OMP_DISPATCH.
+	(symbol_attribute): Add omp_declare_variant_need_device_ptr.
+	(gfc_omp_clauses): Add novariants and nocontext.
+	(gfc_omp_declare_variant): Add need_device_ptr_arg_list.
+	(enum gfc_exec_op): Add EXEC_OMP_DISPATCH.
+	* match.h (gfc_match_omp_dispatch): Declare.
+	* openmp.cc (gfc_free_omp_clauses): Free novariants and nocontext
+	clauses.
+	(gfc_free_omp_declare_variant_list): Free need_device_ptr_arg_list
+	namelist.
+	(enum omp_mask2): Add OMP_CLAUSE_NOVARIANTS and OMP_CLAUSE_NOCONTEXT.
+	(gfc_match_omp_clauses): Handle OMP_CLAUSE_NOVARIANTS and
+	OMP_CLAUSE_NOCONTEXT.
+	(OMP_DISPATCH_CLAUSES): Define.
+	(gfc_match_omp_dispatch): New function.
+	(gfc_match_omp_declare_variant): Parse adjust_args.
+	(resolve_omp_clauses): Handle adjust_args, novariants and nocontext.
+	Adjust handling of OMP_LIST_IS_DEVICE_PTR.
+	(icode_code_error_callback): Handle EXEC_OMP_DISPATCH.
+	(omp_code_to_statement): Likewise.
+	(resolve_omp_dispatch): New function.
+	(gfc_resolve_omp_directive): Handle EXEC_OMP_DISPATCH.
+	* parse.cc (decode_omp_directive): Match dispatch.
+	(next_statement): Handle ST_OMP_DISPATCH.
+	(gfc_ascii_statement): Likewise.
+	(parse_omp_dispatch): New function.
+	(parse_executable): Handle ST_OMP_DISPATCH.
+	* resolve.cc (gfc_resolve_blocks): Handle EXEC_OMP_DISPATCH.
+	* st.cc (gfc_free_statement): Likewise.
+	* trans-decl.cc (create_function_arglist): Declare.
+	(gfc_get_extern_function_decl): Call it.
+	* trans-openmp.cc (gfc_trans_omp_clauses): Handle novariants and
+	nocontext.
+	(replace_omp_dispatch_call): New function.
+	(gfc_trans_omp_dispatch): New function.
+	(gfc_trans_omp_directive): Handle EXEC_OMP_DISPATCH.
+	(gfc_trans_omp_declare_variant): Handle adjust_args.
+	* trans.cc (trans_code): Handle EXEC_OMP_DISPATCH:.
+
+2025-01-02  Jakub Jelinek  <jakub@redhat.com>
+
+	* gfortranspec.cc (lang_specific_driver): Update copyright notice
+	dates.
+	* gfc-internals.texi: Bump @copying's copyright year.
+	* gfortran.texi: Ditto.
+	* intrinsic.texi: Ditto.
+	* invoke.texi: Ditto.
+
+2025-01-01  Sandra Loosemore  <sloosemore@baylibre.com>
+
+	* gfortran.texi (Function ABI Documentation): Make menu ordering
+	consistent with subsection ordering.
+
+2025-01-01  Sandra Loosemore  <sloosemore@baylibre.com>
+
+	* gfortran.texi: Clean up that/which usage throughout the file.
+	* intrinsic.texi: Likewise.
+	* invoke.texi: Likewise.
+
+2025-01-01  Sandra Loosemore  <sloosemore@baylibre.com>
+
+	* intrinsic.texi: Grammar and markup fixes throughout
+	the file.
+
+Copyright (C) 2025 Free Software Foundation, Inc.
+
+Copying and distribution of this file, with or without modification,
+are permitted in any medium without royalty provided the copyright
+notice and this notice are preserved.

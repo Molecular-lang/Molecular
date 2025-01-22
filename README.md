@@ -76,7 +76,7 @@ cd build
 ```bash
 # Configure with Molecular focused options
 ../configure \
-    --prefix=/usr/local/molecular-1.0.0 \
+    --prefix=/usr/local \
     --enable-languages=c,c++ \
     --disable-multilib \
     -disable-bootstrap \
@@ -111,26 +111,6 @@ make check-c++
 
 # Install (requires root privileges)
 sudo make install
-```
-
-## Environment Setup
-
-Add the following to your `~/.bashrc`:
-
-```bash
-# Add Molecular to your PATH
-export PATH=/usr/local/molecular-1.0.0/bin:$PATH
-
-# Add Molecular libraries to library path
-export LD_LIBRARY_PATH=/usr/local/molecular-1.0.0/lib64:$LD_LIBRARY_PATH
-
-# Set Molecular home directory
-export Molecular_HOME=/usr/local/molecular-1.0.0
-```
-
-Apply the changes:
-```bash
-source ~/.bashrc
 ```
 
 ## Testing the Installation

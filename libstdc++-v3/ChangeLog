@@ -1,0 +1,192 @@
+2025-01-20  Giuseppe D'Angelo  <giuseppe.dangelo@kdab.com>
+
+	PR libstdc++/118185
+	PR libstdc++/100249
+	* include/bits/ranges_algo.h (__clamp_fn): Correctly forward the
+	projected value to the comparator.
+	* testsuite/25_algorithms/clamp/118185.cc: New test.
+
+2025-01-16  Jonathan Wakely  <jwakely@redhat.com>
+
+	PR libstdc++/99995
+	* include/Makefile.am: Add new header.
+	* include/Makefile.in: Regenerate.
+	* include/bits/unique_ptr.h: Include bits/ostream.h instead of
+	ostream.
+	* include/std/ostream: Include new header.
+	* include/bits/ostream.h: New file.
+
+2025-01-16  Jonathan Wakely  <jwakely@redhat.com>
+
+	PR libstdc++/118158
+	* src/c++17/fs_ops.cc (fs::equivalent): Remove error reporting
+	for is_other(s1) && is_other(s2) case, as per LWG 2937.
+	* testsuite/27_io/filesystem/operations/pr118158.cc: New test.
+
+2025-01-16  Jonathan Wakely  <jwakely@redhat.com>
+
+	* include/bits/stl_map.h: Check __glibcxx_node_extract instead
+	of __cplusplus.
+	* include/bits/stl_multimap.h: Likewise.
+	* include/bits/stl_multiset.h: Likewise.
+	* include/bits/stl_set.h: Likewise.
+	* include/bits/stl_tree.h: Likewise.
+
+2025-01-15  Jonathan Wakely  <jwakely@redhat.com>
+
+	* testsuite/27_io/ios_base/types/openmode/case_label.cc: Use
+	standard feature test macro not internal one.
+
+2025-01-15  Jonathan Wakely  <jwakely@redhat.com>
+
+	* testsuite/23_containers/set/requirements/explicit_instantiation/alloc_ptr.cc:
+	Guard node extraction checks with feature test macro. Remove
+	calls to non-existent range members.
+	* testsuite/23_containers/forward_list/requirements/explicit_instantiation/alloc_ptr.cc:
+	Use standard macro not internal one.
+	* testsuite/23_containers/list/requirements/explicit_instantiation/alloc_ptr.cc:
+	Likewise.
+
+2025-01-15  Jonathan Wakely  <jwakely@redhat.com>
+
+	PR libstdc++/109849
+	* include/bits/vector.tcc (vector::_M_range_insert): Fix
+	reversed args in length calculation.
+
+2025-01-15  Jonathan Wakely  <jwakely@redhat.com>
+
+	* testsuite/28_regex/traits/char/transform_primary.cc: Fix
+	subclause numbering in references to the standard.
+
+2025-01-15  Jakub Jelinek  <jakub@redhat.com>
+
+	PR c++/118387
+	* testsuite/25_algorithms/default_template_value.cc
+	(Input::operator<=>): Use auto as return type rather than bool.
+
+2025-01-12  Torbjörn SVENSSON  <torbjorn.svensson@foss.st.com>
+
+	* testsuite/27_io/print/1.cc: Allow both LF and CRLF in test.
+	* testsuite/27_io/print/3.cc: Likewise.
+
+2025-01-12  Torbjörn SVENSSON  <torbjorn.svensson@foss.st.com>
+
+	* testsuite/29_atomics/atomic_float/compare_exchange_padding.cc:
+	Use effective-target libatomic_available.
+
+2025-01-10  Jonathan Wakely  <jwakely@redhat.com>
+
+	* include/bits/atomic_futex.h (__atomic_futex_unsigned): Remove
+	names of unused parameters in non-futex implementation.
+
+2025-01-08  Jonathan Wakely  <jwakely@redhat.com>
+
+	* include/bits/move.h (__addressof, forward, forward_like, move)
+	(move_if_noexcept, addressof): Add always_inline attribute.
+	Replace _GLIBCXX_NODISCARD with [[__nodiscard__]].
+
+2025-01-08  Jonathan Wakely  <jwakely@redhat.com>
+
+	PR libstdc++/118260
+	* python/hook.in: Run 'skip' commands for some simple accessor
+	functions.
+
+2025-01-08  Nicolas Werner  <nicolas.werner@hotmail.de>
+
+	PR libstdc++/106852
+	* src/c++23/std.cc.in (to_underlying): Add.
+
+2025-01-08  Jonathan Wakely  <jwakely@redhat.com>
+
+	PR libstdc++/118177
+	* src/c++23/std-clib.cc.in: Use preprocessor conditions for
+	names which are not always defined.
+	* src/c++23/std.cc.in: Likewise.
+
+2025-01-08  Jonathan Wakely  <jwakely@redhat.com>
+
+	* include/std/span: Fix indentation.
+
+2025-01-08  Giuseppe D'Angelo  <giuseppe.dangelo@kdab.com>
+
+	* include/bits/version.def: Add the new feature-testing macro.
+	* include/bits/version.h: Regenerate.
+	* include/std/span: Add constructor from initializer_list.
+	* testsuite/23_containers/span/init_list_cons.cc: New test.
+	* testsuite/23_containers/span/init_list_cons_neg.cc: New test.
+
+2025-01-08  Jonathan Wakely  <jwakely@redhat.com>
+
+	* include/std/span (__detail::__extent_storage): Check
+	precondition in constructor. Add consteval constructor for valid
+	lengths and deleted constructor for invalid constant lengths.
+	Make member functions always_inline.
+	(__detail::__span_ptr): New class template.
+	(span): Adjust constructors to use a std::integral_constant
+	value for constant lengths. Declare all specializations of
+	std::span as friends.
+	(span::first<C>, span::last<C>, span::subspan<O,C>): Use new
+	private constructor.
+	(span(__span_ptr<T>)): New private constructor for constant
+	lengths.
+
+2025-01-08  Jonathan Wakely  <jwakely@redhat.com>
+
+	PR libstdc++/85824
+	PR libstdc++/94409
+	PR libstdc++/98723
+	PR libstdc++/118105
+	* include/bits/locale_classes.tcc (collate::do_transform): Check
+	errno after calling _M_transform. Use RAII type to manage the
+	buffer and to restore errno.
+	* include/bits/regex.h (regex_traits::transform_primary): Handle
+	exceptions from std::collate::transform and do not try to use
+	std::collate for user-defined facets.
+
+2025-01-08  Jonathan Wakely  <jwakely@redhat.com>
+
+	PR libstdc++/118093
+	* include/bits/atomic_futex.h (_M_load_and_test_until_impl):
+	Return false for times before the epoch.
+	* src/c++11/futex.cc (_M_futex_wait_until): Extend check for
+	negative times to check for subsecond times. Add unlikely
+	attribute.
+	(_M_futex_wait_until_steady): Likewise.
+	* testsuite/30_threads/future/members/118093.cc: New test.
+
+2025-01-08  Jonathan Wakely  <jwakely@redhat.com>
+
+	PR libstdc++/90389
+	* include/bits/deque.tcc (_M_insert_aux): Rename variadic
+	overload to _M_emplace_aux.
+	* include/bits/stl_deque.h (_M_insert_aux): Define inline.
+	(_M_emplace_aux): Declare.
+	* testsuite/23_containers/deque/modifiers/emplace/90389.cc: New
+	test.
+
+2025-01-08  Jonathan Wakely  <jwakely@redhat.com>
+
+	* include/bits/move.h (forward, move, move_if_noexcept, addressof):
+	Add @since to Doxygen comments.
+	(forward_like): Add Doxygen comment.
+
+2025-01-08  Jonathan Wakely  <jwakely@redhat.com>
+
+	* doc/xml/manual/evolution.xml: Replace invalid <variable>
+	elements with <varname>.
+	* doc/html/*: Regenerate.
+
+2025-01-01  Gerald Pfeifer  <gerald@pfeifer.com>
+
+	* doc/html/manual/profile_mode.html: Delete.
+	* doc/html/manual/profile_mode_api.html: Ditto.
+	* doc/html/manual/profile_mode_cost_model.html: Ditto.
+	* doc/html/manual/profile_mode_design.html: Ditto.
+	* doc/html/manual/profile_mode_devel.html: Ditto.
+	* doc/html/manual/profile_mode_impl.html: Ditto.
+
+Copyright (C) 2025 Free Software Foundation, Inc.
+
+Copying and distribution of this file, with or without modification,
+are permitted in any medium without royalty provided the copyright
+notice and this notice are preserved.

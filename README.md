@@ -1,4 +1,9 @@
 # Molecular
+
+<div align="center">
+  <img src="assets/molecular-logo.png" alt="Molecular Programming Language" width="200"/>
+</div>
+
 The Molecular Programming Language Official Repository
 
 This guide provides detailed instructions for building LLVM and Molecular from source on Linux systems, with support for C++ and libc++.
@@ -66,6 +71,9 @@ sudo apt-get install -y \
 git clone https://github.com/llvm/llvm-project.git
 cd llvm-project
 
+# Rename clang directory to molecular
+mv clang molecular
+
 # Create build directory
 mkdir build
 cd build
@@ -76,21 +84,21 @@ cd build
 ```bash
 # Configure with CMake
 cmake -G Ninja \
-    -DLLVM_ENABLE_PROJECTS="Molecular" \
+    -DLLVM_ENABLE_PROJECTS="molecular" \
     -DLLVM_ENABLE_RUNTIMES="libcxx;libcxxabi" \
     -DCMAKE_BUILD_TYPE=Release \
     -DLLVM_TARGETS_TO_BUILD="X86" \
     -DLLVM_ENABLE_ASSERTIONS=OFF \
-    -DCMAKE_INSTALL_PREFIX=/usr/local/llvm \
+    -DCMAKE_INSTALL_PREFIX=/usr/local/molecular \
     ../llvm
 ```
 
 #### CMake Options Explained
-- `LLVM_ENABLE_PROJECTS`: Specifies which LLVM sub-projects to build
+- `LLVM_ENABLE_PROJECTS`: Specifies Molecular as the main project
 - `LLVM_ENABLE_RUNTIMES`: Specifies which runtime libraries to build
 - `CMAKE_BUILD_TYPE`: Build type (Release for optimized build)
 - `LLVM_TARGETS_TO_BUILD`: Target architectures (X86 for standard Intel/AMD)
-- `CMAKE_INSTALL_PREFIX`: Installation directory
+- `CMAKE_INSTALL_PREFIX`: Installation directory (changed to /usr/local/molecular)
 
 ### 4. Build and Install
 
@@ -102,16 +110,34 @@ ninja
 sudo ninja install
 ```
 
+### 5. Rename Binary Files
+```bash
+# Navigate to installation binary directory
+cd /usr/local/molecular/bin
+
+# Rename clang binaries to molecular
+sudo mv clang molecular
+sudo mv clang++ molecular++
+sudo mv clang-cpp molecular-cpp
+
+# Create symbolic links if needed
+sudo ln -s molecular clang
+sudo ln -s molecular++ clang++
+```
+
 ## Environment Setup
 
 Add the following to your `~/.bashrc` or equivalent:
 
 ```bash
-# Add LLVM to your PATH
-export PATH=/usr/local/llvm/bin:$PATH
+# Add Molecular to your PATH
+export PATH=/usr/local/molecular/bin:$PATH
 
-# Add LLVM libraries to library path
-export LD_LIBRARY_PATH=/usr/local/llvm/lib:$LD_LIBRARY_PATH
+# Add Molecular libraries to library path
+export LD_LIBRARY_PATH=/usr/local/molecular/lib:$LD_LIBRARY_PATH
+
+# Set Molecular home directory
+export MOLECULAR_HOME=/usr/local/molecular
 ```
 
 Apply the changes:
@@ -125,7 +151,7 @@ source ~/.bashrc
 
 ```bash
 # Check Molecular version
-Molecular++ --version
+molecular++ --version
 ```
 
 ### 2. Test Basic Compilation
@@ -138,7 +164,21 @@ int main() { std::cout << "Hello World!\n"; }' > test.cpp
 
 Compile with libc++:
 ```bash
-Molecular++ -stdlib=libc++ test.cpp -o test
+molecular++ -stdlib=libc++ test.cpp -o test
+./test
+```
+
+### 3. Test Molecular Syntax
+
+```bash
+# Create a test file with Molecular syntax
+echo 'main() int { 
+    println("Hello from Molecular!");
+    return 0; 
+}' > test.mol
+
+# Compile Molecular code
+molecular++ test.mol -o test
 ./test
 ```
 
@@ -160,10 +200,15 @@ Molecular++ -stdlib=libc++ test.cpp -o test
    - Verify LD_LIBRARY_PATH is set correctly
    - Run `ldconfig` if needed: `sudo ldconfig`
 
+4. **Binary Renaming Issues**
+   - Check file permissions
+   - Verify original files exist before renaming
+   - Ensure no processes are using the files
+
 ### Getting Help
-- Check LLVM Bugzilla for known issues
-- LLVM Discord channel for community support
-- Stack Overflow with tags: [llvm] [Molecular]
+- Check project issues on GitHub
+- Join our Discord community
+- Stack Overflow with tags: [llvm] [molecular]
 
 ## Contributing
 Feel free to submit issues and enhancement requests!

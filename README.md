@@ -1,9 +1,7 @@
 # Molecular
 The Molecular Programming Language Official Repository
 
-# LLVM/Clang Installation Guide
-
-This guide provides detailed instructions for building LLVM and Clang from source on Linux systems, with support for C++ and libc++.
+This guide provides detailed instructions for building LLVM and Molecular from source on Linux systems, with support for C++ and libc++.
 
 ## Table of Contents
 - [Prerequisites](#prerequisites)
@@ -78,7 +76,7 @@ cd build
 ```bash
 # Configure with CMake
 cmake -G Ninja \
-    -DLLVM_ENABLE_PROJECTS="clang" \
+    -DLLVM_ENABLE_PROJECTS="Molecular" \
     -DLLVM_ENABLE_RUNTIMES="libcxx;libcxxabi" \
     -DCMAKE_BUILD_TYPE=Release \
     -DLLVM_TARGETS_TO_BUILD="X86" \
@@ -97,7 +95,7 @@ cmake -G Ninja \
 ### 4. Build and Install
 
 ```bash
-# Build LLVM/Clang (this will take significant time)
+# Build LLVM/Molecular (this will take significant time)
 ninja
 
 # Install (requires root privileges)
@@ -123,11 +121,11 @@ source ~/.bashrc
 
 ## Testing the Installation
 
-### 1. Verify Clang Installation
+### 1. Verify Molecular Installation
 
 ```bash
-# Check Clang version
-clang++ --version
+# Check Molecular version
+Molecular++ --version
 ```
 
 ### 2. Test Basic Compilation
@@ -140,7 +138,7 @@ int main() { std::cout << "Hello World!\n"; }' > test.cpp
 
 Compile with libc++:
 ```bash
-clang++ -stdlib=libc++ test.cpp -o test
+Molecular++ -stdlib=libc++ test.cpp -o test
 ./test
 ```
 
@@ -165,10 +163,10 @@ clang++ -stdlib=libc++ test.cpp -o test
 ### Getting Help
 - Check LLVM Bugzilla for known issues
 - LLVM Discord channel for community support
-- Stack Overflow with tags: [llvm] [clang]
+- Stack Overflow with tags: [llvm] [Molecular]
 
 ## Contributing
 Feel free to submit issues and enhancement requests!
 
 ## License
-This installation guide is available under the Apache License 2.0.
+This installation guide is available under the --------------------- (Coming briefly)

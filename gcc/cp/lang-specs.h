@@ -25,7 +25,7 @@ along with GCC; see the file COPYING3.  If not see
 #endif
 
   {".cc",  "@c++", 0, 0, 0},
-  {".ml",  "@c++", 0, 0, 0},
+  {".ml",  "@c++", 0, 0, 0}, // Molecular file extension - file.ml
   {".cp",  "@c++", 0, 0, 0},
   {".cxx", "@c++", 0, 0, 0},
   {".cpp", "@c++", 0, 0, 0},
@@ -33,7 +33,7 @@ along with GCC; see the file COPYING3.  If not see
   {".C",   "@c++", 0, 0, 0},
   {".CPP", "@c++", 0, 0, 0},
   {".H",   "@c++-header", 0, 0, 0},
-  {".mh",   "@c++-header", 0, 0, 0},
+  {".mh",   "@c++-header", 0, 0, 0}, // Molecular - Machine Header extension - file.mh
   {".hpp", "@c++-header", 0, 0, 0},
   {".hp",  "@c++-header", 0, 0, 0},
   {".hxx", "@c++-header", 0, 0, 0},

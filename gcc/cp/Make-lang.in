@@ -36,9 +36,7 @@
 # Modified for Molecular
 
 # Actual names to use when installing a native compiler.
-CXX_INSTALL_NAME := $(shell echo c++|sed '$(program_transform_name)')
 GXX_INSTALL_NAME := $(shell echo molecular|sed '$(program_transform_name)')
-CXX_TARGET_INSTALL_NAME := $(target_noncanonical)-$(shell echo c++|sed '$(program_transform_name)')
 GXX_TARGET_INSTALL_NAME := $(target_noncanonical)-$(shell echo molecular|sed '$(program_transform_name)')
 CP_PLUGIN_HEADERS := cp-tree.h cxx-pretty-print.h name-lookup.h type-utils.h operators.def cp-trait.def contracts.h
 
@@ -303,17 +301,13 @@ c++.install-common: installdirs
 	  rm -f $(DESTDIR)$(bindir)/$(GXX_INSTALL_NAME)$(exeext); \
 	  $(INSTALL_PROGRAM) xg++$(exeext) $(DESTDIR)$(bindir)/$(GXX_INSTALL_NAME)$(exeext); \
 	  chmod a+x $(DESTDIR)$(bindir)/$(GXX_INSTALL_NAME)$(exeext); \
-	  rm -f $(DESTDIR)$(bindir)/$(CXX_INSTALL_NAME)$(exeext); \
 	  ( cd $(DESTDIR)$(bindir) && \
-	    $(LN) $(GXX_INSTALL_NAME)$(exeext) $(CXX_INSTALL_NAME)$(exeext) ); \
+	    $(LN) $(GXX_INSTALL_NAME)$(exeext) ); \
 	  if [ -f cc1plus$(exeext) ] ; then \
 	    if [ ! -f g++-cross$(exeext) ] ; then \
 	      rm -f $(DESTDIR)$(bindir)/$(GXX_TARGET_INSTALL_NAME)$(exeext); \
 	      ( cd $(DESTDIR)$(bindir) && \
 		$(LN) $(GXX_INSTALL_NAME)$(exeext) $(GXX_TARGET_INSTALL_NAME)$(exeext) ); \
-	      rm -f $(DESTDIR)$(bindir)/$(CXX_TARGET_INSTALL_NAME)$(exeext); \
-	      ( cd $(DESTDIR)$(bindir) && \
-		$(LN) $(CXX_INSTALL_NAME)$(exeext) $(CXX_TARGET_INSTALL_NAME)$(exeext) ); \
 	    fi ; \
 	  fi; \
 	fi
@@ -349,7 +343,6 @@ ifeq ($(plugin_implib),yes)
 endif
 
 c++.uninstall:
-	-rm -rf $(DESTDIR)$(bindir)/$(CXX_INSTALL_NAME)$(exeext)
 	-rm -rf $(DESTDIR)$(bindir)/$(GXX_INSTALL_NAME)$(exeext)
 	-rm -rf $(DESTDIR)$(man1dir)/$(GXX_INSTALL_NAME)$(man1ext)
 #

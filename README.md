@@ -77,6 +77,9 @@ cd build
 ```bash
 # Configure with Molecular focused options
 ../configure \
+# You need to set the CC and CXX for now...
+    CC=ml_c CXX=molecular \
+# ... to be removed in future
     --prefix=/usr/local \
     --enable-languages=c,c++ \
     --disable-multilib \

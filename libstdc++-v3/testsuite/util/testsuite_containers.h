@@ -392,7 +392,7 @@ namespace __gnu_test
   _Tp citerator<_Tp>::_S_container;
 
   // DR 130 vs. C++98 vs. C++11.
-  // Defined in testsuite_shared.cc.
+  // Defined in testsuite_shared.ml.
   void
   erase_external(std::set<int>& s);
 

@@ -1,6 +1,6 @@
 // 990117 bkoz
 // test functionality of basic_filebuf for char_type == char
-// this is a data file for 27filebuf.cc
+// this is a data file for 27filebuf.ml
 
 // Copyright (C) 1997-1999, 2009 Free Software Foundation, Inc.
 //

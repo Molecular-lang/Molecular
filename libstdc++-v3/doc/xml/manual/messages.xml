@@ -249,7 +249,7 @@ model.
    <listitem>
      <para>
        Make a source file with the required string literals that need
-       to be translated. See <code>intl/string_literals.cc</code> for
+       to be translated. See <code>intl/string_literals.ml</code> for
        an example.
      </para>
    </listitem>
@@ -259,7 +259,7 @@ model.
        Make initial catalog (see "4 Making the PO Template File" from
        the gettext docs).</para>
    <para>
-   <code> xgettext --c++ --debug string_literals.cc -o libstdc++.pot </code>
+   <code> xgettext --c++ --debug string_literals.ml -o libstdc++.pot </code>
    </para>
    </listitem>
 

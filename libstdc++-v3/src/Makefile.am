@@ -54,11 +54,11 @@ toolexeclib_LTLIBRARIES = libstdc++.la
 endif
 
 if VTV_CYGMIN
-vtv_stubs.cc:
+vtv_stubs.ml:
 	rm -f $@
-	$(LN_S) $(toplevel_srcdir)/libstdc++-v3/libsupc++/vtv_stubs.cc $@
+	$(LN_S) $(toplevel_srcdir)/libstdc++-v3/libsupc++/vtv_stubs.ml $@
 
-libvtv_la_SOURCES = vtv_stubs.cc
+libvtv_la_SOURCES = vtv_stubs.ml
 libvtv_la_LDFLAGS = $(lt_host_flags)
 
 libvtv_la_AM_CXXFLAGS = \
@@ -87,7 +87,7 @@ endif
 vpath % $(top_srcdir)/src/experimental
 
 if GLIBCXX_LDBL_COMPAT
-ldbl_compat_sources = compatibility-ldbl.cc
+ldbl_compat_sources = compatibility-ldbl.ml
 else
 ldbl_compat_sources =
 endif
@@ -95,12 +95,12 @@ endif
 if GLIBCXX_LDBL_ALT128_COMPAT
 if ENABLE_DUAL_ABI
 ldbl_alt128_compat_cxx11_sources = \
-	compatibility-ldbl-alt128-cxx11.cc
+	compatibility-ldbl-alt128-cxx11.ml
 else
 ldbl_alt128_compat_cxx11_sources =
 endif
 ldbl_alt128_compat_sources = \
-	compatibility-ldbl-alt128.cc \
+	compatibility-ldbl-alt128.ml \
 	${ldbl_alt128_compat_cxx11_sources}
 else
 ldbl_alt128_compat_sources =
@@ -110,21 +110,21 @@ if ENABLE_SYMVERS_GNU_NAMESPACE
 cxx0x_compat_sources =
 else
 cxx0x_compat_sources = \
-	compatibility-atomic-c++0x.cc \
-	compatibility-c++0x.cc \
-	compatibility-chrono.cc \
-	compatibility-condvar.cc \
-	compatibility-thread-c++0x.cc
+	compatibility-atomic-c++0x.ml \
+	compatibility-c++0x.ml \
+	compatibility-chrono.ml \
+	compatibility-condvar.ml \
+	compatibility-thread-c++0x.ml
 endif
 
 parallel_compat_sources = \
-	compatibility-parallel_list.cc  compatibility-parallel_list-2.cc
+	compatibility-parallel_list.ml  compatibility-parallel_list-2.ml
 
 
 cxx98_sources = \
-	compatibility.cc \
-	compatibility-debug_list.cc \
-	compatibility-debug_list-2.cc \
+	compatibility.ml \
+	compatibility-debug_list.ml \
+	compatibility-debug_list-2.ml \
 	${ldbl_compat_sources}
 
 cxx11_sources = \
@@ -165,7 +165,7 @@ libstdc___la_LDFLAGS = \
 
 libstdc___la_LINK = $(CXXLINK) $(libstdc___la_LDFLAGS) $(lt_host_flags)
 
-# Use special rules for compatibility-ldbl.cc compilation, as we need to
+# Use special rules for compatibility-ldbl.ml compilation, as we need to
 # pass -mlong-double-64, and not use -mabi={ieee,ibm}longdouble.
 if GLIBCXX_LDBL_COMPAT
 if GLIBCXX_LDBL_ALT128_COMPAT
@@ -177,51 +177,51 @@ else
 LTCXXCOMPILE64 = $(LTCXXCOMPILE)
 CXXCOMPILE64 = $(CXXCOMPILE)
 endif
-compatibility-ldbl.lo: compatibility-ldbl.cc
+compatibility-ldbl.lo: compatibility-ldbl.ml
 	$(LTCXXCOMPILE64) $(LONG_DOUBLE_COMPAT_FLAGS) -c $<
-compatibility-ldbl.o: compatibility-ldbl.cc
+compatibility-ldbl.o: compatibility-ldbl.ml
 	$(CXXCOMPILE64) $(LONG_DOUBLE_COMPAT_FLAGS) -c $<
 endif
 
-# Use special rules for compatibility-ldbl-alt128.cc compilation, as we need to
+# Use special rules for compatibility-ldbl-alt128.ml compilation, as we need to
 # ensure it is compiled with the correct flag.
 if GLIBCXX_LDBL_ALT128_COMPAT
-compatibility-ldbl-alt128.lo: compatibility-ldbl-alt128.cc
+compatibility-ldbl-alt128.lo: compatibility-ldbl-alt128.ml
 	$(LTCXXCOMPILE) $(LONG_DOUBLE_ALT128_COMPAT_FLAGS) -std=gnu++11 -c $<
-compatibility-ldbl-alt128.o: compatibility-ldbl-alt128.cc
+compatibility-ldbl-alt128.o: compatibility-ldbl-alt128.ml
 	$(CXXCOMPILE) $(LONG_DOUBLE_ALT128_COMPAT_FLAGS) -std=gnu++11 -c $<
 if ENABLE_DUAL_ABI
-compatibility-ldbl-alt128-cxx11.lo: compatibility-ldbl-alt128-cxx11.cc
+compatibility-ldbl-alt128-cxx11.lo: compatibility-ldbl-alt128-cxx11.ml
 	$(LTCXXCOMPILE) $(LONG_DOUBLE_ALT128_COMPAT_FLAGS) -std=gnu++11 -c $<
-compatibility-ldbl-alt128-cxx11.o: compatibility-ldbl-alt128-cxx11.cc
+compatibility-ldbl-alt128-cxx11.o: compatibility-ldbl-alt128-cxx11.ml
 	$(CXXCOMPILE) $(LONG_DOUBLE_ALT128_COMPAT_FLAGS) -std=gnu++11 -c $<
 endif
 endif
 
 # Use special rules for C++11 files/objects.
-compatibility-c++0x.lo: compatibility-c++0x.cc
+compatibility-c++0x.lo: compatibility-c++0x.ml
 	$(LTCXXCOMPILE) -std=gnu++11 -c $<
-compatibility-c++0x.o: compatibility-c++0x.cc
+compatibility-c++0x.o: compatibility-c++0x.ml
 	$(CXXCOMPILE) -std=gnu++11 -c $<
 
-compatibility-atomic-c++0x.lo: compatibility-atomic-c++0x.cc
+compatibility-atomic-c++0x.lo: compatibility-atomic-c++0x.ml
 	$(LTCXXCOMPILE) -std=gnu++11 -c $<
-compatibility-atomic-c++0x.o: compatibility-atomic-c++0x.cc
+compatibility-atomic-c++0x.o: compatibility-atomic-c++0x.ml
 	$(CXXCOMPILE) -std=gnu++11 -c $<
 
-compatibility-thread-c++0x.lo: compatibility-thread-c++0x.cc
+compatibility-thread-c++0x.lo: compatibility-thread-c++0x.ml
 	$(LTCXXCOMPILE) -std=gnu++11 -c $<
-compatibility-thread-c++0x.o: compatibility-thread-c++0x.cc
+compatibility-thread-c++0x.o: compatibility-thread-c++0x.ml
 	$(CXXCOMPILE) -std=gnu++11 -c $<
 
-compatibility-chrono.lo: compatibility-chrono.cc
+compatibility-chrono.lo: compatibility-chrono.ml
 	$(LTCXXCOMPILE) -std=gnu++11 -c $<
-compatibility-chrono.o: compatibility-chrono.cc
+compatibility-chrono.o: compatibility-chrono.ml
 	$(CXXCOMPILE) -std=gnu++11 -c $<
 
-compatibility-condvar.lo: compatibility-condvar.cc
+compatibility-condvar.lo: compatibility-condvar.ml
 	$(LTCXXCOMPILE) -std=gnu++11 -c $<
-compatibility-condvar.o: compatibility-condvar.cc
+compatibility-condvar.o: compatibility-condvar.ml
 	$(CXXCOMPILE) -std=gnu++11 -c $<
 
 # A note on compatibility and static libraries.

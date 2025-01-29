@@ -463,7 +463,7 @@ SYM(__udivmodsi4):
 	nop_s
 #endif /* !__ARCEM__ && !__ARCHS__ */
 #endif /* !__ARC_NORM__ */
-	sub.cc r0,r0,r1
+	sub.ml r0,r0,r1
 	mov_s r3,3
 	sbc r3,r3,0
 #if defined (__ARC_BARREL_SHIFTER__)
@@ -471,7 +471,7 @@ SYM(__udivmodsi4):
 	rsub r1,r1,1
 	lpne @.Lloop2_end
 	add1.f r0,r1,r0
-	sub.cc r0,r0,r1
+	sub.ml r0,r0,r1
 .Lloop2_end:
 	lsr r1,r0,r2
 #else
@@ -479,11 +479,11 @@ SYM(__udivmodsi4):
 	lpne @.Lloop2_end
 	asl_s r3,r3
 	add1.f r0,r1,r0
-	sub.cc r0,r0,r1
+	sub.ml r0,r0,r1
 .Lloop2_end:
 	lsr_s r1,r0
 	lsr.f lp_count,r2
-	mov.cc r1,r0
+	mov.ml r1,r0
 	lpnz 1f
 	lsr_s r1,r1
 	lsr_s r1,r1
@@ -506,9 +506,9 @@ SYM(__udivmodsi4):
 	mov_s r4,r1
 	sub.f r1,r0,r1
 	sbc r0,r0,r0
-	sub.cc.f r1,r1,r4
+	sub.ml.f r1,r1,r4
 	sbc r0,r0,0
-	sub.cc.f r1,r1,r4
+	sub.ml.f r1,r1,r4
 	sbc r0,r0,-3
 	j_s.d [blink]
 	add.cs r1,r1,r4

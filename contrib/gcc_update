@@ -259,7 +259,7 @@ apply_patch () {
 }
 
 # Check whether this indeed looks like a local tree.
-if [ ! -f gcc/reload.cc ]; then
+if [ ! -f gcc/reload.ml ]; then
     echo "This does not seem to be a GCC tree!"
     exit
 fi

@@ -592,7 +592,7 @@ PACKAGE_STRING='libcc1 version-unused'
 PACKAGE_BUGREPORT=''
 PACKAGE_URL=''
 
-ac_unique_file="libcc1.cc"
+ac_unique_file="libcc1.ml"
 # Factoring default headers for most tests.
 ac_includes_default="\
 #include <stdio.h>

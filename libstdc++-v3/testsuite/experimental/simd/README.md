@@ -175,7 +175,7 @@ Examples:
 
 ## Implementation sketch
 
-* `scripts/create_testsuite_files` collects all `*.c` and `*.cc` files with 
+* `scripts/create_testsuite_files` collects all `*.c` and `*.ml` files with 
   `simd/tests/` in their path into the file `testsuite_file_simd` (and at the 
   same time removes them from `testsuite_files`.
 

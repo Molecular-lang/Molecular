@@ -175,7 +175,7 @@ example, using the values from your native <code class="code">&lt;ctype.h&gt;</c
 be given symbolically (as above), or numerically, if you prefer.  You do
 not have to include <code class="code">&lt;ctype.h&gt;</code> in this header; it will always be
 included before <code class="code">ctype_base.h</code> is included.
-   </p><p>The next file to write is <code class="code">ctype_configure_char.cc</code>.
+   </p><p>The next file to write is <code class="code">ctype_configure_char.ml</code>.
 The first function that must be written is the <code class="code">ctype&lt;char&gt;::ctype</code> constructor.  Here is the IRIX example:
    </p><pre class="programlisting">
 ctype&lt;char&gt;::ctype(const mask* __table = 0, bool __del = false,

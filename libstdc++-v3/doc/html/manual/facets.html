@@ -604,12 +604,12 @@ model.
     documentation. Here's an idea of what is required:
   </p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem"><p>
        Make a source file with the required string literals that need
-       to be translated. See <code class="code">intl/string_literals.cc</code> for
+       to be translated. See <code class="code">intl/string_literals.ml</code> for
        an example.
      </p></li><li class="listitem"><p>
        Make initial catalog (see "4 Making the PO Template File" from
        the gettext docs).</p><p>
-   <code class="code"> xgettext --c++ --debug string_literals.cc -o libstdc++.pot </code>
+   <code class="code"> xgettext --c++ --debug string_literals.ml -o libstdc++.pot </code>
    </p></li><li class="listitem"><p>Make language and country-specific locale catalogs.</p><p>
    <code class="code">cp libstdc++.pot fr_FR.po</code>
    </p><p>

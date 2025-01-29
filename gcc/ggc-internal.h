@@ -1,5 +1,5 @@
 /* Garbage collection for the GNU compiler.  Internal definitions
-   for ggc-*.c and stringpool.cc.
+   for ggc-*.c and stringpool.ml.
 
    Copyright (C) 2009-2025 Free Software Foundation, Inc.
 

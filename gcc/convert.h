@@ -1,4 +1,4 @@
-/* Definition of functions in convert.cc.
+/* Definition of functions in convert.ml.
    Copyright (C) 1993-2025 Free Software Foundation, Inc.
 
 This file is part of GCC.

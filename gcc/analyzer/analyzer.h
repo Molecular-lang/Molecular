@@ -272,7 +272,7 @@ extern bool compat_types_p (tree src_type, tree dst_type);
 
 /* Abstract base class for simulating the behavior of known functions,
    supplied by the core of the analyzer, or by plugins.
-   The former are typically implemented in the various kf*.cc  */
+   The former are typically implemented in the various kf*.ml  */
 
 class known_function
 {

@@ -36,23 +36,23 @@ gtfiles="\
 \$(srcdir)/c-family/c-common.h \$(srcdir)/c-family/c-objc.h \
 \$(srcdir)/c-family/c-pragma.h \$(srcdir)/cp/decl.h \
 \$(srcdir)/cp/parser.h \
-\$(srcdir)/c-family/c-common.cc \$(srcdir)/c-family/c-format.cc \
-\$(srcdir)/c-family/c-cppbuiltin.cc \$(srcdir)/c-family/c-pragma.cc \
-\$(srcdir)/cp/call.cc \$(srcdir)/cp/class.cc \$(srcdir)/cp/constexpr.cc \
-\$(srcdir)/cp/contracts.cc \
-\$(srcdir)/cp/constraint.cc \$(srcdir)/cp/coroutines.cc \
-\$(srcdir)/cp/cp-gimplify.cc \
-\$(srcdir)/cp/cp-lang.cc \$(srcdir)/cp/cp-objcp-common.cc \
-\$(srcdir)/cp/decl.cc \$(srcdir)/cp/decl2.cc \
-\$(srcdir)/cp/except.cc \
-\$(srcdir)/cp/friend.cc \
-\$(srcdir)/cp/init.cc \
-\$(srcdir)/cp/lambda.cc \$(srcdir)/cp/lex.cc \$(srcdir)/cp/logic.cc \
-\$(srcdir)/cp/mangle.cc \$(srcdir)/cp/method.cc \$(srcdir)/cp/module.cc \
-\$(srcdir)/cp/name-lookup.cc \
-\$(srcdir)/cp/parser.cc \$(srcdir)/cp/pt.cc \
-\$(srcdir)/cp/rtti.cc \
-\$(srcdir)/cp/semantics.cc \
-\$(srcdir)/cp/tree.cc \$(srcdir)/cp/typeck2.cc \
-\$(srcdir)/cp/vtable-class-hierarchy.cc \
+\$(srcdir)/c-family/c-common.ml \$(srcdir)/c-family/c-format.ml \
+\$(srcdir)/c-family/c-cppbuiltin.ml \$(srcdir)/c-family/c-pragma.ml \
+\$(srcdir)/cp/call.ml \$(srcdir)/cp/class.ml \$(srcdir)/cp/constexpr.ml \
+\$(srcdir)/cp/contracts.ml \
+\$(srcdir)/cp/constraint.ml \$(srcdir)/cp/coroutines.ml \
+\$(srcdir)/cp/cp-gimplify.ml \
+\$(srcdir)/cp/cp-lang.ml \$(srcdir)/cp/cp-objcp-common.ml \
+\$(srcdir)/cp/decl.ml \$(srcdir)/cp/decl2.ml \
+\$(srcdir)/cp/except.ml \
+\$(srcdir)/cp/friend.ml \
+\$(srcdir)/cp/init.ml \
+\$(srcdir)/cp/lambda.ml \$(srcdir)/cp/lex.ml \$(srcdir)/cp/logic.ml \
+\$(srcdir)/cp/mangle.ml \$(srcdir)/cp/method.ml \$(srcdir)/cp/module.ml \
+\$(srcdir)/cp/name-lookup.ml \
+\$(srcdir)/cp/parser.ml \$(srcdir)/cp/pt.ml \
+\$(srcdir)/cp/rtti.ml \
+\$(srcdir)/cp/semantics.ml \
+\$(srcdir)/cp/tree.ml \$(srcdir)/cp/typeck2.ml \
+\$(srcdir)/cp/vtable-class-hierarchy.ml \
 " 

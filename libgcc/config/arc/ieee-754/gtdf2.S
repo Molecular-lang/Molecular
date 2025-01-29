@@ -59,23 +59,23 @@ __gtdf2:
 	bmi.d	.Lneg
 	bmsk_s	r12,r12,20
 	add1.f	0,r12,DBL0H	; clear z; set c iff NaN
-	add1.cc.f r12,r12,DBL1H	; clear z; set c iff NaN
+	add1.ml.f r12,r12,DBL1H	; clear z; set c iff NaN
 	; don't care: z may or may not be cleared if there is no NaN event
-	cmp.cc	DBL0H,DBL1H
+	cmp.ml	DBL0H,DBL1H
 	j_s.d	[blink]
 	cmp.eq	DBL0L,DBL1L
 	.balign 4
 .Lneg:	breq.d	DBL0H,0,.L0
 	add1.f	0,r12,DBL1H
-	add1.cc.f r12,r12,DBL0H
-	cmp.cc	DBL1H,DBL0H
+	add1.ml.f r12,r12,DBL0H
+	cmp.ml	DBL1H,DBL0H
 	j_s.d	[blink]
 	cmp.eq	DBL1L,DBL0L
 	.balign 4
 .L0:
 	bxor.f	0,DBL1H,31
 	beq_s	.Lcheck_0
-	cmp.cc	DBL1H,DBL0H
+	cmp.ml	DBL1H,DBL0H
 	j_s.d	[blink]
 	cmp.eq	DBL1L,DBL0L
 	.balign	4

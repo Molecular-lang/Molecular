@@ -431,29 +431,29 @@ AM_CPPFLAGS = $(GLIBCXX_INCLUDES) $(CPPFLAGS)
 noinst_LTLIBRARIES = libc++17convenience.la
 headers = 
 @ENABLE_DUAL_ABI_FALSE@extra_string_inst_sources = 
-@ENABLE_DUAL_ABI_TRUE@extra_string_inst_sources = cow-string-inst.cc
+@ENABLE_DUAL_ABI_TRUE@extra_string_inst_sources = cow-string-inst.ml
 @ENABLE_DUAL_ABI_FALSE@extra_fs_sources = 
 @ENABLE_DUAL_ABI_TRUE@extra_fs_sources = \
-@ENABLE_DUAL_ABI_TRUE@	cow-fs_dir.cc \
-@ENABLE_DUAL_ABI_TRUE@	cow-fs_ops.cc \
-@ENABLE_DUAL_ABI_TRUE@	cow-fs_path.cc
+@ENABLE_DUAL_ABI_TRUE@	cow-fs_dir.ml \
+@ENABLE_DUAL_ABI_TRUE@	cow-fs_ops.ml \
+@ENABLE_DUAL_ABI_TRUE@	cow-fs_path.ml
 
 # XTEMPLATE_FLAGS =
 @ENABLE_EXTERN_TEMPLATE_FALSE@inst_sources = 
 
 # XTEMPLATE_FLAGS = -fno-implicit-templates
 @ENABLE_EXTERN_TEMPLATE_TRUE@inst_sources = \
-@ENABLE_EXTERN_TEMPLATE_TRUE@	ostream-inst.cc \
-@ENABLE_EXTERN_TEMPLATE_TRUE@	string-inst.cc \
+@ENABLE_EXTERN_TEMPLATE_TRUE@	ostream-inst.ml \
+@ENABLE_EXTERN_TEMPLATE_TRUE@	string-inst.ml \
 @ENABLE_EXTERN_TEMPLATE_TRUE@	$(extra_string_inst_sources)
 
 sources = \
-	floating_from_chars.cc \
-	floating_to_chars.cc \
-	fs_dir.cc \
-	fs_ops.cc \
-	fs_path.cc \
-	memory_resource.cc \
+	floating_from_chars.ml \
+	floating_to_chars.ml \
+	fs_dir.ml \
+	fs_ops.ml \
+	fs_path.ml \
+	memory_resource.ml \
 	$(extra_fs_sources)
 
 @GLIBCXX_HOSTED_FALSE@libc__17convenience_la_SOURCES = 
@@ -525,7 +525,7 @@ CXXLINK = \
 all: all-am
 
 .SUFFIXES:
-.SUFFIXES: .cc .lo .o .obj
+.SUFFIXES: .ml .lo .o .obj
 $(srcdir)/Makefile.in: @MAINTAINER_MODE_TRUE@ $(srcdir)/Makefile.am $(top_srcdir)/fragment.am $(am__configure_deps)
 	@for dep in $?; do \
 	  case '$(am__configure_deps)' in \
@@ -577,13 +577,13 @@ mostlyclean-compile:
 distclean-compile:
 	-rm -f *.tab.c
 
-.cc.o:
+.ml.o:
 	$(AM_V_CXX)$(CXXCOMPILE) -c -o $@ $<
 
-.cc.obj:
+.ml.obj:
 	$(AM_V_CXX)$(CXXCOMPILE) -c -o $@ `$(CYGPATH_W) '$<'`
 
-.cc.lo:
+.ml.lo:
 	$(AM_V_CXX)$(LTCXXCOMPILE) -c -o $@ $<
 
 mostlyclean-libtool:
@@ -767,13 +767,13 @@ uninstall-am:
 
 vpath % $(top_srcdir)/src/c++17
 
-@GLIBCXX_LDBL_ALT128_COMPAT_TRUE@floating_from_chars.lo: floating_from_chars.cc
+@GLIBCXX_LDBL_ALT128_COMPAT_TRUE@floating_from_chars.lo: floating_from_chars.ml
 @GLIBCXX_LDBL_ALT128_COMPAT_TRUE@	$(LTCXXCOMPILE) -mabi=ibmlongdouble $(LONG_DOUBLE_128_FLAGS) -c $<
-@GLIBCXX_LDBL_ALT128_COMPAT_TRUE@floating_from_chars.o: floating_from_chars.cc
+@GLIBCXX_LDBL_ALT128_COMPAT_TRUE@floating_from_chars.o: floating_from_chars.ml
 @GLIBCXX_LDBL_ALT128_COMPAT_TRUE@	$(CXXCOMPILE) -mabi=ibmlongdouble $(LONG_DOUBLE_128_FLAGS) -c $<
-@GLIBCXX_LDBL_ALT128_COMPAT_TRUE@floating_to_chars.lo: floating_to_chars.cc
+@GLIBCXX_LDBL_ALT128_COMPAT_TRUE@floating_to_chars.lo: floating_to_chars.ml
 @GLIBCXX_LDBL_ALT128_COMPAT_TRUE@	$(LTCXXCOMPILE) -mabi=ibmlongdouble $(LONG_DOUBLE_128_FLAGS) -c $<
-@GLIBCXX_LDBL_ALT128_COMPAT_TRUE@floating_to_chars.o: floating_to_chars.cc
+@GLIBCXX_LDBL_ALT128_COMPAT_TRUE@floating_to_chars.o: floating_to_chars.ml
 @GLIBCXX_LDBL_ALT128_COMPAT_TRUE@	$(CXXCOMPILE) -mabi=ibmlongdouble $(LONG_DOUBLE_128_FLAGS) -c $<
 
 # Tell versions [3.59,3.63) of GNU make to not export all variables.

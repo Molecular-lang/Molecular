@@ -18,26 +18,26 @@
 
 TM_H += $(srcdir)/config/darwin-sections.def
 
-darwin.o: $(srcdir)/config/darwin.cc config/darwin-sections.def
+darwin.o: $(srcdir)/config/darwin.ml config/darwin-sections.def
 	$(COMPILE) $<
 	$(POSTCOMPILE)
 
-darwin-c.o: $(srcdir)/config/darwin-c.cc
+darwin-c.o: $(srcdir)/config/darwin-c.ml
 	$(COMPILE) $(PREPROCESSOR_DEFINES) $<
 	$(POSTCOMPILE)
 
-darwin-d.o: $(srcdir)/config/darwin-d.cc
+darwin-d.o: $(srcdir)/config/darwin-d.ml
 	$(COMPILE) $<
 	$(POSTCOMPILE)
 
-darwin-f.o: $(srcdir)/config/darwin-f.cc
+darwin-f.o: $(srcdir)/config/darwin-f.ml
 	$(COMPILE) $<
 	$(POSTCOMPILE)
 
-darwin-rust.o: $(srcdir)/config/darwin-rust.cc
+darwin-rust.o: $(srcdir)/config/darwin-rust.ml
 	$(COMPILE) $<
 	$(POSTCOMPILE)
 
-darwin-driver.o: $(srcdir)/config/darwin-driver.cc
+darwin-driver.o: $(srcdir)/config/darwin-driver.ml
 	$(COMPILE) $<
 	$(POSTCOMPILE)

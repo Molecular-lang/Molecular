@@ -92,7 +92,7 @@ struct bitint_info {
 
 /* Types of memory operation understood by the "by_pieces" infrastructure.
    Used by the TARGET_USE_BY_PIECES_INFRASTRUCTURE_P target hook and
-   internally by the functions in expr.cc.  */
+   internally by the functions in expr.ml.  */
 
 enum by_pieces_operation
 {
@@ -108,7 +108,7 @@ extern unsigned HOST_WIDE_INT by_pieces_ninsns (unsigned HOST_WIDE_INT,
 						unsigned int,
 						by_pieces_operation);
 
-/* An example implementation for ELF targets.  Defined in varasm.cc  */
+/* An example implementation for ELF targets.  Defined in varasm.ml  */
 extern void elf_record_gcc_switches (const char *);
 
 /* Some places still assume that all pointer or address modes are the
@@ -168,7 +168,7 @@ class predefined_function_abi;
 /* This is defined in avoid-store-forwarding.h.  */
 struct store_fwd_info;
 
-/* These are defined in tree-vect-stmts.cc.  */
+/* These are defined in tree-vect-stmts.ml.  */
 extern tree stmt_vectype (class _stmt_vec_info *);
 extern bool stmt_in_inner_loop_p (class vec_info *, class _stmt_vec_info *);
 

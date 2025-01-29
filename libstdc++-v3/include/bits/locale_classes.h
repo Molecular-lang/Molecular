@@ -103,7 +103,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
      *  monetary, and messages.  They form a bitmask that supports union and
      *  intersection.  The category all is the union of these values.
      *
-     *  NB: Order must match _S_facet_categories definition in locale.cc
+     *  NB: Order must match _S_facet_categories definition in locale.ml
     */
     static const category none		= 0;
     static const category ctype		= 1L << 0;

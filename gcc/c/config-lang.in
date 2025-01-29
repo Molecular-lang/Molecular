@@ -29,4 +29,4 @@ compilers="cc1\$(exeext)"
 
 target_libs=
 
-gtfiles="\$(srcdir)/c/c-lang.cc \$(srcdir)/c/c-tree.h \$(srcdir)/c/c-decl.cc \$(srcdir)/c-family/c-common.cc \$(srcdir)/c-family/c-common.h \$(srcdir)/c-family/c-objc.h \$(srcdir)/c-family/c-cppbuiltin.cc \$(srcdir)/c-family/c-pragma.h \$(srcdir)/c-family/c-pragma.cc \$(srcdir)/c-family/c-format.cc \$(srcdir)/c/c-objc-common.cc \$(srcdir)/c/c-parser.h \$(srcdir)/c/c-parser.cc \$(srcdir)/c/c-lang.h"
+gtfiles="\$(srcdir)/c/c-lang.ml \$(srcdir)/c/c-tree.h \$(srcdir)/c/c-decl.ml \$(srcdir)/c-family/c-common.ml \$(srcdir)/c-family/c-common.h \$(srcdir)/c-family/c-objc.h \$(srcdir)/c-family/c-cppbuiltin.ml \$(srcdir)/c-family/c-pragma.h \$(srcdir)/c-family/c-pragma.ml \$(srcdir)/c-family/c-format.ml \$(srcdir)/c/c-objc-common.ml \$(srcdir)/c/c-parser.h \$(srcdir)/c/c-parser.ml \$(srcdir)/c/c-lang.h"

@@ -498,7 +498,7 @@ SUBDIRS = c++98 c++11 c++17 c++20 c++23 c++26 \
 
 # Cross compiler support.
 @VTV_CYGMIN_TRUE@toolexeclib_LTLIBRARIES = libvtv.la libstdc++.la
-@VTV_CYGMIN_TRUE@libvtv_la_SOURCES = vtv_stubs.cc
+@VTV_CYGMIN_TRUE@libvtv_la_SOURCES = vtv_stubs.ml
 @VTV_CYGMIN_TRUE@libvtv_la_LDFLAGS = $(lt_host_flags)
 @VTV_CYGMIN_TRUE@libvtv_la_AM_CXXFLAGS = \
 @VTV_CYGMIN_TRUE@	$(glibcxx_compiler_pic_flag) \
@@ -511,31 +511,31 @@ SUBDIRS = c++98 c++11 c++17 c++20 c++23 c++26 \
 @VTV_CYGMIN_TRUE@	$(CXXFLAGS) $(libvtv_la_LDFLAGS) $(LDFLAGS) -o $@
 
 @GLIBCXX_LDBL_COMPAT_FALSE@ldbl_compat_sources = 
-@GLIBCXX_LDBL_COMPAT_TRUE@ldbl_compat_sources = compatibility-ldbl.cc
+@GLIBCXX_LDBL_COMPAT_TRUE@ldbl_compat_sources = compatibility-ldbl.ml
 @ENABLE_DUAL_ABI_FALSE@@GLIBCXX_LDBL_ALT128_COMPAT_TRUE@ldbl_alt128_compat_cxx11_sources = 
 @ENABLE_DUAL_ABI_TRUE@@GLIBCXX_LDBL_ALT128_COMPAT_TRUE@ldbl_alt128_compat_cxx11_sources = \
-@ENABLE_DUAL_ABI_TRUE@@GLIBCXX_LDBL_ALT128_COMPAT_TRUE@	compatibility-ldbl-alt128-cxx11.cc
+@ENABLE_DUAL_ABI_TRUE@@GLIBCXX_LDBL_ALT128_COMPAT_TRUE@	compatibility-ldbl-alt128-cxx11.ml
 
 @GLIBCXX_LDBL_ALT128_COMPAT_FALSE@ldbl_alt128_compat_sources = 
 @GLIBCXX_LDBL_ALT128_COMPAT_TRUE@ldbl_alt128_compat_sources = \
-@GLIBCXX_LDBL_ALT128_COMPAT_TRUE@	compatibility-ldbl-alt128.cc \
+@GLIBCXX_LDBL_ALT128_COMPAT_TRUE@	compatibility-ldbl-alt128.ml \
 @GLIBCXX_LDBL_ALT128_COMPAT_TRUE@	${ldbl_alt128_compat_cxx11_sources}
 
 @ENABLE_SYMVERS_GNU_NAMESPACE_FALSE@cxx0x_compat_sources = \
-@ENABLE_SYMVERS_GNU_NAMESPACE_FALSE@	compatibility-atomic-c++0x.cc \
-@ENABLE_SYMVERS_GNU_NAMESPACE_FALSE@	compatibility-c++0x.cc \
-@ENABLE_SYMVERS_GNU_NAMESPACE_FALSE@	compatibility-chrono.cc \
-@ENABLE_SYMVERS_GNU_NAMESPACE_FALSE@	compatibility-condvar.cc \
-@ENABLE_SYMVERS_GNU_NAMESPACE_FALSE@	compatibility-thread-c++0x.cc
+@ENABLE_SYMVERS_GNU_NAMESPACE_FALSE@	compatibility-atomic-c++0x.ml \
+@ENABLE_SYMVERS_GNU_NAMESPACE_FALSE@	compatibility-c++0x.ml \
+@ENABLE_SYMVERS_GNU_NAMESPACE_FALSE@	compatibility-chrono.ml \
+@ENABLE_SYMVERS_GNU_NAMESPACE_FALSE@	compatibility-condvar.ml \
+@ENABLE_SYMVERS_GNU_NAMESPACE_FALSE@	compatibility-thread-c++0x.ml
 
 @ENABLE_SYMVERS_GNU_NAMESPACE_TRUE@cxx0x_compat_sources = 
 parallel_compat_sources = \
-	compatibility-parallel_list.cc  compatibility-parallel_list-2.cc
+	compatibility-parallel_list.ml  compatibility-parallel_list-2.ml
 
 cxx98_sources = \
-	compatibility.cc \
-	compatibility-debug_list.cc \
-	compatibility-debug_list-2.cc \
+	compatibility.ml \
+	compatibility-debug_list.ml \
+	compatibility-debug_list-2.ml \
 	${ldbl_compat_sources}
 
 cxx11_sources = \
@@ -571,7 +571,7 @@ libstdc___la_LDFLAGS = \
 libstdc___la_LINK = $(CXXLINK) $(libstdc___la_LDFLAGS) $(lt_host_flags)
 @GLIBCXX_LDBL_ALT128_COMPAT_FALSE@@GLIBCXX_LDBL_COMPAT_TRUE@LTCXXCOMPILE64 = $(LTCXXCOMPILE)
 
-# Use special rules for compatibility-ldbl.cc compilation, as we need to
+# Use special rules for compatibility-ldbl.ml compilation, as we need to
 # pass -mlong-double-64, and not use -mabi={ieee,ibm}longdouble.
 @GLIBCXX_LDBL_ALT128_COMPAT_TRUE@@GLIBCXX_LDBL_COMPAT_TRUE@LTCXXCOMPILE64 = \
 @GLIBCXX_LDBL_ALT128_COMPAT_TRUE@@GLIBCXX_LDBL_COMPAT_TRUE@  $(filter-out -mabi=ieeelongdouble -mabi=ibmlongdouble,$(LTCXXCOMPILE))
@@ -693,7 +693,7 @@ CXXLINK = \
 all: all-recursive
 
 .SUFFIXES:
-.SUFFIXES: .cc .lo .o .obj
+.SUFFIXES: .ml .lo .o .obj
 $(srcdir)/Makefile.in: @MAINTAINER_MODE_TRUE@ $(srcdir)/Makefile.am $(top_srcdir)/fragment.am $(am__configure_deps)
 	@for dep in $?; do \
 	  case '$(am__configure_deps)' in \
@@ -772,13 +772,13 @@ mostlyclean-compile:
 distclean-compile:
 	-rm -f *.tab.c
 
-.cc.o:
+.ml.o:
 	$(AM_V_CXX)$(CXXCOMPILE) -c -o $@ $<
 
-.cc.obj:
+.ml.obj:
 	$(AM_V_CXX)$(CXXCOMPILE) -c -o $@ `$(CYGPATH_W) '$<'`
 
-.cc.lo:
+.ml.lo:
 	$(AM_V_CXX)$(LTCXXCOMPILE) -c -o $@ $<
 
 mostlyclean-libtool:
@@ -1015,9 +1015,9 @@ uninstall-am: uninstall-toolexeclibLTLIBRARIES
 .PRECIOUS: Makefile
 
 
-@VTV_CYGMIN_TRUE@vtv_stubs.cc:
+@VTV_CYGMIN_TRUE@vtv_stubs.ml:
 @VTV_CYGMIN_TRUE@	rm -f $@
-@VTV_CYGMIN_TRUE@	$(LN_S) $(toplevel_srcdir)/libstdc++-v3/libsupc++/vtv_stubs.cc $@
+@VTV_CYGMIN_TRUE@	$(LN_S) $(toplevel_srcdir)/libstdc++-v3/libsupc++/vtv_stubs.ml $@
 
 vpath % $(top_srcdir)/src/c++98
 vpath % $(top_srcdir)/src/c++11
@@ -1028,46 +1028,46 @@ vpath % $(top_srcdir)/src/c++26
 @ENABLE_FILESYSTEM_TS_TRUE@vpath % $(top_srcdir)/src/filesystem
 @ENABLE_BACKTRACE_TRUE@vpath % $(top_srcdir)/src/libbacktrace
 vpath % $(top_srcdir)/src/experimental
-@GLIBCXX_LDBL_COMPAT_TRUE@compatibility-ldbl.lo: compatibility-ldbl.cc
+@GLIBCXX_LDBL_COMPAT_TRUE@compatibility-ldbl.lo: compatibility-ldbl.ml
 @GLIBCXX_LDBL_COMPAT_TRUE@	$(LTCXXCOMPILE64) $(LONG_DOUBLE_COMPAT_FLAGS) -c $<
-@GLIBCXX_LDBL_COMPAT_TRUE@compatibility-ldbl.o: compatibility-ldbl.cc
+@GLIBCXX_LDBL_COMPAT_TRUE@compatibility-ldbl.o: compatibility-ldbl.ml
 @GLIBCXX_LDBL_COMPAT_TRUE@	$(CXXCOMPILE64) $(LONG_DOUBLE_COMPAT_FLAGS) -c $<
 
-# Use special rules for compatibility-ldbl-alt128.cc compilation, as we need to
+# Use special rules for compatibility-ldbl-alt128.ml compilation, as we need to
 # ensure it is compiled with the correct flag.
-@GLIBCXX_LDBL_ALT128_COMPAT_TRUE@compatibility-ldbl-alt128.lo: compatibility-ldbl-alt128.cc
+@GLIBCXX_LDBL_ALT128_COMPAT_TRUE@compatibility-ldbl-alt128.lo: compatibility-ldbl-alt128.ml
 @GLIBCXX_LDBL_ALT128_COMPAT_TRUE@	$(LTCXXCOMPILE) $(LONG_DOUBLE_ALT128_COMPAT_FLAGS) -std=gnu++11 -c $<
-@GLIBCXX_LDBL_ALT128_COMPAT_TRUE@compatibility-ldbl-alt128.o: compatibility-ldbl-alt128.cc
+@GLIBCXX_LDBL_ALT128_COMPAT_TRUE@compatibility-ldbl-alt128.o: compatibility-ldbl-alt128.ml
 @GLIBCXX_LDBL_ALT128_COMPAT_TRUE@	$(CXXCOMPILE) $(LONG_DOUBLE_ALT128_COMPAT_FLAGS) -std=gnu++11 -c $<
-@ENABLE_DUAL_ABI_TRUE@@GLIBCXX_LDBL_ALT128_COMPAT_TRUE@compatibility-ldbl-alt128-cxx11.lo: compatibility-ldbl-alt128-cxx11.cc
+@ENABLE_DUAL_ABI_TRUE@@GLIBCXX_LDBL_ALT128_COMPAT_TRUE@compatibility-ldbl-alt128-cxx11.lo: compatibility-ldbl-alt128-cxx11.ml
 @ENABLE_DUAL_ABI_TRUE@@GLIBCXX_LDBL_ALT128_COMPAT_TRUE@	$(LTCXXCOMPILE) $(LONG_DOUBLE_ALT128_COMPAT_FLAGS) -std=gnu++11 -c $<
-@ENABLE_DUAL_ABI_TRUE@@GLIBCXX_LDBL_ALT128_COMPAT_TRUE@compatibility-ldbl-alt128-cxx11.o: compatibility-ldbl-alt128-cxx11.cc
+@ENABLE_DUAL_ABI_TRUE@@GLIBCXX_LDBL_ALT128_COMPAT_TRUE@compatibility-ldbl-alt128-cxx11.o: compatibility-ldbl-alt128-cxx11.ml
 @ENABLE_DUAL_ABI_TRUE@@GLIBCXX_LDBL_ALT128_COMPAT_TRUE@	$(CXXCOMPILE) $(LONG_DOUBLE_ALT128_COMPAT_FLAGS) -std=gnu++11 -c $<
 
 # Use special rules for C++11 files/objects.
-compatibility-c++0x.lo: compatibility-c++0x.cc
+compatibility-c++0x.lo: compatibility-c++0x.ml
 	$(LTCXXCOMPILE) -std=gnu++11 -c $<
-compatibility-c++0x.o: compatibility-c++0x.cc
+compatibility-c++0x.o: compatibility-c++0x.ml
 	$(CXXCOMPILE) -std=gnu++11 -c $<
 
-compatibility-atomic-c++0x.lo: compatibility-atomic-c++0x.cc
+compatibility-atomic-c++0x.lo: compatibility-atomic-c++0x.ml
 	$(LTCXXCOMPILE) -std=gnu++11 -c $<
-compatibility-atomic-c++0x.o: compatibility-atomic-c++0x.cc
+compatibility-atomic-c++0x.o: compatibility-atomic-c++0x.ml
 	$(CXXCOMPILE) -std=gnu++11 -c $<
 
-compatibility-thread-c++0x.lo: compatibility-thread-c++0x.cc
+compatibility-thread-c++0x.lo: compatibility-thread-c++0x.ml
 	$(LTCXXCOMPILE) -std=gnu++11 -c $<
-compatibility-thread-c++0x.o: compatibility-thread-c++0x.cc
+compatibility-thread-c++0x.o: compatibility-thread-c++0x.ml
 	$(CXXCOMPILE) -std=gnu++11 -c $<
 
-compatibility-chrono.lo: compatibility-chrono.cc
+compatibility-chrono.lo: compatibility-chrono.ml
 	$(LTCXXCOMPILE) -std=gnu++11 -c $<
-compatibility-chrono.o: compatibility-chrono.cc
+compatibility-chrono.o: compatibility-chrono.ml
 	$(CXXCOMPILE) -std=gnu++11 -c $<
 
-compatibility-condvar.lo: compatibility-condvar.cc
+compatibility-condvar.lo: compatibility-condvar.ml
 	$(LTCXXCOMPILE) -std=gnu++11 -c $<
-compatibility-condvar.o: compatibility-condvar.cc
+compatibility-condvar.o: compatibility-condvar.ml
 	$(CXXCOMPILE) -std=gnu++11 -c $<
 
 # Symbol versioning for shared libraries.

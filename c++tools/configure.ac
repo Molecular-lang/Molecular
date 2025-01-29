@@ -25,7 +25,7 @@ sinclude(../config/acx.m4)
 
 AC_INIT(c++tools)
 
-AC_CONFIG_SRCDIR([server.cc])
+AC_CONFIG_SRCDIR([server.ml])
 
 # Determine the noncanonical names used for directories.
 ACX_NONCANONICAL_TARGET

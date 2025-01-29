@@ -181,7 +181,7 @@ __divsf3:
 	bset r3,r12,31
 .Lpast_denorm_fp0:
 	cmp_s r3,r6
-	lsr.cc r3,r3,1
+	lsr.ml r3,r3,1
 	add_s r2,r2, /* wait for immediate */ \
 		0x3f000000
 	sub r7,r7,mhi ; u1.31 inverse, about 30 bit

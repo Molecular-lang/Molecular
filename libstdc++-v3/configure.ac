@@ -1,7 +1,7 @@
 # Process this file with autoreconf to produce a configure script.
 
 AC_INIT(package-unused, version-unused,, libstdc++)
-AC_CONFIG_SRCDIR(src/shared/hashtable-aux.cc)
+AC_CONFIG_SRCDIR(src/shared/hashtable-aux.ml)
 AC_CONFIG_HEADER(config.h)
 
 # This works around the fact that libtool configuration may change LD
@@ -566,16 +566,16 @@ GLIBCXX_CHECK_SIZE_T_MANGLING
 # Check which release added std::exception_ptr for the target
 GLIBCXX_CHECK_EXCEPTION_PTR_SYMVER
 
-# For libsupc++/eh_alloc.cc defaults.
+# For libsupc++/eh_alloc.ml defaults.
 GLIBCXX_EMERGENCY_EH_ALLOC
 
-# For src/c++20/tzdb.cc defaults.
+# For src/c++20/tzdb.ml defaults.
 GLIBCXX_ZONEINFO_DIR
 
-# For src/c++11/shared_ptr.cc alignment.
+# For src/c++11/shared_ptr.ml alignment.
 GLIBCXX_CHECK_ALIGNAS_CACHELINE
 
-# For using init_priority in ios_init.cc
+# For using init_priority in ios_init.ml
 GLIBCXX_CHECK_INIT_PRIORITY
 
 # For __basic_file::native_handle()

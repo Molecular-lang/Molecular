@@ -973,8 +973,8 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
   // Inhibit implicit instantiations for required instantiations,
   // which are defined via explicit instantiations elsewhere.
 #if _GLIBCXX_EXTERN_TEMPLATE
-  // The explicit instantiation definitions in src/c++11/string-inst.cc and
-  // src/c++17/string-inst.cc only instantiate the members required for C++17
+  // The explicit instantiation definitions in src/c++11/string-inst.ml and
+  // src/c++17/string-inst.ml only instantiate the members required for C++17
   // and earlier standards (so not C++20's starts_with and ends_with).
   // Suppress the explicit instantiation declarations for C++20, so C++20
   // code will implicitly instantiate std::string and std::wstring as needed.

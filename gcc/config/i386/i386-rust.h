@@ -15,7 +15,7 @@ You should have received a copy of the GNU General Public License
 along with GCC; see the file COPYING3.  If not see
 <http://www.gnu.org/licenses/>.  */
 
-/* In i386-rust.cc  */
+/* In i386-rust.ml  */
 extern void ix86_rust_target_cpu_info (void);
 
 /* Target CPU info for Rust.  */

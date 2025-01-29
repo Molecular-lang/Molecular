@@ -1800,7 +1800,7 @@ __divmodbitint4 (UBILtype *q, SItype qprec,
   if (!qn2)
     q2 = q + BITINT_END (qn - (un - vn + 1), 0);
 
-  /* Knuth's algorithm.  See also ../gcc/wide-int.cc (divmod_internal_2).  */
+  /* Knuth's algorithm.  See also ../gcc/wide-int.ml (divmod_internal_2).  */
 
 #ifndef UDIV_NEEDS_NORMALIZATION
   /* Handle single limb divisor first.  */

@@ -635,7 +635,7 @@ indicate a place that may require attention for multi-thread safety.
 <code>
 1999-04-15  Dennis Ritchie  &lt;dr@att.com&gt;
 
-      * src/basic_file.cc (__basic_file::open): Fix thinko in
+      * src/basic_file.ml (__basic_file::open): Fix thinko in
       _G_HAVE_IO_FILE_OPEN bits.
 </code>
 
@@ -846,7 +846,7 @@ indicate a place that may require attention for multi-thread safety.
       re-initialized to the correct value.
 
       This is due to startup issues on certain platforms, such as AIX.
-      For more explanation and examples, see <filename>src/globals.cc</filename>. All such
+      For more explanation and examples, see <filename>src/globals.ml</filename>. All such
       variables should be contained in that file, for simplicity.
 
       15. Exception abstractions

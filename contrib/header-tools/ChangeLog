@@ -22,7 +22,7 @@
 
 2022-01-17  Martin Liska  <mliska@suse.cz>
 
-	* README: Rename .c names to .cc.
+	* README: Rename .c names to .ml.
 
 2019-09-03  Ulrich Weigand  <uweigand@de.ibm.com>
 

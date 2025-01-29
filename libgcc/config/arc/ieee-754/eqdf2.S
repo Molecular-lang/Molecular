@@ -70,7 +70,7 @@ __eqdf2:
 #endif /* __HS__ */
 	add1.f	r12,r12,DBL0H /* set c iff NaN; also, clear z if NaN.  */
 	j_s.d	[blink]
-	cmp.cc	DBL0L,DBL1L
+	cmp.ml	DBL0L,DBL1L
 	.balign 4
 .Lhighdiff:
 	or	r12,DBL0H,DBL1H

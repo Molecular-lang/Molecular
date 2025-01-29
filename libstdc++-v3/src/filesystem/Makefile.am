@@ -31,17 +31,17 @@ headers =
 
 if ENABLE_DUAL_ABI
 cxx11_abi_sources = \
-	cow-dir.cc \
-	cow-ops.cc \
-	cow-path.cc
+	cow-dir.ml \
+	cow-ops.ml \
+	cow-path.ml
 else
 cxx11_abi_sources =
 endif
 
 sources = \
-	dir.cc \
-	ops.cc \
-	path.cc \
+	dir.ml \
+	ops.ml \
+	path.ml \
 	${cxx11_abi_sources}
 
 # vpath % $(top_srcdir)/src/filesystem

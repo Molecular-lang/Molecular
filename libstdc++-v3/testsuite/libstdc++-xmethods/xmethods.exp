@@ -44,7 +44,7 @@ if {! [gdb_version_check_xmethods]} {
 
 global DEFAULT_CXXFLAGS
 global PCH_CXXFLAGS
-gdb-dg-runtest [lsort [glob $srcdir/$subdir/*.cc]] \
+gdb-dg-runtest [lsort [glob $srcdir/$subdir/*.ml]] \
   "" "$DEFAULT_CXXFLAGS $PCH_CXXFLAGS"
 
 if [info exists guality_gdb_name] {

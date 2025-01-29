@@ -2,7 +2,7 @@
 
 	* bits/fstream.tcc: Add fstream ctor for cin/cout/etc.
 	* bits/std_fstream.h: Ditto.
-	* src/stdstreams.cc: Ditto.
+	* src/stdstreams.ml: Ditto.
 
 	* math/cpowl.c: Fix header typo with last change.
 
@@ -38,14 +38,14 @@
 	* bits/std_cstdio.h: Add SEEK_SET, SEEK_END, SEEK_CUR.
 	* bits/ios_base.h: Use.
 
-	* src/stdstreams.cc: Modify to reflect standard ctors for
+	* src/stdstreams.ml: Modify to reflect standard ctors for
 	filebuf.
-	* src/misc-inst.cc: Ditto.
+	* src/misc-inst.ml: Ditto.
 
 	* bits/os_raw.h: Wrap in std namespace. Model parameters on
 	underlying C library calls instead of the underlying unix
 	filesystem.
-	* src/os_raw.cc (_S_os_open): Use fopen, and compute a mode
+	* src/os_raw.ml (_S_os_open): Use fopen, and compute a mode
 	string as per p.659.
 	(_S_os_close): Model on fopen.
 	(_S_os_read): Model on fread.
@@ -107,7 +107,7 @@
 	for basic_string and basic_streambuf. Scope _IO_buf_* pointers to
 	streambuf_type.
 
-	* src/stdstreams.cc (std): Disable wchar_t instantiations.
+	* src/stdstreams.ml (std): Disable wchar_t instantiations.
 
 	* bits/c++config.h (_G_DEPRICATED): Add.
 	(_G_USE_WCHAR_T): Add.
@@ -115,9 +115,9 @@
 	Take out _Streambuf_base. Put _IO_FILE data member in basic_filebuf.
 	* bits/streambuf.tcc (sputbackc): Remove ctor anti-def, Tweak.
 	* bits/std_fstream.h: Add comment for implementation.
-	* src/streambuf.cc: Remove.
+	* src/streambuf.ml: Remove.
 	* src/Makefile.in: Remove streambuf.lo.
-	* src/misc-inst.cc: Tweak.
+	* src/misc-inst.ml: Tweak.
 
 1998-12-02  Benjamin Kosnik  <bkoz@cygnus.com>
 
@@ -131,10 +131,10 @@
 
 	* bits/streambuf.tcc: Tweak.
 
-	* src/streambuf.cc: New file, add out-of-line definitions for
+	* src/streambuf.ml: New file, add out-of-line definitions for
 	_Streambuf_base.
 
-	* src/misc-inst.cc: Remove _Streambuf_base instantiations.
+	* src/misc-inst.ml: Remove _Streambuf_base instantiations.
 	Comment out wchar_t versions of the buffer instantiations, for now.
 
 	* bits/std_streambuf.h: Wrap libio.h include with extern "C".
@@ -176,13 +176,13 @@
 
 1998-10-30  Nathan Myers <ncm@cantrip.org>
 
-	* src/string[A-Z]+.cc: change back to include "string.cc".
+	* src/string[A-Z]+.ml: change back to include "string.ml".
 	* src/Makefile.am: revert filename changes.  We need a different
 	way to keep filenames in std/ from confusing Make.
 	* bits/basic_string.h: define _S_max_size right, return it from
 	string::max_size(); churn definition of npos again.
 	* bits/string.tcc: fix _S_frob_size to avoid uint overflow.
-	* bits/ios.cc: remove #ifdef on ios_base locale member initialization
+	* bits/ios.ml: remove #ifdef on ios_base locale member initialization
 	* BUGS: clear cruft.
 	* C++STYLE: Touchup for release.
 	* CHECKLIST: Touchup for release.
@@ -195,7 +195,7 @@
 
 1998-10-29  Ulrich Drepper  <drepper@cygnus.com>
 
-	* src/string[A-Z]+.cc: Include stdstring.cc, not string.cc.
+	* src/string[A-Z]+.ml: Include stdstring.ml, not string.ml.
 
 	* src/Makefile.am (CXXFLAGS): Define _GNU_SOURCE.
 
@@ -229,76 +229,76 @@
 
 1998-10-29  Ulrich Drepper  <drepper@cygnus.com>
 
-	* src/Makefile.am: Add temporarily rules to make sure misc-inst.cc
+	* src/Makefile.am: Add temporarily rules to make sure misc-inst.ml
 	is not compiled with -fno-implicit-templates in effect.
 
-	* src/Makefile.am (EXTRA_SOURCES): Add string.cc and wstring.cc here.
-	(libstdc___la_SOURCES): Add all the string*.cc and wstring*.cc files.
-	* src/stringADDCS.cc: Wrapper around string.cc to define individual
+	* src/Makefile.am (EXTRA_SOURCES): Add string.ml and wstring.ml here.
+	(libstdc___la_SOURCES): Add all the string*.ml and wstring*.ml files.
+	* src/stringADDCS.ml: Wrapper around string.ml to define individual
 	function.
-	* src/stringADDPS.cc: Likewise.
-	* src/stringADDSC.cc: Likewise.
-	* src/stringADDSP.cc: Likewise.
-	* src/stringADDSS.cc: Likewise.
-	* src/stringBIST.cc: Likewise.
-	* src/stringBOST.cc: Likewise.
-	* src/stringCHTR.cc: Likewise.
-	* src/stringEQPS.cc: Likewise.
-	* src/stringEQSP.cc: Likewise.
-	* src/stringEQSS.cc: Likewise.
-	* src/stringEXTRA.cc: Likewise.
-	* src/stringGEPS.cc: Likewise.
-	* src/stringGESP.cc: Likewise.
-	* src/stringGESS.cc: Likewise.
-	* src/stringGETLI.cc: Likewise.
-	* src/stringGTPS.cc: Likewise.
-	* src/stringGTSP.cc: Likewise.
-	* src/stringGTSS.cc: Likewise.
-	* src/stringINSER.cc: Likewise.
-	* src/stringLEPS.cc: Likewise.
-	* src/stringLESP.cc: Likewise.
-	* src/stringLESS.cc: Likewise.
-	* src/stringLTPS.cc: Likewise.
-	* src/stringLTSP.cc: Likewise.
-	* src/stringLTSS.cc: Likewise.
-	* src/stringMAIN.cc: Likewise.
-	* src/stringNEPS.cc: Likewise.
-	* src/stringNESP.cc: Likewise.
-	* src/stringNESS.cc: Likewise.
-	* src/stringSCOPY.cc: Likewise.
-	* src/wstringADDCS.cc: Wrapper around wstring.cc to define individual
+	* src/stringADDPS.ml: Likewise.
+	* src/stringADDSC.ml: Likewise.
+	* src/stringADDSP.ml: Likewise.
+	* src/stringADDSS.ml: Likewise.
+	* src/stringBIST.ml: Likewise.
+	* src/stringBOST.ml: Likewise.
+	* src/stringCHTR.ml: Likewise.
+	* src/stringEQPS.ml: Likewise.
+	* src/stringEQSP.ml: Likewise.
+	* src/stringEQSS.ml: Likewise.
+	* src/stringEXTRA.ml: Likewise.
+	* src/stringGEPS.ml: Likewise.
+	* src/stringGESP.ml: Likewise.
+	* src/stringGESS.ml: Likewise.
+	* src/stringGETLI.ml: Likewise.
+	* src/stringGTPS.ml: Likewise.
+	* src/stringGTSP.ml: Likewise.
+	* src/stringGTSS.ml: Likewise.
+	* src/stringINSER.ml: Likewise.
+	* src/stringLEPS.ml: Likewise.
+	* src/stringLESP.ml: Likewise.
+	* src/stringLESS.ml: Likewise.
+	* src/stringLTPS.ml: Likewise.
+	* src/stringLTSP.ml: Likewise.
+	* src/stringLTSS.ml: Likewise.
+	* src/stringMAIN.ml: Likewise.
+	* src/stringNEPS.ml: Likewise.
+	* src/stringNESP.ml: Likewise.
+	* src/stringNESS.ml: Likewise.
+	* src/stringSCOPY.ml: Likewise.
+	* src/wstringADDCS.ml: Wrapper around wstring.ml to define individual
 	functions.
-	* src/wstringADDPS.cc: Likewise.
-	* src/wstringADDSC.cc: Likewise.
-	* src/wstringADDSP.cc: Likewise.
-	* src/wstringADDSS.cc: Likewise.
-	* src/wstringBIST.cc: Likewise.
-	* src/wstringBOST.cc: Likewise.
-	* src/wstringCHTR.cc: Likewise.
-	* src/wstringEQPS.cc: Likewise.
-	* src/wstringEQSP.cc: Likewise.
-	* src/wstringEQSS.cc: Likewise.
-	* src/wstringEXTRA.cc: Likewise.
-	* src/wstringGEPS.cc: Likewise.
-	* src/wstringGESP.cc: Likewise.
-	* src/wstringGESS.cc: Likewise.
-	* src/wstringGETLI.cc: Likewise.
-	* src/wstringGTPS.cc: Likewise.
-	* src/wstringGTSP.cc: Likewise.
-	* src/wstringGTSS.cc: Likewise.
-	* src/wstringINSER.cc: Likewise.
-	* src/wstringLEPS.cc: Likewise.
-	* src/wstringLESP.cc: Likewise.
-	* src/wstringLESS.cc: Likewise.
-	* src/wstringLTPS.cc: Likewise.
-	* src/wstringLTSP.cc: Likewise.
-	* src/wstringLTSS.cc: Likewise.
-	* src/wstringMAIN.cc: Likewise.
-	* src/wstringNEPS.cc: Likewise.
-	* src/wstringNESP.cc: Likewise.
-	* src/wstringNESS.cc: Likewise.
-	* src/wstringSCOPY.cc: Likewise.
-	* src/string.cc: Remove now unneeded #defines now.
+	* src/wstringADDPS.ml: Likewise.
+	* src/wstringADDSC.ml: Likewise.
+	* src/wstringADDSP.ml: Likewise.
+	* src/wstringADDSS.ml: Likewise.
+	* src/wstringBIST.ml: Likewise.
+	* src/wstringBOST.ml: Likewise.
+	* src/wstringCHTR.ml: Likewise.
+	* src/wstringEQPS.ml: Likewise.
+	* src/wstringEQSP.ml: Likewise.
+	* src/wstringEQSS.ml: Likewise.
+	* src/wstringEXTRA.ml: Likewise.
+	* src/wstringGEPS.ml: Likewise.
+	* src/wstringGESP.ml: Likewise.
+	* src/wstringGESS.ml: Likewise.
+	* src/wstringGETLI.ml: Likewise.
+	* src/wstringGTPS.ml: Likewise.
+	* src/wstringGTSP.ml: Likewise.
+	* src/wstringGTSS.ml: Likewise.
+	* src/wstringINSER.ml: Likewise.
+	* src/wstringLEPS.ml: Likewise.
+	* src/wstringLESP.ml: Likewise.
+	* src/wstringLESS.ml: Likewise.
+	* src/wstringLTPS.ml: Likewise.
+	* src/wstringLTSP.ml: Likewise.
+	* src/wstringLTSS.ml: Likewise.
+	* src/wstringMAIN.ml: Likewise.
+	* src/wstringNEPS.ml: Likewise.
+	* src/wstringNESP.ml: Likewise.
+	* src/wstringNESS.ml: Likewise.
+	* src/wstringSCOPY.ml: Likewise.
+	* src/string.ml: Remove now unneeded #defines now.
 
 1998-10-29 Nathan Myers <ncm@cantrip.org>
 
@@ -330,14 +330,14 @@
 	* bits/locfacets.tcc: fix _Format_cache<>::_M_populate bool name init
 	* testsuite/27/27octfmt.C, testsuite/27/27octfmt.C: new tests
 	* bits/locfacets.tcc: touch up _S_group_digits.
-	* src/misc-inst.cc: adjust _S_group_digits insts to match.
+	* src/misc-inst.ml: adjust _S_group_digits insts to match.
 
 1998-10-27 Nathan Myers <ncm@cantrip.org>
 
 	* stl/bits/stl_config.h: Turn off long long support, for now.
-	* src/locale-inst.cc: Instantiate num_put<> only for
+	* src/locale-inst.ml: Instantiate num_put<> only for
 	ostreambuf_iterator, num_get only for istreambuf_iterator.
-	* src/misc-inst.cc: Delete duplicate locale-related instantiations,
+	* src/misc-inst.ml: Delete duplicate locale-related instantiations,
 	add lots of new instantiations for num_put support function templates;
 	remove junk about __match_parallel for ostreambuf_iterator.
 
@@ -345,7 +345,7 @@
 
 	* bits/locfacets.tcc: Make num_put's digit grouping work.
 	* bits/string.tcc: More uglification.
-	* src/ios.cc: initialize format cache right
+	* src/ios.ml: initialize format cache right
 
 1998-10-26 Nathan Myers <ncm@cantrip.org>
 
@@ -369,16 +369,16 @@
 	* bits/std_string.h: Include <limits> for use in bits/locfacets.h
 	* bits/string.tcc: Uglify names
 	* shadow/bits/std_cstdlib.h: Optimize std::div and std::ldiv.
-	* src/ios.cc: Specialize _Format_cache<> for char and wchar_t,
+	* src/ios.ml: Specialize _Format_cache<> for char and wchar_t,
 	for optimal default behavior.
 
 1998-10-26  Benjamin Kosnik  <bkoz@loony.cygnus.com>
 
-	* src/Makefile.in (libstdc___la_SOURCES): Add misc-inst.cc again.
+	* src/Makefile.in (libstdc___la_SOURCES): Add misc-inst.ml again.
 
 1998-10-21 Nathan Myers <ncm@cantrip.org>
 
-	* src/locale.cc: make ctype operations actually work for glibc
+	* src/locale.ml: make ctype operations actually work for glibc
 	* CHECKLIST: add a comprehensive (i.e. huge) implementation
 	checklist of stdlib facilities.  Not filled in yet.
 
@@ -418,9 +418,9 @@
 	requirement when I wasn't looking.  (Can't leave them alone for
 	a second without they break something else.)
 	* bits/valarray_meta.h: add Gaby's changes from 981018.
-	* src/locale.cc: add new type _Bad_use_facet to be thrown on
+	* src/locale.ml: add new type _Bad_use_facet to be thrown on
 	failure of use_facet<>().
-	* src/stdexcept.cc: remove pragma, remove bkoz's #if 0,
+	* src/stdexcept.ml: remove pragma, remove bkoz's #if 0,
 	comment out leftover member definitions
 
 1998-10-16  Ulrich Drepper  <drepper@cygnus.com>
@@ -434,14 +434,14 @@
 
 1998-10-15  Benjamin Kosnik  <bkoz@haight.constant.com>
 
-	* src/Makefile.am (libstdc___la_SOURCES): Add misc-inst.cc.
+	* src/Makefile.am (libstdc___la_SOURCES): Add misc-inst.ml.
 
 	* bits/std_sstream.h: Add typedefs, member definitions. Clean.
 	* bits/std_stdexcept.h: Remove.
 
 1998-10-15  Benjamin Kosnik  <bkoz@haight.constant.com>
 
-	* src/misc-inst.cc: Tweak again.
+	* src/misc-inst.ml: Tweak again.
 
 	* bits/std_sstream.h: Move out-of-line definitions to sstream.tcc.
 	* bits/sstream.tcc: New file.
@@ -482,11 +482,11 @@
 	(INFINITE_P, INFINITEF_P, INFINITEL_P): Use fpclass function if
 	available.
 
-	* src/complex.cc (polar): Don't use sincos on OSF machines.
+	* src/complex.ml (polar): Don't use sincos on OSF machines.
 
 1998-10-09  Benjamin Kosnik  <bkoz@loony.cygnus.com>
 
-	* src/locale-inst.cc: Don't instantiate time_get for
+	* src/locale-inst.ml: Don't instantiate time_get for
 	ostreambuf_iterators as time_get::do_get_weekday and
 	time_get::do_get_monthname use __match_parallel, which is illegal
 	for ostreambuf_iterators to use, as they don't have operator== or
@@ -494,28 +494,28 @@
 	* bits/std_stdexcept.h: Add dtor definitions.
 	Use stl/bits/std_stdexcept.h instead of this file?
 	* bits/sbuf_iter.h : Tweak.
-	* src/misc-inst.cc: Tweak.
+	* src/misc-inst.ml: Tweak.
 
 1998-10-09  Benjamin Kosnik  <bkoz@haight.constant.com>
 
 	* bits/std_stdexcept.h: New file.
-	* src/stdexcept.cc: Define the following:
+	* src/stdexcept.ml: Define the following:
 	logic_error::what()
 	runtime_error::what()
 
-	* src/misc-inst.cc: New file.
-	* src/Makefile.in (libstdc___la_SOURCES): Add misc-inst.cc.
+	* src/misc-inst.ml: New file.
+	* src/Makefile.in (libstdc___la_SOURCES): Add misc-inst.ml.
 	(libstdc___la_OBJECTS): Add misc-inst.lo.
 
 	* bits/basic_string.h: Disable non-standard ctor declarations.
 	* bits/string.tcc: Disable definitions as well.
-	* src/string.cc: Disable <ios> dependencies.
+	* src/string.ml: Disable <ios> dependencies.
 	* bits/sbuf_iter.h (std): Add default to template parameter for
 	ostreambuf_iterator and istreambuf_iterator.
 	* bits/std_iosfwd.h: Change istreambuf_iterator to
 	basic_istreambuf_iterator. Likewise for ostreambuf.
 	* bits/locfacets.tcc (__match_parallel): Fix typo.
-	* src/ios.cc (imbue): Remove the _G_HAVE_LOCALE guards around
+	* src/ios.ml (imbue): Remove the _G_HAVE_LOCALE guards around
 	ios_base::imbue.
 	* bits/std_streambuf.h: Define _Streambuf_base::getloc().
 	* bits/std_istream.h: Define the following:
@@ -529,7 +529,7 @@
 1998-10-8  Ulrich Drepper  <drepepr@cygnus.com>
 
 	* configure.in: Check for sincos, sincosf, and sincosl.
-	* src/complex.cc (polar): Use sincos if available.
+	* src/complex.ml (polar): Use sincos if available.
 
 	* bits/c++config.h: Fix hack to get LONG_LONG* definitions on Linux.
 	* stl/bits/std_limits.h: Include bits/c++config.h.  HACK!!!
@@ -630,10 +630,10 @@
 	* bits/std_streambuf.h (_POSIX_SOURCE): Only define if it's not
 	already done.
 
-	* src/locale-inst.cc: New file, **TOTAL HACK**.  There has GOT to
+	* src/locale-inst.ml: New file, **TOTAL HACK**.  There has GOT to
 	be a better way to do this.
 
-	* src/stlinst.cc: New file.
+	* src/stlinst.ml: New file.
 
 	* BUGS: New file, with various discovered bugs that need to be
 	fixed.
@@ -656,7 +656,7 @@
 	* bits/string.tcc: Instead, do initialization here, to -1 instead
 	of the size_type destructor.
 
-	* src/traits.cc, src/wtraits.cc: New files.
+	* src/traits.ml, src/wtraits.ml: New files.
 	* bits/char_traits.h: For char_traits<char> and
 	char_traits<wchar_t>, declare static, but define over in the src
 	files.
@@ -677,19 +677,19 @@
 	(class basic_streambuf): Define missing methods pubimbue and
 	getloc.
 
-	* src/Makefile.am (libstdc___la_SOURCES): Add stdexcept.cc,
-	ios.cc, os_raw.cc, stdstreams.cc, locale.cc, localename.cc,
-	locale-inst.cc, stlinst.cc, traits.cc, wtraits.cc.
+	* src/Makefile.am (libstdc___la_SOURCES): Add stdexcept.ml,
+	ios.ml, os_raw.ml, stdstreams.ml, locale.ml, localename.ml,
+	locale-inst.ml, stlinst.ml, traits.ml, wtraits.ml.
 
-	* src/ios.cc: Instantiate basic_ios<char> and basic_ios<wchar_t>.
+	* src/ios.ml: Instantiate basic_ios<char> and basic_ios<wchar_t>.
 
-	* src/locale.cc: Come up with munged versions of _S_toupper,
+	* src/locale.ml: Come up with munged versions of _S_toupper,
 	_S_tolower, and _S_table instead of the glibc-specific ones, so
 	they're at least defined, if not necessarily usable.  The glibc
 	ones on any other system will yield unresolved refs to
 	__ctype_{b,toupper,tolower}.
 
-	* src/string.cc: Define all of ADDCS, ADDPS, et al.  Add
+	* src/string.ml: Define all of ADDCS, ADDPS, et al.  Add
 	basic_ios, basic_istream, basic_ostream.  Don't do char_traits
 	anymore cuz of the explicit specialization in char_traits.h.
 	Also add _S_string_copy, but this doesn't fix it -- cf the BUGS
@@ -722,7 +722,7 @@
 
 	Deal with conflict of the iostreams `clog' and our internal
 	complex number `clog'.
-	* src/complex.cc: Call `c_log' instead of `clog'.
+	* src/complex.ml: Call `c_log' instead of `clog'.
 	* math/clog.c (c_log):: Renamed from clog.
 	* math/complex-stub.h (c_log): Renamed from clog decl.
 
@@ -753,14 +753,14 @@
 	* bits/ostream.tcc: template defs for <ostream>
 	* bits/streambuf.tcc: template defs for <streambuf>
 	* bits/os_raw.h: thin OS interface wrapper, to bypass libio (for now).
-	* Delete .cc files, replace with bits/*.tcc
-	src/fstream.cc
-	src/istream.cc
-	src/ostream.cc
-	src/streambuf.cc
+	* Delete .ml files, replace with bits/*.tcc
+	src/fstream.ml
+	src/istream.ml
+	src/ostream.ml
+	src/streambuf.ml
 	* Add files:
-	src/os_raw.cc: thin interface to OS, to bypass libio (for now).
-	src/stdstreams.cc: cout, cin, etc. definitions
+	src/os_raw.ml: thin interface to OS, to bypass libio (for now).
+	src/stdstreams.ml: cout, cin, etc. definitions
 	(these still need work: must be init'd before user statics.)
 
 
@@ -821,7 +821,7 @@
 	  improvements, very minor bug fixes.)
 	* Uglify names elsewhere to match (s/_T/_Tp/).
 	* Begin work on optimized streambuf
-	* Put complex.cc in namespace std:: (thanks Martin)
+	* Put complex.ml in namespace std:: (thanks Martin)
 
 1998-07-17 Nathan Myers <ncm@cantrip.org>
 
@@ -832,7 +832,7 @@
 	  templates bidirectional_reverse_iterator and
 	  random_access_reverse_iterator to match expected changes
 	  in upstream source.
-	* src/string.cc: fix definitions of stream operators.
+	* src/string.ml: fix definitions of stream operators.
 
 1998-07-14 16:06  Ulrich Drepper  <drepper@cygnus.com>
 
@@ -860,7 +860,7 @@
 	* src/Makefile.am (libstdc___la_LIBADD): Add libstring.la.
 	(libstdc___la_LDFLAGS): Set version information.
 
-	* src/complexl.cc: Don't compile any code if no long double functions
+	* src/complexl.ml: Don't compile any code if no long double functions
 	are available.
 
 	* string/Makefile.am: New file.
@@ -932,7 +932,7 @@
 
 	* src/Makefile.am: New file.
 
-	* src/complex.cc: Use mathconf.h instead of complex.h.
+	* src/complex.ml: Use mathconf.h instead of complex.h.
 	Don't use cabs, always use __mycabs.
 
 1998-02-13  Brendan Kehoe  <brendan@cygnus.com>

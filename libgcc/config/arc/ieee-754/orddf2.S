@@ -59,5 +59,5 @@ __orddf2:
 	add1.f	r12,r12,DBL0H /* clear z; set c if NaN.  */
 	bmsk r12,DBL1H,20
 	j_s.d	[blink]
-	add1.cc.f r12,r12,DBL1H /* clear z; set c if NaN.  */
+	add1.ml.f r12,r12,DBL1H /* clear z; set c if NaN.  */
 	ENDFUNC(__orddf2)

@@ -552,15 +552,15 @@ struct cpp_reader
   cpp_token avoid_paste;
   cpp_token endarg;
 
-  /* Opaque handle to the dependencies of mkdeps.cc.  */
+  /* Opaque handle to the dependencies of mkdeps.ml.  */
   class mkdeps *deps;
 
   /* Obstack holding all macro hash nodes.  This never shrinks.
-     See identifiers.cc */
+     See identifiers.ml */
   struct obstack hash_ob;
 
   /* Obstack holding buffer and conditional structures.  This is a
-     real stack.  See directives.cc.  */
+     real stack.  See directives.ml.  */
   struct obstack buffer_ob;
 
   /* Pragma table - dynamic, because a library user can add to the
@@ -598,7 +598,7 @@ struct cpp_reader
     location_t first_line;
   } out;
 
-  /* Used for buffer overlays by traditional.cc.  */
+  /* Used for buffer overlays by traditional.ml.  */
   const unsigned char *saved_cur, *saved_rlimit, *saved_line_base;
 
   /* A saved list of the defined macros, for dependency checking
@@ -658,7 +658,7 @@ struct cpp_embed_params
    definition of a pp-number in the C standard [section 6.4.8 of C99].
 
    In the unlikely event that characters other than \r and \n enter
-   the set is_vspace, the macro handle_newline() in lex.cc must be
+   the set is_vspace, the macro handle_newline() in lex.ml must be
    updated.  */
 #define _dollar_ok(x)	((x) == '$' && CPP_OPTION (pfile, dollars_in_ident))
 
@@ -724,7 +724,7 @@ _cpp_defined_macro_p (const cpp_hashnode *node)
   return cpp_macro_p (node) && !(node->flags & NODE_CONDITIONAL);
 }
 
-/* In macro.cc */
+/* In macro.ml */
 extern bool _cpp_notify_macro_use (cpp_reader *pfile, cpp_hashnode *node,
 				   location_t);
 inline bool _cpp_maybe_notify_macro_use (cpp_reader *pfile, cpp_hashnode *node,
@@ -754,12 +754,12 @@ extern void _cpp_push_token_context (cpp_reader *, cpp_hashnode *,
 				     const cpp_token *, unsigned int);
 extern void _cpp_backup_tokens_direct (cpp_reader *, unsigned int);
 
-/* In identifiers.cc */
+/* In identifiers.ml */
 extern void
 _cpp_init_hashtable (cpp_reader *, cpp_hash_table *, cpp_hash_table *);
 extern void _cpp_destroy_hashtable (cpp_reader *);
 
-/* In files.cc */
+/* In files.ml */
 enum _cpp_find_file_kind
   { _cpp_FFK_NORMAL, _cpp_FFK_FAKE, _cpp_FFK_PRE_INCLUDE, _cpp_FFK_HAS_INCLUDE,
     _cpp_FFK_EMBED, _cpp_FFK_HAS_EMBED };
@@ -791,12 +791,12 @@ extern struct cpp_dir *_cpp_get_file_dir (_cpp_file *);
 extern bool _cpp_has_header (cpp_reader *, const char *, int,
 			     enum include_type);
 
-/* In expr.cc */
+/* In expr.ml */
 extern cpp_num_part _cpp_parse_expr (cpp_reader *, const char *,
 				     const cpp_token *);
 extern struct op *_cpp_expand_op_stack (cpp_reader *);
 
-/* In lex.cc */
+/* In lex.ml */
 extern void _cpp_process_line_notes (cpp_reader *, int);
 extern void _cpp_clean_line (cpp_reader *);
 extern bool _cpp_get_fresh_line (cpp_reader *);
@@ -818,13 +818,13 @@ static inline void *_cpp_reserve_room (cpp_reader *pfile, size_t have,
 }
 extern void *_cpp_commit_buff (cpp_reader *pfile, size_t size);
 
-/* In init.cc.  */
+/* In init.ml.  */
 extern void _cpp_maybe_push_include_file (cpp_reader *);
 extern const char *cpp_named_operator2name (enum cpp_ttype type);
 extern void _cpp_restore_special_builtin (cpp_reader *pfile,
 					  struct def_pragma_macro *);
 
-/* In directives.cc */
+/* In directives.ml */
 extern int _cpp_test_assertion (cpp_reader *, unsigned int *);
 extern int _cpp_handle_directive (cpp_reader *, bool);
 extern void _cpp_define_builtin (cpp_reader *, const char *);
@@ -840,10 +840,10 @@ extern void _cpp_do_file_change (cpp_reader *, enum lc_reason, const char *,
 extern void _cpp_pop_buffer (cpp_reader *);
 extern char *_cpp_bracket_include (cpp_reader *);
 
-/* In errors.cc  */
+/* In errors.ml  */
 extern location_t cpp_diagnostic_get_current_location (cpp_reader *);
 
-/* In traditional.cc.  */
+/* In traditional.ml.  */
 extern bool _cpp_scan_out_logical_line (cpp_reader *, cpp_macro *, bool);
 extern bool _cpp_read_logical_line_trad (cpp_reader *);
 extern void _cpp_overlay_buffer (cpp_reader *pfile, const unsigned char *,
@@ -856,7 +856,7 @@ extern unsigned char *_cpp_copy_replacement_text (const cpp_macro *,
 						  unsigned char *);
 extern size_t _cpp_replacement_text_len (const cpp_macro *);
 
-/* In charset.cc.  */
+/* In charset.ml.  */
 
 /* The normalization state at this point in the sequence.
    It starts initialized to all zeros, and at the end
@@ -961,7 +961,7 @@ ufputs (const unsigned char *s, FILE *f)
   return fputs ((const char *)s, f);
 }
 
-/* In line-map.cc.  */
+/* In line-map.ml.  */
 
 /* Create and return a virtual location for a token that is part of a
    macro expansion-list at a macro expansion point.  See the comment

@@ -59,15 +59,15 @@ __gtsf2:
 	bmi.d	.Lneg
 	bmsk_s	r12,r12,23
 	add1.f	0,r12,r0 ; check for NaN
-	add1.cc.f r12,r12,r1
+	add1.ml.f r12,r12,r1
 	j_s.d	[blink]
-	cmp.cc	r0,r1
+	cmp.ml	r0,r1
 	.balign	4
 .Lneg:	breq.d	r0,0,.L0
 	add1.f	0,r12,r0 ; check for NaN
-	add1.cc.f r12,r12,r1
+	add1.ml.f r12,r12,r1
 	j_s.d	[blink]
-	cmp.cc r1,r0
+	cmp.ml r1,r0
 	.balign	4
 .L0:	bxor.f	0,r1,31 ; check for -0
 	j_s.d	[blink]

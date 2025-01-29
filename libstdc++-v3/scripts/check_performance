@@ -46,7 +46,7 @@ do
   RUN=true
   TESTNAME=$SRC_DIR/testsuite/$NAME
   FILE_NAME="`basename $NAME`"
-  FILE_NAME="`echo $FILE_NAME | sed 's/.cc//g'`"
+  FILE_NAME="`echo $FILE_NAME | sed 's/.ml//g'`"
   ORIG_CXX="$CXX"
   CXX="$CXX `sed -n 's/.* STD=/-std=/p' $TESTNAME`"
 

@@ -214,7 +214,7 @@
 <code class="code"><br />
 1999-04-15  Dennis Ritchie  &lt;dr@att.com&gt;<br />
 <br />
-      * src/basic_file.cc (__basic_file::open): Fix thinko in<br />
+      * src/basic_file.ml (__basic_file::open): Fix thinko in<br />
       _G_HAVE_IO_FILE_OPEN bits.<br />
 </code><br />
 <br />
@@ -425,7 +425,7 @@
       re-initialized to the correct value.<br />
 <br />
       This is due to startup issues on certain platforms, such as AIX.<br />
-      For more explanation and examples, see <code class="filename">src/globals.cc</code>. All such<br />
+      For more explanation and examples, see <code class="filename">src/globals.ml</code>. All such<br />
       variables should be contained in that file, for simplicity.<br />
 <br />
       15. Exception abstractions<br />

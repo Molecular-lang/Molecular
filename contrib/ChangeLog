@@ -266,7 +266,7 @@
 2024-01-03  Jakub Jelinek  <jakub@redhat.com>
 
 	* update-copyright.py (GenericFilter): Skip gpl_v3_without_node.texi.
-	(GCCFilter): Skip GmcOptions.cc.
+	(GCCFilter): Skip GmcOptions.ml.
 
 2023-12-21  Alexandre Oliva  <oliva@adacore.com>
 
@@ -895,7 +895,7 @@
 2022-04-25  Martin Liska  <mliska@suse.cz>
 
 	* filter-clang-warnings.py: Filter out
-	-Wc++20-attribute-extensions in lex.cc.
+	-Wc++20-attribute-extensions in lex.ml.
 
 2022-04-25  Martin Liska  <mliska@suse.cz>
 
@@ -1001,13 +1001,13 @@
 
 2022-01-17  Martin Liska  <mliska@suse.cz>
 
-	* git-backport.py: Support renaming of .cc files.
+	* git-backport.py: Support renaming of .ml files.
 
 2022-01-17  Martin Liska  <mliska@suse.cz>
 
-	* filter-clang-warnings.py: Rename .c names to .cc.
+	* filter-clang-warnings.py: Rename .c names to .ml.
 	* gcc_update: Likewise.
-	* paranoia.cc: Likewise.
+	* paranoia.ml: Likewise.
 
 2022-01-17  Martin Liska  <mliska@suse.cz>
 
@@ -3570,7 +3570,7 @@
 
 2011-04-25  Jan Kratochvil  <jan.kratochvil@redhat.com>
 
-	* paranoia.cc (ENUM_BITFIELD): Remove.
+	* paranoia.ml (ENUM_BITFIELD): Remove.
 
 2011-04-08  Joseph Myers  <joseph@codesourcery.com>
 
@@ -3842,7 +3842,7 @@
 
 2008-01-25  Joseph Myers  <joseph@codesourcery.com>
 
-	* paranoia.cc (main): Remove handling of c4x_single and
+	* paranoia.ml (main): Remove handling of c4x_single and
 	c4x_extended formats.
 
 2007-12-26  Sebastian Pop  <sebastian.pop@amd.com>
@@ -4309,7 +4309,7 @@
 
 2003-05-23  Nathanael Nerode  <neroden@gcc.gnu.org>
 
-	* paranoia.cc: Fix spelling error.
+	* paranoia.ml: Fix spelling error.
 
 	* analyze_brprob, gcc_build, gennews, texi2pod.pl: Change GNU CC
 	to GCC.
@@ -4369,14 +4369,14 @@
 
 2002-10-21  Richard Henderson  <rth@redhat.com>
 
-	* paranoia.cc (real_c_float::image): Accomodate size of
+	* paranoia.ml (real_c_float::image): Accomodate size of
 	real_internal format.
 	(main): Unbuffer stdio.  Add real_internal format.
 	(floor_log2_wide): New.
 
 2002-10-16  Richard Henderson  <rth@redhat.com>
 
-	* paranoia.cc (ENUM_BITFIELD): New.
+	* paranoia.ml (ENUM_BITFIELD): New.
 	(class): Define as klass around real.h.
 	(real_c_float): Not a template any longer; define MODE as a
 	class static constant; use real_format elements for SIZE.
@@ -4386,7 +4386,7 @@
 
 2002-09-16  Richard Henderson  <rth@redhat.com>
 
-	* paranoia.cc: New file.
+	* paranoia.ml: New file.
 
 2002-09-04  Richard Henderson  <rth@redhat.com>
 

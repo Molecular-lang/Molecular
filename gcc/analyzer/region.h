@@ -386,7 +386,7 @@ public:
 
   unsigned get_num_locals () const { return m_locals.elements (); }
 
-  /* Implemented in region-model-manager.cc.  */
+  /* Implemented in region-model-manager.ml.  */
   void dump_untracked_regions () const;
 
  private:

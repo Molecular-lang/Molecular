@@ -1,4 +1,4 @@
-/* auto-profile.h - Defines data exported from auto-profile.cc
+/* auto-profile.h - Defines data exported from auto-profile.ml
    Copyright (C) 2014-2025 Free Software Foundation, Inc.
    Contributed by Dehao Chen (dehao@google.com)
 

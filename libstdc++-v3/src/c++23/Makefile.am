@@ -29,7 +29,7 @@ noinst_LTLIBRARIES = libc++23convenience.la
 # Let's install the interface units in the bits subdirectory.
 toolexeclib_DATA = libstdc++.modules.json
 includebitsdir = $(gxx_include_dir)/bits
-includebits_DATA = std.cc std.compat.cc
+includebits_DATA = std.ml std.compat.ml
 
 # The manifest to be installed uses the relative path between install dirs.
 libstdc++.modules.json: libstdc++.modules.json.in
@@ -46,9 +46,9 @@ stamp-module-manifest: libstdc++.modules.json.in
 	@$(STAMP) $@
 
 # Add the C library exports to both modules.
-std.cc: std.cc.in std-clib.cc.in
+std.ml: std.ml.in std-clib.ml.in
 	cat $^ > $@
-std.compat.cc: std.compat.cc.in std-clib.cc.in
+std.compat.ml: std.compat.ml.in std-clib.ml.in
 	cat $^ > $@
 
 # Also put the interface units in the build-includes bits directory.
@@ -69,7 +69,7 @@ else
 inst_sources =
 endif
 
-sources = stacktrace.cc print.cc
+sources = stacktrace.ml print.ml
 
 vpath % $(top_srcdir)/src/c++23
 
@@ -81,9 +81,9 @@ libc__23convenience_la_SOURCES =
 endif
 
 # Use C++26 so that std::filebuf::native_handle() is available.
-print.lo: print.cc
+print.lo: print.ml
 	$(LTCXXCOMPILE) -std=gnu++26 -c $<
-print.o: print.cc
+print.o: print.ml
 	$(CXXCOMPILE) -std=gnu++26 -c $<
 
 # AM_CXXFLAGS needs to be in each subdirectory so that it can be

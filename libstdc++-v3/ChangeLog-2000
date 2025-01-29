@@ -5,7 +5,7 @@
 2000-12-23  Benjamin Kosnik  <bkoz@redhat.com>
 
 	* src/Makefile.am (CSTD_INCLUDES): Change from CSHADOW_INCLUDES.
-	(strstream.cc): Add special rule for deprecated files.
+	(strstream.ml): Add special rule for deprecated files.
 	* libsupc++/Makefile.am (INCLUDES): Sync.
 	* acinclude.m4 (GLIBCPP_EXPORT_INCLUDES): And here.
 
@@ -15,10 +15,10 @@
 	* include/backward/stream.h: Same.
 	* include/backward/ostream.h: Same.
 	* include/backward/istream.h: Same.
-	* src/strstream.cc: And here.
+	* src/strstream.ml: And here.
 
 	Reported by  Brad Garcia  <bgarcia@laurelnetworks.com>
-	* src/string-inst.cc (_S_find): Use generic template.
+	* src/string-inst.ml (_S_find): Use generic template.
 	* include/bits/string.tcc (_S_find): Remove specializations
 
 2000-12-22  Benjamin Kosnik  <bkoz@fillmore.redhat.com>
@@ -33,9 +33,9 @@
 	member definitions directly after generic facet declarations.
 	* include/bits/locale_facets.tcc: From here.
 
-	* src/locale.cc: Organize locale::id static definitions for
+	* src/locale.ml: Organize locale::id static definitions for
 	required facets.
-	* src/codecvt.cc (codecvt<char...>): Remove locale::id definition.
+	* src/codecvt.ml (codecvt<char...>): Remove locale::id definition.
 	(codecvt<wchar_t...>): Same.
 	* src/localename: And here.
 
@@ -65,30 +65,30 @@
 2000-12-21  Joseph S. Myers  <jsm28@cam.ac.uk>
 
 	* acinclude.m4, configure.in, mkcheck.in,
-	testsuite/21_strings/ctor_copy_dtor.cc,
-	testsuite/21_strings/inserters_extractors.cc,
-	testsuite/23_containers/map_operators.cc,
-	testsuite/23_containers/vector_element_access.cc,
-	testsuite/25_algorithms/lower_bound.cc,
-	testsuite/27_io/ifstream_members.cc,
-	testsuite/27_io/istream_extractor_arith.cc,
-	testsuite/27_io/istream_unformatted.cc,
-	testsuite/27_io/ofstream_members.cc,
-	testsuite/27_io/ostream_inserter_char.cc,
-	testsuite/27_io/ostream_inserter_other.cc,
-	testsuite/27_io/ostream_manip.cc, testsuite/27_io/streambuf.cc:
+	testsuite/21_strings/ctor_copy_dtor.ml,
+	testsuite/21_strings/inserters_extractors.ml,
+	testsuite/23_containers/map_operators.ml,
+	testsuite/23_containers/vector_element_access.ml,
+	testsuite/25_algorithms/lower_bound.ml,
+	testsuite/27_io/ifstream_members.ml,
+	testsuite/27_io/istream_extractor_arith.ml,
+	testsuite/27_io/istream_unformatted.ml,
+	testsuite/27_io/ofstream_members.ml,
+	testsuite/27_io/ostream_inserter_char.ml,
+	testsuite/27_io/ostream_inserter_other.ml,
+	testsuite/27_io/ostream_manip.ml, testsuite/27_io/streambuf.ml:
 	Change sourceware.cygnus.com and sources.redhat.com URLs for
 	libstdc++ web pages and list archives to point to gcc.gnu.org
 	* aclocal.m4, configure: Regenerate.
 
 2000-12-21  Gabriel Dos Reis  <gdr@codesourcery.com>
 
-	* src/Makefile.am (sources): Remove complex.cc, complexf.cc and
-	complexl.cc from list.
+	* src/Makefile.am (sources): Remove complex.ml, complexf.ml and
+	complexl.ml from list.
 	* src/Makefile.in: Regenerate.
-	* src/complex.cc: Remove.
-	* src/complexf.cc: Likewise.
-	* src/complexl.cc: Likewise.
+	* src/complex.ml: Remove.
+	* src/complexf.ml: Likewise.
+	* src/complexl.ml: Likewise.
 
 	* libmath/Makefile.am (EXTRA_LONG_DOUBLE_yes): Remove csqrtl.c
 	(EXTRA_DIST): Remove csqrt.c and csqrtf.c.
@@ -103,7 +103,7 @@
 	* include/bits/std_complex.h (sqrt<>): Define primary template.
 	(complex<>): Remove sqrt friend declarations.
 
-	* configure.in: Initialize with src/ios.cc.
+	* configure.in: Initialize with src/ios.ml.
 	* configure: Regenerate.
 	* acinclude.m4: Remove check for csqrt* and <complex.h>
 	* aclocal.m4: Regenerate.
@@ -125,7 +125,7 @@
 
 2000-12-20  Benjamin Kosnik  <bkoz@fillmore.constant.com>
 
-	* testsuite/17_intro/headers_c.cc (main): New file.
+	* testsuite/17_intro/headers_c.ml (main): New file.
 
 	* acinclude.m4 (SECTION_FLAGS): Only set if --enable-debug is not
 	passed.
@@ -135,8 +135,8 @@
 
 2000-12-19  Curtis Janssen  <cljanss@ca.sandia.gov>
 
-	* src/ios.cc (ios_base::_M_grow_words(int ix)): Fix libstdc++/1089.
-	* testsuite/27_io/ios_base_storage.cc (test01): New file.
+	* src/ios.ml (ios_base::_M_grow_words(int ix)): Fix libstdc++/1089.
+	* testsuite/27_io/ios_base_storage.ml (test01): New file.
 
 2000-12-19  Benjamin Kosnik  <bkoz@fillmore.constant.com>
 
@@ -144,13 +144,13 @@
 	(gxx_target_include_dir): Adjuse comment.
 	* configure: Regenerate.
 	* include/c/bits/std_cstdio.h: Remove c++config.h include.
-	* src/locale.cc: Formatting tweaks.
-	* testsuite/22_locale/ctype.cc (char<unsigned char>): Provide
+	* src/locale.ml: Formatting tweaks.
+	* testsuite/22_locale/ctype.ml (char<unsigned char>): Provide
 	member functions.
 
 2000-12-19  Loren J. Rittle  <ljrittle@acm.org>
 
-        * testsuite/22_locale/ctype.cc (test01): Correct ~ operator usage.
+        * testsuite/22_locale/ctype.ml (test01): Correct ~ operator usage.
 
 2000-12-19  Mark Kettenis  <kettenis@gnu.org>
 
@@ -170,7 +170,7 @@
 	* config/os/generic/bits/ctype_inline.h (is): Non-table based
 	implementation.
 
-	* testsuite/22_locale/ctype_char_members.cc (test01): Use binary
+	* testsuite/22_locale/ctype_char_members.ml (test01): Use binary
 	operator correctly.
 	(test01): Check 'A' for alnum, upper, alpha.
 
@@ -254,10 +254,10 @@
 	* config/os/newlib/bits/ctype_inline.h (is): Same.
 	* config/os/newlib/bits/ctype_base.h (ctype_base): Same.
 
-	* testsuite/22_locale/ctype_char_members.cc (test01): Add tests, fix.
-	* testsuite/22_locale/ctype.cc (test01): Add tests for
+	* testsuite/22_locale/ctype_char_members.ml (test01): Add tests, fix.
+	* testsuite/22_locale/ctype.ml (test01): Add tests for
 	ctype_base::mask bitmask features.
-	* src/locale.cc: Define const static data for ctype_base.
+	* src/locale.ml: Define const static data for ctype_base.
 	* config/os/gnu-linux/bits/ctype_base.h (ctype_base): Make
 	ctype_base::mask type an integer type, not an enum.
 	* config/os/gnu-linux/bits/ctype_inline.h (is): Implement correctly.
@@ -292,7 +292,7 @@
 
 2000-12-09  Jason Merrill  <jason@redhat.com>
 
-	* testsuite/20_util/auto_ptr.cc (test07): Remove test that tries
+	* testsuite/20_util/auto_ptr.ml (test07): Remove test that tries
 	to copy-initialize an auto_ptr<Base> from an auto_ptr<Derived>; it
 	isn't supposed to work anymore.
 
@@ -434,7 +434,7 @@
 
 	* include/bits/std_complex.h(tan, tanh): Define primary templates.
 	(complex<>): Remove friend declarations for tan<> and tanh<>.
-	* src/complex.cc(tan, tanh): Remove specializations.
+	* src/complex.ml(tan, tanh): Remove specializations.
 
 	* acinclude.m4: Remove check for ccos, ccosf, ccosl, ccosh,
 	ccoshf, ccoshl,	csin, csinf, csinl, csinh, csinhf, csinhl, cexp,
@@ -471,7 +471,7 @@
 
 	* include/bits/locale_facets.h (ctype): Remove _Ctype_nois and
 	_Ctype and replace with common __ctype_abstract_base.
-	(ctype<wchar_t>::_M_convert_to_wmask): Move to locale.cc.
+	(ctype<wchar_t>::_M_convert_to_wmask): Move to locale.ml.
 	* config/os/gnu-linux/bits/ctype_noninline.h (ctype<char>::ctype):
 	And here.
 	* config/os/solaris/solaris2.7/bits/ctype_noninline.h (ctype): Same.
@@ -484,20 +484,20 @@
 	* config/os/aix/bits/ctype_noninline.h (ctype): Same.
 	* config/os/bsd/netbsd/bits/ctype_noninline.h (ctype): Same.
 	* config/os/bsd/freebsd/bits/ctype_noninline.h (ctype): Same.
-	* src/locale-inst.cc: Clean instantiations.
-	* src/locale.cc (ctype<char>): Add definitions here.
+	* src/locale-inst.ml: Clean instantiations.
+	* src/locale.ml (ctype<char>): Add definitions here.
 	(ctype<wchar_t>::_M_wmask): Move definitions here.
 
 	* config/os/generic/bits/ctype_inline.h (ctype<char>::is):
 	Implement in a generic way, with only "C" functionality and no
 	knowlege of the target os.
 	* config/os/generic/bits/os_defines.h: Change comments to C++ style.
-	* testsuite/22_locale/ctype_char_members.cc (test01): Add tests.
+	* testsuite/22_locale/ctype_char_members.ml (test01): Add tests.
 
 	* include/bits/codecvt.h (ctype_byname): Remove specializations,
 	as not required.
 	* include/bits/localefwd.h (codecvt_byname): And here.
-	* src/codecvt.cc: Remove codecvt_byname specializations.
+	* src/codecvt.ml: Remove codecvt_byname specializations.
 
 	* include/c/bits/std_cstdio.h: Include c++config.h.
 
@@ -597,7 +597,7 @@
 
 2000-12-05  Gabriel Dos Reis  <gdr@codesourcery.com>
 
-	* src/complex.cc (pow): Remove definitions for explicit
+	* src/complex.ml (pow): Remove definitions for explicit
 	specializations.
 	* libmath/mathconf.h: Remove declarations for c_log, c_logf,
 	c_logl.
@@ -657,9 +657,9 @@
 
 2000-12-01  Gabriel Dos Reis  <gdr@codesourcery.com>
 
-	* src/cmath.cc: Remove.
+	* src/cmath.ml: Remove.
 	* src/Makefile.am (c_base_headers): Add bits/cmath.tcc.
-	(sources): Remove cmath.cc
+	(sources): Remove cmath.ml
 	* src/Makefile.in: Regenerate.
 
 	* include/c/bits/std_cmath.h (__cmath_power<>): Declare.
@@ -719,16 +719,16 @@
 
 2000-11-29  Gabriel Dos Reis  <gdr@codesourcery.com>
 
-	* src/Makefile.am (sources): Add bitset.cc
+	* src/Makefile.am (sources): Add bitset.ml
 	* src/Makefile.in: Regenrate.
 
 	* include/bits/std_bitset.h (_GLIBCPP_BITSET_BITS_PER_WORD): New
 	macro. Replace __BITS_PER_WORDS throughout.
 	(__BITS_PER_WORDS): Remove.
 	(bitset<>::_M_do_find_first, bitset<>::_M_do_find_next): Move
-	definitions to src/bitset.cc.
+	definitions to src/bitset.ml.
 
-	* src/bitset.cc (bitset<>::_M_do_find_first,
+	* src/bitset.ml (bitset<>::_M_do_find_first,
 	bitset<>::_M_do_find_next):  Define here.
 	(_Bit_count<>::_S_bit_count, _Find_one<>::_S_first_one): Define
 	here. Explicitly instantiate definitions.
@@ -758,8 +758,8 @@
 
 	* tests_flags.in (LTCXX): Change CXX_FLAG to CXXFLAGS.
 
-	* testsuite/22_locale/ctor_copy_dtor.cc: Adjust formatting.
-	* testsuite/27_io/istream_extractor_arith.cc (test11): New
+	* testsuite/22_locale/ctor_copy_dtor.ml: Adjust formatting.
+	* testsuite/27_io/istream_extractor_arith.ml (test11): New
 	testcase, based on libstdc++/90.
 
 2000-11-27  Franz Sirl  <Franz.Sirl-kernel@lauterbach.com>
@@ -801,7 +801,7 @@
 
 2000-11-26  Benjamin Kosnik  <bkoz@redhat.com>
 
-	* testsuite/27_io/istream_unformatted.cc (test05): Fixup.
+	* testsuite/27_io/istream_unformatted.ml (test05): Fixup.
 
 2000-11-26  Benjamin Kosnik  <bkoz@redhat.com>
 
@@ -836,8 +836,8 @@
 
 	* acinclude.m4: Change C9X references to refer to C99.
 	* aclocal.m4, configure: Regenerate.
-	* config/os/gnu-linux/bits/os_defines.h, src/complex.cc,
-	testsuite/22_locale/codecvt_wchar_t_char.cc,
+	* config/os/gnu-linux/bits/os_defines.h, src/complex.ml,
+	testsuite/22_locale/codecvt_wchar_t_char.ml,
 	include/bits/stl_config.h, include/c/bits/std_cwchar.h,
 	libmath/mathconf.h: Change C9X references to refer to C99.
 
@@ -850,7 +850,7 @@
 
 2000-11-24  Benjamin Kosnik  <bkoz@purist.soma.redhat.com>
 
-	* testsuite/22_locale/codecvt_wchar_t_char.cc (main): Add
+	* testsuite/22_locale/codecvt_wchar_t_char.ml (main): Add
 	_GLIBCPP_USE_WCHAR_T guards.
 
 	* configure.in (AC_OUTPUT_COMMANDS): Remove, just run scripts as
@@ -875,8 +875,8 @@
 	* include/bits/ios_base.h (ios_base::failure::~failure,
 	ios_base::failure::what): Move definition to ...
 
-	* src/ios.cc (ios_base::failure::~failure): ... here.
-	src/ios.cc (ios::failure::what): Likewise.
+	* src/ios.ml (ios_base::failure::~failure): ... here.
+	src/ios.ml (ios::failure::what): Likewise.
 
 2000-11-22  Benjamin Kosnik  <bkoz@redhat.com>
 
@@ -911,7 +911,7 @@
 
 2000-11-21  scott snyder  <snyder@fnal.gov>
 
-        * config/c_io_stdio.cc (seekoff): Fix return value.
+        * config/c_io_stdio.ml (seekoff): Fix return value.
         (seekpos): Likewise.
         (sys_seek): Likewise.
 
@@ -922,7 +922,7 @@
 
 2000-11-21  Benjamin Kosnik  <bkoz@purist.soma.redhat.com>
 
-	* src/strstream.cc: Adjust includes.
+	* src/strstream.ml: Adjust includes.
 	* src/Makefile.am (base_headers): Remove std_strstream.h, add
 	backwards/strstream.h.
 	(std_headers): Remove strstream.
@@ -967,7 +967,7 @@
 	* mkcheck.in (explanation): Don't paste output of passing compiles
 	into log file. Use -static. Get version info.
 
-	* testsuite/23_containers/vector_ctor.cc (test02): Fix thinko.
+	* testsuite/23_containers/vector_ctor.ml (test02): Fix thinko.
 
 2000-11-20  Gabriel Dos Reis  <gdr@codesourcery.com>
 
@@ -980,13 +980,13 @@
 2000-11-20  Benjamin Kosnik  <bkoz@redhat.com>
 
 	* include/bits/std_complex.h: Tweaks, include cmath for abs overloads.
-	* src/complex.cc: Remove cmath include, formatting tweaks, remove
+	* src/complex.ml: Remove cmath include, formatting tweaks, remove
 	dead code.
 	* include/c/bits/std_cmath.h: Formatting tweaks.
-	* testsuite/26_numerics/complex_value.cc: New file, for catching
+	* testsuite/26_numerics/complex_value.ml: New file, for catching
 	bits gleaned from libstdc++/106.
 
-	* testsuite/23_containers/vector_ctor.cc (test02): Add test from
+	* testsuite/23_containers/vector_ctor.ml (test02): Add test from
 	libstdc++/102.
 
 2000-11-20  Joseph S. Myers  <jsm28@cam.ac.uk>
@@ -996,16 +996,16 @@
 
 2000-11-19  Mark Mitchell  <mark@codesourcery.com>
 
-	* libsupc++/exception_support.cc (__throw_bad_cast): Name it
+	* libsupc++/exception_support.ml (__throw_bad_cast): Name it
 	__cxa_bad_cast under the new ABI.
 	(__throw_bad_typeid): Name it __cxa_bad_typeid under the new ABI.
-	* libsupc++/pure.cc (__pure_virtual): Name it __cxa_pure_virtual
+	* libsupc++/pure.ml (__pure_virtual): Name it __cxa_pure_virtual
 	under the new ABI.
 
 2000-11-18  Mark Mitchell  <mark@codesourcery.com>
 
 	* libsupc++/exception_support.h: New header file.
-	* libsupc++/vec.cc: Include it.
+	* libsupc++/vec.ml: Include it.
 	(__cxa_vec_new2): Recatch exceptions before rethrows.
 	(__cxa_vec_new3): Likewise.
 	(__cxa_vec_ctor): Likewise.
@@ -1019,7 +1019,7 @@
 	* include/bits/stl_tree.h: Overload operators == and != to be able
 	to handle the case (const_iterator,iterator) and
 	(iterator,const_iterator), thus fixing libstdc++/737 and the like.
-	* testsuite/23_containers/map_operators.cc (test02): New tests.
+	* testsuite/23_containers/map_operators.ml (test02): New tests.
 
 2000-11-17  Loren J. Rittle  <ljrittle@acm.org>
 
@@ -1205,7 +1205,7 @@
 
 2000-11-08  David Edelsohn  <edelsohn@gnu.org>
 
-	* src/locale-inst.cc: Add explicit instantiations of
+	* src/locale-inst.ml: Add explicit instantiations of
 	_M_fill_insert and fill_n<..., unsigned long,...> .
 
 2000-11-06  Gabriel Dos Reis  <gdr@codesourcery.com>
@@ -1288,11 +1288,11 @@ Thu Nov  2 10:11:45 2000  Mark P Mitchell  <mark@codesourcery.com>
 	* config/os/irix/bits/ctype_inline.h: Likewise.
 	* config/os/irix/bits/ctype_noninline.h: Likewise.
 
-	* testsuite/22_locale/codecvt_unicode_char.cc: Don't run it
+	* testsuite/22_locale/codecvt_unicode_char.ml: Don't run it
 	if not _GLIBCPP_USE_WCHAR_T.
-	* testsuite/22_locale/codecvt_unicode_wchar_t.cc: Likewise.
-	* testsuite/22_locale/ctor_copy_dtor.cc: Likewise.
-	* testsuite/22_locale/ctype_wchar_t_members.cc: Likewise.
+	* testsuite/22_locale/codecvt_unicode_wchar_t.ml: Likewise.
+	* testsuite/22_locale/ctor_copy_dtor.ml: Likewise.
+	* testsuite/22_locale/ctype_wchar_t_members.ml: Likewise.
 
 	* mkcheck.in: Fix echoing of -rpath option.
 
@@ -1303,7 +1303,7 @@ Thu Nov  2 10:11:45 2000  Mark P Mitchell  <mark@codesourcery.com>
 
 2000-11-02  Benjamin Kosnik  <bkoz@purist.soma.redhat.com>
 
-	* src/locale.cc: Match orderings for static members.
+	* src/locale.ml: Match orderings for static members.
 	* include/bits/fstream.tcc: Fixes for cin.
 
 2000-11-02  Gabriel Dos Reis  <gdr@codesourcery.com>
@@ -1312,19 +1312,19 @@ Thu Nov  2 10:11:45 2000  Mark P Mitchell  <mark@codesourcery.com>
 	exp<>, log<>, log<>, sin, sinh<>) friend declarations.
 	(cos, cosh, sin, sinh): Define primary templates.
 
-	* src/complex.cc (cos<>, cosh<>, sin<>, sinh<>): Comment out
+	* src/complex.ml (cos<>, cosh<>, sin<>, sinh<>): Comment out
 	definitions.
 
 2000-11-01  Benjamin Kosnik  <bkoz@purist.soma.redhat.com>
 
 	* bits/basic_file.h (_M_open_mode): Change signature, move
 	specializations to..
-	* config/c_io_libio.cc: ...here.
+	* config/c_io_libio.ml: ...here.
 	* acinclude.m4 (GLIBCPP_ENABLE_CSTDIO): Add sdtio option, remove wince.
 	* aclocal.m4: Regenerate.
 	* configure: Regenerate.
 	* config/c_io_stdio.h: New file.
-	* config/c_io_stdio.cc: New file.
+	* config/c_io_stdio.ml: New file.
 	* docs/configopts.html: Modify documentation.
 
 2000-10-31  Benjamin Kosnik  <bkoz@purist.soma.redhat.com>
@@ -1338,7 +1338,7 @@ Thu Nov  2 10:11:45 2000  Mark P Mitchell  <mark@codesourcery.com>
 	(conj<>): Comment out specialization.
 	(exp, log, log10): Define primary templates.
 
-	* src/complex.cc (exp<>, log<>, log10<>): Comment out
+	* src/complex.ml (exp<>, log<>, log10<>): Comment out
 	specializations.
 
 2000-10-31  Benjamin Kosnik  <bkoz@purist.soma.redhat.com>
@@ -1348,7 +1348,7 @@ Thu Nov  2 10:11:45 2000  Mark P Mitchell  <mark@codesourcery.com>
 
 2000-10-31  Gabriel Dos Reis  <gdr@codesourcery.com>
 
-	* src/complex.cc (arg, polar): Comment out specializations.
+	* src/complex.ml (arg, polar): Comment out specializations.
 
 	* include/bits/std_complex.h (complex<>): Remove arg<> friend
 	declaration.
@@ -1367,7 +1367,7 @@ Thu Nov  2 10:11:45 2000  Mark P Mitchell  <mark@codesourcery.com>
 	declarations of abs<> specializations.
 	(abs): Define primary template.
 
-	* src/complex.cc (abs): Comment out specialization definition.
+	* src/complex.ml (abs): Comment out specialization definition.
 
 2000-10-30  Phil Edwards  <pme@sources.redhat.com>
 
@@ -1389,9 +1389,9 @@ Thu Nov  2 10:11:45 2000  Mark P Mitchell  <mark@codesourcery.com>
 
 2000-10-30  Benjamin Kosnik  <bkoz@redhat.com>
 
-	* src/complex_io.cc : Remove ancient defines.
+	* src/complex_io.ml : Remove ancient defines.
 	* config/os/gnu-linux/bits/os_defines.h: Add defines.
-	* libsupc++/tinfo2.cc: Change to cstddef.
+	* libsupc++/tinfo2.ml: Change to cstddef.
 
 	* include/bits/codecvt.h: Add include of c++config.h, so that
 	__USE_GNU gets defined. (Important for alpha.)
@@ -1429,19 +1429,19 @@ Thu Nov  2 10:11:45 2000  Mark P Mitchell  <mark@codesourcery.com>
 	* include/bits/codecvt.h: Add cast.
 	* include/c_std/stdio.h: Re-add printf using declaration.
 	* include/c_std/bits/std_cstdio.h: Same
-	* testsuite/22_locale/codecvt_wchar_t_char.cc: Fixup testsuite.
-	* testsuite/22_locale/ctor_copy_dtor.cc: Same.
-	* testsuite/22_locale/facet.cc: Same.
-	* testsuite/22_locale/global_templates.cc: Same.
-	* testsuite/22_locale/operators.cc: Same.
-	* testsuite/22_locale/static_members.cc: Same.
-	* testsuite/26_numerics/c_math.cc: Same.
-	* testsuite/26_numerics/complex_inserters_extractors.cc: Same.
-	* testsuite/27_io/fpos.cc: Same.
-	* testsuite/27_io/istream_extractor_arith.cc: Same.
-	* testsuite/27_io/istream_unformatted.cc: Same.
-	* testsuite/27_io/ostream_inserter_arith.cc: Same.
-	* testsuite/27_io/streambuf.cc: Same.
+	* testsuite/22_locale/codecvt_wchar_t_char.ml: Fixup testsuite.
+	* testsuite/22_locale/ctor_copy_dtor.ml: Same.
+	* testsuite/22_locale/facet.ml: Same.
+	* testsuite/22_locale/global_templates.ml: Same.
+	* testsuite/22_locale/operators.ml: Same.
+	* testsuite/22_locale/static_members.ml: Same.
+	* testsuite/26_numerics/c_math.ml: Same.
+	* testsuite/26_numerics/complex_inserters_extractors.ml: Same.
+	* testsuite/27_io/fpos.ml: Same.
+	* testsuite/27_io/istream_extractor_arith.ml: Same.
+	* testsuite/27_io/istream_unformatted.ml: Same.
+	* testsuite/27_io/ostream_inserter_arith.ml: Same.
+	* testsuite/27_io/streambuf.ml: Same.
 
 2000-10-30  Mark Mitchell  <mark@codesourcery.com>
 
@@ -1457,7 +1457,7 @@ Thu Nov  2 10:11:45 2000  Mark P Mitchell  <mark@codesourcery.com>
         already provides this function.
         (cabsf): Likewise.
         (cabsl): Likewise.
-        * src/complex.cc (abs): Directly use `hypot' since we can't call
+        * src/complex.ml (abs): Directly use `hypot' since we can't call
         cabs on IRIX.
 
 2000-10-30  Joseph S. Myers  <jsm28@cam.ac.uk>
@@ -1465,7 +1465,7 @@ Thu Nov  2 10:11:45 2000  Mark P Mitchell  <mark@codesourcery.com>
 	* acinclude.m4: Update URL on egcs.cygnus.com to point to
 	gcc.gnu.org.
 	* aclocal.m4, configure: Regenerate.
-	* src/gen-num-limits.cc, include/bits/c++config,
+	* src/gen-num-limits.ml, include/bits/c++config,
 	include/bits/stl_config.h: Remove EGCS references.
 
 2000-10-29  Mark Mitchell  <mark@codesourcery.com>
@@ -1499,7 +1499,7 @@ Thu Nov  2 10:11:45 2000  Mark P Mitchell  <mark@codesourcery.com>
 
 2000-10-29  Mark Mitchell  <mark@codesourcery.com>
 
-	* config/c_io_libio.cc (basic_file<char>::__basic_file):
+	* config/c_io_libio.ml (basic_file<char>::__basic_file):
 	Don't pass a NULL _IO_wide_data to _IO_no_init when
 	_GLIBCPP_USE_WCHAR_T is not defined.
 	* config/c_io_libio.h (_IO_codecvt): Don't declare when
@@ -1511,9 +1511,9 @@ Thu Nov  2 10:11:45 2000  Mark P Mitchell  <mark@codesourcery.com>
 	is not defined.
 	* include/bits/locale_facets.h (<bits/std_cwctype.h>): Don't
 	include it when _GLIBCPP_USE_WCHAR_T is not defined.
-	* src/codecvt.cc (__enc_traits::_S_max_size): Don't define
+	* src/codecvt.ml (__enc_traits::_S_max_size): Don't define
 	when _GLIBCPP_USE_WCHAR_T is not defined.
-	* src/localename.cc (locale::_Impl::_M_construct_collate):
+	* src/localename.ml (locale::_Impl::_M_construct_collate):
 	Don't call wide-character functions when _GLIBCPP_USE_WCHAR_T is
 	not defined.
 	(locale::_Impl::_M_construct_ctype): Likewise.
@@ -1534,7 +1534,7 @@ Thu Nov  2 10:11:45 2000  Mark P Mitchell  <mark@codesourcery.com>
 
 2000-10-28  Mark Mitchell  <mark@codesourcery.com>
 
-	* src/string-inst.cc (basic_string<C>::npos): Explicitly
+	* src/string-inst.ml (basic_string<C>::npos): Explicitly
 	instantiate it.
 
 2000-10-26  Benjamin Kosnik  <bkoz@redhat.com>
@@ -1585,7 +1585,7 @@ Thu Nov  2 10:11:45 2000  Mark P Mitchell  <mark@codesourcery.com>
 	* configure.in: Remove GLIBCPP_ENABLE_LONG_DOUBLE.
 	* configure: Regenerate.
 	* docs/configopts.html: Remove.
-	* src/complexl.cc: Revert.
+	* src/complexl.ml: Revert.
 	* config.h.in: Remove.
 	* include/c_std/bits/std_cmath.h: Remove guards based on
 	_GLIBCPP_USE_LONG_DOUBLE.
@@ -1638,7 +1638,7 @@ Thu Nov  2 10:11:45 2000  Mark P Mitchell  <mark@codesourcery.com>
 
         * include/bits/stl_pair.h (make_pair): Add LWG solution.
 
-        * testsuite/21_strings/compare.cc (test01): Inject namespace std
+        * testsuite/21_strings/compare.ml (test01): Inject namespace std
 	into the mix.
 
 	* mkcheck.in (MAX_MEM_USAGE): Bump up to 3072. Strangely enough,
@@ -1683,7 +1683,7 @@ Thu Nov  2 10:11:45 2000  Mark P Mitchell  <mark@codesourcery.com>
 
 2000-10-23  Benjamin Kosnik  <bkoz@redhat.com>
 
-	* testsuite/21_strings/compare.cc (test01): Add using declarations.
+	* testsuite/21_strings/compare.ml (test01): Add using declarations.
 
 	* include/c_std/bits/std_cerrno.h: And here.
 	* include/c_std/bits/std_cassert.h: Tweaks.
@@ -1720,7 +1720,7 @@ Thu Nov  2 10:11:45 2000  Mark P Mitchell  <mark@codesourcery.com>
 
 2000-10-23  Benjamin Kosnik  <bkoz@redhat.com>
 
-	* testsuite/21_strings/compare.cc (test01): Add using declarations.
+	* testsuite/21_strings/compare.ml (test01): Add using declarations.
 
 	* include/c_std/bits/std_cerrno.h: And here.
 	* include/c_std/bits/std_cassert.h: Tweaks.
@@ -1761,14 +1761,14 @@ Thu Nov  2 10:11:45 2000  Mark P Mitchell  <mark@codesourcery.com>
 	* aclocal.m4: Regenerate.
 	* configure.in: Use it.
 	* configure: Regenerate.
-	* src/complexl.cc: Fixup.
+	* src/complexl.ml: Fixup.
 	* include/c_std/bits/std_cmath.h: Fixup.
 	* include/c/bits/std_cmath.h: Fixup.
 	* docs/configopts.html: Add docs.
 
 	* docs/links.html: Add links to defects list, standards FAQ.
 
-	* testsuite/21_strings/ctor_copy_dtor.cc (test01): Disable tests
+	* testsuite/21_strings/ctor_copy_dtor.ml (test01): Disable tests
 	with string creation that allocate huge ammounts of memory.
 
 	* include/c/bits/std_cstddef.h: Put size_t, ptrdiff_t in
@@ -1776,15 +1776,15 @@ Thu Nov  2 10:11:45 2000  Mark P Mitchell  <mark@codesourcery.com>
 
 2000-10-21  Theodore Papadopoulo <Theodore.Papadopoulo@sophia.inria.fr>
 
-	* libsupc++/exception.cc: Use namespace std.
+	* libsupc++/exception.ml: Use namespace std.
 	* libsupc++/new: DITTO.
-	* libsupc++/new_op.cc: DITTO.
-	* libsupc++/new_opnt.cc: DITTO.
-	* libsupc++/new_opv.cc: DITTO.
-	* libsupc++/new_opvnt.cc: DITTO.
-	* libsupc++/tinfo.cc: DITTO.
+	* libsupc++/new_op.ml: DITTO.
+	* libsupc++/new_opnt.ml: DITTO.
+	* libsupc++/new_opv.ml: DITTO.
+	* libsupc++/new_opvnt.ml: DITTO.
+	* libsupc++/tinfo.ml: DITTO.
 	* libsupc++/tinfo.h: DITTO.
-	* libsupc++/vec.cc: DITTO.
+	* libsupc++/vec.ml: DITTO.
 	* libsupc++/Makefile.am: Blank lines removal.
 
 2000-10-21  Joseph S. Myers  <jsm28@cam.ac.uk>
@@ -1802,17 +1802,17 @@ Thu Nov  2 10:11:45 2000  Mark P Mitchell  <mark@codesourcery.com>
 
 2000-10-19  Benjamin Kosnik  <bkoz@purist.soma.redhat.com>
 
-	* testsuite/22_locale/codecvt_unicode_char.cc (test01): Adjust
+	* testsuite/22_locale/codecvt_unicode_char.ml (test01): Adjust
 	creation of state_type for unicode_codecvt to take into account
 	the byte order markings. Add distinct tests for UCS-2BE and UCS-2LE.
-	* testsuite/22_locale/codecvt_unicode_wchar_t.cc (test01): Same.
+	* testsuite/22_locale/codecvt_unicode_wchar_t.ml (test01): Same.
 	* include/bits/codecvt.h (__enc_traits): Add support for encodings
 	that need a byte order marker. Needed for correct unicode support.
 
-	* src/locale.cc: Remove explicit qualification std::.
+	* src/locale.ml: Remove explicit qualification std::.
 	(locale::locale(const char* __name)): Revert, as named locale
 	support not finished.
-	* src/localename.cc (locale::_Impl:: _Impl(size_t __numfacets,
+	* src/localename.ml (locale::_Impl:: _Impl(size_t __numfacets,
 	size_t __refs, bool __has_name = false, string __name): Move
 	default argument...
 	* include/bits/localefwd.h: Here.
@@ -1823,12 +1823,12 @@ Thu Nov  2 10:11:45 2000  Mark P Mitchell  <mark@codesourcery.com>
 
 2000-10-18  Benjamin Kosnik  <bkoz@purist.soma.redhat.com>
 
-	* libsupc++/Makefile.am (exception): Change exception.cc to
-	exception_support.cc.
+	* libsupc++/Makefile.am (exception): Change exception.ml to
+	exception_support.ml.
 	(CXXLINK): Remove bogus --tag CC.
 	* libsupc++/Makefile.in: Regenerate.
-	* libsupc++/exception.cc: Move to...
-	* libsupc++/exception_support.cc: ...here.
+	* libsupc++/exception.ml: Move to...
+	* libsupc++/exception_support.ml: ...here.
 
 	* src/Makefile.am: Remove bogus --tag CC.
 	* src/Makefile.in: Regenerate.
@@ -1837,8 +1837,8 @@ Thu Nov  2 10:11:45 2000  Mark P Mitchell  <mark@codesourcery.com>
 	* include/bits/locale_facets.h (use_facet<ctype<char> >): Correct
 	use_facet declaration. Replace 'const ctype<T>' with ctype<T>.
 	(use_facet<ctype<wchar_t> >): Same.
-	* src/locale-inst.cc: Remove explicit instantiation.
-	* src/locale.cc: Correct signature here too.
+	* src/locale-inst.ml: Remove explicit instantiation.
+	* src/locale.ml: Correct signature here too.
 	(_Bad_use_facet::what()): Correct error string.
 	* include/bits/localefwd.h: Correct comment.
 
@@ -1846,8 +1846,8 @@ Thu Nov  2 10:11:45 2000  Mark P Mitchell  <mark@codesourcery.com>
 
 2000-10-17  Martin Buchholz <martin@xemacs.org>
 
-	* testsuite/27_io/istream_seeks.cc: Fix spelling typo.
-	* testsuite/27_io/ostream_seeks.cc: Similarly.
+	* testsuite/27_io/istream_seeks.ml: Fix spelling typo.
+	* testsuite/27_io/ostream_seeks.ml: Similarly.
 
 2000-10-17  Benjamin Kosnik  <bkoz@purist.soma.redhat.com>
 
@@ -1958,8 +1958,8 @@ Thu Nov  2 10:11:45 2000  Mark P Mitchell  <mark@codesourcery.com>
 
 	* include/bits/std_stdexcept.h: And here.
 	* include/bits/std_ios.h: Change std_exception.h to exception.
-	* src/locale.cc: And here.
-	* src/locale-inst.cc: And here.
+	* src/locale.ml: And here.
+	* src/locale-inst.ml: And here.
 
 	* include/bits/valarray_array.h: And here.
 	* include/bits/stl_alloc.h: And here.
@@ -1989,7 +1989,7 @@ Thu Nov  2 10:11:45 2000  Mark P Mitchell  <mark@codesourcery.com>
 
 	* libsupc++/include/new: Change stddef.h to cstddef.
 	* libsupc++/tinfo.h: Change limits.h to climits.
-	* libsupc++/pure.cc: Comment out _GNU_LIBRARY_ bits, as this
+	* libsupc++/pure.ml: Comment out _GNU_LIBRARY_ bits, as this
 	renders the file uncompilable. Add copyright.
 
 	* include/c_std/bits/std_cstddef.h: Don't bring wchar_t into std
@@ -1997,9 +1997,9 @@ Thu Nov  2 10:11:45 2000  Mark P Mitchell  <mark@codesourcery.com>
 
 2000-10-09  Richard Henderson  <rth@cygnus.com>
 
-	* libsupc++/pure.cc: New file.
+	* libsupc++/pure.ml: New file.
 	* libsupc++/Makefile.am (INCLUDES): Add top_builddir.
-	(sources): Add pure.cc.
+	(sources): Add pure.ml.
 	* libsupc++/Makefile.in: Regenerate.
 
 2000-10-09  Benjamin Kosnik  <bkoz@purist.soma.redhat.com>
@@ -2159,7 +2159,7 @@ Thu Nov  2 10:11:45 2000  Mark P Mitchell  <mark@codesourcery.com>
         * bits/istream.tcc [basic_istream::get(basic_streambuf&)]: Removed
 	test for _M_gcount < in_avail(), as in_avail() only reports info
 	for current buffer, causing method to return at end of buffer.
-	* testsuite/27_io/istream_unformatted.cc [test07()]: New test.
+	* testsuite/27_io/istream_unformatted.ml [test07()]: New test.
 	* testsuite/27_io/istream_unformatted-3.txt: New file.
 	* testsuite/27_io/istream_unformatted-3.tst: New file.
 
@@ -2191,7 +2191,7 @@ Thu Nov  2 10:11:45 2000  Mark P Mitchell  <mark@codesourcery.com>
 	* ext: Move to include/ext, delete.
 	* std: Move to include/std, delete.
 
-	* src/complex.cc: Adjust include of mathconf.
+	* src/complex.ml: Adjust include of mathconf.
 
 	* mkc++config (BASE_H): Add include.
 
@@ -2232,11 +2232,11 @@ Thu Nov  2 10:11:45 2000  Mark P Mitchell  <mark@codesourcery.com>
 	it becomes the default way the library is built.
 	* acinclude.m4 (GLIBCPP_ENABLE_SHADOW): New macro.
 	* config/gnu-linux/bits/ctype_base.h (ctype_base): Use it.
-	* config/gnu-linux/ctype.cc (ctype): Use it.
+	* config/gnu-linux/ctype.ml (ctype): Use it.
 
-	* src/localename.cc (locale::_Impl::_M_replace_categories): Remove
+	* src/localename.ml (locale::_Impl::_M_replace_categories): Remove
 	call to assert.
-	* src/locale.cc: Explicitly cast mbstate_t to void* in calls to
+	* src/locale.ml: Explicitly cast mbstate_t to void* in calls to
 	memset. This should not be necessary, but an ambiguous overload
 	with it in.
 
@@ -2246,7 +2246,7 @@ Thu Nov  2 10:11:45 2000  Mark P Mitchell  <mark@codesourcery.com>
 	* config/gnu-linux/bits/ctype_base.h (ctype_base): Inject ctype
 	enums into namespace std:: for ctype_base enum. Other OS types
 	will have to do this as well.
-	* config/gnu-linux/ctype.cc (ctype): Inject ctype data into
+	* config/gnu-linux/ctype.ml (ctype): Inject ctype data into
 	namespace std, in particular __ctype_toupper, __ctype_tolower,
 	__ctype_b.
 
@@ -2288,7 +2288,7 @@ Thu Nov  2 10:11:45 2000  Mark P Mitchell  <mark@codesourcery.com>
 	* aclocal.m4: Regenerate.
 	* configure: Regenerate.
 
-	* config/c_io_libio.cc: Remove fcntl.h include, as SEEK_SET
+	* config/c_io_libio.ml: Remove fcntl.h include, as SEEK_SET
 	redefined.
 	* libio/libioP.h: Comment out fcntl.h include.
 
@@ -2309,14 +2309,14 @@ Thu Nov  2 10:11:45 2000  Mark P Mitchell  <mark@codesourcery.com>
 	(AC_CXXFLAGS): Add CSHADOWFLAGS.
 	* src/Makefile.in: Regenerate.
 
-	* src/complex.cc (FCT): Change ::name to name.
-	* src/complexl.cc (FCT): Same. Use _GLIBCPP_USE_LONG_LONG here.
-	* src/complexf.cc (FCT): Same.
+	* src/complex.ml (FCT): Change ::name to name.
+	* src/complexl.ml (FCT): Same. Use _GLIBCPP_USE_LONG_LONG here.
+	* src/complexf.ml (FCT): Same.
 
-	* src/complexf.cc: Remove FCT define, as things are properly
+	* src/complexf.ml: Remove FCT define, as things are properly
 	overloaded in the std namespace with the shadow headers.
-	* src/complexl.cc: Same.
-	* src/complex.cc: Same.
+	* src/complexl.ml: Same.
+	* src/complex.ml: Same.
 
 2000-09-25  Phil Edwards  <pme@sources.redhat.com>
 
@@ -2336,7 +2336,7 @@ Thu Nov  2 10:11:45 2000  Mark P Mitchell  <mark@codesourcery.com>
 
 2000-09-19  Benjamin Kosnik  <bkoz@purist.soma.redhat.com>
 
-	* src/localename.cc (locale::_Imp) : Remove typedefs.
+	* src/localename.ml (locale::_Imp) : Remove typedefs.
 	* bits/localefwd.h (locale::locale(const locale& __other, _Facet*
 	__f): Consistency check, call _Imp ctor with reference argument
 	of 1.
@@ -2358,18 +2358,18 @@ Thu Nov  2 10:11:45 2000  Mark P Mitchell  <mark@codesourcery.com>
 
 2000-09-18  Benjamin Kosnik  <bkoz@purist.soma.redhat.com>
 
-	* src/locale-inst.cc: Add time_put_byname and
+	* src/locale-inst.ml: Add time_put_byname and
 	time_get_byname instantiations.
 	* bits/locale_facets.h: Correct default, private derivation to
 	public derivation in _byname declarations.
-	* src/locale.cc (locale::classic()): Simplify.
-	* src/localename.cc (locale::_Impl:: _Impl(const _Impl& __other,
+	* src/locale.ml (locale::classic()): Simplify.
+	* src/localename.ml (locale::_Impl:: _Impl(const _Impl& __other,
 	const string& __name, category __cat, size_t __refs): Re-work for
 	named locales.
 	(_M_normalize_category_names): Remove.
 
-	* testsuite/22_locale/global_templates.cc (test01): Tweaks.
-	* testsuite/22_locale/ctor_copy_dtor.cc (test01): More tests.
+	* testsuite/22_locale/global_templates.ml (test01): Tweaks.
+	* testsuite/22_locale/ctor_copy_dtor.ml (test01): More tests.
 
 2000-09-18  Yuri V. Baskakov  <yuribsk@lab.sun.mcst.ru>
 
@@ -2377,7 +2377,7 @@ Thu Nov  2 10:11:45 2000  Mark P Mitchell  <mark@codesourcery.com>
 
 2000-09-15  Benjamin Kosnik  <bkoz@purist.soma.redhat.com>
 
-	* src/locale.cc (locale::locale(const char* __name)): Consolidate
+	* src/locale.ml (locale::locale(const char* __name)): Consolidate
 	name setting. Add checks for NULL __name pointers. Remove calls to
 	_S_initialize() as initial locale initialization can either be
 	assumed, or needs to be made consistent throughout locale
@@ -2385,15 +2385,15 @@ Thu Nov  2 10:11:45 2000  Mark P Mitchell  <mark@codesourcery.com>
 	(locale::locale(const locale& __other, const char* __name,
 	category __cat): Add checks for NULL name. Add checks for
 	assignment to self.
-	* src/localename.cc (locale::_Impl:: _Impl(const _Impl& __other,
+	* src/localename.ml (locale::_Impl:: _Impl(const _Impl& __other,
 	const string& __name, category __cat, size_t __refs)): Set correct
 	name, has_name values.
-	* testsuite/22_locale/ctor_copy_dtor.cc (test01): More tests.
+	* testsuite/22_locale/ctor_copy_dtor.ml (test01): More tests.
 	* docs/22_locale/locale.html: New file, more unfinished docs...
 
 2000-09-14  Benjamin Kosnik  <bkoz@purist.soma.redhat.com>
 
-	* src/locale.cc (locale::name()): Implement.
+	* src/locale.ml (locale::name()): Implement.
 	(_Impl(size_t __numfacets, size_t __refs, bool __namep = false,
 	string __name = "*")): Change signature.
 	(locale::classic): Initialize the "C" locale as a named locale.
@@ -2401,8 +2401,8 @@ Thu Nov  2 10:11:45 2000  Mark P Mitchell  <mark@codesourcery.com>
 	_M_references. Eliminate _M_cached_name_ok. Rename _M_cached_name
 	to _M_name.
 	* bits/localefwd.h: Tweaks.
-	* src/localename.cc: Tweaks.
-	* testsuite/22_locale/ctor_copy_dtor.cc (test01): Add tests.
+	* src/localename.ml: Tweaks.
+	* testsuite/22_locale/ctor_copy_dtor.ml (test01): Add tests.
 	(test01): Fix.
 
 	* bits/basic_string.h: Consistency check, change _M_state ->
@@ -2425,20 +2425,20 @@ Thu Nov  2 10:11:45 2000  Mark P Mitchell  <mark@codesourcery.com>
 
 2000-09-13  Benjamin Kosnik  <bkoz@purist.soma.redhat.com>
 
-	* testsuite/22_locale/static_members.cc: New file.
-	* testsuite/22_locale/ctor_copy_dtor.cc: New file.
-	* src/locale.cc: Minor formatting tweaks.
+	* testsuite/22_locale/static_members.ml: New file.
+	* testsuite/22_locale/ctor_copy_dtor.ml: New file.
+	* src/locale.ml: Minor formatting tweaks.
 
 2000-09-12  Benjamin Kosnik  <bkoz@purist.soma.redhat.com>
 
-	* testsuite/22_locale/global_templates.cc (test01): Add negative
+	* testsuite/22_locale/global_templates.ml (test01): Add negative
 	tests for use_facet.
 
 	* bits/localefwd.h (locale::operator()): Minor tweaks.
 	* bits/locale_facets.tcc (locale::operator()): Same.
-	* testsuite/22_locale/operators.cc: New file.
+	* testsuite/22_locale/operators.ml: New file.
 
-	* testsuite/22_locale/facet.cc (output_iterator): Remove
+	* testsuite/22_locale/facet.ml (output_iterator): Remove
 	gnu_input_iterator, gnu_output_iterator.
 
 2000-09-11  Benjamin Kosnik  <bkoz@purist.soma.redhat.com>
@@ -2452,7 +2452,7 @@ Thu Nov  2 10:11:45 2000  Mark P Mitchell  <mark@codesourcery.com>
 	(_GNU_SOURCE): Define this in the header files, as ISO C99 support
 	is pretty much assumed.
 
-	* testsuite/22_locale/global_templates.cc: New file. Add tests for
+	* testsuite/22_locale/global_templates.ml: New file. Add tests for
 	use_facet and has_facet.
 
 	* bits/codecvt.h (codecvt<_InT, _ExT, __enc_traits>::do_out):
@@ -2497,9 +2497,9 @@ Thu Nov  2 10:11:45 2000  Mark P Mitchell  <mark@codesourcery.com>
 2000-09-07  Brad Garcia  <bgarcia@laurelnetworks.com>
 
 	* bits/stl_tree.h: Make operators !=, == type safe for map, set.
-	* testsuite/23_containers/set_operators.cc: New file. Should not
+	* testsuite/23_containers/set_operators.ml: New file. Should not
 	compile.
-	* testsuite/23_containers/map_operators.cc: New file. Ditto.
+	* testsuite/23_containers/map_operators.ml: New file. Ditto.
 
 2000-09-06  Richard Henderson  <rth@cygnus.com>
 	    Benjamin Kosnik  <bkoz@cygnus.com>
@@ -2523,7 +2523,7 @@ Thu Nov  2 10:11:45 2000  Mark P Mitchell  <mark@codesourcery.com>
 	* bits/std_cwctype.h: Put in temporary hack to work around -O2 +
 	glibc 2.1.x unsigned errors. Or disable -Werror by default...
 
-	* testsuite/23_containers/vector_element_access.cc: New file.
+	* testsuite/23_containers/vector_element_access.ml: New file.
 	* bits/stl_config.h (__STL_THROW_RANGE_ERRORS): Define.
 
 2000-09-06  Levente Farkas  <lfarkas@mindmaker.hu>
@@ -2536,25 +2536,25 @@ Thu Nov  2 10:11:45 2000  Mark P Mitchell  <mark@codesourcery.com>
 
 2000-09-01  Benjamin Kosnik  <bkoz@cygnus.com>
 
-	* src/locale-inst.cc: Remove pre-instantiation of unicode
+	* src/locale-inst.ml: Remove pre-instantiation of unicode
 	codecvt types. Now unnecessary, as locale header now correct.
 
 2000-08-31  Benjamin Kosnik  <bkoz@cygnus.com>
 
 	* bits/locale_facets.tcc (_S_build_float_format): Move ...
-	* src/locale.cc: Here.
+	* src/locale.ml: Here.
 	* bits/locale_facets.tcc (num_get::_M_extract): Clean up generic
 	definition. Move specialization to ...
-	* src/locale.cc: Here.
+	* src/locale.ml: Here.
 	* bits/locale_facets.tcc: Move _Format_cache specializations to ...
-	* src/locale.cc: Here.
+	* src/locale.ml: Here.
 	* bits/locale_facets.tcc: Move use_facet<ctype> specializations to ...
-	* src/locale.cc: Here.
+	* src/locale.ml: Here.
 
 	* bits/std_locale.h: Note that locale_facets.tcc should be
 	included here, for standards conformance. It may increase
 	compile times though. For the time being, enable.
-	* testsuite/22_locale/facet.cc: New file, some parts commented out
+	* testsuite/22_locale/facet.ml: New file, some parts commented out
 	for the time being.
 
 	* mkcheck.in: Append total time to test summary file.
@@ -2562,7 +2562,7 @@ Thu Nov  2 10:11:45 2000  Mark P Mitchell  <mark@codesourcery.com>
 	* bits/sbuf_iter.h : Formatting tweaks.
 
 	Clean up static const data member definitions.
-	* src/locale.cc: Add definitions for all missing locale,
+	* src/locale.ml: Add definitions for all missing locale,
 	locale::_Imp, and locale::id static data members.
 	(ctype<char>): Add table_size define.
 	(money_base): Add _S_default_pattern, uglify.
@@ -2573,15 +2573,15 @@ Thu Nov  2 10:11:45 2000  Mark P Mitchell  <mark@codesourcery.com>
 	* bits/ios_base.h: Tweaks.
 	* bits/ios_base.h (ios_base::Init::_M_ios_base_init): Change to
 	_S_ios_base_init.
-	* src/ios.cc: And here. Add _S_local_words definition.
+	* src/ios.ml: And here. Add _S_local_words definition.
 	Add definitions for __ios_flags const static data.
-	* src/codecvt.cc: Same for __enc_traits.
-	* src/locale-inst.cc: Remove money_base data member definition
+	* src/codecvt.ml: Same for __enc_traits.
+	* src/locale-inst.ml: Remove money_base data member definition
 	here.
 
 2000-08-30  Benjamin Kosnik  <bkoz@redhat.com>
 
-	* testsuite/22_locale/ctype_wchar_t_members.cc (test01): New file.
+	* testsuite/22_locale/ctype_wchar_t_members.ml (test01): New file.
 
 	* docs/22_locale/codecvt.html: Re-number.
 	* docs/22_locale/howto.html: Add entry for ctype
@@ -2590,7 +2590,7 @@ Thu Nov  2 10:11:45 2000  Mark P Mitchell  <mark@codesourcery.com>
 	* docs/22_locale/ctype.html: New file. In progress...
 
 	* docs/22_locale/codecvt.html: Formatting cleanups.
-	* src/locale.cc (ctype<wchar_t>::do_is): Fix thinko.
+	* src/locale.ml (ctype<wchar_t>::do_is): Fix thinko.
 
 2000-08-30  Phil Edwards  <pme@sources.redhat.com>
 
@@ -2601,12 +2601,12 @@ Thu Nov  2 10:11:45 2000  Mark P Mitchell  <mark@codesourcery.com>
 
 	* bits/locale_facets.h (ctype<char>): Remove __table_type.
 	Add include for bits/std_cwctype.h, for wctype_t.
-	* src/locale.cc (ctype<wchar_t>): Implement.
+	* src/locale.ml (ctype<wchar_t>): Implement.
 	* config/gnu-linux/bits/ctype_base.h (ctype_base): Remove mask
 	typedef, instead name enum.
 	* config/gnu-linux/bits/ctype_specializations.h: Tweak.
-	* config/gnu-linux/ctype.cc: Tweak.
-	* testsuite/22_locale/ctype.cc: Tweak.
+	* config/gnu-linux/ctype.ml: Tweak.
+	* testsuite/22_locale/ctype.ml: Tweak.
 
 	* bits/codecvt.h (__enc_traits): Uglify names.
 
@@ -2614,7 +2614,7 @@ Thu Nov  2 10:11:45 2000  Mark P Mitchell  <mark@codesourcery.com>
 
 	* docs/22_locale/codecvt.html: Add more bits, format.
 	* bits/codecvt.h: Add copy ctor, rename types.
-	* testsuite/22_locale/codecvt_unicode_char.cc: Tweak.
+	* testsuite/22_locale/codecvt_unicode_char.ml: Tweak.
 
 	* libio/iofwide.c: Tweak.
 
@@ -2642,7 +2642,7 @@ Thu Nov  2 10:11:45 2000  Mark P Mitchell  <mark@codesourcery.com>
 2000-08-23  Benjamin Kosnik  <bkoz@purist.soma.redhat.com>
 
 	* bits/codecvt.h: Tweaks.
-	* testsuite/22_locale/codecvt_unicode_wchar_t.cc (test01): Fix up
+	* testsuite/22_locale/codecvt_unicode_wchar_t.ml (test01): Fix up
 	initial string literals for UCS4.
 
 2000-08-23  Phil Edwards  <pme@sourceware.cygnus.com>
@@ -2655,7 +2655,7 @@ Thu Nov  2 10:11:45 2000  Mark P Mitchell  <mark@codesourcery.com>
 	  Conditionally define _LARGEFILE64_SOURCE, otherwise the 64-bit types
 	  will never be there.
 	* libio/libio.h:  In the null case, _IO_lock_t can't just be void.
-	* src/string-inst.cc:  Use _GLIBCPP_USE_WCHAR_T.
+	* src/string-inst.ml:  Use _GLIBCPP_USE_WCHAR_T.
 
 	* configure.in:  Update the cache a bit more often.
 
@@ -2663,14 +2663,14 @@ Thu Nov  2 10:11:45 2000  Mark P Mitchell  <mark@codesourcery.com>
 
 2000-08-22  Benjamin Kosnik  <bkoz@purist.soma.redhat.com>
 
-	* src/locale-inst.cc: Add codecvt<unicode_t, wchar_t,
+	* src/locale-inst.ml: Add codecvt<unicode_t, wchar_t,
 	__enc_traits> instantiations for has_facet and use_facet.
-	* testsuite/22_locale/codecvt_unicode_wchar_t.cc: New file, for
+	* testsuite/22_locale/codecvt_unicode_wchar_t.ml: New file, for
 	testing two-byte unicode encodings converted to four-byte UCS4
 	encodings.
 
 	* bits/codecvt.h (codecvt<__enc_traits>): Fix do_unshift.
-	* testsuite/22_locale/codecvt_unicode_char.cc (test01): Add
+	* testsuite/22_locale/codecvt_unicode_char.ml (test01): Add
 	correct state/encoding information.
 
 	* acinclude.m4 (GLIBCPP_CHECK_WCHAR_T_SUPPORT): Add wcsrtombs,
@@ -2705,15 +2705,15 @@ Thu Nov  2 10:11:45 2000  Mark P Mitchell  <mark@codesourcery.com>
 
 	* bits/codecvt.h: Implement codecvt<wchar_t, char, mbstate_t>. Fix
 	up __enc_traits template so as to be marginally useful.
-	* src/codecvt.cc: And here.
+	* src/codecvt.ml: And here.
 	* bits/char_traits: Tweak.
 	* bits/locale_facets.h: Tweak.
 	* bits/locale_facets.tcc: Tweak.
 	* bits/localefwd.h: Tweak.
-	* src/locale-inst.cc: Add use_facet/has_facet instantiations here.
-	* testsuite/22_locale/codecvt_wchar_t_cc.cc: New file.
-	* testsuite/22_locale/codecvt_char_char.cc: New file.
-	* testsuite/22_locale/codecvt_unicode_char.cc: New file.
+	* src/locale-inst.ml: Add use_facet/has_facet instantiations here.
+	* testsuite/22_locale/codecvt_wchar_t_cc.ml: New file.
+	* testsuite/22_locale/codecvt_char_char.ml: New file.
+	* testsuite/22_locale/codecvt_unicode_char.ml: New file.
 
 2000-08-21  Gabriel Dos Reis  <gdr@merlin.codesourcery.com>
 
@@ -2721,7 +2721,7 @@ Thu Nov  2 10:11:45 2000  Mark P Mitchell  <mark@codesourcery.com>
 
 2000-08-20  Benjamin Kosnik  <bkoz@gnu.org>
 
-	* src/string-inst.cc: Tweak instantiations for new-gxx-abi.
+	* src/string-inst.ml: Tweak instantiations for new-gxx-abi.
 
 2000-08-19  Gabriel Dos Reis  <gdr@codesourcery.com>
 
@@ -2759,17 +2759,17 @@ Thu Nov  2 10:11:45 2000  Mark P Mitchell  <mark@codesourcery.com>
 2000-08-15  Benjamin Kosnik  <bkoz@purist.soma.redhat.com>
 
 	* bits/codecvt.h: New file.
-	* src/codecvt.cc: New file.
+	* src/codecvt.ml: New file.
 	* bits/std_locale.h: Add include here.
 	* src/Makefile.am (headers): Add codecvt.h
-	(sources): Add codecvt.cc.
+	(sources): Add codecvt.ml.
 	* src/Makefile.in: Regenerate.
 	* bits/locale_facets.h (codecvt): Re-implement. Rename _Codecvt to
 	__codecvt_abstract_base in an attempt to point some light this way...
 	Move __enc_traits and codecvt bits to codecvt.h.
-	* src/locale-inst.cc: Remove codecvt<wchar_t, wchar_t, mbstate_t>
+	* src/locale-inst.ml: Remove codecvt<wchar_t, wchar_t, mbstate_t>
 	explicit instantiation. Separate out codecvt instantiations, simplify.
-	* src/locale.cc: Move codecvt bits to codecvt.cc
+	* src/locale.ml: Move codecvt bits to codecvt.ml
 
 2000-08-15  Alexandre Oliva  <aoliva@redhat.com>
 
@@ -2789,7 +2789,7 @@ Thu Nov  2 10:11:45 2000  Mark P Mitchell  <mark@codesourcery.com>
 	* libio/stdio.c
 	* libio/wfileops.c
 	* libio/wgenops.c
-	* config/c_io_libio.cc (__basic_file): Add hacky casts to
+	* config/c_io_libio.ml (__basic_file): Add hacky casts to
 	((struct _IO_FILE_plus *) in ctors.
 	(__basic_file<wchar_t>): Adjust _wide_data->_codecvt to just _codecvt.
 	* libio/Makefile.am: Fix copyright. Remove cleanup.c.
@@ -2797,12 +2797,12 @@ Thu Nov  2 10:11:45 2000  Mark P Mitchell  <mark@codesourcery.com>
 	* libio/filedoalloc.c (_IO_file_doallocate): Don't call
 	_IO_cleanup_registration_needed, even if not libc.
 
-	* testsuite/27_io/stringstream.cc (test02): Fix.
+	* testsuite/27_io/stringstream.ml (test02): Fix.
 
 2000-08-14  Brent Verner <brent@rcfile.org>
 
 	* testsuite/debug_assert.h: new file
-	* testsuite/*/*.cc: s/test\s*&=([^;]+);/VERIFY($1);/g
+	* testsuite/*/*.ml: s/test\s*&=([^;]+);/VERIFY($1);/g
 	changed conditional #include <c?assert.?h?> to
 	unconditional #include <debug_assert.h>
 	* mkcheck.in: added $SRC_DIR/testsuite to include search path
@@ -2817,7 +2817,7 @@ Thu Nov  2 10:11:45 2000  Mark P Mitchell  <mark@codesourcery.com>
 	Same for stringbuf, wstringbuf, istringstream, wistringstream,
 	ostringstream, wostringstream.
 
-	* testsuite/26_numerics/valarray.cc: Add test.
+	* testsuite/26_numerics/valarray.ml: Add test.
 
 2000-08-14  Zack Weinberg  <zack@wolery.cumb.org>
 
@@ -2835,17 +2835,17 @@ Thu Nov  2 10:11:45 2000  Mark P Mitchell  <mark@codesourcery.com>
 	* docs/configopts.html: Add bits about canonical configure option
 	checking.
 
-	* testsuite/27_io/iostream_objects.cc: Replace this file (which
+	* testsuite/27_io/iostream_objects.ml: Replace this file (which
 	has newly-declared-illegal mixing of wide/narrow stdstreams) with...
-	* testsuite/27_io/narrow_stream_objects.cc: New file.
-	* testsuite/27_io/wide_stream_objects.cc: New file.
+	* testsuite/27_io/narrow_stream_objects.ml: New file.
+	* testsuite/27_io/wide_stream_objects.ml: New file.
 
 	* bits/fstream.tcc (underflow): Temporarily hack a solution
 	together that writes from the external file to the internal
 	buffers. This removes codecvt from the loop, and is incorrect.
 	(_M_really_overflow): Same here.
 
-	* testsuite/21_strings/inserters_extractors.cc (test05): Tweaks.
+	* testsuite/21_strings/inserters_extractors.ml (test05): Tweaks.
 
 2000-08-08  Benjamin Kosnik  <bkoz@cygnus.com>
 	    Ulrich Drepper  <drepper@cygnus.com>
@@ -2861,12 +2861,12 @@ Thu Nov  2 10:11:45 2000  Mark P Mitchell  <mark@codesourcery.com>
 	encoding gets fleshed out.
 
 	* bits/basic_file.h: Add specialization declarations.
-	* config/c_io_libio.cc: Add specializations for pbackfail, uflow.
+	* config/c_io_libio.ml: Add specializations for pbackfail, uflow.
 
 	* config/c_io_libio.h: Add __c_wfile_type.
 	* bits/basic_file.h: Add _M_wfile.
 
-	* config/c_io_libio.cc (__basic_file<char>): Initialize the
+	* config/c_io_libio.ml (__basic_file<char>): Initialize the
 	streams without setting the orientation of the underlying FILE to
 	either wide or narrow.
 	(__basic_file<wchar_t>)): Enable tricky wchar_t io bits.
@@ -2887,7 +2887,7 @@ Thu Nov  2 10:11:45 2000  Mark P Mitchell  <mark@codesourcery.com>
 
 2000-07-31  Benjamin Kosnik  <bkoz@cygnus.com>
 
-	* libio/fileops.cc: Update to current glibc sources.
+	* libio/fileops.ml: Update to current glibc sources.
 	* libio/genops.c: Same.
 	* libio/iofwide.c: Same.
 	* libio/libio.h: Same.
@@ -2917,7 +2917,7 @@ Thu Nov  2 10:11:45 2000  Mark P Mitchell  <mark@codesourcery.com>
 
 2000-07-26  Benjamin Kosnik  <bkoz@purist.soma.redhat.com>
 
-	* src/misc-inst.cc (std): Remove instantiations.
+	* src/misc-inst.ml (std): Remove instantiations.
 
 	* acinclude.m4: Add forward-looking bits for autoconf.
 	* aclocal.m4: Regenerate.
@@ -2947,7 +2947,7 @@ Thu Nov  2 10:11:45 2000  Mark P Mitchell  <mark@codesourcery.com>
 2000-07-24  Benjamin Kosnik  <bkoz@purist.soma.redhat.com>
 
 	* bits/std_fstream.h: Parameterize __basic_file.
-	* config/c_io_libio.cc: Add wchar_t methods for parameterization.
+	* config/c_io_libio.ml: Add wchar_t methods for parameterization.
 	* bits/basic_file.h: Same here.
 
 	* bits/istream.tcc (getline): Tweaks.
@@ -2958,9 +2958,9 @@ Thu Nov  2 10:11:45 2000  Mark P Mitchell  <mark@codesourcery.com>
 	* bits/sstream.tcc: Same.
 	* bits/streambuf.tcc: Same.
 	* bits/std_fstream.h: Same.
-	* src/string-inst.cc: Same.
-	* src/ios.cc: Same.
-	* config/c_io_libio.cc: Same.
+	* src/string-inst.ml: Same.
+	* src/ios.ml: Same.
+	* config/c_io_libio.ml: Same.
 	* bits/string.tcc: Same.
 	* bits/std_streambuf.h: Same.
 
@@ -2968,7 +2968,7 @@ Thu Nov  2 10:11:45 2000  Mark P Mitchell  <mark@codesourcery.com>
 
         * bits/istream.tcc: istream::getline(char_type*, streamsize,
 	char_type) make compliant
-        * testsuite/27_io/istream_unformatted.cc: test for compliant behavior
+        * testsuite/27_io/istream_unformatted.ml: test for compliant behavior
 
 2000-07-23  Benjamin Kosnik  <bkoz@purist.soma.redhat.com>
 
@@ -2988,18 +2988,18 @@ Thu Nov  2 10:11:45 2000  Mark P Mitchell  <mark@codesourcery.com>
 
 	Line up with libstdc++-v2 version of valarray.
 	* bits/valarray_array.h (__valarray_product): Make inline.
-	* src/valarray-inst.cc (__valarray_product): Remove explicit
+	* src/valarray-inst.ml (__valarray_product): Remove explicit
 	instantiation.
 
 2000-07-21  Benjamin Kosnik  <bkoz@purist.soma.redhat.com>
 
-        * src/stl-inst.cc: Change __sink_unused_warning to unsigned int
+        * src/stl-inst.ml: Change __sink_unused_warning to unsigned int
         for alpha.
 
-        * testsuite/26_numerics/complex_inserters_extractors.cc (testall):
+        * testsuite/26_numerics/complex_inserters_extractors.ml (testall):
         Change return type to void.
-        * testsuite/25_algorithms/lower_bound.cc: Add return values.
-	* testsuite/17_intro/header_ciso646.cc: Modify.
+        * testsuite/25_algorithms/lower_bound.ml: Add return values.
+	* testsuite/17_intro/header_ciso646.ml: Modify.
         * bits/locale_facets.h: Add return values for the generic cases.
 
 2000-07-21  H.J. Lu  (hjl@gnu.org)
@@ -3074,13 +3074,13 @@ Thu Nov  2 10:11:45 2000  Mark P Mitchell  <mark@codesourcery.com>
 	in_avail, etc can use them.
 	* bits/std_fstream.h: Ditto.
 	* bits/fstream.tcc: Ditto.
-	* testsuite/27_io/filebuf.cc: Tweaks.
+	* testsuite/27_io/filebuf.ml: Tweaks.
 	* testsuite/27_io/filebuf-3.tst: Correct for pbackfail bits.
 
 2000-07-19  Benjamin Kosnik  <bkoz@cygnus.com>
 
-	* src/localename.cc: Same.
-	* src/locale.cc: Same.
+	* src/localename.ml: Same.
+	* src/locale.ml: Same.
 	* bits/localefwd.h: _M_init_facet to _M_facet_init.
 
 	* bits/locale_facets.h: _M_init_boolnames to _M_boolnames_init.
@@ -3100,7 +3100,7 @@ Thu Nov  2 10:11:45 2000  Mark P Mitchell  <mark@codesourcery.com>
 
 	Internal consistency checks.....
 	* bits/ios_base.h: Change _M_locale_ios to _M_ios_locale.
-	* src/ios.cc: Same.
+	* src/ios.ml: Same.
 
 	* bits/basic_ios.h: Change _M_fctype_ios to _M_ios_fctype.
 	* bits/basic_ios.tcc: Same.
@@ -3124,13 +3124,13 @@ Thu Nov  2 10:11:45 2000  Mark P Mitchell  <mark@codesourcery.com>
 2000-07-18  Benjamin Kosnik  <bkoz@purist.soma.redhat.com>
 
 	* acinclude.m4: Tweaks.
-	* config/c_io_libio.cc: Tweaks.
+	* config/c_io_libio.ml: Tweaks.
 	* bits/sstream.tcc (stringbuf::pbackfail): Simplify.
 	* libio/_G_config.h: Don't define _G_HAVE_ST_BLKSIZE.
 	* libio/[iofwide.c, wfiledoalloc.c, wfiteopos.c, wgenops.c]: New files.
 	* libio/iofclose.c iofopen.c, stdio.c: New files.
 	* libio/Makefile.am: Add files, add flags, etc.
-	* src/Makefile.am (sources): Add filebuf.cc.
+	* src/Makefile.am (sources): Add filebuf.ml.
 	* acinclude.m4 (GLIBCPP_CHECK_WCHAR_T_SUPPORT):
 	(GLIBCPP_ENABLE_CSTDIO): Versioning testing, etc etc.
 
@@ -3147,7 +3147,7 @@ Thu Nov  2 10:11:45 2000  Mark P Mitchell  <mark@codesourcery.com>
 	(_Array<>::Array): Use it.
 	* bits/std_valarray.h (valarray<>::valarray): Likewise.
 	(valarray<>::resize): Likewise.  Tweak.
-	* src/valarray-inst.cc (__valarray_product): Tweak.
+	* src/valarray-inst.ml (__valarray_product): Tweak.
 
 2000-07-11  Phil Edwards  <pme@sourceware.cygnus.com>
 
@@ -3164,7 +3164,7 @@ Thu Nov  2 10:11:45 2000  Mark P Mitchell  <mark@codesourcery.com>
 	* configure.in (AC_OUTPUT_COMMANDS): Remove hacks here.
 
 	* configure.in (AC_OUTPUT_COMMANDS): Link c_io_libio.h and
-	c_io_libio.cc instead of copying.
+	c_io_libio.ml instead of copying.
 	* acinclude.m4 (GLIBCPP_ENABLE_CSTDIO): Do link here.
 
 	* configure.in (AC_OUTPUT_COMMANDS): Link $THREADS.h and
@@ -3172,14 +3172,14 @@ Thu Nov  2 10:11:45 2000  Mark P Mitchell  <mark@codesourcery.com>
 	* acinclude.m4 (GLIBCPP_ENABLE_THREADS): Do link here.
 	Tweaks.
 
-	* config/c_io_libio.cc (__basic_file::_M_open_mode): Consolidate.
+	* config/c_io_libio.ml (__basic_file::_M_open_mode): Consolidate.
 	* bits/basic_file.h: Declare.
 
 	* mkcheck.in (TESTS_FILE): Use -v instead of --version.
 
 2000-07-07  brent verner  <brent@rcfile.org>
 
-	* testsuite/27_io/istream_unformatted.cc (test05): New test.
+	* testsuite/27_io/istream_unformatted.ml (test05): New test.
 
 2000-07-07  Benjamin Kosnik  <bkoz@gnu.org>
 
@@ -3199,9 +3199,9 @@ Thu Nov  2 10:11:45 2000  Mark P Mitchell  <mark@codesourcery.com>
 
 2000-07-05  brent verner  <brent@rcfile.org>
 
-	* testsuite/27_io/ifstream_members.cc (test01): Add tests.
-	* testsuite/27_io/ofstream_members.cc (test01): Add tests.
-	* config/c_io_libio.cc (__basic_file::open): Unset
+	* testsuite/27_io/ifstream_members.ml (test01): Add tests.
+	* testsuite/27_io/ofstream_members.ml (test01): Add tests.
+	* config/c_io_libio.ml (__basic_file::open): Unset
 	~_IO_DELETE_DONT_CLOSE.
 
 2000-07-05  Zack Weinberg  <zack@wolery.cumb.org>
@@ -3222,7 +3222,7 @@ Thu Nov  2 10:11:45 2000  Mark P Mitchell  <mark@codesourcery.com>
 
         * bits/locale_facets.tcc (_M_extract): Only figure out the base
         from the input if base == 0.
-        * testsuite/27_io/istream_extractor_arith.cc: Test reading a
+        * testsuite/27_io/istream_extractor_arith.ml: Test reading a
         number with a leading `0' in hex mode.
 
 	* shadow/bits/std_cmath.h: Fix typo in _GLIBCPP_HAVE_CEILL test.
@@ -3249,7 +3249,7 @@ Thu Nov  2 10:11:45 2000  Mark P Mitchell  <mark@codesourcery.com>
 	* libio/gen-params: Remove. Generic replacement for this yet undone.
 	* libio/[filedoalloc.c, fileops.c, genops.c, iolibio.h, libio.h,
 	libioP.h, stdfiles.c]: Update.
-	* config/c_io_libio.cc: Tweaks.
+	* config/c_io_libio.ml: Tweaks.
 	* acinclude.m4: Complete hacks to test wide io.
 	* aclocal.m4: Regenerate.
 	* configure: Regenerate.
@@ -3267,11 +3267,11 @@ Thu Nov  2 10:11:45 2000  Mark P Mitchell  <mark@codesourcery.com>
 
         * bits/concept_checks.h
         (__less_then_comparable_requirement_violation): Only check for <.
-	* testsuite/25_algorithms/lower_bound.cc: New file.
+	* testsuite/25_algorithms/lower_bound.ml: New file.
 
 2000-06-29  Benjamin Kosnik  <bkoz@purist.soma.redhat.com>
 
-	* testsuite/27_io/ostream_manip.cc (test02): Add tests.
+	* testsuite/27_io/ostream_manip.ml (test02): Add tests.
 	* bits/ostream.tcc: Tweak.
 	* bits/std_fstream.h (basic_filebuf::setbuf): Reset
 	_M_buf_size_opt too.
@@ -3283,11 +3283,11 @@ Thu Nov  2 10:11:45 2000  Mark P Mitchell  <mark@codesourcery.com>
 	function, uglify to __eos. Return char_type().
 	* bits/std_ostream.h: Change.
 
-	* testsuite/27_io/ostream_seeks.cc: New file.
+	* testsuite/27_io/ostream_seeks.ml: New file.
 	* testsuite/27_io/ostream_seeks-1.tst: New file.
-	* testsuite/27_io/istream_unformatted.cc (main): Move test04 and
+	* testsuite/27_io/istream_unformatted.ml (main): Move test04 and
 	test05 to...
-	* testsuite/27_io/istream_seeks.cc: New file.
+	* testsuite/27_io/istream_seeks.ml: New file.
 
 2000-06-29  Branko Cibej  <branko.cibej@hermes.si>
 
@@ -3308,9 +3308,9 @@ Thu Nov  2 10:11:45 2000  Mark P Mitchell  <mark@codesourcery.com>
 
 2000-06-28  Benjamin Kosnik  <bkoz@purist.soma.redhat.com>
 
-	* testsuite/27_io/filebuf.cc: Tweak.
-	* testsuite/27_io/filebuf_members.cc (test_01): Fix.
-	* config/c_io_libio.cc (__basic_file::~__basic_file): Match libio
+	* testsuite/27_io/filebuf.ml: Tweak.
+	* testsuite/27_io/filebuf_members.ml (test_01): Fix.
+	* config/c_io_libio.ml (__basic_file::~__basic_file): Match libio
 	filebuf dtor.
 	(__basic_file::basic_file): Clean, add calls similar to
 	_IO_file_attach.
@@ -3338,7 +3338,7 @@ Thu Nov  2 10:11:45 2000  Mark P Mitchell  <mark@codesourcery.com>
 
 	* src/Makefile.am (headers): Add new files.
 	* src/Makefile.in: Regenerate.
-	* src/stl-inst.cc (std): Add instantiation for __sink_unused_warning.
+	* src/stl-inst.ml (std): Add instantiation for __sink_unused_warning.
 	* bits/concept_checks.h: New file.
 	* bits/container_concepts.h: New file.
 	* bits/sequence_concepts.h: New file.
@@ -3356,20 +3356,20 @@ Thu Nov  2 10:11:45 2000  Mark P Mitchell  <mark@codesourcery.com>
 2000-06-26  Brent Verner <brent@rcfile.org>
 
 	* bits/string.tcc (string::rfind): Fix.
-	* testsuite/21_strings/rfind.cc: New file.
+	* testsuite/21_strings/rfind.ml: New file.
 
 2000-06-26  Anthony Williams  <anthony@anthonyw.cjb.net>
 
-	* testsuite/21_strings/ctor_copy_dtor.cc: Fixed logic error.
+	* testsuite/21_strings/ctor_copy_dtor.ml: Fixed logic error.
 
 2000-06-26  Branko Cibej  <branko.cibej@hermes.si>
 
-        * testsuite/27_io/filebuf_members.cc (test_01): Fixed typos.
+        * testsuite/27_io/filebuf_members.ml (test_01): Fixed typos.
 
         * mkcheck.in: Make the *.txt and *.tst files writable after
 	  copying them to $TEST_DIR.
 
-        * testsuite/27_io/ostream_inserter_arith.cc: Renamed
+        * testsuite/27_io/ostream_inserter_arith.ml: Renamed
 	  __TEST_NUMPUT_VERBOSE to TEST_NUMPUT_VERBOSE.  Define
 	  TEST_NUMPUT_VERBOSE only if DEBUG_ASSERT.
 
@@ -3381,13 +3381,13 @@ Thu Nov  2 10:11:45 2000  Mark P Mitchell  <mark@codesourcery.com>
 	filebuf ctor.
 	(basic_filebuf): Add _M_fileno_based data member.
         As reported by brent verner <brent@rcfile.org>
-	* testsuite/27_io/filebuf_members.cc: New file.
+	* testsuite/27_io/filebuf_members.ml: New file.
 	* testsuite/27_io/filebuf_members-1.tst: New file.
 
 	* bits/std_fstream.h: Formatting tweaks.
-	* testsuite/27_io/ofstream_members.cc: New file.
+	* testsuite/27_io/ofstream_members.ml: New file.
 	* testsuite/27_io/ofstream_members-1.tst: New file.
-	* testsuite/27_io/ifstream_members.cc: New file.
+	* testsuite/27_io/ifstream_members.ml: New file.
 	* testsuite/27_io/ifstream_members-1.tst: New file.
 
 2000-06-23  Benjamin Kosnik  <bkoz@purist.soma.redhat.com>
@@ -3422,7 +3422,7 @@ Thu Nov  2 10:11:45 2000  Mark P Mitchell  <mark@codesourcery.com>
 
 2000-06-22  Anthony Williams  <anthony@anthonyw.cjb.net>
 
-	* testsuite/21_strings/find.cc: Patch.
+	* testsuite/21_strings/find.ml: Patch.
 
 2000-06-22  Benjamin Kosnik  <bkoz@soma.redhat.com>
 
@@ -3443,7 +3443,7 @@ Thu Nov  2 10:11:45 2000  Mark P Mitchell  <mark@codesourcery.com>
 2000-06-20  Anthony Williams  <anthony@anthonyw.cjb.net>
 
 	* bits/string.tcc: Fix find.
-	* testsuite/21_strings/find.cc: Patch.
+	* testsuite/21_strings/find.ml: Patch.
 
 2000-06-20  Benjamin Kosnik  <bkoz@purist.soma.redhat.com>
 
@@ -3465,7 +3465,7 @@ Thu Nov  2 10:11:45 2000  Mark P Mitchell  <mark@codesourcery.com>
 
 2000-06-19  Russell Davidson  <russell@ehess.cnrs-mrs.fr>
 
-	* testsuite/27_io/istream_extractor_arith.cc: Patch.
+	* testsuite/27_io/istream_extractor_arith.ml: Patch.
 	* bits/locale_factets.tcc: Tweak.
 
 2000-06-19  Raja R Harinath  <harinath@cs.umn.edu>
@@ -3505,13 +3505,13 @@ Thu Nov  2 10:11:45 2000  Mark P Mitchell  <mark@codesourcery.com>
 
 2000-06-19  Anthony Williams  <anthony@anthonyw.cjb.net>
 
-	* testsuite/21_strings/find.cc: Empty strings can be found at all
+	* testsuite/21_strings/find.ml: Empty strings can be found at all
 	positions. Modified.
 
 2000-06-19  Branko Cibej  <branko.cibej@hermes.si>
 
         * testsuite/20_utilities: New directory.
-        * testsuite/20_utilities/auto_ptr.cc: New file.
+        * testsuite/20_utilities/auto_ptr.ml: New file.
 
 2000-06-14  Benjamin Kosnik  <bkoz@purist.soma.redhat.com>
 
@@ -3521,11 +3521,11 @@ Thu Nov  2 10:11:45 2000  Mark P Mitchell  <mark@codesourcery.com>
         (wstring_sources): Same.
         (OPTIMIZE_CXXFLAGS): Enable -fdata-sections -ffunction-sections
 	-Wl,--gc-sections.
-	* src/string-inst.cc: Remove macro blocks.
+	* src/string-inst.ml: Remove macro blocks.
 	* mkcheck.in (CXX_FLAG): Add bits here.
 
-	* src/string-inst.cc: Remove iostream-related string instantiations.
-	* src/misc-inst.cc: Add here.
+	* src/string-inst.ml: Remove iostream-related string instantiations.
+	* src/misc-inst.ml: Add here.
 
 	* acinclude.m4 (GLIBCPP_CHECK_COMPILER_VERSION): Change FMTFLAGS
 	to WFMT_FLAGS.
@@ -3557,20 +3557,20 @@ Thu Nov  2 10:11:45 2000  Mark P Mitchell  <mark@codesourcery.com>
 
 2000-06-13  Anthony Williams  <anthony@anthonyw.cjb.net>
 
-	* testsuite/23_containers/bitset_ctor.cc: Qualify reverse wth std::.
+	* testsuite/23_containers/bitset_ctor.ml: Qualify reverse wth std::.
 
-	* testsuite/27_io/filebuf.cc: Changed calls to
+	* testsuite/27_io/filebuf.ml: Changed calls to
 	fpos<>._M_position() to implicit calls to operator streamoff().
-	* testsuite/27_io/iostream_objects.cc: Removed #include <ciso646>,
+	* testsuite/27_io/iostream_objects.ml: Removed #include <ciso646>,
 	as not needed. Revert, as part of standard.
-	* testsuite/27_io/ostream_inserter_arith.cc: Replaced explicit
+	* testsuite/27_io/ostream_inserter_arith.ml: Replaced explicit
 	call to numpunct<>._M_init() with overrides of the appropriate
 	virtual functions.
 
-	* testsuite/27_io/stringstream.cc: Removed unnecessary char *
+	* testsuite/27_io/stringstream.ml: Removed unnecessary char *
 	pointers from test01, so no need to call base(), which isn't
 	guaranteed to be implemented as iterators may themselves be pointers
-	* testsuite/27_io/stringbuf.cc: Removed unnecessary calls to
+	* testsuite/27_io/stringbuf.ml: Removed unnecessary calls to
 	_M_position() - use implicit conversion to streamoff instead
 
 2000-06-13  Thomas Holenstein  <thomas@hex.ch>
@@ -3580,25 +3580,25 @@ Thu Nov  2 10:11:45 2000  Mark P Mitchell  <mark@codesourcery.com>
 2000-06-13  Brent Verner <brent@rcfile.org>
 
 	* bits/streambuf.tcc: repaired _S_copy_streambufs()
-	* testsuite/27_io/ostream_inserter_other.cc (test03): Added testcase.
+	* testsuite/27_io/ostream_inserter_other.ml (test03): Added testcase.
 
 2000-06-12  Benjamin Kosnik  <bkoz@purist.soma.redhat.com>
 
 	* bits/locale_facets.h (ctype<wchar_t>): Remove unnecessary data
 	members.
-	* src/locale.cc: Add cwchar include here. Remove incorrect
+	* src/locale.ml: Add cwchar include here. Remove incorrect
 	definitions, and stub them out.
-	* config/generic/ctype.cc (ctype): Remove ctype<wchar_t> bits.
-	* config/solaris/solaris2.7/ctype.cc (ctype): Same.
-	* config/solaris/solaris2.5/ctype.cc (ctype): Same.
-	* config/newlib/ctype.cc: Same.
-	* config/gnu-linux/ctype.cc: Same.
-	* config/bsd/ctype.cc: Same.
-	* config/aix/ctype.cc: Same.
+	* config/generic/ctype.ml (ctype): Remove ctype<wchar_t> bits.
+	* config/solaris/solaris2.7/ctype.ml (ctype): Same.
+	* config/solaris/solaris2.5/ctype.ml (ctype): Same.
+	* config/newlib/ctype.ml: Same.
+	* config/gnu-linux/ctype.ml: Same.
+	* config/bsd/ctype.ml: Same.
+	* config/aix/ctype.ml: Same.
 
 2000-06-12  Branko Cibej  <branko.cibej@hermes.si>
 
-        * config/solaris/solaris2.6/ctype.cc (do_toupper, do_tolower): Use
+        * config/solaris/solaris2.6/ctype.ml (do_toupper, do_tolower): Use
         towupper and towlower to convert wide characters.
 
 2000-06-12  Benjamin Kosnik  <bkoz@purist.soma.redhat.com>
@@ -3620,7 +3620,7 @@ Thu Nov  2 10:11:45 2000  Mark P Mitchell  <mark@codesourcery.com>
 
 2000-06-08  Phil Edwards  <pme@sourceware.cygnus.com>
 
-	* testsuite/26_numerics/complex_inserters_extractors.cc:  Need cmath.
+	* testsuite/26_numerics/complex_inserters_extractors.ml:  Need cmath.
 
 2000-06-06  Steven King  <sxking@uswest.net>
 
@@ -3641,18 +3641,18 @@ Thu Nov  2 10:11:45 2000  Mark P Mitchell  <mark@codesourcery.com>
 2000-06-02  Benjamin Kosnik  <bkoz@purist.soma.redhat.com>
 
 	* bits/locale_facets.h: Tweak.
-	* src/locale.cc (codecvt<wchar_t>): Tweak.
+	* src/locale.ml (codecvt<wchar_t>): Tweak.
 
 	* bits/locale_facets.h (_Format_cache): _S_ecks -> _S_x.
 	* bits/locale_facets.tcc (num_get<char>::_M_extract): Fix for hex.
 
 	* bits/basic_string.h: Move data member up.
-	* src/string-inst.cc: Fix instantiations.
+	* src/string-inst.ml: Fix instantiations.
 	* bits/string.tcc: Fix types.
 
 2000-06-02  Anthony Williams  <anthony@anthonyw.cjb.net>
 
-	* testsuite/21_strings/replace.cc (test01): Qualify find with std::.
+	* testsuite/21_strings/replace.ml (test01): Qualify find with std::.
 
 2000-06-01  Benjamin Kosnik  <bkoz@gnu.org>
 
@@ -3665,9 +3665,9 @@ Thu Nov  2 10:11:45 2000  Mark P Mitchell  <mark@codesourcery.com>
 	macro.
 	* acconfig.h: Remove _GLIBCPP_HAS_WCHAR_MIN_MAX.
 	* bits/limits_generic.h: Remove.
-	* src/gen-num-limits.cc: Same.
+	* src/gen-num-limits.ml: Same.
 
-	* src/locale.cc: Tweaks.
+	* src/locale.ml: Tweaks.
 
 	* bits/char_traits.h: Tweaks.
 
@@ -3675,7 +3675,7 @@ Thu Nov  2 10:11:45 2000  Mark P Mitchell  <mark@codesourcery.com>
 
 	* bits/locale_facets.tcc (num_get<char>::_M_extract): Fix signage,
 	exponent, scientific formatting issues.
-	* testsuite/27_io/istream_extractor_arith.cc (test09): Add tests.
+	* testsuite/27_io/istream_extractor_arith.ml (test09): Add tests.
 
 2000-05-31  Branko Cibej  <branko.cibej@hermes.si>
 
@@ -3786,7 +3786,7 @@ Thu Nov  2 10:11:45 2000  Mark P Mitchell  <mark@codesourcery.com>
 	* src/Makefile.in: Regenerate.
 	* configure: Regenerate.
 
-	* src/ios.cc (ios_base::sync_with_stdio): Clean up buffers from
+	* src/ios.ml (ios_base::sync_with_stdio): Clean up buffers from
 	initialization.
 
 	* docs/download.html: Remove references to Cygwin-specific bits,
@@ -3842,7 +3842,7 @@ Thu Nov  2 10:11:45 2000  Mark P Mitchell  <mark@codesourcery.com>
         * bits/ostream.tcc (_S_pad_char): Function template should not be
         static.
         * bits/streambuf.tcc (_S_copy_streambufs): Likewise.
-        * src/string-inst.cc (__destroy_aux): Instantiate for string*.
+        * src/string-inst.ml (__destroy_aux): Instantiate for string*.
 
 2000-05-18  Nathan C. Myers  <ncm@cantrip.org>
 
@@ -3857,7 +3857,7 @@ Thu Nov  2 10:11:45 2000  Mark P Mitchell  <mark@codesourcery.com>
 
 	* bits/locale_facets.tcc (num_get::_M_extract): Change char* to
 	const char*.
-	* src/string-inst.cc (string::_S_find): Same.
+	* src/string-inst.ml (string::_S_find): Same.
 
 2000-05-18  Benjamin Kosnik  <bkoz@gnu.org>
 
@@ -3956,9 +3956,9 @@ Thu Nov  2 10:11:45 2000  Mark P Mitchell  <mark@codesourcery.com>
 
         * src/Makefile.am: Fix tr commands.
         * src/Makefile.am: Remove references to [w]stringCTORDUPAL.[lo,cc]
-        * src/string-inst.cc: Remove extra instantiation of
+        * src/string-inst.ml: Remove extra instantiation of
           S::basic_string(S::size_type, C, S::allocator_type const&);
-        * src/string-inst.cc: Remove extra template keyword.
+        * src/string-inst.ml: Remove extra template keyword.
 
 2000-05-14  Loren J. Rittle  <ljrittle@acm.org>
 
@@ -3993,17 +3993,17 @@ Thu Nov  2 10:11:45 2000  Mark P Mitchell  <mark@codesourcery.com>
 	* math/complex-stub.h (cabsl): Remove nan() declaration.
 
 	Finish up FreeBSD4.0 support.
-	* config/bsd/ctype.cc: Scope out toupper, tolower calls.
-	* config/generic/ctype.cc: And here.
-	* testsuite/21_strings/char_traits.cc (test02): Guard with
+	* config/bsd/ctype.ml: Scope out toupper, tolower calls.
+	* config/generic/ctype.ml: And here.
+	* testsuite/21_strings/char_traits.ml (test02): Guard with
 	_GLIBCPP_USE_WCHAR_T.
 
 	via Phil Edwards  <pme@sourceware.cygnus.com>
 	* bits/std_cctype.h: Remove _GLIBCPP_USE_NAMESPACES.
 	* acconfig.h: And here.
 	* acinclude.m4: Same.
-	* testsuite/27_io/istream.cc: And here.
-	* testsuite/27_io/ostream.cc: And here.
+	* testsuite/27_io/istream.ml: And here.
+	* testsuite/27_io/ostream.ml: And here.
 
 2000-05-09  Benjamin Kosnik  <bkoz@gnu.org>
 
@@ -4015,7 +4015,7 @@ Thu Nov  2 10:11:45 2000  Mark P Mitchell  <mark@codesourcery.com>
 	Make more generic.
 
 	* config/bsd: New directory.
-	* config/bsd/ctype.cc: New.
+	* config/bsd/ctype.ml: New.
 	* config/bsd/bits/ctype_base.h (ctype_base): New.
 	* config/bsd/bits/ctype_specializations.h: New.
 	* acinclude.m4 (GLIBCPP_CHECK_CTYPE): Add bsd tests.
@@ -4045,13 +4045,13 @@ Thu Nov  2 10:11:45 2000  Mark P Mitchell  <mark@codesourcery.com>
 
         * bits/streambuf.tcc (basic_streambuf::xsgetn): Fix uflow case.
 	(basic_streambuf::xsputn): Make consistent.
-	* testsuite/27_io/filebuf.cc: Add tests.
+	* testsuite/27_io/filebuf.ml: Add tests.
 
 2000-05-08  Steven King  <sxking@uswest.net>
 
         * bits/char_traits.h: Use wchar_t utility functions for
         char_traits<wchar_t> methods.
-        * testsuite/21_string/char_traits.cc: New (test02): test
+        * testsuite/21_string/char_traits.ml: New (test02): test
         char_traits<wchar_t>
 
 2000-05-08  Benjamin Kosnik  <bkoz@cygnus.com>
@@ -4062,12 +4062,12 @@ Thu Nov  2 10:11:45 2000  Mark P Mitchell  <mark@codesourcery.com>
 	_M_buf_size based on macro, instead use _M_buf_size_opt.
 	* bits/std_streambuf.h (basic_streambuf): Add _M_buf_size_opt.
 	(basic_streambuf()): Set _M_buf_size_opt.
-	* testsuite/27_io/filebuf.cc (filebuf): Use _M_buf_size_opt
+	* testsuite/27_io/filebuf.ml (filebuf): Use _M_buf_size_opt
 	instead of _M_buf_size.
 
 2000-05-04  Branko Cibej  <branko.cibej@hermes.si>
 
-        * src/complex_io.cc: Don't instantiate inserters and extractors
+        * src/complex_io.ml: Don't instantiate inserters and extractors
         for wide-character streams unless _GLIBCPP_USE_WCHAR_T is defined.
 
 2000-05-03  Phil Edwards  <pme@sourceware.cygnus.com>
@@ -4109,7 +4109,7 @@ Thu Nov  2 10:11:45 2000  Mark P Mitchell  <mark@codesourcery.com>
 	* config/cpu/powerpc/bits/atomicity.h (__compare_and_swap): Fix typo.
 
 	* mknumeric_limits (trait_name): Fix copyright notice.
-	* src/gen-num-limits.cc: Explicitly instantiate epsilon and
+	* src/gen-num-limits.ml: Explicitly instantiate epsilon and
 	round_error data members of struct value. This works around
 	weak-linking issues on AIX, HPUX.
 
@@ -4125,7 +4125,7 @@ Thu Nov  2 10:11:45 2000  Mark P Mitchell  <mark@codesourcery.com>
 
 2000-04-27  scott snyder  <snyder@fnal.gov>
 
-        * src/misc-inst.cc: Explicitly instantiate ifstream and ofstream
+        * src/misc-inst.ml: Explicitly instantiate ifstream and ofstream
         classes.
 
 2000-04-26  Nathan C. Myers  <ncm@cantrip.org>
@@ -4153,7 +4153,7 @@ Thu Nov  2 10:11:45 2000  Mark P Mitchell  <mark@codesourcery.com>
 	* bits/streambuf.tcc (streambuf::xsgetn): Tweak.
 	* bits/fstream.tcc (underflow): Cast to libio types.
 	* bits/basic_file.h (seekoff): Fixes for alpha: use __c_streamoff.
-	* config/c_io_libio.cc (seekoff): And here.
+	* config/c_io_libio.ml (seekoff): And here.
 
 2000-04-24  Loren J. Rittle  <ljrittle@acm.org>
 
@@ -4162,13 +4162,13 @@ Thu Nov  2 10:11:45 2000  Mark P Mitchell  <mark@codesourcery.com>
 
 2000-04-24  Loren J. Rittle  <ljrittle@acm.org>
 
-        * config/generic/ctype.cc (do_toupper): Remove dependence on
+        * config/generic/ctype.ml (do_toupper): Remove dependence on
         non-portable/non-existent lookup table.
         (do_tolower): Same.
 
 2000-04-24  Nathan Myers  <ncm@cantrip.org>
 
-	* src/string-inst.cc: More fixing.
+	* src/string-inst.ml: More fixing.
 
 2000-04-24  Benjamin Kosnik  <bkoz@gnu.org>
 
@@ -4197,12 +4197,12 @@ Thu Nov  2 10:11:45 2000  Mark P Mitchell  <mark@codesourcery.com>
 	* bits/std_sstream.h: Tweak formatting.
 	* bits/std_fstream.h: Make types public.
 
-	* testsuite/27_io/streambuf.cc: Fix for alpha.
+	* testsuite/27_io/streambuf.ml: Fix for alpha.
 
 	Brad Garcia <bgarcia@laurelnetworks.com>
 	* bits/locale_facets.h (numpunct::numpunct(size_t)): Fix bool
 	initialization.
-	* testsuite/27_io/ios_manip_fmtflags.cc (test02): Add test for
+	* testsuite/27_io/ios_manip_fmtflags.ml (test02): Add test for
 	bool formatting.
 
 2000-04-19  Nathan Myers  <ncm@cantrip.org>
@@ -4211,15 +4211,15 @@ Thu Nov  2 10:11:45 2000  Mark P Mitchell  <mark@codesourcery.com>
 	destroy, leak, clone members into stringMAIN and stringMUTATE
 	object files.
 	* src/Makefile.am: Above, and eliminate dependence on
-	wstring-inst.cc.
-	* src/wstring-inst.cc: Remove.
+	wstring-inst.ml.
+	* src/wstring-inst.ml: Remove.
 
 2000-04-18  Benjamin Kosnik  <bkoz@redhat.com>
 
 	* src/Makefile.am (AC_CXXFLAGS): Activate debugging code, again.
 	Add flags for specialized rules dealing with instantiations.
 
-	* src/string-inst.cc: Add instantiations missing from shared
+	* src/string-inst.ml: Add instantiations missing from shared
 	libraries--see stringEQ, stringCONSC.
 	* src/Makefile.am (wstring_sources): Add.
 	(string_sources): Same.
@@ -4302,8 +4302,8 @@ Thu Nov  2 10:11:45 2000  Mark P Mitchell  <mark@codesourcery.com>
         * stl/ext/slist (class slist): Likewise.
         * stl/ext/stl_bvector.h (class bit_vector): Likewise.
         * stl/ext/stl_rope.h (class rope): Likewise.
-        * src/locale.cc (_Impl): Likewise.
-        * src/localename.cc (_Impl): Likewise.
+        * src/locale.ml (_Impl): Likewise.
+        * src/localename.ml (_Impl): Likewise.
         * bits/localefwd.h (_Impl): Likewise.
 
 2000-04-18  Phil Edwards  <pme@sourceware.cygnus.com>
@@ -4315,19 +4315,19 @@ Thu Nov  2 10:11:45 2000  Mark P Mitchell  <mark@codesourcery.com>
 
 	* bits/basic_string.h: Remove "inline" from member _S_find.
 
-	* src/string-inst.cc: Rewrite to reflect non-inline template
+	* src/string-inst.ml: Rewrite to reflect non-inline template
 	instantiations in string.tcc.
 
-	* src/stringADDCS.cc, stringADDPS.cc, stringADDSC.cc, stringADDSP.cc,
-	stringADDSS.cc, stringBIST.cc, stringBOST.cc, stringCHTR.cc,
-	stringEQPS.cc, stringEQSP.cc, stringEQSS.cc, stringEXTRA.cc,
-	stringGEPS.cc, stringGESP.cc, stringGESS.cc, stringGETLI.cc,
-	stringGTPS.cc, stringGTPS.cc, stringGTSP.cc, stringGTSS.cc,
-	stringINSER.cc, stringLEPS.cc, stringLESP.cc, stringLESS.cc,
-	stringLESP.cc, stringLTPS.cc, stringLTPS.cc, stringLTSP.cc,
-	stringLTSS.cc, stringMAIN.cc, stringNEPS.cc, stringNESP.cc,
-	stringNESS.cc, stringSCOPY.cc: Remove.
-	* src/wstringADDCS.cc, etc: Remove.
+	* src/stringADDCS.ml, stringADDPS.ml, stringADDSC.ml, stringADDSP.ml,
+	stringADDSS.ml, stringBIST.ml, stringBOST.ml, stringCHTR.ml,
+	stringEQPS.ml, stringEQSP.ml, stringEQSS.ml, stringEXTRA.ml,
+	stringGEPS.ml, stringGESP.ml, stringGESS.ml, stringGETLI.ml,
+	stringGTPS.ml, stringGTPS.ml, stringGTSP.ml, stringGTSS.ml,
+	stringINSER.ml, stringLEPS.ml, stringLESP.ml, stringLESS.ml,
+	stringLESP.ml, stringLTPS.ml, stringLTPS.ml, stringLTSP.ml,
+	stringLTSS.ml, stringMAIN.ml, stringNEPS.ml, stringNESP.ml,
+	stringNESS.ml, stringSCOPY.ml: Remove.
+	* src/wstringADDCS.ml, etc: Remove.
 
 	Benjamin Kosnik  <bkoz@haight.constant.com>
 	* src/Makefile.am: Modify to reflect above.
@@ -4371,7 +4371,7 @@ Thu Nov  2 10:11:45 2000  Mark P Mitchell  <mark@codesourcery.com>
 
 2000-04-05  Petter Urkedal  <petter@matfys.lth.se>
 
-        * src/cmath.cc: New file...
+        * src/cmath.ml: New file...
         (pow(*, int)): Define functions...
         * src/Makefile.am (sources): ...register file.
         * src/Makefile.in: Regenerate.
@@ -4398,7 +4398,7 @@ Thu Nov  2 10:11:45 2000  Mark P Mitchell  <mark@codesourcery.com>
 2000-03-29  Benjamin Kosnik  <bkoz@cygnus.com>
 
 	* testsuite/25_algorithms: New directory.
-	* testsuite/25_algorithms/min_max.cc: New file.
+	* testsuite/25_algorithms/min_max.ml: New file.
 
 2000-03-29  scott snyder  <snyder@fnal.gov>
 
@@ -4408,9 +4408,9 @@ Thu Nov  2 10:11:45 2000  Mark P Mitchell  <mark@codesourcery.com>
         * stl/bits/stl_algobase.h (max, min): Don't use comparison
         operator.
 
-	* testsuite/23_containers/bitset_shift.cc: Fix.
+	* testsuite/23_containers/bitset_shift.ml: Fix.
 
-        * testsuite/27_io/ios_manip_fmtflags.cc (test01): Don't give a
+        * testsuite/27_io/ios_manip_fmtflags.ml (test01): Don't give a
         temporary to imbue().
 
 	* bits/std_fstream.h (sync): Resync libio's idea of the current
@@ -4418,7 +4418,7 @@ Thu Nov  2 10:11:45 2000  Mark P Mitchell  <mark@codesourcery.com>
 
 2000-03-28  Benjamin Kosnik  <bkoz@cygnus.com>
 
-	* testsuite/27_io/istream_extractor_arith.cc.cvs: Fix merge
+	* testsuite/27_io/istream_extractor_arith.ml.cvs: Fix merge
 	mistake.
 
 	* bits/std_fstream.h (filebuf::is_open): Check for _M_file before
@@ -4426,19 +4426,19 @@ Thu Nov  2 10:11:45 2000  Mark P Mitchell  <mark@codesourcery.com>
 	* bits/fstream.tcc (ctors): Don't call _M_init_filebuf in
 	ctors. Instead, call _M_init_filebuf ...
 	(open): Here, as suggested by 27.8.1.3.
-	* src/ios.cc (ios_base::Init::Init()): Clean up default filebufs
+	* src/ios.ml (ios_base::Init::Init()): Clean up default filebufs
 	properly when initializing cout/cin/cerr.
 
 2000-03-27  Russell Davidson  <russell@ehess.cnrs-mrs.fr>
 
-	* testsuite/23_containers/multiset.cc (main): Clean up for namespaces.
-	* testsuite/22_locale/ctype_char_members.cc: And here.
-	* testsuite/27_io/streambuf.cc (streambuf): And here.
-	* testsuite/27_io/ostream_inserter_char.cc (test06): And here.
-	* testsuite/27_io/istream_unformatted.cc (test05): And here.
-	* testsuite/27_io/istream_extractor_arith.cc: And here.
-	* testsuite/27_io/ios_manip_basefield.cc (test02): And here.
-	* testsuite/27_io/ios_base_members_static.cc: And here.
+	* testsuite/23_containers/multiset.ml (main): Clean up for namespaces.
+	* testsuite/22_locale/ctype_char_members.ml: And here.
+	* testsuite/27_io/streambuf.ml (streambuf): And here.
+	* testsuite/27_io/ostream_inserter_char.ml (test06): And here.
+	* testsuite/27_io/istream_unformatted.ml (test05): And here.
+	* testsuite/27_io/istream_extractor_arith.ml: And here.
+	* testsuite/27_io/ios_manip_basefield.ml (test02): And here.
+	* testsuite/27_io/ios_base_members_static.ml: And here.
 	* bits/std_climits.h (_CPP_CLIMITS): Fix typo.
 
 2000-03-27  Chris Faylor  <cgf@cygnus.com>
@@ -4503,14 +4503,14 @@ Thu Nov  2 10:11:45 2000  Mark P Mitchell  <mark@codesourcery.com>
 	Return newoff.
 	* bits/fstream.tcc (seekoff): Sync.
 	(seekpos): Sync.
-	* testsuite/27_io/ostream_unformatted.cc: New file.
-	* testsuite/27_io/stringbuf.cc: Fix.
-	* testsuite/27_io/istream_unformatted.cc (test04): Fix.
+	* testsuite/27_io/ostream_unformatted.ml: New file.
+	* testsuite/27_io/stringbuf.ml: Fix.
+	* testsuite/27_io/istream_unformatted.ml (test04): Fix.
 
 	* config/newlib/bits/ctype_base.h (ctype_base): Fix.
-	* config/newlib/ctype.cc (ctype): Change __ctype -> _ctype_.
+	* config/newlib/ctype.ml (ctype): Change __ctype -> _ctype_.
 
-	* src/complex_io.cc (operator>>complex): Tweak.
+	* src/complex_io.ml (operator>>complex): Tweak.
 
 	* config/cpu/alpha/atomicity.h: Explicitly typedef uint32_t, int32_t if
 	<inttypes.h> does not exist.
@@ -4526,7 +4526,7 @@ Thu Nov  2 10:11:45 2000  Mark P Mitchell  <mark@codesourcery.com>
 
 	* bits/std_sstream.h (_M_init_stringbuf): Set initial ate position
 	correctly.
-	* testsuite/27_io/ostream_inserter_char.cc (test06): Add tests for ate.
+	* testsuite/27_io/ostream_inserter_char.ml (test06): Add tests for ate.
 
 	* docs/17_intro/RELEASE-NOTES (New): Add bits.
 
@@ -4559,7 +4559,7 @@ Thu Nov  2 10:11:45 2000  Mark P Mitchell  <mark@codesourcery.com>
 	* docs/17_intro/RELEASE-NOTES (New): Add.
 	* bits/c++config.h (__GLIBCPP__): Bump version.
 
-	* config/c_io_libio.cc (__basic__file(__c_lock*)): Change argument
+	* config/c_io_libio.ml (__basic__file(__c_lock*)): Change argument
 	type to match prototype.
 
 2000-03-20  Phil Edwards  <pme@sourceware.cygnus.com>
@@ -4589,14 +4589,14 @@ Thu Nov  2 10:11:45 2000  Mark P Mitchell  <mark@codesourcery.com>
 	* config/c_io_libio.h: Add __c_lock.
 	* config/threads-no.h: Same here.
 	* config/threads-posix.h: Add __mutext_type typedef.
-        * config/c_io_libio.cc: basic_file ctor takes lock arg.
+        * config/c_io_libio.ml: basic_file ctor takes lock arg.
         * bits/basic_file.h: Ctor takes lock arg.
         * bits/std_fstream.h: Add _M_lock.
         * bits/fstream.tcc: Supply it to basic_file ctor.
 
 	* mkcheck.in (resultstext): Change [[ to [.
 
-	* testsuite/27_io/ostream_inserter_char.cc (test06): Tweak.
+	* testsuite/27_io/ostream_inserter_char.ml (test06): Tweak.
 
 	* bits/locale_facets.h: Tweak.
 
@@ -4620,7 +4620,7 @@ Thu Nov  2 10:11:45 2000  Mark P Mitchell  <mark@codesourcery.com>
 	  the defaults.
 	* configure:  Regenerate.
 
-	* config/solaris/solaris2.7/ctype.cc:  Fix unsigned/signed comparison.
+	* config/solaris/solaris2.7/ctype.ml:  Fix unsigned/signed comparison.
 
 2000-03-16  Phil Edwards  <pme@sourceware.cygnus.com>
 
@@ -4667,7 +4667,7 @@ Thu Nov  2 10:11:45 2000  Mark P Mitchell  <mark@codesourcery.com>
 
 2000-03-15  Bill Thompson  <billt@toast.net>
 
-	* testsuite/27_io/ostream_inserter_char.cc (test06): Add test.
+	* testsuite/27_io/ostream_inserter_char.ml (test06): Add test.
 
 2000-03-14  Phil Edwards  <pme@sourceware.cygnus.com>
 
@@ -4682,7 +4682,7 @@ Thu Nov  2 10:11:45 2000  Mark P Mitchell  <mark@codesourcery.com>
 
         * bits/locale_facets.h (class ctype, class ctype<char>, class
         ctype<wchar_t>): More mask fixes.
-        * testsuite/22_locale/ctype.cc: Test for the problem.
+        * testsuite/22_locale/ctype.ml: Test for the problem.
 
 2000-03-13  Benjamin Kosnik  <bkoz@cygnus.com>
 
@@ -4692,12 +4692,12 @@ Thu Nov  2 10:11:45 2000  Mark P Mitchell  <mark@codesourcery.com>
 	* configure: Regenerate.
 
 	* mknumeric_limits (XCOMPILE): Echo compilation line for
-	gen-num-limits.cc
+	gen-num-limits.ml
 
 	* acinclude.m4 (GLIBCPP_CHECK_CTYPE): Add aix checks.
 	* aclocal.m4: Regenerate.
 	* configure: Regenerate.
-	* config/aix/ctype.cc (ctype): Tweak.
+	* config/aix/ctype.ml (ctype): Tweak.
 	* config/aix/bits/ctype_base.h (ctype_base): Tweak.
 	* config/aix/bits/ctype_specializations.h: New file.
 
@@ -4705,12 +4705,12 @@ Thu Nov  2 10:11:45 2000  Mark P Mitchell  <mark@codesourcery.com>
 
         * stl/bits/stl_vector.h (_M_assign_aux): Fix for __normal_iterator
         conversions.
-        * testsuite/23_containers/vector_modifiers.cc (test01): Add a
+        * testsuite/23_containers/vector_modifiers.ml (test01): Add a
         regression test for the problem.
 
 2000-03-09  Benjamin Kosnik  <bkoz@fidel.cygnus.com>
 
-	* testsuite/27_io/streambuf.cc (class testbuf): Same here.
+	* testsuite/27_io/streambuf.ml (class testbuf): Same here.
 	* bits/fpos.h: And here.
 	* bits/std_ostream.h: Same here.
 	* bits/std_istream.h: Same here.
@@ -4719,7 +4719,7 @@ Thu Nov  2 10:11:45 2000  Mark P Mitchell  <mark@codesourcery.com>
 	* bits/sbuf_iter.h (std): Here too.
 	* bits/std_sstream.h: Make types public.
 
-	* src/misc-inst.cc: Use size_t instead of unsigned int.
+	* src/misc-inst.ml: Use size_t instead of unsigned int.
 	* bits/locale_facets.tcc (_S_format): For now, cast to char. I
 	suppose this should be ctype::narrow... all the ctype<wchar_t>
 	stuff needs to be cleaned up.
@@ -4731,7 +4731,7 @@ Thu Nov  2 10:11:45 2000  Mark P Mitchell  <mark@codesourcery.com>
 2000-03-09  scott snyder  <snyder@fnal.gov>
 
         * bits/std_cmath.h (modf): Fix pointer overrun.
-        * testsuite/26_numerics/c_math.cc (test04, main): Add a regression
+        * testsuite/26_numerics/c_math.ml (test04, main): Add a regression
         test for the problem.
 
 2000-03-09  Phil Edwards  <pme@sourceware.cygnus.com>
@@ -4751,15 +4751,15 @@ Thu Nov  2 10:11:45 2000  Mark P Mitchell  <mark@codesourcery.com>
 2000-03-09  Benjamin Kosnik  <bkoz@gnu.org>
 
 	Preliminary alpha-linux support.
-	* src/locale.cc (ctype<wchar_t>): Use correct types...
+	* src/locale.ml (ctype<wchar_t>): Use correct types...
 	* bits/locale_facets.h (ctype<char>): Add __table_type typedef.
 	(ctype<wchar_t>): Same.
 	* bits/locale_facets.h (ctype<wchar_t>): Have char and wchar_t
 	types match for table_size (size_t).
 
-	* config/gnu-linux/ctype.cc (ctype): Change char_type to wchar_t
+	* config/gnu-linux/ctype.ml (ctype): Change char_type to wchar_t
 	as per char specialization.
-	* config/*/ctype.cc: Same.
+	* config/*/ctype.ml: Same.
 
 2000-03-09  Gabriel Dos Reis  <dosreis@cmla.ens-cachan.fr>
 
@@ -4771,18 +4771,18 @@ Thu Nov  2 10:11:45 2000  Mark P Mitchell  <mark@codesourcery.com>
 
 	Add Solaris 2.5.1 support.
 	* config/solaris/solaris2.5/bits/ctype_base.h (ctype_base): And here.
-	* config/solaris/solaris2.5/ctype.cc: Fixup.
+	* config/solaris/solaris2.5/ctype.ml: Fixup.
 	* config/solaris/solaris2.5/bits/ctype_specializations.h: Add.
 	* acinclude.m4 (GLIBCPP_CHECK_CTYPE): Add bits for solaris2.5.1.
 	* aclocal.m4: Regenerate.
 	* configure: Regenerate.
 
-	* config/default/ctype.cc (ctype): Fixup.
+	* config/default/ctype.ml (ctype): Fixup.
 
 2000-03-07  Benjamin Kosnik  <bkoz@blues.cygnus.com>
 
-	* testsuite/27_io/filebuf.cc: Activate init code from yesterday...
-	* testsuite/27_io/ostream_inserter_arith.cc (testcases): Fix for
+	* testsuite/27_io/filebuf.ml: Activate init code from yesterday...
+	* testsuite/27_io/ostream_inserter_arith.ml (testcases): Fix for
 	non-wchar_t case.
 
 2000-03-07  Gabriel Dos Reis  <dosreis@cmla.ens-cachan.fr>
@@ -4798,27 +4798,27 @@ Thu Nov  2 10:11:45 2000  Mark P Mitchell  <mark@codesourcery.com>
 	Move _S_tolower  to _M_tolower and initialize in ctor.
 	Move _S_table to _M_ctable and initialize in ctor.
 	* bits/locale_facets.h (std): And here.
-	* src/locale.cc (std): Tweak.
-	* config/gnu-linux/ctype.cc: Change initialization here.
-	* config/newlib/ctype.cc: And here.
-	* config/solaris/solaris2.7/ctype.cc: And here.
-	* config/solaris/solaris2.6/ctype.cc: And here.
+	* src/locale.ml (std): Tweak.
+	* config/gnu-linux/ctype.ml: Change initialization here.
+	* config/newlib/ctype.ml: And here.
+	* config/solaris/solaris2.7/ctype.ml: And here.
+	* config/solaris/solaris2.6/ctype.ml: And here.
 
 	* bits/localefwd.h: Tweak.
 	* bits/std_streambuf.h: Tweak formatting.
 
-	* testsuite/27_io/filebuf.cc: Remove BUFSIZ dependencies.
+	* testsuite/27_io/filebuf.ml: Remove BUFSIZ dependencies.
 
 2000-03-05  Chip Salzenberg  <chip@valinux.com>
 
-        * src/misc-inst.cc (basic_iostream<>):  Instantiate.
+        * src/misc-inst.ml (basic_iostream<>):  Instantiate.
 
 2000-03-02  Phil Edwards  <pme@sourceware.cygnus.com>
             Kevin Atkinson  <kevinatk@home.com>
 
         Initial grab of SGI's strstream implementation with minor
         modifications.
-        * src/strstream.cc:  New file.
+        * src/strstream.ml:  New file.
         * std/strstream:  New file.
         * stl/bits/std_strstream.h:  New file.
         * bits/std_streambuf.h:  Add public access.
@@ -4873,7 +4873,7 @@ Thu Nov  2 10:11:45 2000  Mark P Mitchell  <mark@codesourcery.com>
 	* bits/valarray_array.h: Synch. Fix typos.
 
 	* libio/Makefile.am: Change to only compile source files that
-	config/c_io_libio.cc actually needs.
+	config/c_io_libio.ml actually needs.
 	* libio/Makefile.in: Regnerate.
 	* libio/PlotFile.hes SFile.h builtinbuf.h editbuf.h floatconv.c
 	floatio.h fstream.h indstream.h iofclose.c iofdopen.c iofeof.c
@@ -4893,7 +4893,7 @@ Thu Nov  2 10:11:45 2000  Mark P Mitchell  <mark@codesourcery.com>
 	(filepos_beg): Remove.
 	(filepos_cur): Remove.
 	(filepos_valid): Remove.
-	* config/c_io_libio.cc: Resynch with the changes to basic_file.
+	* config/c_io_libio.ml: Resynch with the changes to basic_file.
 
 2000-02-29  Gabriel Dos Reis  <dosreis@cmla.ens-cachan.fr>
 
@@ -4917,13 +4917,13 @@ Thu Nov  2 10:11:45 2000  Mark P Mitchell  <mark@codesourcery.com>
 2000-02-28  Benjamin Kosnik  <bkoz@cygnus.com>
 
 	Prune libio directory to match files in libio/Makefile.
-	* libio/PlotFile.cc,indstream.cc, isgetsb.cc, sbform.cc,
-	stream.cc, SFile.cc, ioassign.cc, isscan.cc, sbgetline.cc,
-	streambuf.cc, builtinbuf.cc, ioextend.cc, osform.cc, sbscan.cc,
-	strstream.cc, editbuf.cc, iomanip.cc, parsestream.cc,
-	stdiostream.cc, filebuf.cc, iostream.cc, pfstream.cc,
-	stdstrbufs.cc, fstream.cc, isgetline.cc, procbuf.cc,
-	stdstreams.cc: Remove.
+	* libio/PlotFile.ml,indstream.ml, isgetsb.ml, sbform.ml,
+	stream.ml, SFile.ml, ioassign.ml, isscan.ml, sbgetline.ml,
+	streambuf.ml, builtinbuf.ml, ioextend.ml, osform.ml, sbscan.ml,
+	strstream.ml, editbuf.ml, iomanip.ml, parsestream.ml,
+	stdiostream.ml, filebuf.ml, iostream.ml, pfstream.ml,
+	stdstrbufs.ml, fstream.ml, isgetline.ml, procbuf.ml,
+	stdstreams.ml: Remove.
 	* libio/floatio.h, iolibio.h, iostdio.h, iostreamP.h: Remove.
 	* libio/iofflush_u.c: Remove.
 
@@ -4933,7 +4933,7 @@ Thu Nov  2 10:11:45 2000  Mark P Mitchell  <mark@codesourcery.com>
 	* libio/tests: Remove.
 	* libio/testsuite: Remove.
 
-	* config/c_io_libio.cc: Add fcntl.h include for Solaris.
+	* config/c_io_libio.ml: Add fcntl.h include for Solaris.
 
 	* acinclude.m4 (GLIBCPP_ENABLE_CSTDIO): Add bits.
 	* configure.in: Replace 'grep -e' with 'grep' for Solaris.
@@ -4950,7 +4950,7 @@ Thu Nov  2 10:11:45 2000  Mark P Mitchell  <mark@codesourcery.com>
 
 	* bits/basic_file.h: Allow for non-inheritance based __basic_files.
 	* config/c_io_libio.h (_GLIBCPP_BASIC_FILE_INHERITANCE): Define.
-	* config/c_io_libio.cc: Tweak.
+	* config/c_io_libio.ml: Tweak.
 
 	* src/Makefile.am (TOPLEVEL_INCLUDES): Add includedir.
 	* src/Makefile.in: Regenerate.
@@ -4963,7 +4963,7 @@ Thu Nov  2 10:11:45 2000  Mark P Mitchell  <mark@codesourcery.com>
 	* bits/std_ios.h: Include <bits/c++io.h> instead of libio.
 	* bits/fpos.h: And here.
 	* bits/basic_file.h (get_fileno): Move definition from ...
-	* src/basic_file.cc (std): To here.
+	* src/basic_file.ml (std): To here.
 	* bits/fpos.h: Move types for streamoff, streampos to..
 	* bits/basic_file.h: Move __c_file_type and fpos typedefs to...
 	* config/c_io_libio.h: ...here.
@@ -4973,13 +4973,13 @@ Thu Nov  2 10:11:45 2000  Mark P Mitchell  <mark@codesourcery.com>
 	FAILBIT, GOODBIT, APP, ATE, BINARY, IN, OUT, TRUNC): New macros to
 	abstract out bits in ios_base.
 	* bits/ios_base.h: Re-macrofy.
-	* src/basic_file.cc : Rename, move to
-	* config/c_io_libio.cc: Here.
+	* src/basic_file.ml : Rename, move to
+	* config/c_io_libio.ml: Here.
 	* config/c_io_libio.h: New file. Include libio.
 	* bits/c++config.h: Don't define _GLIBCPP_USE_LIBIO.
 	* configure.in (blddir): Add enabling bits for GLIBCPP_ENABLE_CSTDIO.
 	* configure: Regenerate.
-	* src/Makefile.am (sources): Take out basic_file.cc and add c++io.cc.
+	* src/Makefile.am (sources): Take out basic_file.ml and add c++io.ml.
 	(generated_headers): Add c++io.h
 	* acinclude.m4 (GLIBCPP_ENABLE_CSTDIO): New function to select
 	underlying "C" io library.
@@ -5009,14 +5009,14 @@ Thu Nov  2 10:11:45 2000  Mark P Mitchell  <mark@codesourcery.com>
 	* docs/mail.html: Same.
 	* docs/download.html: Same.
 
-	* testsuite/27_io/filebuf.cc: Change BUFSIZ to buffer_size, and
+	* testsuite/27_io/filebuf.ml: Change BUFSIZ to buffer_size, and
 	kill the macro BUFSIZ. I think the solaris fails lie elsewhere
-	however, in the ctype_char_members.cc fail (for instance.)
-	* testsuite/17_intro/headers.cc: Remove extraneous fails for hosts
+	however, in the ctype_char_members.ml fail (for instance.)
+	* testsuite/17_intro/headers.ml: Remove extraneous fails for hosts
 	that do not have wchar_t enabled.
-	* testsuite/27_io/ostream_inserter_arith.cc (struct _TestCase):
+	* testsuite/27_io/ostream_inserter_arith.ml (struct _TestCase):
 	Same here.
-	* testsuite/27_io/iostream_objects.cc: And here.
+	* testsuite/27_io/iostream_objects.ml: And here.
 
 	* libio/gen-params (CONFIG_NM): Specifically add in nm as the
 	default CONFIG_NM.
@@ -5064,14 +5064,14 @@ Thu Nov  2 10:11:45 2000  Mark P Mitchell  <mark@codesourcery.com>
 
 	* mkcheck.in: Add bits to set CXX to cross compiler.
 
-	* src/complex_io.cc: Tweak.
+	* src/complex_io.ml: Tweak.
 	* configure.in: _GLIBCPP_BUGGY_COMPLEX for crosses.
 	* configure: Regenerate.
 
-	* config/newlib/ctype.cc: Tweaks.
+	* config/newlib/ctype.ml: Tweaks.
 	* config/newlib/bits/ctype_base.h (ctype_base): Set mask to char,
 	not const char.
-	* src/complex_io.cc (operator>>(istream, complex): Define out if
+	* src/complex_io.ml (operator>>(istream, complex): Define out if
 	BUGGY_COMPLEX.
 
 2000-02-16  Benjamin Kosnik  <bkoz@cygnus.com>
@@ -5079,19 +5079,19 @@ Thu Nov  2 10:11:45 2000  Mark P Mitchell  <mark@codesourcery.com>
 	* config/newlib/bits/ctype_base.h: Correct _S_table.
 
 	Reconfigure ctype support for "C" libraries that don't use arrays.
-	* testsuite/22_locale/ctype_char_members.cc: New file. Test for
+	* testsuite/22_locale/ctype_char_members.ml: New file. Test for
 	basic ctype<char> functionality.
-	* src/locale.cc: Move host-specific ctype functions that are not
-	inlines to config/*/ctype.cc files.
+	* src/locale.ml: Move host-specific ctype functions that are not
+	inlines to config/*/ctype.ml files.
 	(ctype<char>::do_tolower): For instance.
 	(ctype<char>::do_toupper): For instance.
 	(ctype<wchar_t>::do_tolower): For instance.
 	(ctype<wchar_t>::do_toupper): For instance.
-	* config/gnu-linux/ctype.cc: Modify.
-	* config/default/ctype.cc: Modify.
-	* config/newlib/ctype.cc: Modify.
-	* config/solaris/solaris2.6/ctype.cc: Modify.
-	* config/solaris/solaris2.7/ctype.cc: Modify.
+	* config/gnu-linux/ctype.ml: Modify.
+	* config/default/ctype.ml: Modify.
+	* config/newlib/ctype.ml: Modify.
+	* config/solaris/solaris2.6/ctype.ml: Modify.
+	* config/solaris/solaris2.7/ctype.ml: Modify.
 
 	* bits/locale_facets.h (ctype<char>::is): Mark inline, move
 	out-of-line.
@@ -5111,18 +5111,18 @@ Thu Nov  2 10:11:45 2000  Mark P Mitchell  <mark@codesourcery.com>
 	CONFIG_NM for Solaris builds.
 	* Makefile.in: Regenerate.
 
-	* src/locale.cc: Tweak formatting.
+	* src/locale.ml: Tweak formatting.
 
 2000-02-15  Benjamin Kosnik  <bkoz@cygnus.com>
 
 	Jim Parsons  <parsons@clearway.com>
-	* testsuite/27_io/istream_unformatted.cc (test06): Add test.
+	* testsuite/27_io/istream_unformatted.ml (test06): Add test.
 	* bits/istream.tcc (read): Set failbit if !good(). Don't increment
 	gcount if eof.
 	(readsome): Same.
 
 	Michel Decima  <michel.decima@cnet.francetelecom.fr>
-	* testsuite/27_io/streambuf.cc: Add test.
+	* testsuite/27_io/streambuf.ml: Add test.
 	* bits/streambuf.tcc (xsgetn): Don't test for valid mode.
 	(xsputn): Same.
 
@@ -5153,7 +5153,7 @@ Thu Nov  2 10:11:45 2000  Mark P Mitchell  <mark@codesourcery.com>
         Improve (complete?) 'long long' support.
         * mknumeric_limits: Call $CXX with $CPPFLAGS.  Define statics
         for {,unsigned} long long if the limits header declares them.
-        * src/gen-num-limits.cc: Include <bits/c++config.h> early.
+        * src/gen-num-limits.ml: Include <bits/c++config.h> early.
         (__USE_GNU, _GNU_SOURCE): Define if _GLIBC_USE_LONG_LONG.
         (long long, unsigned long long): Gen limits if _GLIBC_USE_LONG_LONG.
         * bits/locale_facets.h (num_get<>::get(..., long long &)): Define.
@@ -5164,23 +5164,23 @@ Thu Nov  2 10:11:45 2000  Mark P Mitchell  <mark@codesourcery.com>
         (num_put<>::put(...)): Call _S_format with new name.
         (num_put<>::put(..., long long)): Define.
         (num_put<>::put(..., unsigned long long)): Likewise.
-        * src/locale-inst.cc (_S_format): Instantiate under new name.
+        * src/locale-inst.ml (_S_format): Instantiate under new name.
 
 2000-02-15  Petter Urkedal  <petter@matfys.lth.se>
 
-        * src/complex.cc (operator<<, operator>>): Moved from here...
-        * src/complex_io.cc: ...to new file.
+        * src/complex.ml (operator<<, operator>>): Moved from here...
+        * src/complex_io.ml: ...to new file.
         (operator>>): Stub replaced by the real thing.
-        * src/Makefile.am (sources): Inserted complex_io.cc.
+        * src/Makefile.am (sources): Inserted complex_io.ml.
 	* src/Makefile.in: Regenerate.
-        * testsuite/26_numerics/complex_inserters_extractors.cc: Check it.
+        * testsuite/26_numerics/complex_inserters_extractors.ml: Check it.
 
 2000-02-14  Benjamin Kosnik  <bkoz@gnu.org>
 
 	Add in ctype information for newlib "C" libraries.
 	* config/newlib: New directory
  	* config/newlib/bits/ctype_base.h: New file.
-	* config/newlib/ctype.cc: New file.
+	* config/newlib/ctype.ml: New file.
 
 	* ctype/config/linux/*: Rename, move to...
 	* ctype/config/gnu-linux/*: Here.
@@ -5289,7 +5289,7 @@ Thu Nov  2 10:11:45 2000  Mark P Mitchell  <mark@codesourcery.com>
 
 	* mknumeric_limits (XCOMPILE): Add support for cross compiling.
 	* bits/limits_generic.h: New file, defaults.
-	* src/limits_generic.cc: New file, defaults.
+	* src/limits_generic.ml: New file, defaults.
 	* configure.in (LIBS): Run mknumeric_limits at configure time.
 	* acconfig.h: Remove PACKAGE VERSION HAVE_COMPLEX
 	HAVE_LC_MESSAGES, tidy, clean, etc.
@@ -5298,12 +5298,12 @@ Thu Nov  2 10:11:45 2000  Mark P Mitchell  <mark@codesourcery.com>
 	* bits/fpos.h: Use _GLIBCPP_USE_LIBIO guards for libio typenames
 	(_IO_off_t, _IO_ssize_t)
 
-	* src/complex.cc: Use glibc's <complex.h> if
+	* src/complex.ml: Use glibc's <complex.h> if
 	possible. . . apparently this was not being done before. Include
 	tweaks.
 	(abs): Enable cabs if it's around, instead of mycabs.
-	* src/complexf.cc (FCT): Add global scope to match complex.cc.
-	* src/complexl.cc (FCT): Same.
+	* src/complexf.ml (FCT): Add global scope to match complex.ml.
+	* src/complexl.ml (FCT): Same.
 	* math/Makefile.am (EXTRA_LONG_DOUBLE_yes): Change mycabsl to cabsl.
 	(libmath_la_SOURCES): And here.
 	* math/(mycabs.c, mycabsf.c, mycabsl.c): Move to. . .
@@ -5330,13 +5330,13 @@ Thu Nov  2 10:11:45 2000  Mark P Mitchell  <mark@codesourcery.com>
 
 2000-02-09  Gabriel Dos Reis  <dosreis@cmla.ens-cachan.fr>
 
-	* testsuite/26_numerics/buggy_complex.cc: Fix Origin:.
+	* testsuite/26_numerics/buggy_complex.ml: Fix Origin:.
 
 	* acinclude.m4: Patch only once!
 
 2000-02-09  Gabriel Dos Reis  <dosreis@cmla.ens-cachan.fr>
 
-	* testsuite/26_numerics/buggy_complex.cc: New file.
+	* testsuite/26_numerics/buggy_complex.ml: New file.
 
 2000-02-05  Petter Urkedal  <petter@matfys.lth.se>
 
@@ -5355,7 +5355,7 @@ Thu Nov  2 10:11:45 2000  Mark P Mitchell  <mark@codesourcery.com>
 
 2000-02-04  Mumit Khan  <khan@xraylith.wisc.edu>
 
-	* src/gen-num-limits.cc (signal_handler): Work around signal
+	* src/gen-num-limits.ml (signal_handler): Work around signal
 	handling problem on Cygwin.
 	Thanks to Chris Faylor <cgf@cygnus.com>.
 
@@ -5410,8 +5410,8 @@ Thu Nov  2 10:11:45 2000  Mark P Mitchell  <mark@codesourcery.com>
 	* bits/locale_facets.tcc: Change HAVE_* macros to _GLIBCPP_HAVE_*.
 	* bits/std_cmath.h: Same here.
 	* bits/std_cwchar.h: And here.
-	* src/locale.cc: And here.
-	* src/complexl.cc: And here.
+	* src/locale.ml: And here.
+	* src/complexl.ml: And here.
 	* math/mathconf.h: Change to include "config.h" instead of
 	bits/c++config.h.
 
@@ -5459,14 +5459,14 @@ Thu Nov  2 10:11:45 2000  Mark P Mitchell  <mark@codesourcery.com>
 
         * bits/istream.tcc (operator>>(istream&, string&)): Set failbit if
         we don't extract any characters.
-	* testsuite/21_strings/inserters_extractors.cc (main): New tests.
+	* testsuite/21_strings/inserters_extractors.ml (main): New tests.
 
 2000-01-31  Anders Widell  <awl@hem.passagen.se>
 
         * stl/bits/std_bitset.h (_M_do_left_shift): Handle case when shift
         step is a multiple of the word size.
         (_M_do_right_shift): Same.
-	* testsuite/23_containers/bitset_shift.cc: New file.
+	* testsuite/23_containers/bitset_shift.ml: New file.
 
 2000-01-31  Nathan Myers  <ncm@zembu.com>
 
@@ -5484,12 +5484,12 @@ Thu Nov  2 10:11:45 2000  Mark P Mitchell  <mark@codesourcery.com>
 
         Nathan Myers  <ncm@zembu.com>
 	Jim Parsons  <parsons@clearway.com>
-	* testsuite/27_io/istream_extractor_arith.cc (test08): Add
+	* testsuite/27_io/istream_extractor_arith.ml (test08): Add
 	more grouping tests, tweak, scold, wine.
 
 2000-01-24  Benjamin Kosnik  <bkoz@gnu.org>
 
-	* testsuite/27_io/istream_extractor_arith.cc (test07): Add
+	* testsuite/27_io/istream_extractor_arith.ml (test07): Add
 	grouping tests.
 	* bits/locale_facets.tcc (num_get::_M_extract): Change to fix
 	grouping bugs. Only allow thousands_sep if _M_use_groupings is
@@ -5505,9 +5505,9 @@ Thu Nov  2 10:11:45 2000  Mark P Mitchell  <mark@codesourcery.com>
 
 2000-01-14  Benjamin Kosnik  <bkoz@gnu.org>
 
-	* testsuite/27_io/istream_extractor_arith.cc: Fix.
+	* testsuite/27_io/istream_extractor_arith.ml: Fix.
 	* bits/locale_facets.tcc (do_get(...void)): Change to strtoul.
-	* testsuite/27_io/istream_unformatted.cc (test04): Tweak.
+	* testsuite/27_io/istream_unformatted.ml (test04): Tweak.
 
 2000-01-14  Phil Edwards  <pme@sourceware.cygnus.com>
 
@@ -5528,16 +5528,16 @@ Thu Nov  2 10:11:45 2000  Mark P Mitchell  <mark@codesourcery.com>
 
 2000-01-13  Benjamin Kosnik  <bkoz@cygnus.com>
 
-	* testsuite/27_io/istream_extractor_arith.cc: Add checks for void*.
+	* testsuite/27_io/istream_extractor_arith.ml: Add checks for void*.
 	* bits/locale_facets.tcc (do_get::(...void)): Set fmtflags
 	correctly for hex-formatted input.
 
-	* testsuite/27_io/istream_manip.cc (test01): Fix, as per setting
+	* testsuite/27_io/istream_manip.ml (test01): Fix, as per setting
 	eofbit instead of eofbit | failbit.
-	* testsuite/27_io/istream_unformatted.cc (test04): Fix, as
+	* testsuite/27_io/istream_unformatted.ml (test04): Fix, as
 	ifstreams now are opened or'd with ios_base::in (as is correct).
 	* bits/fstream.tcc (filebuf::seekoff): Simplify.
-	* testsuite/27_io/ios_base_members_static.cc (test01): Fix thinko.
+	* testsuite/27_io/ios_base_members_static.ml (test01): Fix thinko.
 
 2000-01-12  Benjamin Kosnik  <bkoz@gnu.org>
 
@@ -5549,20 +5549,20 @@ Thu Nov  2 10:11:45 2000  Mark P Mitchell  <mark@codesourcery.com>
 	(__baseic_file::get_fileno): New function.
 	* bits/ios_base.h (ios_base::sync_with_stdio): Implement, including
 	feedback from LWG 49.
-	* src/ios.cc: Move definition here.
-	* testsuite/27_io/ios_base_members_static.cc (test01): Add tests.
+	* src/ios.ml: Move definition here.
+	* testsuite/27_io/ios_base_members_static.ml (test01): Add tests.
 
 	* bits/std_sstream.h (_M_really_sync): Simplify argument list. Set
 	output part of internal buffer based on string size, so that
 	_M_out_end is set consistently with filebufs. Correct comments.
 	* bits/sstream.tcc (stringbuf::overflow): Update here too.
-	* testsuite/27_io/stringbuf.cc: Changes.
+	* testsuite/27_io/stringbuf.ml: Changes.
 
 2000-01-11  Benjamin Kosnik  <bkoz@gnu.org>
 
 	* bits/sstream.tcc (seekoff): Set based on end of written buffer,
 	not buffer size.
-	* testsuite/27_io/stringbuf.cc: Add tests for seekoff(end).
+	* testsuite/27_io/stringbuf.ml: Add tests for seekoff(end).
 
 	* bits/std_fstream.h (ifstream::open): Add ios_base::in to openmode.
 	(ofstream::open): Add ios_base::out to openmode.
@@ -5575,7 +5575,7 @@ Thu Nov  2 10:11:45 2000  Mark P Mitchell  <mark@codesourcery.com>
 
 2000-01-10  Benjamin Kosnik  <bkoz@gnu.org>
 
-	* testsuite/27_io/istringstream_members.cc: New file.
+	* testsuite/27_io/istringstream_members.ml: New file.
 
 2000-01-09  Benjamin Kosnik  <bkoz@gnu.org>
 
@@ -5604,10 +5604,10 @@ Thu Nov  2 10:11:45 2000  Mark P Mitchell  <mark@codesourcery.com>
 
 	Break out configuration on solaris.
 	* configure.in (ctype_solaris): Add in bits for solaris2.6 and 2.7.
-	* config/solaris/ctype.cc: Delete and move to proper version.
+	* config/solaris/ctype.ml: Delete and move to proper version.
 	* config/solaris/bits: Same.
 	* config/solaris/solaris2.5: Add this directory, with subdir bits
-	and file ctype.cc. Probably doesn't work.
+	and file ctype.ml. Probably doesn't work.
 	* config/solaris/solaris2.6: Same.
 	* config/solaris/solaris2.7: Same, as per specs via Phil Edwards.
 

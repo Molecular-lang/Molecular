@@ -115,8 +115,8 @@ namespace __gnu_test
   {
     // Include the caller's filename to help identify tests that fail to
     // clean up the files they create.
-    // Remove .cc extension:
-    if (file.length() > 3 && file.compare(file.length() - 3, 3, ".cc") == 0)
+    // Remove .ml extension:
+    if (file.length() > 3 && file.compare(file.length() - 3, 3, ".ml") == 0)
       file.resize(file.length() - 3);
     // And directory:
     auto pos = file.find_last_of("/\\");

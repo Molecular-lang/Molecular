@@ -22,7 +22,7 @@
 # opt-read.awk.
 #
 # Usage: awk -f opt-functions.awk -f opt-read.awk -f options-urls-cc-gen.awk \
-#            [-v header_name=header.h] < inputfile > options-urls.cc
+#            [-v header_name=header.h] < inputfile > options-urls.ml
 
 END {
 

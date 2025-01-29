@@ -24,7 +24,7 @@
 # --------------------------------
 
 AC_INIT
-AC_CONFIG_SRCDIR(tree.cc)
+AC_CONFIG_SRCDIR(tree.ml)
 AC_CONFIG_MACRO_DIRS([../config] [..])
 AC_CONFIG_HEADER(auto-host.h:config.in)
 
@@ -929,10 +929,10 @@ fi
 
 AC_SUBST(DEFAULT_MATCHPD_PARTITIONS)
 
-# Specify the number of splits of insn-emit.cc and insn-recog.cc to generate.
+# Specify the number of splits of insn-emit.ml and insn-recog.ml to generate.
 AC_ARG_WITH(insnemit-partitions,
 [AS_HELP_STRING([--with-insnemit-partitions=num],
-[Set the number of partitions of insn-emit.cc for genemit and genrecog to create. [default=10]])],
+[Set the number of partitions of insn-emit.ml for genemit and genrecog to create. [default=10]])],
 [DEFAULT_INSNEMIT_PARTITIONS="$with_insnemit_partitions"], [DEFAULT_INSNEMIT_PARTITIONS=10])
 if (test $DEFAULT_INSNEMIT_PARTITIONS -lt 1); then
   AC_MSG_ERROR(m4_normalize([
@@ -1235,7 +1235,7 @@ AC_PROG_MAKE_SET
 
 # Find some useful tools
 AC_PROG_AWK
-# We need awk to create options.cc and options.h.
+# We need awk to create options.ml and options.h.
 # Bail out if it's missing.
 case ${AWK} in
   "") AC_MSG_ERROR([can't build without awk, bailing out]) ;;
@@ -1686,7 +1686,7 @@ AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[
 
 # On AIX 5.2, <ldfcn.h> conflicts with <fcntl.h>, as both define incompatible
 # FREAD and FWRITE macros.  Fortunately, for GCC's single usage of ldgetname
-# in collect2.cc, <fcntl.h> isn't visible, but the configure test below needs
+# in collect2.ml, <fcntl.h> isn't visible, but the configure test below needs
 # to undef these macros to get the correct value for HAVE_DECL_LDGETNAME.
 gcc_AC_CHECK_DECLS(ldgetname, , ,[
 #include "ansidecl.h"
@@ -1921,7 +1921,7 @@ if test x$md_file = x
 then md_file=$cpu_type/$cpu_type.md; fi
 
 if test x$out_file = x
-then out_file=$cpu_type/$cpu_type.cc; fi
+then out_file=$cpu_type/$cpu_type.ml; fi
 
 if test x"$tmake_file" = x
 then tmake_file=$cpu_type/t-$cpu_type
@@ -2390,8 +2390,8 @@ do
 done
 tmake_file="${tmake_file_}${omp_device_property_tmake_file}"
 
-out_object_file=`basename $out_file .cc`.o
-common_out_object_file=`basename $common_out_file .cc`.o
+out_object_file=`basename $out_file .ml`.o
+common_out_object_file=`basename $common_out_file .ml`.o
 
 tm_file_list="options.h"
 tm_include_list="options.h insn-constants.h"
@@ -7731,7 +7731,7 @@ AC_DEFINE_UNQUOTED(DIAGNOSTICS_URLS_DEFAULT, $DIAGNOSTICS_URLS_DEFAULT,
 		   [The default for -fdiagnostics-urls option])
 
 # Generate gcc-driver-name.h containing GCC_DRIVER_NAME for the benefit
-# of jit/jit-playback.cc.
+# of jit/jit-playback.ml.
 gcc_driver_version=`eval "${get_gcc_base_ver} $srcdir/BASE-VER"`
 echo "gcc_driver_version: ${gcc_driver_version}"
 cat > gcc-driver-name.h <<EOF

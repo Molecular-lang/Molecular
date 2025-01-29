@@ -32,7 +32,7 @@
 2023-01-09  John David Anglin  <danglin@gcc.gnu.org>
 
 	PR other/107616
-	* server.cc (server): Don't call FD_ISSET when HAVE_PSELECT
+	* server.ml (server): Don't call FD_ISSET when HAVE_PSELECT
 	and HAVE_SELECT are zero.
 
 2022-11-23  Marek Polacek  <polacek@redhat.com>
@@ -69,11 +69,11 @@
 
 2022-03-18  Iain Sandoe  <iain@sandoe.co.uk>
 
-	* server.cc (accept_from): Use "1" as the dummy port number.
+	* server.ml (accept_from): Use "1" as the dummy port number.
 
 2021-10-26  Jonathan Wakely  <jwakely@redhat.com>
 
-	* resolver.cc (module_resolver::read_tuple_file): Use unique_ptr
+	* resolver.ml (module_resolver::read_tuple_file): Use unique_ptr
 	to ensure memory is freed before returning.
 
 2021-10-22  Eric Gallager  <egallager@gcc.gnu.org>
@@ -83,7 +83,7 @@
 
 2021-09-14  Iain Sandoe  <iain@sandoe.co.uk>
 
-	* resolver.cc (module_resolver::ModuleCompiledRequest):
+	* resolver.ml (module_resolver::ModuleCompiledRequest):
 	Add a simple handler.
 	* resolver.h: Declare handler for ModuleCompiledRequest.
 
@@ -96,7 +96,7 @@
 	* configure.ac: Configure using C++.  Pull logic to
 	detect enabled checking modes; default to release
 	checking.
-	* server.cc (AI_NUMERICSERV): Define a fallback value.
+	* server.ml (AI_NUMERICSERV): Define a fallback value.
 	(gcc_assert): New.
 	(gcc_unreachable): New.
 	(fancy_abort): Only build when checking is enabled.
@@ -104,7 +104,7 @@
 2021-05-25  Jakub Jelinek  <jakub@redhat.com>
 
 	PR bootstrap/100731
-	* server.cc: Include <cstdlib>.
+	* server.ml: Include <cstdlib>.
 
 2021-05-25  Eric Botcazou  <ebotcazou@adacore.com>
 
@@ -115,9 +115,9 @@
 
 	* Makefile.in: Update copyright year.
 	* configure.ac: Likewise.
-	* resolver.cc: Likewise.
+	* resolver.ml: Likewise.
 	* resolver.h: Likewise.
-	* server.cc: Likewise.
+	* server.ml: Likewise.
 	(print_version): Update copyright notice date.
 
 2021-05-10  Martin Liska  <mliska@suse.cz>
@@ -131,7 +131,7 @@
 
 2021-02-25  Nathan Sidwell  <nathan@acm.org>
 
-	* server.cc: Use #if NETWORKING not #ifdef, to be consistent
+	* server.ml: Use #if NETWORKING not #ifdef, to be consistent
 	with elsewhere.
 
 2021-01-05  Rainer Orth  <ro@CeBiTec.Uni-Bielefeld.DE>
@@ -145,7 +145,7 @@
 
 2021-01-04  Nathan Sidwell  <nathan@acm.org>
 
-	* resolver.cc (module_resolver::cmi_response): Remove
+	* resolver.ml (module_resolver::cmi_response): Remove
 	std::move of temporary.
 
 2020-12-23  Nathan Sidwell  <nathan@acm.org>
@@ -162,13 +162,13 @@
 
 2020-12-17  Nathan Sidwell  <nathan@acm.org>
 
-	* server.cc (crash_signal): Don't use strsignal.
+	* server.ml (crash_signal): Don't use strsignal.
 
 2020-12-17  Nathan Sidwell  <nathan@acm.org>
 
 	PR bootstrap/98300
 	* configure.ac: Check for sys/mman.h.
-	* resolver.cc: Don't assume mmap, O_CLOEXEC are available.  Use
+	* resolver.ml: Don't assume mmap, O_CLOEXEC are available.  Use
 	xmalloc.
 	* config.h.in: Regenerated.
 	* configure: Regenerated.
@@ -202,9 +202,9 @@
 	* config.h.in: New.
 	* configure: New.
 	* configure.ac: New.
-	* resolver.cc: New.
+	* resolver.ml: New.
 	* resolver.h: New.
-	* server.cc: New.
+	* server.ml: New.
 
 
 Copyright (C) 2020-2025 Free Software Foundation, Inc.

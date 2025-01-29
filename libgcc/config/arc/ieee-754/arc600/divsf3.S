@@ -135,7 +135,7 @@ __divsf3:
 .Ldiv_23bit:
 	.rep 6
 	add1.f r2,r3,r2
-	sub.cc r2,r2,r3
+	sub.ml r2,r2,r3
 	.endr
 	breq r12,r9,.Linf
 	bmsk r0,r2,6
@@ -143,7 +143,7 @@ __divsf3:
 .Ldiv_17bit:
 	.rep 7
 	add1.f r2,r3,r2
-	sub.cc r2,r2,r3
+	sub.ml r2,r2,r3
 	.endr
 	asl_s r0,r0,7
 	bmsk r1,r2,6
@@ -152,7 +152,7 @@ __divsf3:
 .Ldiv_10bit:
 	.rep 7
 	add1.f r2,r3,r2
-	sub.cc r2,r2,r3
+	sub.ml r2,r2,r3
 	.endr
 	asl_s r0,r0,7
 	bmsk r1,r2,6
@@ -161,12 +161,12 @@ __divsf3:
 .Ldiv_3bit:
 	.rep 3
 	add1.f r2,r3,r2
-	sub.cc r2,r2,r3
+	sub.ml r2,r2,r3
 	.endr
 	asl_s r0,r0,3
 .Ldiv_0bit:
 	add1.f r1,r3,r2
-	sub.cc r1,r1,r3
+	sub.ml r1,r1,r3
 	bmsk_s r2,r2,2
 	tst r1,-0x7e ; 0xffffff82, test for rest or odd
 	bmsk_s r1,r1,0

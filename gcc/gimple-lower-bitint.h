@@ -1,4 +1,4 @@
-/* Header file for gimple-lower-bitint.cc exports.
+/* Header file for gimple-lower-bitint.ml exports.
    Copyright (C) 2023-2025 Free Software Foundation, Inc.
 
 This file is part of GCC.

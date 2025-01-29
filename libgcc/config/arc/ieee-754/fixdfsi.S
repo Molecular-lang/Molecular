@@ -67,12 +67,12 @@ __fixdfsi:
 	mov.cs DBL0L,DBL0H
 	asl DBL0H,DBL0H,r2
 #else
-	asl.cc DBL0H,DBL0H,r2
+	asl.ml DBL0H,DBL0H,r2
 	lsr.cs DBL0H,DBL0H,r3
 #endif
 	lsr_s DBL0L,DBL0L,r3
 
-	add.cc r0,r0,r1
+	add.ml r0,r0,r1
 	j_s.d [blink]
 	neg.pl r0,r0
 .Lret0or1:

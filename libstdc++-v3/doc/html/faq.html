@@ -682,10 +682,10 @@
     when compiling and linking:
     </p><div class="literallayout"><p><br />
     Compile your library components:<br />
-    <span class="command"><strong>g++ -fPIC -c a.cc</strong></span><br />
-    <span class="command"><strong>g++ -fPIC -c b.cc</strong></span><br />
+    <span class="command"><strong>g++ -fPIC -c a.ml</strong></span><br />
+    <span class="command"><strong>g++ -fPIC -c b.ml</strong></span><br />
     ...<br />
-    <span class="command"><strong>g++ -fPIC -c z.cc</strong></span><br />
+    <span class="command"><strong>g++ -fPIC -c z.ml</strong></span><br />
 <br />
     Create your library:<br />
     <span class="command"><strong>g++ -fPIC -shared -rdynamic -o libfoo.so a.o b.o ... z.o</strong></span><br />

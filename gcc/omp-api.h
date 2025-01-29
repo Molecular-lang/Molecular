@@ -24,7 +24,7 @@ along with GCC; see the file COPYING3.  If not see
 
 #include "coretypes.h"
 
-/* In omp-general.cc, but declared in a separate header file for
+/* In omp-general.ml, but declared in a separate header file for
    convenience of the Fortran front end.  */
 extern bool omp_runtime_api_procname (const char *name);
 extern bool omp_runtime_api_call (const_tree fndecl);

@@ -289,7 +289,7 @@ __divdf3:
 	bset r5,r12,31
 	cmp r5,r8
 	cmp.eq DBL0L,DBL1L
-	lsr.cc r5,r5,1
+	lsr.ml r5,r5,1
 	sub r4,r4,mhi ; u1.31 inverse, about 30 bit
 	mululw 0,r5,r4
 	machulw r11,r5,r4 ; result fraction highpart

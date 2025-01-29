@@ -23,7 +23,7 @@ along with GCC; see the file COPYING3.  If not see
 #ifndef GCC_C_PARSER_H
 #define GCC_C_PARSER_H
 
-/* The C lexer intermediates between the lexer in cpplib and c-lex.cc
+/* The C lexer intermediates between the lexer in cpplib and c-lex.ml
    and the C parser.  Unlike the C++ lexer, the parser structure
    stores the lexer information instead of using a separate structure.
    Identifiers are separated into ordinary identifiers, type names,
@@ -81,7 +81,7 @@ struct GTY (()) c_token {
 };
 
 /* This should have the same layout as c_tree_token_vec
-   in c-decl.cc, but for GTY reasons with ObjC can't be
+   in c-decl.ml, but for GTY reasons with ObjC can't be
    GTY itself.  */
 struct c_tree_token_vec_struct {
   struct tree_base base;

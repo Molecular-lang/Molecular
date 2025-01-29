@@ -17,32 +17,32 @@
 # <http://www.gnu.org/licenses/>.
 
 # Solaris-specific format checking and pragmas.
-sol2-c.o: $(srcdir)/config/sol2-c.cc
+sol2-c.o: $(srcdir)/config/sol2-c.ml
 	$(COMPILE) $<
 	$(POSTCOMPILE)
 
 # Solaris-specific C++ mangling.
-sol2-cxx.o: $(srcdir)/config/sol2-cxx.cc
+sol2-cxx.o: $(srcdir)/config/sol2-cxx.ml
 	$(COMPILE) $<
 	$(POSTCOMPILE)
 
 # Solaris-specific D support.
-sol2-d.o: $(srcdir)/config/sol2-d.cc
+sol2-d.o: $(srcdir)/config/sol2-d.ml
 	$(COMPILE) $<
 	$(POSTCOMPILE)
 
 # Solaris-specific Rust support.
-sol2-rust.o: $(srcdir)/config/sol2-rust.cc
+sol2-rust.o: $(srcdir)/config/sol2-rust.ml
 	$(COMPILE) $<
 	$(POSTCOMPILE)
 
 # Corresponding stub routines.
-sol2-stubs.o: $(srcdir)/config/sol2-stubs.cc
+sol2-stubs.o: $(srcdir)/config/sol2-stubs.ml
 	$(COMPILE) $<
 	$(POSTCOMPILE)
 
 # Solaris-specific attributes
-sol2.o: $(srcdir)/config/sol2.cc
+sol2.o: $(srcdir)/config/sol2.ml
 	$(COMPILE) $<
 	$(POSTCOMPILE)
 

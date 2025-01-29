@@ -34,7 +34,7 @@
 	    time for <code class="function">find</code> as a function of
 	  the number of values inserted.</p><p>
 	    It uses the test file:
-	    <code class="filename">performance/ext/pb_ds/text_find_timing_test.cc</code>
+	    <code class="filename">performance/ext/pb_ds/text_find_timing_test.ml</code>
 	  </p><p>
 	    And uses the data file:
 	    <code class="filename">filethirty_years_among_the_dead_preproc.txt</code>
@@ -168,7 +168,7 @@
 	  for <code class="function">find</code> as a function of the number of values
 	  inserted.</p><p>
 	    It uses the test file:
-	    <code class="filename">performance/ext/pb_ds/random_int_find_timing.cc</code>
+	    <code class="filename">performance/ext/pb_ds/random_int_find_timing.ml</code>
 	  </p><p>The test checks the effect of different underlying
 	  hash-tables,
 	  range-hashing functions, and trigger policies.</p></div><div class="section"><div class="titlepage"><div><div><h6 class="title"><a id="hash.int_find.results"></a>
@@ -370,7 +370,7 @@
 	  for <code class="function">operator[]</code> as a function of the number of
 	  values inserted.</p><p>
 	    It uses the test file:
-	    <code class="filename">performance/ext/pb_ds/random_int_subscript_find_timing.cc</code>
+	    <code class="filename">performance/ext/pb_ds/random_int_subscript_find_timing.ml</code>
 	  </p><p>The test checks the effect of different underlying
 	  hash-tables, range-hashing functions, and trigger policies.</p></div><div class="section"><div class="titlepage"><div><div><h6 class="title"><a id="hash.int_subscript_find.results"></a>
 	    Results
@@ -557,7 +557,7 @@
 	  <code class="function">operator[]</code> as a function of the number of
 	  values inserted.</p><p>
 	    It uses the test file:
-	    <code class="filename">performance/ext/pb_ds/random_int_subscript_insert_timing.cc</code>
+	    <code class="filename">performance/ext/pb_ds/random_int_subscript_insert_timing.ml</code>
 	  </p><p>The test checks the effect of different underlying
 	  hash-tables.</p></div><div class="section"><div class="titlepage"><div><div><h6 class="title"><a id="hash.int_subscript_insert.results"></a>
 	    Results
@@ -771,7 +771,7 @@
 	  the containers. The keys are generated as follows. First, a
 	  uniform integer is created. Then it is then shifted left 8 bits.</p><p>
 	    It uses the test file:
-	    <code class="filename">performance/ext/pb_ds/hash_zlob_random_int_find_timing.cc</code>
+	    <code class="filename">performance/ext/pb_ds/hash_zlob_random_int_find_timing.ml</code>
 	  </p><p>The test checks the effect of different range-hashing
 	  functions and trigger policies.</p></div><div class="section"><div class="titlepage"><div><div><h6 class="title"><a id="hash.zlob_int_find.results"></a>
 	    Results
@@ -877,7 +877,7 @@
 	  more natural case in which mod-based range hashing is better was not encountered.
 	  Thus the inescapable conclusion: real-life key distributions are handled better
 	  with an appropriate hash function and a mask-based
-	  range-hashing function. (<code class="filename">pb_ds/example/hash_shift_mask.cc</code>
+	  range-hashing function. (<code class="filename">pb_ds/example/hash_shift_mask.ml</code>
 	  shows an example of handling this a-priori known skewed
 	  distribution with a mask-based range-hashing function). If hash
 	  performance is bad, a χ<sup>2</sup> test can be used
@@ -891,7 +891,7 @@
 	  into a container, then erases all keys except one. It measures
 	  the final size of the container.</p><p>
 	    It uses the test file:
-	    <code class="filename">performance/ext/pb_ds/hash_random_int_erase_mem_usage.cc</code>
+	    <code class="filename">performance/ext/pb_ds/hash_random_int_erase_mem_usage.ml</code>
 	  </p><p>The test checks how containers adjust internally as their
 	  logical size decreases.</p></div><div class="section"><div class="titlepage"><div><div><h6 class="title"><a id="hash.erase_mem.results"></a>
 	    Results
@@ -995,7 +995,7 @@
 	  values inserted.</p><p>The test checks the effect of different underlying
 	  data structures.</p><p>
 	    It uses the test file:
-	    <code class="filename">performance/ext/pb_ds/tree_text_insert_timing.cc</code>
+	    <code class="filename">performance/ext/pb_ds/tree_text_insert_timing.ml</code>
 	  </p></div><div class="section"><div class="titlepage"><div><div><h6 class="title"><a id="branch.text_insert.results"></a>
 	    Results
 	  </h6></div></div></div><p>The three graphics below show the results for the native
@@ -1108,7 +1108,7 @@
 	  for <code class="function">find</code> as a function of the number of
 	  values inserted.</p><p>
 	    It uses the test file:
-	    <code class="filename">performance/ext/pb_ds/text_find_timing.cc</code>
+	    <code class="filename">performance/ext/pb_ds/text_find_timing.ml</code>
 	  </p><p>The test checks the effect of different underlying
 	  data structures.</p></div><div class="section"><div class="titlepage"><div><div><h6 class="title"><a id="branch.text_find.results"></a>
 	    Results
@@ -1216,7 +1216,7 @@
 	  key. It measures the average time for <code class="function">find</code> as a
 	  function of the number of values inserted.</p><p>
 	    It uses the test file:
-	    <code class="filename">performance/ext/pb_ds/tree_text_lor_find_timing.cc</code>
+	    <code class="filename">performance/ext/pb_ds/tree_text_lor_find_timing.ml</code>
 	  </p><p>The test checks the effect of different underlying
 	  data structures in a locality-of-reference setting.</p></div><div class="section"><div class="titlepage"><div><div><h6 class="title"><a id="branch.text_lor_find.results"></a>
 	    Results
@@ -1300,7 +1300,7 @@
 	  and joining the containers as a function of the number of
 	  values inserted.</p><p>
 	    It uses the test file:
-	    <code class="filename">performance/ext/pb_ds/tree_split_join_timing.cc</code>
+	    <code class="filename">performance/ext/pb_ds/tree_split_join_timing.ml</code>
 	  </p><p>The test checks the performance difference of <code class="function">join</code>
 	  as opposed to a sequence of <code class="function">insert</code> operations; by
 	  implication, this test checks the most efficient way to erase a
@@ -1407,7 +1407,7 @@
 	  time for such queries as a function of the number of values
 	  inserted.</p><p>
 	    It uses the test file:
-	    <code class="filename">performance/ext/pb_ds/tree_order_statistics_timing.cc</code>
+	    <code class="filename">performance/ext/pb_ds/tree_order_statistics_timing.ml</code>
 	  </p><p>The test checks the performance difference of policies based
 	  on node-invariant as opposed to a external functions.</p></div><div class="section"><div class="titlepage"><div><div><h6 class="title"><a id="branch.order_statistics.results"></a>
 	    Results
@@ -1480,7 +1480,7 @@
 	  a primary key. For the native multimaps, it searches a range
 	  obtained using <code class="classname">std::equal_range</code> on a primary key.</p><p>
 	    It uses the test file:
-	    <code class="filename">performance/ext/pb_ds/multimap_text_find_timing_small.cc</code>
+	    <code class="filename">performance/ext/pb_ds/multimap_text_find_timing_small.ml</code>
 	  </p><p>The test checks the find-time scalability of different
 	  "multimap" designs.</p></div><div class="section"><div class="titlepage"><div><div><h6 class="title"><a id="multimap.text_find_small.results"></a>
 	    Results
@@ -1651,7 +1651,7 @@
 	  a primary key. For the native multimaps, it searches a range
 	  obtained using <code class="classname">std::equal_range</code> on a primary key.</p><p>
 	    It uses the test file:
-	    <code class="filename">performance/ext/pb_ds/multimap_text_find_timing_large.cc</code>
+	    <code class="filename">performance/ext/pb_ds/multimap_text_find_timing_large.ml</code>
 	  </p><p>The test checks the find-time scalability of different
 	  "multimap" designs.</p></div><div class="section"><div class="titlepage"><div><div><h6 class="title"><a id="multimap.text_find_large.results"></a>
 	    Results
@@ -1825,7 +1825,7 @@
 	  <code class="classname">std::equal_range</code>, and inserts a value only if it was
 	  not contained already.</p><p>
 	    It uses the test file:
-	    <code class="filename">performance/ext/pb_ds/multimap_text_insert_timing_small.cc</code>
+	    <code class="filename">performance/ext/pb_ds/multimap_text_insert_timing_small.ml</code>
 	  </p><p>The test checks the insert-time scalability of different
 	  "multimap" designs.</p></div><div class="section"><div class="titlepage"><div><div><h6 class="title"><a id="multimap.text_insert_small.results"></a>
 	    Results
@@ -1999,7 +1999,7 @@
 	  <code class="classname">std::equal_range</code>, and inserts a value only if it was
 	  not contained already.</p><p>
 	    It uses the test file:
-	    <code class="filename">performance/ext/pb_ds/multimap_text_insert_timing_large.cc</code>
+	    <code class="filename">performance/ext/pb_ds/multimap_text_insert_timing_large.ml</code>
 	  </p><p>The test checks the insert-time scalability of different
 	  "multimap" designs.</p></div><div class="section"><div class="titlepage"><div><div><h6 class="title"><a id="multimap.text_insert_large.results"></a>
 	    Results
@@ -2168,7 +2168,7 @@
 	  to primary keys ranges to about 20.</p><p>The test measures the memory use as a function of the number
 	  of values inserted.</p><p>
 	    It uses the test file:
-	    <code class="filename">performance/ext/pb_ds/multimap_text_insert_mem_usage_small.cc</code>
+	    <code class="filename">performance/ext/pb_ds/multimap_text_insert_mem_usage_small.ml</code>
 	  </p><p>The test checks the memory scalability of different
 	  "multimap" designs.</p></div><div class="section"><div class="titlepage"><div><div><h6 class="title"><a id="multimap.text_insert_mem_small.results"></a>
 	    Results
@@ -2337,7 +2337,7 @@
 	  to primary keys ranges to about 20.</p><p>The test measures the memory use as a function of the number
 	  of values inserted.</p><p>
 	    It uses the test file:
-	    <code class="filename">performance/ext/pb_ds/multimap_text_insert_mem_usage_large.cc</code>
+	    <code class="filename">performance/ext/pb_ds/multimap_text_insert_mem_usage_large.ml</code>
 	  </p><p>The test checks the memory scalability of different
 	  "multimap" designs.</p></div><div class="section"><div class="titlepage"><div><div><h6 class="title"><a id="multimap.text_insert_mem_large.results"></a>
 	    Results
@@ -2500,7 +2500,7 @@
 	  for <code class="function">push</code> as a function of the number of values
 	  pushed.</p><p>
 	    It uses the test file:
-	    <code class="filename">performance/ext/pb_ds/priority_queue_text_push_timing.cc</code>
+	    <code class="filename">performance/ext/pb_ds/priority_queue_text_push_timing.ml</code>
 	  </p><p>The test checks the effect of different underlying data
 	  structures.
 	  </p></div><div class="section"><div class="titlepage"><div><div><h6 class="title"><a id="priority_queue.text_push.results"></a>
@@ -2636,7 +2636,7 @@
 	  <code class="classname">pop</code> . It measures the average time for <code class="classname">push</code>
 	  as a function of the number of values.</p><p>
 	    It uses the test file:
-	    <code class="filename">performance/ext/pb_ds/priority_queue_text_push_pop_timing.cc</code>
+	    <code class="filename">performance/ext/pb_ds/priority_queue_text_push_pop_timing.ml</code>
 	  </p><p>The test checks the effect of different underlying data
 	  structures.
 	  </p></div><div class="section"><div class="titlepage"><div><div><h6 class="title"><a id="priority_queue.text_push_pop.results"></a>
@@ -2765,7 +2765,7 @@
 	  measures the average time for <code class="function">push</code> as a
 	  function of the number of values.</p><p>
 	    It uses the test file:
-	    <code class="filename">performance/ext/pb_ds/priority_queue_random_int_push_timing.cc</code>
+	    <code class="filename">performance/ext/pb_ds/priority_queue_random_int_push_timing.ml</code>
 	  </p><p>The test checks the effect of different underlying data
 	  structures.
 	  </p></div><div class="section"><div class="titlepage"><div><div><h6 class="title"><a id="priority_queue.int_push.results"></a>
@@ -2884,7 +2884,7 @@
 	  <code class="function">push</code> and <code class="function">pop</code> as a function
 	  of the number of values.</p><p>
 	    It uses the test file:
-	    <code class="filename">performance/ext/pb_ds/priority_queue_random_int_push_pop_timing.cc</code>
+	    <code class="filename">performance/ext/pb_ds/priority_queue_random_int_push_pop_timing.ml</code>
 	  </p><p>The test checks the effect of different underlying data
 	  structures.
 	  </p></div><div class="section"><div class="titlepage"><div><div><h6 class="title"><a id="priority_queue.int_push_pop.results"></a>
@@ -2984,7 +2984,7 @@
 	  container. It measures the memory use as a function of the
 	  number of values pushed to the container.</p><p>
 	    It uses the test file:
-	    <code class="filename">performance/ext/pb_ds/priority_queue_text_pop_mem_usage.cc</code>
+	    <code class="filename">performance/ext/pb_ds/priority_queue_text_pop_mem_usage.ml</code>
 	  </p><p>The test checks the effect of different underlying data
 	  structures.
 	  </p></div><div class="section"><div class="titlepage"><div><div><h6 class="title"><a id="priority_queue.text_pop.results"></a>
@@ -3077,7 +3077,7 @@
 	  one container and pushes them into the other. The test measures
 	  the average time as a function of the number of values.</p><p>
 	    It uses the test file:
-	    <code class="filename">performance/ext/pb_ds/priority_queue_text_join_timing.cc</code>
+	    <code class="filename">performance/ext/pb_ds/priority_queue_text_join_timing.ml</code>
 	  </p><p>The test checks the effect of different underlying data
 	  structures.
 	  </p></div><div class="section"><div class="titlepage"><div><div><h6 class="title"><a id="priority_queue.text_join.results"></a>
@@ -3171,7 +3171,7 @@
 	  time for <code class="function">modify</code> as a function of the number of
 	  values.</p><p>
 	    It uses the test file:
-	    <code class="filename">performance/ext/pb_ds/priority_queue_text_modify_up_timing.cc</code>
+	    <code class="filename">performance/ext/pb_ds/priority_queue_text_modify_up_timing.ml</code>
 	  </p><p>The test checks the effect of different underlying data
 	  structures for graph algorithms settings.  Note that making an
 	  arbitrary value larger (in the sense of the priority queue's
@@ -3308,7 +3308,7 @@
 	  time for <code class="function">modify</code> as a function of the number of
 	  values.</p><p>
 	    It uses the test file:
-	    <code class="filename">performance/ext/pb_ds/priority_queue_text_modify_down_timing.cc</code>
+	    <code class="filename">performance/ext/pb_ds/priority_queue_text_modify_down_timing.ml</code>
 	  </p><p>The main purpose of this test is to contrast Priority Queue
 	  Text <code class="classname">modify</code> Up Timing Test.</p></div><div class="section"><div class="titlepage"><div><div><h6 class="title"><a id="priority_queue.text_modify_down.results"></a>
 	    Results

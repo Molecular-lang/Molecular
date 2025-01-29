@@ -69,7 +69,7 @@
 	  the number of values inserted.</para>
 	  <para>
 	    It uses the test file:
-	    <filename>performance/ext/pb_ds/text_find_timing_test.cc</filename>
+	    <filename>performance/ext/pb_ds/text_find_timing_test.ml</filename>
 	  </para>
 
 	  <para>
@@ -395,7 +395,7 @@
 
 	  <para>
 	    It uses the test file:
-	    <filename>performance/ext/pb_ds/random_int_find_timing.cc</filename>
+	    <filename>performance/ext/pb_ds/random_int_find_timing.ml</filename>
 	  </para>
 
 	  <para>The test checks the effect of different underlying
@@ -912,7 +912,7 @@
 
 	  <para>
 	    It uses the test file:
-	    <filename>performance/ext/pb_ds/random_int_subscript_find_timing.cc</filename>
+	    <filename>performance/ext/pb_ds/random_int_subscript_find_timing.ml</filename>
 	  </para>
 
 	  <para>The test checks the effect of different underlying
@@ -1409,7 +1409,7 @@
 
 	  <para>
 	    It uses the test file:
-	    <filename>performance/ext/pb_ds/random_int_subscript_insert_timing.cc</filename>
+	    <filename>performance/ext/pb_ds/random_int_subscript_insert_timing.ml</filename>
 	  </para>
 
 	  <para>The test checks the effect of different underlying
@@ -1946,7 +1946,7 @@
 
 	  <para>
 	    It uses the test file:
-	    <filename>performance/ext/pb_ds/hash_zlob_random_int_find_timing.cc</filename>
+	    <filename>performance/ext/pb_ds/hash_zlob_random_int_find_timing.ml</filename>
 	  </para>
 
 	  <para>The test checks the effect of different range-hashing
@@ -2209,7 +2209,7 @@
 	  more natural case in which mod-based range hashing is better was not encountered.
 	  Thus the inescapable conclusion: real-life key distributions are handled better
 	  with an appropriate hash function and a mask-based
-	  range-hashing function. (<filename>pb_ds/example/hash_shift_mask.cc</filename>
+	  range-hashing function. (<filename>pb_ds/example/hash_shift_mask.ml</filename>
 	  shows an example of handling this a-priori known skewed
 	  distribution with a mask-based range-hashing function). If hash
 	  performance is bad, a χ<superscript>2</superscript> test can be used
@@ -2243,7 +2243,7 @@
 
 	  <para>
 	    It uses the test file:
-	    <filename>performance/ext/pb_ds/hash_random_int_erase_mem_usage.cc</filename>
+	    <filename>performance/ext/pb_ds/hash_random_int_erase_mem_usage.ml</filename>
 	  </para>
 
 
@@ -2523,7 +2523,7 @@
 
 	  <para>
 	    It uses the test file:
-	    <filename>performance/ext/pb_ds/tree_text_insert_timing.cc</filename>
+	    <filename>performance/ext/pb_ds/tree_text_insert_timing.ml</filename>
 	  </para>
 
 
@@ -2897,7 +2897,7 @@
 
 	  <para>
 	    It uses the test file:
-	    <filename>performance/ext/pb_ds/text_find_timing.cc</filename>
+	    <filename>performance/ext/pb_ds/text_find_timing.ml</filename>
 	  </para>
 
 
@@ -3168,7 +3168,7 @@
 
 	  <para>
 	    It uses the test file:
-	    <filename>performance/ext/pb_ds/tree_text_lor_find_timing.cc</filename>
+	    <filename>performance/ext/pb_ds/tree_text_lor_find_timing.ml</filename>
 	  </para>
 
 	  <para>The test checks the effect of different underlying
@@ -3405,7 +3405,7 @@
 
 	  <para>
 	    It uses the test file:
-	    <filename>performance/ext/pb_ds/tree_split_join_timing.cc</filename>
+	    <filename>performance/ext/pb_ds/tree_split_join_timing.ml</filename>
 	  </para>
 
 
@@ -3667,7 +3667,7 @@
 
 	  <para>
 	    It uses the test file:
-	    <filename>performance/ext/pb_ds/tree_order_statistics_timing.cc</filename>
+	    <filename>performance/ext/pb_ds/tree_order_statistics_timing.ml</filename>
 	  </para>
 
 	  <para>The test checks the performance difference of policies based
@@ -3862,7 +3862,7 @@
 
 	  <para>
 	    It uses the test file:
-	    <filename>performance/ext/pb_ds/multimap_text_find_timing_small.cc</filename>
+	    <filename>performance/ext/pb_ds/multimap_text_find_timing_small.ml</filename>
 	  </para>
 
 	  <para>The test checks the find-time scalability of different
@@ -4325,7 +4325,7 @@
 
 	  <para>
 	    It uses the test file:
-	    <filename>performance/ext/pb_ds/multimap_text_find_timing_large.cc</filename>
+	    <filename>performance/ext/pb_ds/multimap_text_find_timing_large.ml</filename>
 	  </para>
 
 	  <para>The test checks the find-time scalability of different
@@ -4792,7 +4792,7 @@
 
 	  <para>
 	    It uses the test file:
-	    <filename>performance/ext/pb_ds/multimap_text_insert_timing_small.cc</filename>
+	    <filename>performance/ext/pb_ds/multimap_text_insert_timing_small.ml</filename>
 	  </para>
 
 	  <para>The test checks the insert-time scalability of different
@@ -5259,7 +5259,7 @@
 
 	  <para>
 	    It uses the test file:
-	    <filename>performance/ext/pb_ds/multimap_text_insert_timing_large.cc</filename>
+	    <filename>performance/ext/pb_ds/multimap_text_insert_timing_large.ml</filename>
 	  </para>
 
 	  <para>The test checks the insert-time scalability of different
@@ -5720,7 +5720,7 @@
 
 	  <para>
 	    It uses the test file:
-	    <filename>performance/ext/pb_ds/multimap_text_insert_mem_usage_small.cc</filename>
+	    <filename>performance/ext/pb_ds/multimap_text_insert_mem_usage_small.ml</filename>
 	  </para>
 
 	  <para>The test checks the memory scalability of different
@@ -6180,7 +6180,7 @@
 
 	  <para>
 	    It uses the test file:
-	    <filename>performance/ext/pb_ds/multimap_text_insert_mem_usage_large.cc</filename>
+	    <filename>performance/ext/pb_ds/multimap_text_insert_mem_usage_large.ml</filename>
 	  </para>
 
 	  <para>The test checks the memory scalability of different
@@ -6640,7 +6640,7 @@
 
 	  <para>
 	    It uses the test file:
-	    <filename>performance/ext/pb_ds/priority_queue_text_push_timing.cc</filename>
+	    <filename>performance/ext/pb_ds/priority_queue_text_push_timing.ml</filename>
 	  </para>
 
 	  <para>The test checks the effect of different underlying data
@@ -7025,7 +7025,7 @@
 
 	  <para>
 	    It uses the test file:
-	    <filename>performance/ext/pb_ds/priority_queue_text_push_pop_timing.cc</filename>
+	    <filename>performance/ext/pb_ds/priority_queue_text_push_pop_timing.ml</filename>
 	  </para>
 
 	  <para>The test checks the effect of different underlying data
@@ -7390,7 +7390,7 @@
 
 	  <para>
 	    It uses the test file:
-	    <filename>performance/ext/pb_ds/priority_queue_random_int_push_timing.cc</filename>
+	    <filename>performance/ext/pb_ds/priority_queue_random_int_push_timing.ml</filename>
 	  </para>
 
 	  <para>The test checks the effect of different underlying data
@@ -7744,7 +7744,7 @@
 
 	  <para>
 	    It uses the test file:
-	    <filename>performance/ext/pb_ds/priority_queue_random_int_push_pop_timing.cc</filename>
+	    <filename>performance/ext/pb_ds/priority_queue_random_int_push_pop_timing.ml</filename>
 	  </para>
 
 	  <para>The test checks the effect of different underlying data
@@ -8007,7 +8007,7 @@
 	  number of values pushed to the container.</para>
 	  <para>
 	    It uses the test file:
-	    <filename>performance/ext/pb_ds/priority_queue_text_pop_mem_usage.cc</filename>
+	    <filename>performance/ext/pb_ds/priority_queue_text_pop_mem_usage.ml</filename>
 	  </para>
 
 	  <para>The test checks the effect of different underlying data
@@ -8257,7 +8257,7 @@
 	  the average time as a function of the number of values.</para>
 	  <para>
 	    It uses the test file:
-	    <filename>performance/ext/pb_ds/priority_queue_text_join_timing.cc</filename>
+	    <filename>performance/ext/pb_ds/priority_queue_text_join_timing.ml</filename>
 	  </para>
 
 	  <para>The test checks the effect of different underlying data
@@ -8507,7 +8507,7 @@
 
 	  <para>
 	    It uses the test file:
-	    <filename>performance/ext/pb_ds/priority_queue_text_modify_up_timing.cc</filename>
+	    <filename>performance/ext/pb_ds/priority_queue_text_modify_up_timing.ml</filename>
 	  </para>
 
 	  <para>The test checks the effect of different underlying data
@@ -8871,7 +8871,7 @@
 
 	  <para>
 	    It uses the test file:
-	    <filename>performance/ext/pb_ds/priority_queue_text_modify_down_timing.cc</filename>
+	    <filename>performance/ext/pb_ds/priority_queue_text_modify_down_timing.ml</filename>
 	  </para>
 
 	  <para>The main purpose of this test is to contrast Priority Queue

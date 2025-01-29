@@ -16,19 +16,19 @@
 # along with GCC; see the file COPYING3.  If not see
 # <http://www.gnu.org/licenses/>.
 
-vxworks-driver.o: $(srcdir)/config/vxworks-driver.cc
+vxworks-driver.o: $(srcdir)/config/vxworks-driver.ml
 	$(COMPILE) $<
 	$(POSTCOMPILE)
 
-vxworks.o: $(srcdir)/config/vxworks.cc
+vxworks.o: $(srcdir)/config/vxworks.ml
 	$(COMPILE) $<
 	$(POSTCOMPILE)
 
-vxworks-c.o: $(srcdir)/config/vxworks-c.cc
+vxworks-c.o: $(srcdir)/config/vxworks-c.ml
 	$(COMPILE) $<
 	$(POSTCOMPILE)
 
-vxworks-rust.o: $(srcdir)/config/vxworks-rust.cc
+vxworks-rust.o: $(srcdir)/config/vxworks-rust.ml
 	$(COMPILE) $<
 	$(POSTCOMPILE)
 

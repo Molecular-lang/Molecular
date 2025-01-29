@@ -21,7 +21,7 @@
 #ifndef TREE_SSA_SCCVN_H
 #define TREE_SSA_SCCVN_H
 
-/* In tree-ssa-sccvn.cc  */
+/* In tree-ssa-sccvn.ml  */
 bool expressions_equal_p (tree, tree, bool = true);
 
 

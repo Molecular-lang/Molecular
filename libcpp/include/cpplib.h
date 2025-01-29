@@ -48,7 +48,7 @@ class rich_location;
    '='.  The lexer needs operators ending in '=', like ">>=", to be in
    the same order as their counterparts without the '=', like ">>".
 
-   See the cpp_operator table optab in expr.cc if you change the order or
+   See the cpp_operator table optab in expr.ml if you change the order or
    add or remove anything in the first group.  */
 
 #define TTYPE_TABLE							\
@@ -200,9 +200,9 @@ struct GTY(()) cpp_string {
 #define NAMED_OP	(1 << 4) /* C++ named operators.  */
 #define PREV_FALLTHROUGH (1 << 5) /* On a token preceeded by FALLTHROUGH
 				     comment.  */
-#define DECIMAL_INT     (1 << 6) /* Decimal integer, set in c-lex.cc.  */
+#define DECIMAL_INT     (1 << 6) /* Decimal integer, set in c-lex.ml.  */
 #define PURE_ZERO	(1 << 7) /* Single 0 digit, used by the C++ frontend,
-				    set in c-lex.cc.  */
+				    set in c-lex.ml.  */
 #define COLON_SCOPE	PURE_ZERO /* Adjacent colons in C < 23.  */
 #define NO_DOT_COLON	PURE_ZERO /* Set on CPP_NAME tokens whose expansion
 				     shouldn't start with CPP_DOT or CPP_COLON
@@ -1314,7 +1314,7 @@ extern int cpp_defined (cpp_reader *, const unsigned char *, int);
    the double integer are set to zero.  */
 
 /* This type has to be equal to unsigned HOST_WIDE_INT, see
-   gcc/c-family/c-lex.cc.  */
+   gcc/c-family/c-lex.ml.  */
 typedef uint64_t cpp_num_part;
 typedef struct cpp_num cpp_num;
 struct cpp_num
@@ -1454,7 +1454,7 @@ extern bool cpp_error_at (cpp_reader * pfile, enum cpp_diagnostic_level,
 			  rich_location *richloc, const char *msgid, ...)
   ATTRIBUTE_CPP_PPDIAG (4, 5);
 
-/* In lex.cc */
+/* In lex.ml */
 extern int cpp_ideq (const cpp_token *, const char *);
 extern void cpp_output_line (cpp_reader *, FILE *);
 extern unsigned char *cpp_output_line_to_string (cpp_reader *,
@@ -1511,7 +1511,7 @@ extern cpp_hashnode *cpp_lookup (cpp_reader *, const unsigned char *,
 typedef int (*cpp_cb) (cpp_reader *, cpp_hashnode *, void *);
 extern void cpp_forall_identifiers (cpp_reader *, cpp_cb, void *);
 
-/* In macro.cc */
+/* In macro.ml */
 extern void cpp_scan_nooutput (cpp_reader *);
 extern int  cpp_sys_macro_p (cpp_reader *);
 extern unsigned char *cpp_quote_string (unsigned char *, const unsigned char *,
@@ -1519,7 +1519,7 @@ extern unsigned char *cpp_quote_string (unsigned char *, const unsigned char *,
 extern bool cpp_compare_macros (const cpp_macro *macro1,
 				const cpp_macro *macro2);
 
-/* In files.cc */
+/* In files.ml */
 extern bool cpp_included (cpp_reader *, const char *);
 extern bool cpp_included_before (cpp_reader *, const char *, location_t);
 extern void cpp_make_system_header (cpp_reader *, int, int);
@@ -1547,7 +1547,7 @@ struct cpp_converted_source
 cpp_converted_source cpp_get_converted_source (const char *fname,
 					       const char *input_charset);
 
-/* In pch.cc */
+/* In pch.ml */
 struct save_macro_data;
 extern int cpp_save_state (cpp_reader *, FILE *);
 extern int cpp_write_pch_deps (cpp_reader *, FILE *);
@@ -1557,7 +1557,7 @@ extern void cpp_prepare_state (cpp_reader *, struct save_macro_data **);
 extern int cpp_read_state (cpp_reader *, const char *, FILE *,
 			   struct save_macro_data *);
 
-/* In lex.cc */
+/* In lex.ml */
 extern void cpp_force_token_locations (cpp_reader *, location_t);
 extern void cpp_stop_forcing_token_locations (cpp_reader *);
 enum CPP_DO_task
@@ -1573,7 +1573,7 @@ extern void cpp_directive_only_process (cpp_reader *pfile,
 						    CPP_DO_task,
 						    void *data, ...));
 
-/* In expr.cc */
+/* In expr.ml */
 extern enum cpp_ttype cpp_userdef_string_remove_type
   (enum cpp_ttype type);
 extern enum cpp_ttype cpp_userdef_string_add_type
@@ -1589,7 +1589,7 @@ extern bool cpp_userdef_char_p
 extern const char * cpp_get_userdef_suffix
   (const cpp_token *);
 
-/* In charset.cc */
+/* In charset.ml */
 
 /* The result of attempting to decode a run of UTF-8 bytes.  */
 
@@ -1607,7 +1607,7 @@ struct cpp_decoded_char
    This is a tabstop value, along with a callback for getting the
    widths of characters.  Normally this callback is cpp_wcwidth, but we
    support other schemes for escaping non-ASCII unicode as a series of
-   ASCII chars when printing the user's source code in diagnostic-show-locus.cc
+   ASCII chars when printing the user's source code in diagnostic-show-locus.ml
 
    For example, consider:
    - the Unicode character U+03C0 "GREEK SMALL LETTER PI" (UTF-8: 0xCF 0x80)
@@ -1696,7 +1696,7 @@ enum cpp_xid_property {
 
 unsigned int cpp_check_xid_property (cppchar_t c);
 
-/* In errors.cc */
+/* In errors.ml */
 
 /* RAII class to suppress CPP diagnostics in the current scope.  */
 class cpp_auto_suppress_diagnostics

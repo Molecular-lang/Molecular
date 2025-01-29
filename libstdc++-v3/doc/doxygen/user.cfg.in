@@ -838,7 +838,7 @@ WARN_LOGFILE           =
 # Note: If this tag is empty the current directory is searched.
 
 # N.B. update STRIP_FROM_PATH to sanitize paths outside the build tree.
-INPUT                  = @srcdir@/doc/doxygen/doxygroups.cc \
+INPUT                  = @srcdir@/doc/doxygen/doxygroups.ml \
                          @srcdir@/libsupc++/compare \
                          @srcdir@/libsupc++/cxxabi.h \
                          @srcdir@/libsupc++/exception \
@@ -1070,7 +1070,7 @@ INPUT_ENCODING         = UTF-8
 # need to set EXTENSION_MAPPING for the extension otherwise the files are not
 # read by doxygen.
 #
-# If left blank the following patterns are tested:*.c, *.cc, *.cxx, *.cpp,
+# If left blank the following patterns are tested:*.c, *.ml, *.cxx, *.cpp,
 # *.c++, *.java, *.ii, *.ixx, *.ipp, *.i++, *.inl, *.idl, *.ddl, *.odl, *.h,
 # *.hh, *.hxx, *.hpp, *.h++, *.cs, *.d, *.php, *.php4, *.php5, *.phtml, *.inc,
 # *.m, *.markdown, *.md, *.mm, *.dox (to be provided as doxygen C comment),
@@ -1116,7 +1116,7 @@ EXCLUDE_SYMLINKS       = NO
 # exclude all test directories for example use the pattern */test/*
 
 EXCLUDE_PATTERNS       = stamp-* \
-                         doxygroups.cc \
+                         doxygroups.ml \
                          *.gch \
                          */.svn/*
 

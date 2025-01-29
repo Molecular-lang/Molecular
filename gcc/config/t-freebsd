@@ -16,10 +16,10 @@
 # along with GCC; see the file COPYING3.  If not see
 # <http://www.gnu.org/licenses/>.
 
-freebsd-d.o: $(srcdir)/config/freebsd-d.cc
+freebsd-d.o: $(srcdir)/config/freebsd-d.ml
 	$(COMPILE) $<
 	$(POSTCOMPILE)
 
-freebsd-rust.o: $(srcdir)/config/freebsd-rust.cc
+freebsd-rust.o: $(srcdir)/config/freebsd-rust.ml
 	$(COMPILE) $<
 	$(POSTCOMPILE)

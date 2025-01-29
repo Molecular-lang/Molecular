@@ -87,7 +87,7 @@ md_def_regex = re.compile(r'\(define.*\s+"(.*)"')
 bugzilla_url = 'https://gcc.gnu.org/bugzilla/rest.cgi/bug?id=%s&' \
                'include_fields=summary,component'
 
-function_extensions = {'.c', '.cpp', '.C', '.cc', '.h', '.inc', '.def', '.md'}
+function_extensions = {'.c', '.cpp', '.C', '.ml', '.h', '.inc', '.def', '.md'}
 
 # NB: Makefile.in isn't listed as it's not always generated.
 generated_files = {'aclocal.m4', 'config.h.in', 'configure'}

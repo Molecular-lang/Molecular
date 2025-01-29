@@ -126,7 +126,7 @@ regressions, ABI, and performance.
       instance, to test items related to <code> 21.3.6.1 -
       <function>basic_string::find</function> [lib.string::find]</code>
       in the standard, the following was used:
-<programlisting>    21_strings/find.cc </programlisting>
+<programlisting>    21_strings/find.ml </programlisting>
       However, that practice soon became a liability as the test cases
       became huge and unwieldy, and testing new or extended
       functionality (like wide characters or named locales) became
@@ -136,12 +136,12 @@ regressions, ABI, and performance.
       above issues and gives finer grained results and more manageable
       error debugging. As an example, the test case quoted above
       becomes:
-<programlisting>    21_strings/basic_string/find/char/1.cc
-    21_strings/basic_string/find/char/2.cc
-    21_strings/basic_string/find/char/3.cc
-    21_strings/basic_string/find/wchar_t/1.cc
-    21_strings/basic_string/find/wchar_t/2.cc
-    21_strings/basic_string/find/wchar_t/3.cc</programlisting>
+<programlisting>    21_strings/basic_string/find/char/1.ml
+    21_strings/basic_string/find/char/2.ml
+    21_strings/basic_string/find/char/3.ml
+    21_strings/basic_string/find/wchar_t/1.ml
+    21_strings/basic_string/find/wchar_t/2.ml
+    21_strings/basic_string/find/wchar_t/3.ml</programlisting>
    </para>
 
    <para>
@@ -162,13 +162,13 @@ regressions, ABI, and performance.
 
 <variablelist>
 <varlistentry>
-  <term><filename class="extension">_xin.cc</filename></term>
+  <term><filename class="extension">_xin.ml</filename></term>
   <listitem>
       This test case expects some kind of interactive input in order
       to finish or pass. At the moment, the interactive tests are not
       run by default. Instead, they are run by hand, like:
       <programlisting>
-g++ 27_io/objects/char/3_xin.cc
+g++ 27_io/objects/char/3_xin.ml
 cat 27_io/objects/char/3_xin.in | a.out</programlisting>
   </listitem>
 </varlistentry>
@@ -176,11 +176,11 @@ cat 27_io/objects/char/3_xin.in | a.out</programlisting>
   <term><filename class="extension">.in</filename></term>
   <listitem>
       This file contains the expected input for the corresponding <emphasis>
-      _xin.cc</emphasis> test case.
+      _xin.ml</emphasis> test case.
   </listitem>
 </varlistentry>
 <varlistentry>
-  <term><filename class="extension">_neg.cc</filename></term>
+  <term><filename class="extension">_neg.ml</filename></term>
   <listitem>
       This test case is expected to fail: it's a negative test. At the
       moment, these are almost always compile time errors.
@@ -866,7 +866,7 @@ with specific options, and additional options for 32-bit x86:
 
    <para>
     More examples can be found in the
-    <filename>libstdc++-v3/testsuite/*/*.cc</filename> files.
+    <filename>libstdc++-v3/testsuite/*/*.ml</filename> files.
    </para>
 </section>
 
@@ -1006,8 +1006,8 @@ only default variables.
      <listitem>
        <para>
        <emphasis>testsuite_abi.h</emphasis>,
-       <emphasis>testsuite_abi.cc</emphasis>,
-       <emphasis>testsuite_abi_check.cc</emphasis>
+       <emphasis>testsuite_abi.ml</emphasis>,
+       <emphasis>testsuite_abi_check.ml</emphasis>
        </para>
        <para>
 	Creates the executable <emphasis>abi_check</emphasis>.
@@ -1020,7 +1020,7 @@ only default variables.
      <listitem>
        <para>
        <emphasis>testsuite_allocator.h</emphasis>,
-       <emphasis>testsuite_allocator.cc</emphasis>
+       <emphasis>testsuite_allocator.ml</emphasis>
        </para>
        <para>
 	Contains specialized allocators that keep track of construction
@@ -1043,7 +1043,7 @@ only default variables.
      <listitem>
        <para>
        <emphasis>testsuite_hooks.h</emphasis>,
-       <emphasis>testsuite_hooks.cc</emphasis>
+       <emphasis>testsuite_hooks.ml</emphasis>
        </para>
        <para>
        A large number of utilities, including:
@@ -1170,7 +1170,7 @@ only default variables.
        </para>
        <para>
 	 For example,
-	 <filename>testsuite/23_containers/list/modifiers/3.cc</filename>.
+	 <filename>testsuite/23_containers/list/modifiers/3.ml</filename>.
        </para>
      </listitem>
 
@@ -1181,7 +1181,7 @@ only default variables.
        <para>
 	 For example, take the test
 	 functor <classname>rand_reg_test</classname> in
-	 in <filename>testsuite/ext/pb_ds/regression/tree_no_data_map_rand.cc</filename>. This uses <classname>container_rand_regression_test</classname> in
+	 in <filename>testsuite/ext/pb_ds/regression/tree_no_data_map_rand.ml</filename>. This uses <classname>container_rand_regression_test</classname> in
 <filename>testsuite/util/regression/rand/assoc/container_rand_regression_test.h</filename>.
 
        </para>
@@ -1262,7 +1262,7 @@ C++11 Requirements Test Sequence Descriptions
 
      <para>
 	 The general form is demonstrated in
-	 <filename>testsuite/23_containers/list/requirements/exception/basic.cc
+	 <filename>testsuite/23_containers/list/requirements/exception/basic.ml
 	 </filename>. The instantiating test object is <classname>__gnu_test::basic_safety</classname> and is detailed in <filename>testsuite/util/exception/safety.h</filename>.
        </para>
      </listitem>
@@ -1289,7 +1289,7 @@ C++11 Requirements Test Sequence Descriptions
        </para>
        <para>
 	 The general form is demonstrated in
-	 <filename>testsuite/23_containers/list/requirements/exception/generation_prohibited.cc
+	 <filename>testsuite/23_containers/list/requirements/exception/generation_prohibited.ml
 	 </filename>. The instantiating test object is <classname>__gnu_test::generation_prohibited</classname> and is detailed in <filename>testsuite/util/exception/safety.h</filename>.
        </para>
      </listitem>
@@ -1323,7 +1323,7 @@ C++11 Requirements Test Sequence Descriptions
 
        <para>
 	 The general form demonstrated in
-	 <filename>testsuite/23_containers/list/requirements/exception/propagation_coherent.cc
+	 <filename>testsuite/23_containers/list/requirements/exception/propagation_coherent.ml
 	 </filename>. The instantiating test object is <classname>__gnu_test::propagation_coherent</classname> and is detailed in <filename>testsuite/util/exception/safety.h</filename>.
        </para>
      </listitem>

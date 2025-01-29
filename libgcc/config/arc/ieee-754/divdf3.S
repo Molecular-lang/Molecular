@@ -221,7 +221,7 @@ __divdf3:
 	cmp r5,r8
 	cmp.eq DBL0L,DBL1L
 	; wb stall
-	lsr.cc r5,r5,1
+	lsr.ml r5,r5,1
 	sub r4,r4,r11 ; u1.31 inverse, about 30 bit
 	MPYHU r11,r5,r4 ; result fraction highpart
 	breq r7,r9,.Linf_nan_dbl1

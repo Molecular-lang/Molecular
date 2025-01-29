@@ -48,13 +48,13 @@ plugin_LTLIBRARIES = libcc1plugin.la libcp1plugin.la
 cc1lib_LTLIBRARIES = libcc1.la
 endif
 
-shared_source = callbacks.cc callbacks.hh connection.cc connection.hh \
-    marshall.cc marshall.hh rpc.hh status.hh
+shared_source = callbacks.ml callbacks.hh connection.ml connection.hh \
+    marshall.ml marshall.hh rpc.hh status.hh
 
 marshall_cxx_source = marshall-cp.hh
 
 libcc1plugin_la_LDFLAGS = -module -export-symbols $(srcdir)/libcc1plugin.sym
-libcc1plugin_la_SOURCES = libcc1plugin.cc context.cc context.hh \
+libcc1plugin_la_SOURCES = libcc1plugin.ml context.ml context.hh \
 	$(shared_source)
 libcc1plugin.lo_CPPFLAGS = $(CPPFLAGS_FOR_C)
 libcc1plugin_la_LIBADD = $(libiberty)
@@ -64,7 +64,7 @@ libcc1plugin_la_LINK = $(LIBTOOL) --tag=CXX $(AM_LIBTOOLFLAGS) \
 	$(CXXFLAGS) $(libcc1plugin_la_LDFLAGS) $(LTLDFLAGS) -o $@
 
 libcp1plugin_la_LDFLAGS = -module -export-symbols $(srcdir)/libcp1plugin.sym
-libcp1plugin_la_SOURCES = libcp1plugin.cc context.cc context.hh \
+libcp1plugin_la_SOURCES = libcp1plugin.ml context.ml context.hh \
 	$(shared_source) $(marshall_cxx_source)
 libcp1plugin.lo_CPPFLAGS = $(CPPFLAGS_FOR_CXX)
 libcp1plugin_la_LIBADD = $(libiberty)
@@ -75,8 +75,8 @@ libcp1plugin_la_LINK = $(LIBTOOL) --tag=CXX $(AM_LIBTOOLFLAGS) \
 
 LTLDFLAGS = $(shell $(SHELL) $(top_srcdir)/../libtool-ldflags $(LDFLAGS))
 libcc1_la_LDFLAGS = -module -export-symbols $(srcdir)/libcc1.sym
-libcc1_la_SOURCES = findcomp.cc libcc1.cc libcp1.cc \
-		compiler.cc compiler.hh names.cc names.hh $(shared_source) \
+libcc1_la_SOURCES = findcomp.ml libcc1.ml libcp1.ml \
+		compiler.ml compiler.hh names.ml names.hh $(shared_source) \
 		$(marshall_cxx_source)
 libcc1_la_LIBADD = $(libiberty)
 libcc1_la_DEPENDENCIES = $(libiberty_dep)

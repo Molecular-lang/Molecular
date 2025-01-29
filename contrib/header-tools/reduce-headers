@@ -188,8 +188,8 @@ def build_target_dict (bld_dir, just_these):
 def get_obj_name (src_file):
   if src_file[-2:] == ".c":
     return src_file.replace (".c", ".o")
-  elif src_file[-3:] == ".cc":
-    return src_file.replace (".cc", ".o")
+  elif src_file[-3:] == ".ml":
+    return src_file.replace (".ml", ".o")
   return ""
 
 def target_obj_exists (target, obj_name):

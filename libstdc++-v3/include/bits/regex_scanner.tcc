@@ -244,7 +244,7 @@ namespace __detail
 	}
       // In POSIX, when encountering "[]" or "[^]", the ']' is interpreted
       // literally. So "[]]" and "[^]]" are valid regexes. See the testcases
-      // `.../empty_range.cc`.
+      // `.../empty_range.ml`.
       else if (__c == ']' && (_M_is_ecma() || !_M_at_bracket_start))
 	{
 	  _M_token = _S_token_bracket_end;

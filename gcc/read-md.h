@@ -136,7 +136,7 @@ struct mapping;
 
 /* A class for reading .md files and RTL dump files.
 
-   Implemented in read-md.cc.
+   Implemented in read-md.ml.
 
    This class has responsibility for reading chars from input files, and
    for certain common top-level directives including the "include"
@@ -144,7 +144,7 @@ struct mapping;
 
    It does not handle parsing the hierarchically-nested expressions of
    rtl.def; for that see the rtx_reader subclass below (implemented in
-   read-rtl.cc).  */
+   read-rtl.ml).  */
 
 class md_reader
 {
@@ -175,7 +175,7 @@ class md_reader
 
   bool is_compact () const { return m_compact; }
 
-  /* Defined in read-md.cc.  */
+  /* Defined in read-md.ml.  */
   int read_char (void);
   void unread_char (int ch);
   file_location read_name (struct md_name *name);
@@ -207,7 +207,7 @@ class md_reader
   void fprint_c_condition (FILE *outf, const char *cond);
   void print_c_condition (FILE *outf, const char *cond);
 
-  /* Defined in read-rtl.cc.  */
+  /* Defined in read-rtl.ml.  */
   const char *apply_iterator_to_string (const char *string);
   rtx copy_rtx_for_iterators (rtx original);
   void read_conditions ();
@@ -336,7 +336,7 @@ class noop_reader : public md_reader
 /* An md_reader subclass that actually handles full hierarchical
    rtx expressions.
 
-   Implemented in read-rtl.cc.  */
+   Implemented in read-rtl.ml.  */
 
 class rtx_reader : public md_reader
 {

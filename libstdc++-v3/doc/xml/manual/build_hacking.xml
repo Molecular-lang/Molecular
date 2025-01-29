@@ -468,7 +468,7 @@ previous version node e.g.
 <listitem><para>
 In order for the <link linkend="test.run.variations">check-abi</link> test
 target to pass the testsuite must be updated to know about the new symbol
-version(s). Edit the file <filename>testsuite/util/testsuite_abi.cc</filename>
+version(s). Edit the file <filename>testsuite/util/testsuite_abi.ml</filename>
 file to add the new versions to the <varname>known_versions</varname> list,
 and update the checks for the latest versions that set the
 <varname>latestp</varname> variable).

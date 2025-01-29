@@ -2870,64 +2870,64 @@ AC_DEFUN([GLIBCXX_ENABLE_CLOCALE], [
       AC_MSG_RESULT(generic)
 
       CLOCALE_H=config/locale/generic/c_locale.h
-      CLOCALE_CC=config/locale/generic/c_locale.cc
-      CCODECVT_CC=config/locale/generic/codecvt_members.cc
-      CCOLLATE_CC=config/locale/generic/collate_members.cc
-      CCTYPE_CC=config/locale/generic/ctype_members.cc
+      CLOCALE_CC=config/locale/generic/c_locale.ml
+      CCODECVT_CC=config/locale/generic/codecvt_members.ml
+      CCOLLATE_CC=config/locale/generic/collate_members.ml
+      CCTYPE_CC=config/locale/generic/ctype_members.ml
       CMESSAGES_H=config/locale/generic/messages_members.h
-      CMESSAGES_CC=config/locale/generic/messages_members.cc
-      CMONEY_CC=config/locale/generic/monetary_members.cc
-      CNUMERIC_CC=config/locale/generic/numeric_members.cc
+      CMESSAGES_CC=config/locale/generic/messages_members.ml
+      CMONEY_CC=config/locale/generic/monetary_members.ml
+      CNUMERIC_CC=config/locale/generic/numeric_members.ml
       CTIME_H=config/locale/generic/time_members.h
-      CTIME_CC=config/locale/generic/time_members.cc
+      CTIME_CC=config/locale/generic/time_members.ml
       CLOCALE_INTERNAL_H=config/locale/generic/c++locale_internal.h
       ;;
     darwin)
       AC_MSG_RESULT(darwin)
 
       CLOCALE_H=config/locale/generic/c_locale.h
-      CLOCALE_CC=config/locale/generic/c_locale.cc
-      CCODECVT_CC=config/locale/generic/codecvt_members.cc
-      CCOLLATE_CC=config/locale/generic/collate_members.cc
-      CCTYPE_CC=config/locale/darwin/ctype_members.cc
+      CLOCALE_CC=config/locale/generic/c_locale.ml
+      CCODECVT_CC=config/locale/generic/codecvt_members.ml
+      CCOLLATE_CC=config/locale/generic/collate_members.ml
+      CCTYPE_CC=config/locale/darwin/ctype_members.ml
       CMESSAGES_H=config/locale/generic/messages_members.h
-      CMESSAGES_CC=config/locale/generic/messages_members.cc
-      CMONEY_CC=config/locale/generic/monetary_members.cc
-      CNUMERIC_CC=config/locale/generic/numeric_members.cc
+      CMESSAGES_CC=config/locale/generic/messages_members.ml
+      CMONEY_CC=config/locale/generic/monetary_members.ml
+      CNUMERIC_CC=config/locale/generic/numeric_members.ml
       CTIME_H=config/locale/generic/time_members.h
-      CTIME_CC=config/locale/generic/time_members.cc
+      CTIME_CC=config/locale/generic/time_members.ml
       CLOCALE_INTERNAL_H=config/locale/generic/c++locale_internal.h
       ;;
     vxworks)
       AC_MSG_RESULT(vxworks)
 
       CLOCALE_H=config/locale/generic/c_locale.h
-      CLOCALE_CC=config/locale/generic/c_locale.cc
-      CCODECVT_CC=config/locale/generic/codecvt_members.cc
-      CCOLLATE_CC=config/locale/generic/collate_members.cc
-      CCTYPE_CC=config/locale/vxworks/ctype_members.cc
+      CLOCALE_CC=config/locale/generic/c_locale.ml
+      CCODECVT_CC=config/locale/generic/codecvt_members.ml
+      CCOLLATE_CC=config/locale/generic/collate_members.ml
+      CCTYPE_CC=config/locale/vxworks/ctype_members.ml
       CMESSAGES_H=config/locale/generic/messages_members.h
-      CMESSAGES_CC=config/locale/generic/messages_members.cc
-      CMONEY_CC=config/locale/generic/monetary_members.cc
-      CNUMERIC_CC=config/locale/generic/numeric_members.cc
+      CMESSAGES_CC=config/locale/generic/messages_members.ml
+      CMONEY_CC=config/locale/generic/monetary_members.ml
+      CNUMERIC_CC=config/locale/generic/numeric_members.ml
       CTIME_H=config/locale/generic/time_members.h
-      CTIME_CC=config/locale/generic/time_members.cc
+      CTIME_CC=config/locale/generic/time_members.ml
       CLOCALE_INTERNAL_H=config/locale/generic/c++locale_internal.h
       ;;
     dragonfly)
       AC_MSG_RESULT(dragonfly or freebsd)
 
       CLOCALE_H=config/locale/dragonfly/c_locale.h
-      CLOCALE_CC=config/locale/dragonfly/c_locale.cc
-      CCODECVT_CC=config/locale/dragonfly/codecvt_members.cc
-      CCOLLATE_CC=config/locale/dragonfly/collate_members.cc
-      CCTYPE_CC=config/locale/dragonfly/ctype_members.cc
+      CLOCALE_CC=config/locale/dragonfly/c_locale.ml
+      CCODECVT_CC=config/locale/dragonfly/codecvt_members.ml
+      CCOLLATE_CC=config/locale/dragonfly/collate_members.ml
+      CCTYPE_CC=config/locale/dragonfly/ctype_members.ml
       CMESSAGES_H=config/locale/generic/messages_members.h
-      CMESSAGES_CC=config/locale/generic/messages_members.cc
-      CMONEY_CC=config/locale/dragonfly/monetary_members.cc
-      CNUMERIC_CC=config/locale/dragonfly/numeric_members.cc
+      CMESSAGES_CC=config/locale/generic/messages_members.ml
+      CMONEY_CC=config/locale/dragonfly/monetary_members.ml
+      CNUMERIC_CC=config/locale/dragonfly/numeric_members.ml
       CTIME_H=config/locale/dragonfly/time_members.h
-      CTIME_CC=config/locale/dragonfly/time_members.cc
+      CTIME_CC=config/locale/dragonfly/time_members.ml
       CLOCALE_INTERNAL_H=config/locale/generic/c++locale_internal.h
       ;;
 
@@ -2953,48 +2953,48 @@ AC_DEFUN([GLIBCXX_ENABLE_CLOCALE], [
       AC_SUBST(glibcxx_POFILES)
 
       CLOCALE_H=config/locale/gnu/c_locale.h
-      CLOCALE_CC=config/locale/gnu/c_locale.cc
-      CCODECVT_CC=config/locale/gnu/codecvt_members.cc
-      CCOLLATE_CC=config/locale/gnu/collate_members.cc
-      CCTYPE_CC=config/locale/gnu/ctype_members.cc
+      CLOCALE_CC=config/locale/gnu/c_locale.ml
+      CCODECVT_CC=config/locale/gnu/codecvt_members.ml
+      CCOLLATE_CC=config/locale/gnu/collate_members.ml
+      CCTYPE_CC=config/locale/gnu/ctype_members.ml
       CMESSAGES_H=config/locale/gnu/messages_members.h
-      CMESSAGES_CC=config/locale/gnu/messages_members.cc
-      CMONEY_CC=config/locale/gnu/monetary_members.cc
-      CNUMERIC_CC=config/locale/gnu/numeric_members.cc
+      CMESSAGES_CC=config/locale/gnu/messages_members.ml
+      CMONEY_CC=config/locale/gnu/monetary_members.ml
+      CNUMERIC_CC=config/locale/gnu/numeric_members.ml
       CTIME_H=config/locale/gnu/time_members.h
-      CTIME_CC=config/locale/gnu/time_members.cc
+      CTIME_CC=config/locale/gnu/time_members.ml
       CLOCALE_INTERNAL_H=config/locale/gnu/c++locale_internal.h
       ;;
     ieee_1003.1-2001)
       AC_MSG_RESULT(IEEE 1003.1)
 
       CLOCALE_H=config/locale/ieee_1003.1-2001/c_locale.h
-      CLOCALE_CC=config/locale/ieee_1003.1-2001/c_locale.cc
-      CCODECVT_CC=config/locale/generic/codecvt_members.cc
-      CCOLLATE_CC=config/locale/generic/collate_members.cc
-      CCTYPE_CC=config/locale/generic/ctype_members.cc
+      CLOCALE_CC=config/locale/ieee_1003.1-2001/c_locale.ml
+      CCODECVT_CC=config/locale/generic/codecvt_members.ml
+      CCOLLATE_CC=config/locale/generic/collate_members.ml
+      CCTYPE_CC=config/locale/generic/ctype_members.ml
       CMESSAGES_H=config/locale/ieee_1003.1-2001/messages_members.h
-      CMESSAGES_CC=config/locale/ieee_1003.1-2001/messages_members.cc
-      CMONEY_CC=config/locale/generic/monetary_members.cc
-      CNUMERIC_CC=config/locale/generic/numeric_members.cc
+      CMESSAGES_CC=config/locale/ieee_1003.1-2001/messages_members.ml
+      CMONEY_CC=config/locale/generic/monetary_members.ml
+      CNUMERIC_CC=config/locale/generic/numeric_members.ml
       CTIME_H=config/locale/generic/time_members.h
-      CTIME_CC=config/locale/generic/time_members.cc
+      CTIME_CC=config/locale/generic/time_members.ml
       CLOCALE_INTERNAL_H=config/locale/generic/c++locale_internal.h
       ;;
     newlib)
       AC_MSG_RESULT(newlib)
 
       CLOCALE_H=config/locale/generic/c_locale.h
-      CLOCALE_CC=config/locale/generic/c_locale.cc
-      CCODECVT_CC=config/locale/generic/codecvt_members.cc
-      CCOLLATE_CC=config/locale/generic/collate_members.cc
-      CCTYPE_CC=config/locale/newlib/ctype_members.cc
+      CLOCALE_CC=config/locale/generic/c_locale.ml
+      CCODECVT_CC=config/locale/generic/codecvt_members.ml
+      CCOLLATE_CC=config/locale/generic/collate_members.ml
+      CCTYPE_CC=config/locale/newlib/ctype_members.ml
       CMESSAGES_H=config/locale/generic/messages_members.h
-      CMESSAGES_CC=config/locale/generic/messages_members.cc
-      CMONEY_CC=config/locale/generic/monetary_members.cc
-      CNUMERIC_CC=config/locale/generic/numeric_members.cc
+      CMESSAGES_CC=config/locale/generic/messages_members.ml
+      CMONEY_CC=config/locale/generic/monetary_members.ml
+      CNUMERIC_CC=config/locale/generic/numeric_members.ml
       CTIME_H=config/locale/generic/time_members.h
-      CTIME_CC=config/locale/generic/time_members.cc
+      CTIME_CC=config/locale/generic/time_members.ml
       CLOCALE_INTERNAL_H=config/locale/generic/c++locale_internal.h
       ;;
   esac
@@ -3215,7 +3215,7 @@ AC_DEFUN([GLIBCXX_ENABLE_CSTDIO], [
     stdio*)
       CSTDIO_H=config/io/c_io_stdio.h
       BASIC_FILE_H=config/io/basic_file_stdio.h
-      BASIC_FILE_CC=config/io/basic_file_stdio.cc
+      BASIC_FILE_CC=config/io/basic_file_stdio.ml
 
       if test "x$enable_cstdio" = "xstdio_pure" ; then
 	AC_MSG_RESULT([stdio (without POSIX read/write)])
@@ -3681,8 +3681,8 @@ AC_DEFUN([GLIBCXX_ENABLE_PCH], [
        if $CXX $CXXFLAGS $CPPFLAGS -x c++-header conftest.h \
 			  -o conftest.h.gch 1>&5 2>&1 &&
 		echo '#error "pch failed"' > conftest.h &&
-	  echo '#include "conftest.h"' > conftest.cc &&
-	       $CXX -c $CXXFLAGS $CPPFLAGS conftest.cc 1>&5 2>&1 ;
+	  echo '#include "conftest.h"' > conftest.ml &&
+	       $CXX -c $CXXFLAGS $CPPFLAGS conftest.ml 1>&5 2>&1 ;
        then
 	 glibcxx_cv_prog_CXX_pch=yes
        else
@@ -4300,7 +4300,7 @@ fi
 
 # Now, set up compatibility support, if any.
 # In addition, need this to deal with std::size_t mangling in
-# src/compatibility.cc.  In a perfect world, could use
+# src/compatibility.ml.  In a perfect world, could use
 # typeid(std::size_t).name()[0] to do direct substitution.
 AC_MSG_CHECKING([for size_t as unsigned int])
 ac_save_CFLAGS="$CFLAGS"

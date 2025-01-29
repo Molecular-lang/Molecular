@@ -272,13 +272,13 @@ find . -name "* *" -print0 | xargs -0r rm        # requires GNU tools
 # FIXME: This also removes std.3 which is the only place that a lot of
 # functions are documented. Should we keep it?
 find . -name "[a-z]*" -a ! -name "std_*" -print | xargs rm
-rm -f *.h.3 *.hpp.3 *config* *.cc.3 *.tcc.3 *_t.3
+rm -f *.h.3 *.hpp.3 *config* *.ml.3 *.tcc.3 *_t.3
 #rm ext_*.3 tr1_*.3 debug_*.3
 
 # this is used to examine what we would have deleted, for debugging
 #mkdir trash
 #find . -name "[a-z]*" -a ! -name "std_*" -print | xargs -i mv {} trash
-#mv *.h.3 *config* *.cc.3 *.tcc.3 *_t.3  trash
+#mv *.h.3 *config* *.ml.3 *.tcc.3 *_t.3  trash
 
 gxx=$($builddir/scripts/testsuite_flags --build-cxx)
 cppflags=$($builddir/scripts/testsuite_flags --build-includes)
@@ -288,7 +288,7 @@ cxxflags="-Og -g -std=gnu++23"
 # enough to rewrite all this, feel free.  This only gets run once a century,
 # and I'm off getting coffee then anyhow, so I didn't care enough to make
 # this super-fast.
-$gxx $cppflags $cxxflags ${srcdir}/doc/doxygen/stdheader.cc -o ./stdheader || exit 1
+$gxx $cppflags $cxxflags ${srcdir}/doc/doxygen/stdheader.ml -o ./stdheader || exit 1
 # Doxygen outputs something like "\fC#include <unique_lock\&.h>\fP" and
 # we want that internal header to be replaced with something like <mutex>.
 problematic=`grep -E -l '#include <.*h>' [a-z]*.3`

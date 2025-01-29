@@ -1061,7 +1061,7 @@
 	* config/i386/heap-trampoline.c: Implement heap-based
 	trampolines for x86_64.
 	* config/i386/t-heap-trampoline: Add rule to build
-	config/i386/heap-trampoline.cc
+	config/i386/heap-trampoline.ml
 	* config.host: Handle --enable-heap-trampolines on
 	x86_64-*-linux*, aarch64-*-linux*, x86_64-*-darwin*.
 
@@ -2173,7 +2173,7 @@
 
 2022-01-17  Martin Liska  <mliska@suse.cz>
 
-	* libgcov-driver.c: Rename .c names to .cc.
+	* libgcov-driver.c: Rename .c names to .ml.
 
 2022-01-15  David  <gccbugzilla@limegreensocks.com>
 

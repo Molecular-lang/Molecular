@@ -34,7 +34,7 @@ struct ipa_dfs_info {
 };
 
 
-/* In ipa-utils.cc  */
+/* In ipa-utils.ml  */
 void ipa_print_order (FILE*, const char *, struct cgraph_node**, int);
 int ipa_reduced_postorder (struct cgraph_node **, bool,
 			  bool (*ignore_edge) (struct cgraph_edge *));
@@ -49,23 +49,23 @@ bool recursive_call_p (tree, tree);
 bool stmt_may_terminate_function_p (function *fun, gimple *stmt, bool assume_return_or_eh);
 bitmap find_always_executed_bbs (function *fun, bool assume_return_or_eh);
 
-/* In ipa-pure-const.cc  */
+/* In ipa-pure-const.ml  */
 bool finite_function_p ();
 bool builtin_safe_for_const_function_p (bool *, tree);
 bool ipa_make_function_const (cgraph_node *, bool, bool);
 bool ipa_make_function_pure (cgraph_node *, bool, bool);
 
-/* In ipa-profile.cc  */
+/* In ipa-profile.ml  */
 bool ipa_propagate_frequency (struct cgraph_node *node);
 void ipa_profile_cc_finalize (void);
 
-/* In ipa-icf.cc  */
+/* In ipa-icf.ml  */
 void ipa_icf_cc_finalize (void);
 
-/* In ipa-sra.cc  */
+/* In ipa-sra.ml  */
 void ipa_sra_cc_finalize (void);
 
-/* In ipa-devirt.cc  */
+/* In ipa-devirt.ml  */
 
 struct odr_type_d;
 typedef odr_type_d *odr_type;

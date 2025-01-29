@@ -184,8 +184,8 @@
        Over multiple iterations, various STL container
      objects have elements inserted to some maximum amount. A variety
      of allocators are tested.
-     Test source for <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://gcc.gnu.org/cgit/gcc/tree/libstdc++-v3/testsuite/performance/23_containers/insert/sequence.cc">sequence</link>
-     and <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://gcc.gnu.org/cgit/gcc/tree/libstdc++-v3/testsuite/performance/23_containers/insert/associative.cc">associative</link>
+     Test source for <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://gcc.gnu.org/cgit/gcc/tree/libstdc++-v3/testsuite/performance/23_containers/insert/sequence.ml">sequence</link>
+     and <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://gcc.gnu.org/cgit/gcc/tree/libstdc++-v3/testsuite/performance/23_containers/insert/associative.ml">associative</link>
      containers.
        </para>
 
@@ -200,7 +200,7 @@
      on a per-thread basis, as well as measuring thread contention
      for memory resources.
      Test source
-    <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://gcc.gnu.org/cgit/gcc/tree/libstdc++-v3/testsuite/performance/23_containers/insert_erase/associative.cc">here</link>.
+    <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://gcc.gnu.org/cgit/gcc/tree/libstdc++-v3/testsuite/performance/23_containers/insert_erase/associative.ml">here</link>.
        </para>
      </listitem>
 
@@ -210,9 +210,9 @@
        </para>
        <para>
        Test source for
-     <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://gcc.gnu.org/cgit/gcc/tree/libstdc++-v3/testsuite/performance/23_containers/producer_consumer/sequence.cc">sequence</link>
+     <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://gcc.gnu.org/cgit/gcc/tree/libstdc++-v3/testsuite/performance/23_containers/producer_consumer/sequence.ml">sequence</link>
      and
-     <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://gcc.gnu.org/cgit/gcc/tree/libstdc++-v3/testsuite/performance/23_containers/producer_consumer/associative.cc">associative</link>
+     <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://gcc.gnu.org/cgit/gcc/tree/libstdc++-v3/testsuite/performance/23_containers/producer_consumer/associative.ml">associative</link>
      containers.
      </para>
      </listitem>

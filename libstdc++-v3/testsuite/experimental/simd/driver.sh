@@ -157,7 +157,7 @@ fi
 CXX="$1"
 shift
 CXXFLAGS="$@"
-src="${srcdir}/${name}.cc"
+src="${srcdir}/${name}.ml"
 shorttype=$(echo $type|sed -e 's/long /l/' -e 's/unsigned /u/' -e 's/signed /s/')
 testname="${name}-${shorttype}-${abi}"
 exe="${testname}.exe"

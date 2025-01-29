@@ -3077,21 +3077,21 @@ This makes sure to update backedges in single-node cycles.
 	* tree-vect-slp.c (): Update backedges in single-node cycles.
 	Optimize processing of externals.
 
-	* g++.dg/vect/slp-pr97636.cc: New testcase.
+	* g++.dg/vect/slp-pr97636.ml: New testcase.
 	* gcc.dg/vect/bb-slp-pr97633.c: Likewise.
 ---
- gcc/testsuite/g++.dg/vect/slp-pr97636.cc   |  83 +++++++++++
+ gcc/testsuite/g++.dg/vect/slp-pr97636.ml   |  83 +++++++++++
  gcc/testsuite/gcc.dg/vect/bb-slp-pr97633.c |  27 ++++
  gcc/tree-vect-slp.c                        | 162 +++++++++++----------
  3 files changed, 198 insertions(+), 74 deletions(-)
- create mode 100644 gcc/testsuite/g++.dg/vect/slp-pr97636.cc
+ create mode 100644 gcc/testsuite/g++.dg/vect/slp-pr97636.ml
  create mode 100644 gcc/testsuite/gcc.dg/vect/bb-slp-pr97633.c
 
-diff --git a/gcc/testsuite/g++.dg/vect/slp-pr97636.cc b/gcc/testsuite/g++.dg/vect/slp-pr97636.cc
+diff --git a/gcc/testsuite/g++.dg/vect/slp-pr97636.ml b/gcc/testsuite/g++.dg/vect/slp-pr97636.ml
 new file mode 100644
 index 00000000000..012342004f1
 --- /dev/null
-+++ b/gcc/testsuite/g++.dg/vect/slp-pr97636.cc
++++ b/gcc/testsuite/g++.dg/vect/slp-pr97636.ml
 @@ -0,0 +1 @@
 +
 diff --git a/gcc/tree-vect-slp.c b/gcc/tree-vect-slp.c
@@ -3172,13 +3172,13 @@ libstdc++-v3/ChangeLog:
 	* testsuite/28_regex_not-existing/*: Fix them all.
 ---
  contrib/gcc-changelog/git_commit.py          | 1 +
- libstdc++-v3/testsuite/28_regex/init-list.cc | 1 +
+ libstdc++-v3/testsuite/28_regex/init-list.ml | 1 +
  2 files changed, 2 insertions(+)
 
-diff --git a/libstdc++-v3/testsuite/28_regex/init-list.cc b/libstdc++-v3/testsuite/28_regex/init-list.cc
+diff --git a/libstdc++-v3/testsuite/28_regex/init-list.ml b/libstdc++-v3/testsuite/28_regex/init-list.ml
 index f51453f019a..d10ecf483f4 100644
---- a/libstdc++-v3/testsuite/28_regex/init-list.cc
-+++ b/libstdc++-v3/testsuite/28_regex/init-list.cc
+--- a/libstdc++-v3/testsuite/28_regex/init-list.ml
++++ b/libstdc++-v3/testsuite/28_regex/init-list.ml
 @@ -1 +1,2 @@
  
 +
@@ -3355,26 +3355,26 @@ NTTP. Adjust the expected errors.
 
 libstdc++-v3/ChangeLog:
 
-	* testsuite/26_numerics/random/linear_congruential_engine/requirements/non_uint_neg.cc:
+	* testsuite/26_numerics/random/linear_congruential_engine/requirements/non_uint_neg.ml:
 	Adjust expected error for C++20 mode.
-	* testsuite/tr1/5_numerical_facilities/random/linear_congruential/requirements/non_uint_neg.cc:
+	* testsuite/tr1/5_numerical_facilities/random/linear_congruential/requirements/non_uint_neg.ml:
 	Likewise.
 ---
- .../linear_congruential_engine/requirements/non_uint_neg.cc   | 4 +++-
- .../random/linear_congruential/requirements/non_uint_neg.cc   | 3 ++-
+ .../linear_congruential_engine/requirements/non_uint_neg.ml   | 4 +++-
+ .../random/linear_congruential/requirements/non_uint_neg.ml   | 3 ++-
  2 files changed, 5 insertions(+), 2 deletions(-)
 
-diff --git a/libstdc++-v3/testsuite/26_numerics/random/linear_congruential_engine/requirements/non_uint_neg.cc b/libstdc++-v3/testsuite/26_numerics/random/linear_congruential_engine/requirements/non_uint_neg.cc
+diff --git a/libstdc++-v3/testsuite/26_numerics/random/linear_congruential_engine/requirements/non_uint_neg.ml b/libstdc++-v3/testsuite/26_numerics/random/linear_congruential_engine/requirements/non_uint_neg.ml
 index e04e8ca6972..a36d63c6c7b 100644
---- a/libstdc++-v3/testsuite/26_numerics/random/linear_congruential_engine/requirements/non_uint_neg.cc
-+++ b/libstdc++-v3/testsuite/26_numerics/random/linear_congruential_engine/requirements/non_uint_neg.cc
+--- a/libstdc++-v3/testsuite/26_numerics/random/linear_congruential_engine/requirements/non_uint_neg.ml
++++ b/libstdc++-v3/testsuite/26_numerics/random/linear_congruential_engine/requirements/non_uint_neg.ml
 @@ -1 +1,2 @@
  
 +
-diff --git a/libstdc++-v3/testsuite/tr1/5_numerical_facilities/random/linear_congruential/requirements/non_uint_neg.cc b/libstdc++-v3/testsuite/tr1/5_numerical_facilities/random/linear_congruential/requirements/non_uint_neg.cc
+diff --git a/libstdc++-v3/testsuite/tr1/5_numerical_facilities/random/linear_congruential/requirements/non_uint_neg.ml b/libstdc++-v3/testsuite/tr1/5_numerical_facilities/random/linear_congruential/requirements/non_uint_neg.ml
 index 5ad82db1def..53b15f32516 100644
---- a/libstdc++-v3/testsuite/tr1/5_numerical_facilities/random/linear_congruential/requirements/non_uint_neg.cc
-+++ b/libstdc++-v3/testsuite/tr1/5_numerical_facilities/random/linear_congruential/requirements/non_uint_neg.cc
+--- a/libstdc++-v3/testsuite/tr1/5_numerical_facilities/random/linear_congruential/requirements/non_uint_neg.ml
++++ b/libstdc++-v3/testsuite/tr1/5_numerical_facilities/random/linear_congruential/requirements/non_uint_neg.ml
 @@ -1 +1,2 @@
  
 +
@@ -3502,15 +3502,15 @@ ChangeLog:
 
 gcc/ChangeLog:
 
-	* ipa-icf.cc: Update.
+	* ipa-icf.ml: Update.
 ---
  Makefile.am     | 1 +
  Makefile.in     | 1 +
- gcc/ipa-icf.cc  | 1 +
- gcc/ipa-icf2.cc | 1 +
+ gcc/ipa-icf.ml  | 1 +
+ gcc/ipa-icf2.ml | 1 +
  4 files changed, 4 insertions(+)
  create mode 100644 Makefile.am
- create mode 100644 gcc/ipa-icf2.cc
+ create mode 100644 gcc/ipa-icf2.ml
 
 diff --git a/Makefile.am b/Makefile.am
 new file mode 100644
@@ -3529,20 +3529,20 @@ index 79c77fccf0f..7a090030119 100644
  # Makefile.in is generated from Makefile.tpl by 'autogen Makefile.def'.
  #
  # Makefile for directory with subdirs to build.
-diff --git a/gcc/ipa-icf.cc b/gcc/ipa-icf.cc
+diff --git a/gcc/ipa-icf.ml b/gcc/ipa-icf.ml
 index 765ae746745..15735b6684f 100644
---- a/gcc/ipa-icf.cc
-+++ b/gcc/ipa-icf.cc
+--- a/gcc/ipa-icf.ml
++++ b/gcc/ipa-icf.ml
 @@ -1,3 +1,4 @@
 +
  /* Interprocedural Identical Code Folding pass
     Copyright (C) 2014-2023 Free Software Foundation, Inc.
  
-diff --git a/gcc/ipa-icf2.cc b/gcc/ipa-icf2.cc
+diff --git a/gcc/ipa-icf2.ml b/gcc/ipa-icf2.ml
 new file mode 100644
 index 00000000000..c49c556e0e4
 --- /dev/null
-+++ b/gcc/ipa-icf2.cc
++++ b/gcc/ipa-icf2.ml
 @@ -0,0 +1 @@
 +tt
 -- 
@@ -3582,16 +3582,16 @@ Applying an inferred range is using int_range_ma as the
 temporary rather than the general purpose Value_Range.  This causes it
 to trap if we have a non-integral inferred range.
 
-	* gimple-range-cache.cc (ranger_cache::range_from_dom): Use
+	* gimple-range-cache.ml (ranger_cache::range_from_dom): Use
 	  Value_Range not int_range_max.
 ---
- gcc/gimple-range-cache.cc | 2 +-
+ gcc/gimple-range-cache.ml | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/gcc/gimple-range-cache.cc b/gcc/gimple-range-cache.cc
+diff --git a/gcc/gimple-range-cache.ml b/gcc/gimple-range-cache.ml
 index 0b9aa3639c5..f279371948a 100644
---- a/gcc/gimple-range-cache.cc
-+++ b/gcc/gimple-range-cache.cc
+--- a/gcc/gimple-range-cache.ml
++++ b/gcc/gimple-range-cache.ml
 @@ -1546,7 +1546,6 @@ ranger_cache::range_from_dom (vrange &r, tree name, basic_block start_bb,
  void
  ranger_cache::apply_inferred_ranges (gimple *s)
@@ -3631,7 +3631,8 @@ index 0000000..d75da75
 +pub fn main ()
 +{
 +// { dg-error "Isolated CR" "" { target *-*-* } .+1 }
-+  //! doc cr comment
++  //! doc cr
+ comment
 +}
 -- 
 2.38.1

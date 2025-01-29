@@ -16,10 +16,10 @@
 # along with GCC; see the file COPYING3.  If not see
 # <http://www.gnu.org/licenses/>.
 
-dragonfly-d.o: $(srcdir)/config/dragonfly-d.cc
+dragonfly-d.o: $(srcdir)/config/dragonfly-d.ml
 	$(COMPILE) $<
 	$(POSTCOMPILE)
 
-dragonfly-rust.o: $(srcdir)/config/dragonfly-rust.cc
+dragonfly-rust.o: $(srcdir)/config/dragonfly-rust.ml
 	$(COMPILE) $<
 	$(POSTCOMPILE)

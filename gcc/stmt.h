@@ -1,4 +1,4 @@
-/* Declarations and data structures for stmt.cc.
+/* Declarations and data structures for stmt.ml.
    Copyright (C) 2013-2025 Free Software Foundation, Inc.
 
 This file is part of GCC.

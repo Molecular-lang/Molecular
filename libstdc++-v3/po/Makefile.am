@@ -35,7 +35,7 @@ LOCALE_OUT = $(glibcxx_MOFILES)
 MSGFMT = msgfmt
 
 # Necessary files.
-EXTRA_DIST = string_literals.cc POTFILES.in $(PACKAGE).pot $(LOCALE_IN)
+EXTRA_DIST = string_literals.ml POTFILES.in $(PACKAGE).pot $(LOCALE_IN)
 
 .po.mo:
 	$(MSGFMT) -o $@ $<

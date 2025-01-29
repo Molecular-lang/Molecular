@@ -16,6 +16,6 @@
 # along with GCC; see the file COPYING3.  If not see
 # <http://www.gnu.org/licenses/>.
 
-fuchsia-rust.o: $(srcdir)/config/fuchsia-rust.cc
+fuchsia-rust.o: $(srcdir)/config/fuchsia-rust.ml
 	$(COMPILE) $<
 	$(POSTCOMPILE)

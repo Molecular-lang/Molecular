@@ -65,5 +65,5 @@ __eqsf2:
 	bmsk r12,r0,23
 	add1.f	r12,r12,r0 /* set c iff NaN; also, clear z if NaN.  */
 	j_s.d	[blink]
-	cmp.cc	r0,r1
+	cmp.ml	r0,r1
 	ENDFUNC(__eqsf2)

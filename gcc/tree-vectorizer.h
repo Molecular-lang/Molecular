@@ -2292,7 +2292,7 @@ class auto_purge_vect_location
 /*-----------------------------------------------------------------*/
 
 /* Simple loop peeling and versioning utilities for vectorizer's purposes -
-   in tree-vect-loop-manip.cc.  */
+   in tree-vect-loop-manip.ml.  */
 extern void vect_set_loop_condition (class loop *, edge, loop_vec_info,
 				     tree, tree, tree, bool);
 extern bool slpeel_can_duplicate_loop_p (const class loop *, const_edge,
@@ -2313,7 +2313,7 @@ extern void vect_update_inits_of_drs (loop_vec_info, tree, tree_code);
 extern edge vec_init_loop_exit_info (class loop *);
 extern void vect_iv_increment_position (edge, gimple_stmt_iterator *, bool *);
 
-/* In tree-vect-stmts.cc.  */
+/* In tree-vect-stmts.ml.  */
 extern tree get_related_vectype_for_scalar_type (machine_mode, tree,
 						 poly_uint64 = 0);
 extern tree get_vectype_for_scalar_type (vec_info *, tree, unsigned int = 0);
@@ -2433,10 +2433,10 @@ extern opt_result vect_get_vector_types_for_stmt (vec_info *,
 						  tree *, unsigned int = 0);
 extern opt_tree vect_get_mask_type_for_stmt (stmt_vec_info, unsigned int = 0);
 
-/* In tree-if-conv.cc.  */
+/* In tree-if-conv.ml.  */
 extern bool ref_within_array_bound (gimple *, tree);
 
-/* In tree-vect-data-refs.cc.  */
+/* In tree-vect-data-refs.ml.  */
 extern bool vect_can_force_dr_alignment_p (const_tree, poly_uint64);
 extern enum dr_alignment_support vect_supportable_dr_alignment
 				   (vec_info *, dr_vec_info *, tree, int);
@@ -2491,13 +2491,13 @@ extern tree vect_create_addr_base_for_vector_ref (vec_info *,
 						  stmt_vec_info, gimple_seq *,
 						  tree);
 
-/* In tree-vect-loop.cc.  */
+/* In tree-vect-loop.ml.  */
 extern tree neutral_op_for_reduction (tree, code_helper, tree, bool = true);
 extern widest_int vect_iv_limit_for_partial_vectors (loop_vec_info loop_vinfo);
 bool vect_rgroup_iv_might_wrap_p (loop_vec_info, rgroup_controls *);
-/* Used in tree-vect-loop-manip.cc */
+/* Used in tree-vect-loop-manip.ml */
 extern opt_result vect_determine_partial_vectors_and_peeling (loop_vec_info);
-/* Used in gimple-loop-interchange.c and tree-parloops.cc.  */
+/* Used in gimple-loop-interchange.c and tree-parloops.ml.  */
 extern bool check_reduction_path (dump_user_location_t, loop_p, gphi *, tree,
 				  enum tree_code);
 extern bool needs_fold_left_reduction_p (tree, code_helper);
@@ -2582,7 +2582,7 @@ extern tree cse_and_gimplify_to_preheader (loop_vec_info, tree);
 extern tree vect_peel_nonlinear_iv_init (gimple_seq*, tree, tree,
 					 tree, enum vect_induction_op_type);
 
-/* In tree-vect-slp.cc.  */
+/* In tree-vect-slp.ml.  */
 extern void vect_slp_init (void);
 extern void vect_slp_fini (void);
 extern void vect_free_slp_instance (slp_instance);
@@ -2620,7 +2620,7 @@ extern tree prepare_vec_mask (loop_vec_info, tree, tree, tree,
 			      gimple_stmt_iterator *);
 extern tree vect_get_mask_load_else (int, tree);
 
-/* In tree-vect-patterns.cc.  */
+/* In tree-vect-patterns.ml.  */
 extern void
 vect_mark_pattern_stmts (vec_info *, stmt_vec_info, gimple *, tree);
 extern bool vect_get_range_info (tree, wide_int*, wide_int*);
@@ -2630,13 +2630,13 @@ extern bool vect_get_range_info (tree, wide_int*, wide_int*);
    in the future.  */
 void vect_pattern_recog (vec_info *);
 
-/* In tree-vectorizer.cc.  */
+/* In tree-vectorizer.ml.  */
 unsigned vectorize_loops (void);
 void vect_free_loop_info_assumptions (class loop *);
 gimple *vect_loop_vectorized_call (class loop *, gcond **cond = NULL);
 bool vect_stmt_dominates_stmt_p (gimple *, gimple *);
 
-/* SLP Pattern matcher types, tree-vect-slp-patterns.cc.  */
+/* SLP Pattern matcher types, tree-vect-slp-patterns.ml.  */
 
 /* Forward declaration of possible two operands operation that can be matched
    by the complex numbers pattern matchers.  */

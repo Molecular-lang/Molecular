@@ -64,13 +64,13 @@ if not usage:
       file_list = find_gcc_files ("\*.h", current, deeper)
     if process_c:
       file_list = file_list + find_gcc_files ("\*.c", current, deeper)
-      file_list = file_list + find_gcc_files ("\*.cc", current, deeper)
+      file_list = file_list + find_gcc_files ("\*.ml", current, deeper)
   else:
     newlist = list()
     for x in file_list:
       if process_h and x[-2:] == ".h":
         newlist.append (x)
-      elif process_c and (x[-2:] == ".c" or x[-3:] == ".cc"):
+      elif process_c and (x[-2:] == ".c" or x[-3:] == ".ml"):
         newlist.append (x)
     file_list = newlist;
      
@@ -96,7 +96,7 @@ else:
   print ("the listed files. processed to a depth of 3 subdirs")
   print (" -h  : Show this message")
   print (" -i  : process only header files (*.h) for #include")
-  print (" -c  : process only source files (*.c *.cc) for #include")
+  print (" -c  : process only source files (*.c *.ml) for #include")
   print ("       If nothing is specified, defaults to -i -c")
   print (" -s  : Same as -c.")
   print (" -v  : Show which include(s) were found")

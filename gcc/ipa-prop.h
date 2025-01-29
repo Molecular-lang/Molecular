@@ -30,7 +30,7 @@ along with GCC; see the file COPYING3.  If not see
 
 #define IPA_PROP_ARG_INDEX_LIMIT_BITS 16
 
-/* ipa-prop.cc stuff (ipa-cp, indirect inlining):  */
+/* ipa-prop.ml stuff (ipa-cp, indirect inlining):  */
 
 /* A jump function for a callsite represents the values passed as actual
    arguments of the callsite.  They were originally proposed in a paper called
@@ -64,7 +64,7 @@ along with GCC; see the file COPYING3.  If not see
    parameter or can apply one simple binary operation to it (such jump
    functions are called polynomial).
 
-   Jump functions are computed in ipa-prop.cc by function
+   Jump functions are computed in ipa-prop.ml by function
    update_call_notes_after_inlining.  Some information can be lost and jump
    functions degraded accordingly when inlining, see
    update_call_notes_after_inlining in the same file.  */
@@ -1261,11 +1261,11 @@ bool unadjusted_ptr_and_unit_offset (tree op, tree *ret,
 void ipa_get_range_from_ip_invariant (vrange &r, tree val, cgraph_node *node);
 void ipa_prop_cc_finalize (void);
 
-/* From tree-sra.cc:  */
+/* From tree-sra.ml:  */
 tree build_ref_for_offset (location_t, tree, poly_int64, bool, tree,
 			   gimple_stmt_iterator *, bool);
 
-/* In ipa-cp.cc  */
+/* In ipa-cp.ml  */
 void ipa_cp_cc_finalize (void);
 bool ipa_return_value_range (value_range &range, tree decl);
 void ipa_record_return_value_range (value_range val);

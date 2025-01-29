@@ -275,23 +275,23 @@ proc libstdc++_init { testfile } {
 	# $srcdir so we copy the testsuite headers into the current
 	# directory, and then add that to the search path.
 	foreach src [glob "${srcdir}/util/*.h" \
-			  "${srcdir}/util/*.cc" \
+			  "${srcdir}/util/*.ml" \
 			  "${srcdir}/util/*.tcc" \
 			  "${srcdir}/util/*.hpp" \
 			  "${srcdir}/util/*/*.h" \
-			  "${srcdir}/util/*/*.cc" \
+			  "${srcdir}/util/*/*.ml" \
 			  "${srcdir}/util/*/*.tcc" \
 			  "${srcdir}/util/*/*.hpp" \
 			  "${srcdir}/util/*/*/*.h" \
-			  "${srcdir}/util/*/*/*.cc" \
+			  "${srcdir}/util/*/*/*.ml" \
 			  "${srcdir}/util/*/*/*.tcc" \
 			  "${srcdir}/util/*/*/*.hpp" \
 			  "${srcdir}/util/*/*/*/*.h" \
-			  "${srcdir}/util/*/*/*/*.cc" \
+			  "${srcdir}/util/*/*/*/*.ml" \
 			  "${srcdir}/util/*/*/*/*.tcc" \
 			  "${srcdir}/util/*/*/*/*.hpp" \
 			  "${srcdir}/util/*/*/*/*/*.h" \
-			  "${srcdir}/util/*/*/*/*/*.cc" \
+			  "${srcdir}/util/*/*/*/*/*.ml" \
 			  "${srcdir}/util/*/*/*/*/*.tcc" \
 			  "${srcdir}/util/*/*/*/*/*.hpp" ] {
 	    # Remove everything up to "util/..."
@@ -337,7 +337,7 @@ proc libstdc++_init { testfile } {
     # perform a test compilation.  (Ideally, gcc --print-file-name would
     # list PCH files, but it does not.)
     if { $cxxpchflags != "" } {
-	set src "config[pid].cc"
+	set src "config[pid].ml"
 	set f [open $src "w"]
 	puts $f "int main () {}"
 	close $f
@@ -744,7 +744,7 @@ proc v3-build_support { } {
     set v3-symver 0
     set libtest_objs ""
 
-    set config_src "config.cc"
+    set config_src "config.ml"
     set config_out "config.ii"
     set f [open $config_src "w"]
     puts $f "#include <bits/c++config.h>"
@@ -782,10 +782,10 @@ proc v3-build_support { } {
     }
 
     # Build the support objects.
-    set source_files [list testsuite_abi.cc testsuite_allocator.cc \
-			  testsuite_character.cc testsuite_hooks.cc \
-			  io/verified_cmd_line_input.cc \
-			  io/prog_bar.cc performance/time/elapsed_timer.cc ]
+    set source_files [list testsuite_abi.ml testsuite_allocator.ml \
+			  testsuite_character.ml testsuite_hooks.ml \
+			  io/verified_cmd_line_input.ml \
+			  io/prog_bar.ml performance/time/elapsed_timer.ml ]
     foreach f $source_files {
 	set obj [file rootname $f].o
 	set object_file [file tail $obj]
@@ -826,7 +826,7 @@ proc v3-build_support { } {
 
     # Build any shared objects needed for regression testing.
     if { ${v3-sharedlib} == 1 } {
-	set source_files [list testsuite_shared.cc]
+	set source_files [list testsuite_shared.ml]
 	foreach f $source_files {
 	    set object_file [file rootname $f].so
 	    # Compile with "-w" so that warnings issued by the compiler
@@ -875,7 +875,7 @@ proc check_v3_target_fileio { } {
 
 	# Set up, compile, and execute a C++ test program that tries to use
 	# the file functions
-	set src fileio[pid].cc
+	set src fileio[pid].ml
 	set exe fileio[pid].x
 	set testfile "cin_unget-1.[pid].txt"
 	v3-copy-file "$srcdir/data/cin_unget-1.txt" "$testfile"
@@ -941,7 +941,7 @@ proc check_v3_target_c_std { } {
 	# Set up, compile, and execute a C++ test program that tries to use
 	# C99 functionality.
 	# For math bits, could use check_effective_target_c99_math.
-	set src c_std[pid].cc
+	set src c_std[pid].ml
 	set exe c_std[pid].x
 
 	set f [open $src "w"]
@@ -988,7 +988,7 @@ proc check_v3_target_time { } {
 	global tool
 	# Set up and compile a C++ test program that tries to use
 	# the time function
-	set src time[pid].cc
+	set src time[pid].ml
 
 	set f [open $src "w"]
 	puts $f "#include <time.h>"
@@ -1020,7 +1020,7 @@ proc check_v3_target_namedlocale { args } {
 	# Set up, compile, and execute a C++ test program that tries to use
 	# the required named locale.
 	set exe nlocale[pid].x
-	set src nlocale[pid].cc
+	set src nlocale[pid].ml
 
 	set f [open $src "w"]
 	puts $f "#include <locale>"
@@ -1090,7 +1090,7 @@ proc v3_try_preprocess { name code flags } {
     global cxxflags
 
     # Set up and preprocess a C++ translation unit.
-    set src $name[pid].cc
+    set src $name[pid].ml
 
     set f [open $src "w"]
     puts $f $code
@@ -1228,7 +1228,7 @@ proc check_v3_target_thread_fence { } {
 
 	# Set up and link a C++11 test program that depends
 	# on the thread fence to be available.
-	set src thread_fence[pid].cc
+	set src thread_fence[pid].ml
 
 	set f [open $src "w"]
 	puts $f "
@@ -1264,7 +1264,7 @@ proc check_v3_target_atomic_cmpxchg_word { } {
 	# atomic-compare-exchange being available for a pointer-sized
 	# integer.  It should be sufficient as gcc can derive all
 	# other operations when a target implements this operation.
-	set src atomic_cmpxchg_word[pid].cc
+	set src atomic_cmpxchg_word[pid].ml
 
 	set f [open $src "w"]
 	puts $f "
@@ -1401,7 +1401,7 @@ proc check_v3_target_static_libstdcxx { } {
 	global DEFAULT_CXXFLAGS
 	# Set up and link a C++0x test program that depends
 	# on static linking
-	set src static-maybe[pid].cc
+	set src static-maybe[pid].ml
 
 	set f [open $src "w"]
 	puts $f "#include <iostream>"
@@ -1441,7 +1441,7 @@ proc check_v3_target_filesystem_ts { } {
 	global DEFAULT_CXXFLAGS
 	# Set up and preprocess a C++ test program that depends
 	# on the Filesystem TS feature-test macro being defined.
-	set src filesystem_ts[pid].cc
+	set src filesystem_ts[pid].ml
 
 	set f [open $src "w"]
 	puts $f "#include <experimental/filesystem>"
@@ -1508,7 +1508,7 @@ proc check_effective_target_random_device { } {
 proc check_effective_target_tbb_backend { } {
     return [check_v3_target_prop_cached et_tbb {
         # Set up and compile a C++ test program that depends on tbb
-        set src tbb_backend[pid].cc
+        set src tbb_backend[pid].ml
         set exe tbb_backend[pid].x
 
         set f [open $src "w"]

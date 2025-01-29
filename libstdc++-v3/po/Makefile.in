@@ -391,7 +391,7 @@ LOCALE_OUT = $(glibcxx_MOFILES)
 MSGFMT = msgfmt
 
 # Necessary files.
-EXTRA_DIST = string_literals.cc POTFILES.in $(PACKAGE).pot $(LOCALE_IN)
+EXTRA_DIST = string_literals.ml POTFILES.in $(PACKAGE).pot $(LOCALE_IN)
 
 # Specify what gets cleaned up on a 'make clean'
 CLEANFILES = $(LOCALE_OUT)

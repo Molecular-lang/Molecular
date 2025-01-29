@@ -462,14 +462,14 @@ noinst_LTLIBRARIES = libstdc++fsconvenience.la
 headers = 
 @ENABLE_DUAL_ABI_FALSE@cxx11_abi_sources = 
 @ENABLE_DUAL_ABI_TRUE@cxx11_abi_sources = \
-@ENABLE_DUAL_ABI_TRUE@	cow-dir.cc \
-@ENABLE_DUAL_ABI_TRUE@	cow-ops.cc \
-@ENABLE_DUAL_ABI_TRUE@	cow-path.cc
+@ENABLE_DUAL_ABI_TRUE@	cow-dir.ml \
+@ENABLE_DUAL_ABI_TRUE@	cow-ops.ml \
+@ENABLE_DUAL_ABI_TRUE@	cow-path.ml
 
 sources = \
-	dir.cc \
-	ops.cc \
-	path.cc \
+	dir.ml \
+	ops.ml \
+	path.ml \
 	${cxx11_abi_sources}
 
 
@@ -543,7 +543,7 @@ CLEANFILES = stamp-*
 all: all-am
 
 .SUFFIXES:
-.SUFFIXES: .cc .lo .o .obj
+.SUFFIXES: .ml .lo .o .obj
 $(srcdir)/Makefile.in: @MAINTAINER_MODE_TRUE@ $(srcdir)/Makefile.am $(top_srcdir)/fragment.am $(am__configure_deps)
 	@for dep in $?; do \
 	  case '$(am__configure_deps)' in \
@@ -633,13 +633,13 @@ mostlyclean-compile:
 distclean-compile:
 	-rm -f *.tab.c
 
-.cc.o:
+.ml.o:
 	$(AM_V_CXX)$(CXXCOMPILE) -c -o $@ $<
 
-.cc.obj:
+.ml.obj:
 	$(AM_V_CXX)$(CXXCOMPILE) -c -o $@ `$(CYGPATH_W) '$<'`
 
-.cc.lo:
+.ml.lo:
 	$(AM_V_CXX)$(LTCXXCOMPILE) -c -o $@ $<
 
 mostlyclean-libtool:

@@ -430,9 +430,9 @@ headers =
 
 # XTEMPLATE_FLAGS = -fno-implicit-templates
 @ENABLE_EXTERN_TEMPLATE_TRUE@inst_sources = \
-@ENABLE_EXTERN_TEMPLATE_TRUE@	sstream-inst.cc
+@ENABLE_EXTERN_TEMPLATE_TRUE@	sstream-inst.ml
 
-sources = tzdb.cc format.cc
+sources = tzdb.ml format.ml
 @GLIBCXX_HOSTED_FALSE@libc__20convenience_la_SOURCES = 
 @GLIBCXX_HOSTED_TRUE@libc__20convenience_la_SOURCES = $(sources)  $(inst_sources)
 
@@ -502,7 +502,7 @@ CXXLINK = \
 all: all-am
 
 .SUFFIXES:
-.SUFFIXES: .cc .lo .o .obj
+.SUFFIXES: .ml .lo .o .obj
 $(srcdir)/Makefile.in: @MAINTAINER_MODE_TRUE@ $(srcdir)/Makefile.am $(top_srcdir)/fragment.am $(am__configure_deps)
 	@for dep in $?; do \
 	  case '$(am__configure_deps)' in \
@@ -554,13 +554,13 @@ mostlyclean-compile:
 distclean-compile:
 	-rm -f *.tab.c
 
-.cc.o:
+.ml.o:
 	$(AM_V_CXX)$(CXXCOMPILE) -c -o $@ $<
 
-.cc.obj:
+.ml.obj:
 	$(AM_V_CXX)$(CXXCOMPILE) -c -o $@ `$(CYGPATH_W) '$<'`
 
-.cc.lo:
+.ml.lo:
 	$(AM_V_CXX)$(LTCXXCOMPILE) -c -o $@ $<
 
 mostlyclean-libtool:
@@ -750,15 +750,15 @@ vpath % $(top_srcdir)/src/c++20
 @USE_STATIC_TZDATA_TRUE@	echo ')__libstdcxx__";' >> $@.tmp
 @USE_STATIC_TZDATA_TRUE@	mv $@.tmp $@
 
-@USE_STATIC_TZDATA_TRUE@tzdb.lo: tzdb.cc tzdata.zi.h
+@USE_STATIC_TZDATA_TRUE@tzdb.lo: tzdb.ml tzdata.zi.h
 @USE_STATIC_TZDATA_TRUE@	$(LTCXXCOMPILE) -I. -c $<
-@USE_STATIC_TZDATA_TRUE@tzdb.o: tzdb.cc tzdata.zi.h
+@USE_STATIC_TZDATA_TRUE@tzdb.o: tzdb.ml tzdata.zi.h
 @USE_STATIC_TZDATA_TRUE@	$(CXXCOMPILE) -I. -c $<
 
 # This needs access to std::text_encoding and to the internals of std::locale.
-format.lo: format.cc
+format.lo: format.ml
 	$(LTCXXCOMPILE) -std=gnu++26 -fno-access-control -c $<
-format.o: format.cc
+format.o: format.ml
 	$(CXXCOMPILE) -std=gnu++26 -fno-access-control -c $<
 
 # Tell versions [3.59,3.63) of GNU make to not export all variables.

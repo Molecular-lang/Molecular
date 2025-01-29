@@ -460,69 +460,69 @@ headers =
 # Source files linked in via configuration/make substitution for a
 # particular host.
 host_sources = \
-	ctype_configure_char.cc \
-	ctype_members.cc
+	ctype_configure_char.ml \
+	ctype_members.ml
 
 
 # Source files linked in via configuration/make substitution for a
 # particular host, but with ad hoc naming rules.
 host_sources_extra = \
-	basic_file.cc
+	basic_file.ml
 
 @ENABLE_DUAL_ABI_FALSE@cxx11_abi_sources = 
 @ENABLE_DUAL_ABI_TRUE@cxx11_abi_sources = \
-@ENABLE_DUAL_ABI_TRUE@	cow-locale_init.cc \
-@ENABLE_DUAL_ABI_TRUE@	cow-shim_facets.cc \
-@ENABLE_DUAL_ABI_TRUE@	cxx11-hash_tr1.cc \
-@ENABLE_DUAL_ABI_TRUE@	cxx11-ios_failure.cc \
-@ENABLE_DUAL_ABI_TRUE@	cxx11-shim_facets.cc \
-@ENABLE_DUAL_ABI_TRUE@	cxx11-stdexcept.cc
+@ENABLE_DUAL_ABI_TRUE@	cow-locale_init.ml \
+@ENABLE_DUAL_ABI_TRUE@	cow-shim_facets.ml \
+@ENABLE_DUAL_ABI_TRUE@	cxx11-hash_tr1.ml \
+@ENABLE_DUAL_ABI_TRUE@	cxx11-ios_failure.ml \
+@ENABLE_DUAL_ABI_TRUE@	cxx11-shim_facets.ml \
+@ENABLE_DUAL_ABI_TRUE@	cxx11-stdexcept.ml
 
 sources_freestanding = \
-	limits.cc \
-	placeholders.cc
+	limits.ml \
+	placeholders.ml
 
 sources = \
-	assert_fail.cc \
-	chrono.cc \
-	codecvt.cc \
-	condition_variable.cc \
-	cow-stdexcept.cc \
-	cow-system_error.cc \
-	ctype.cc \
-	debug.cc \
-	functexcept.cc \
-	functional.cc \
-	futex.cc \
-	future.cc \
-	hash_c++0x.cc \
-	hashtable_c++0x.cc \
-	ios.cc \
-	ios_errcat.cc \
-	locale_init.cc \
-	localename.cc \
-	mutex.cc \
-	random.cc \
-	regex.cc  \
-	shared_ptr.cc \
-	snprintf_lite.cc \
-	system_error.cc \
-	thread.cc \
+	assert_fail.ml \
+	chrono.ml \
+	codecvt.ml \
+	condition_variable.ml \
+	cow-stdexcept.ml \
+	cow-system_error.ml \
+	ctype.ml \
+	debug.ml \
+	functexcept.ml \
+	functional.ml \
+	futex.ml \
+	future.ml \
+	hash_c++0x.ml \
+	hashtable_c++0x.ml \
+	ios.ml \
+	ios_errcat.ml \
+	locale_init.ml \
+	localename.ml \
+	mutex.ml \
+	random.ml \
+	regex.ml  \
+	shared_ptr.ml \
+	snprintf_lite.ml \
+	system_error.ml \
+	thread.ml \
 	${cxx11_abi_sources} \
 	${host_sources} \
 	${host_sources_extra}
 
 @ENABLE_DUAL_ABI_FALSE@extra_string_inst_sources = 
 @ENABLE_DUAL_ABI_TRUE@extra_string_inst_sources = \
-@ENABLE_DUAL_ABI_TRUE@	cow-fstream-inst.cc \
-@ENABLE_DUAL_ABI_TRUE@	cow-sstream-inst.cc \
-@ENABLE_DUAL_ABI_TRUE@	cow-string-inst.cc \
-@ENABLE_DUAL_ABI_TRUE@	cow-string-io-inst.cc \
-@ENABLE_DUAL_ABI_TRUE@	cow-wstring-inst.cc \
-@ENABLE_DUAL_ABI_TRUE@	cow-wstring-io-inst.cc \
-@ENABLE_DUAL_ABI_TRUE@	cxx11-locale-inst.cc \
-@ENABLE_DUAL_ABI_TRUE@	cxx11-wlocale-inst.cc \
-@ENABLE_DUAL_ABI_TRUE@	sso_string.cc
+@ENABLE_DUAL_ABI_TRUE@	cow-fstream-inst.ml \
+@ENABLE_DUAL_ABI_TRUE@	cow-sstream-inst.ml \
+@ENABLE_DUAL_ABI_TRUE@	cow-string-inst.ml \
+@ENABLE_DUAL_ABI_TRUE@	cow-string-io-inst.ml \
+@ENABLE_DUAL_ABI_TRUE@	cow-wstring-inst.ml \
+@ENABLE_DUAL_ABI_TRUE@	cow-wstring-io-inst.ml \
+@ENABLE_DUAL_ABI_TRUE@	cxx11-locale-inst.ml \
+@ENABLE_DUAL_ABI_TRUE@	cxx11-wlocale-inst.ml \
+@ENABLE_DUAL_ABI_TRUE@	sso_string.ml
 
 # XTEMPLATE_FLAGS =
 @ENABLE_EXTERN_TEMPLATE_FALSE@inst_sources = 
@@ -530,20 +530,20 @@ sources = \
 # XTEMPLATE_FLAGS = -fno-implicit-templates
 @ENABLE_EXTERN_TEMPLATE_TRUE@inst_sources = \
 @ENABLE_EXTERN_TEMPLATE_TRUE@	$(extra_string_inst_sources) \
-@ENABLE_EXTERN_TEMPLATE_TRUE@	ext11-inst.cc \
-@ENABLE_EXTERN_TEMPLATE_TRUE@	fstream-inst.cc \
-@ENABLE_EXTERN_TEMPLATE_TRUE@	ios-inst.cc \
-@ENABLE_EXTERN_TEMPLATE_TRUE@	iostream-inst.cc \
-@ENABLE_EXTERN_TEMPLATE_TRUE@	istream-inst.cc \
-@ENABLE_EXTERN_TEMPLATE_TRUE@	locale-inst.cc \
-@ENABLE_EXTERN_TEMPLATE_TRUE@	ostream-inst.cc \
-@ENABLE_EXTERN_TEMPLATE_TRUE@	sstream-inst.cc \
-@ENABLE_EXTERN_TEMPLATE_TRUE@	streambuf-inst.cc \
-@ENABLE_EXTERN_TEMPLATE_TRUE@	string-inst.cc \
-@ENABLE_EXTERN_TEMPLATE_TRUE@	string-io-inst.cc \
-@ENABLE_EXTERN_TEMPLATE_TRUE@	wlocale-inst.cc \
-@ENABLE_EXTERN_TEMPLATE_TRUE@	wstring-inst.cc \
-@ENABLE_EXTERN_TEMPLATE_TRUE@	wstring-io-inst.cc
+@ENABLE_EXTERN_TEMPLATE_TRUE@	ext11-inst.ml \
+@ENABLE_EXTERN_TEMPLATE_TRUE@	fstream-inst.ml \
+@ENABLE_EXTERN_TEMPLATE_TRUE@	ios-inst.ml \
+@ENABLE_EXTERN_TEMPLATE_TRUE@	iostream-inst.ml \
+@ENABLE_EXTERN_TEMPLATE_TRUE@	istream-inst.ml \
+@ENABLE_EXTERN_TEMPLATE_TRUE@	locale-inst.ml \
+@ENABLE_EXTERN_TEMPLATE_TRUE@	ostream-inst.ml \
+@ENABLE_EXTERN_TEMPLATE_TRUE@	sstream-inst.ml \
+@ENABLE_EXTERN_TEMPLATE_TRUE@	streambuf-inst.ml \
+@ENABLE_EXTERN_TEMPLATE_TRUE@	string-inst.ml \
+@ENABLE_EXTERN_TEMPLATE_TRUE@	string-io-inst.ml \
+@ENABLE_EXTERN_TEMPLATE_TRUE@	wlocale-inst.ml \
+@ENABLE_EXTERN_TEMPLATE_TRUE@	wstring-inst.ml \
+@ENABLE_EXTERN_TEMPLATE_TRUE@	wstring-io-inst.ml
 
 @GLIBCXX_HOSTED_FALSE@libc__11convenience_la_SOURCES = $(sources_freestanding)
 @GLIBCXX_HOSTED_TRUE@libc__11convenience_la_SOURCES = \
@@ -620,7 +620,7 @@ CXXLINK = \
 all: all-am
 
 .SUFFIXES:
-.SUFFIXES: .cc .lo .o .obj
+.SUFFIXES: .ml .lo .o .obj
 $(srcdir)/Makefile.in: @MAINTAINER_MODE_TRUE@ $(srcdir)/Makefile.am $(top_srcdir)/fragment.am $(am__configure_deps)
 	@for dep in $?; do \
 	  case '$(am__configure_deps)' in \
@@ -672,13 +672,13 @@ mostlyclean-compile:
 distclean-compile:
 	-rm -f *.tab.c
 
-.cc.o:
+.ml.o:
 	$(AM_V_CXX)$(CXXCOMPILE) -c -o $@ $<
 
-.cc.obj:
+.ml.obj:
 	$(AM_V_CXX)$(CXXCOMPILE) -c -o $@ `$(CYGPATH_W) '$<'`
 
-.cc.lo:
+.ml.lo:
 	$(AM_V_CXX)$(LTCXXCOMPILE) -c -o $@ $<
 
 mostlyclean-libtool:
@@ -860,48 +860,48 @@ uninstall-am:
 .PRECIOUS: Makefile
 
 
-ctype_configure_char.cc: ${glibcxx_srcdir}/$(OS_INC_SRCDIR)/ctype_configure_char.cc
-	$(LN_S) ${glibcxx_srcdir}/$(OS_INC_SRCDIR)/ctype_configure_char.cc . || true
+ctype_configure_char.ml: ${glibcxx_srcdir}/$(OS_INC_SRCDIR)/ctype_configure_char.ml
+	$(LN_S) ${glibcxx_srcdir}/$(OS_INC_SRCDIR)/ctype_configure_char.ml . || true
 
-ctype_members.cc: ${glibcxx_srcdir}/$(CCTYPE_CC)
+ctype_members.ml: ${glibcxx_srcdir}/$(CCTYPE_CC)
 	$(LN_S) ${glibcxx_srcdir}/$(CCTYPE_CC) . || true
 
-basic_file.cc: ${glibcxx_srcdir}/$(BASIC_FILE_CC)
+basic_file.ml: ${glibcxx_srcdir}/$(BASIC_FILE_CC)
 	$(LN_S) ${glibcxx_srcdir}/$(BASIC_FILE_CC) ./$@ || true
 
 vpath % $(top_srcdir)/src/c++11
 
-# Use special rules for the hashtable.cc file so that all
+# Use special rules for the hashtable.ml file so that all
 # the generated template functions are also instantiated.
-hashtable_c++0x.lo: hashtable_c++0x.cc
+hashtable_c++0x.lo: hashtable_c++0x.ml
 	$(LTCXXCOMPILE) -fimplicit-templates -c $<
-hashtable_c++0x.o: hashtable_c++0x.cc
+hashtable_c++0x.o: hashtable_c++0x.ml
 	$(CXXCOMPILE) -fimplicit-templates -c $<
 
 # Use special rules for source files that require -fchar8_t.
-codecvt.lo: codecvt.cc
+codecvt.lo: codecvt.ml
 	$(LTCXXCOMPILE) -fchar8_t -c $<
-codecvt.o: codecvt.cc
+codecvt.o: codecvt.ml
 	$(CXXCOMPILE) -fchar8_t -c $<
-limits.lo: limits.cc
+limits.lo: limits.ml
 	$(LTCXXCOMPILE) -fchar8_t -c $<
-limits.o: limits.cc
+limits.o: limits.ml
 	$(CXXCOMPILE) -fchar8_t -c $<
-locale_init.lo: locale_init.cc
+locale_init.lo: locale_init.ml
 	$(LTCXXCOMPILE) -fchar8_t -c $<
-locale_init.o: locale_init.cc
+locale_init.o: locale_init.ml
 	$(CXXCOMPILE) -fchar8_t -c $<
-localename.lo: localename.cc
+localename.lo: localename.ml
 	$(LTCXXCOMPILE) -fchar8_t -c $<
-localename.o: localename.cc
+localename.o: localename.ml
 	$(CXXCOMPILE) -fchar8_t -c $<
 
-@ENABLE_DUAL_ABI_TRUE@cxx11-ios_failure-lt.s: cxx11-ios_failure.cc
+@ENABLE_DUAL_ABI_TRUE@cxx11-ios_failure-lt.s: cxx11-ios_failure.ml
 @ENABLE_DUAL_ABI_TRUE@	$(LTCXXCOMPILE) -gno-as-loc-support -S $< -o tmp-cxx11-ios_failure-lt.s
 @ENABLE_DUAL_ABI_TRUE@	-test -f tmp-cxx11-ios_failure-lt.o && mv -f tmp-cxx11-ios_failure-lt.o tmp-cxx11-ios_failure-lt.s
 @ENABLE_DUAL_ABI_TRUE@	$(rewrite_ios_failure_typeinfo) tmp-$@ > $@
 @ENABLE_DUAL_ABI_TRUE@	-rm -f tmp-$@
-@ENABLE_DUAL_ABI_TRUE@cxx11-ios_failure.s: cxx11-ios_failure.cc
+@ENABLE_DUAL_ABI_TRUE@cxx11-ios_failure.s: cxx11-ios_failure.ml
 @ENABLE_DUAL_ABI_TRUE@	$(CXXCOMPILE) -gno-as-loc-support -S $< -o tmp-$@
 @ENABLE_DUAL_ABI_TRUE@	$(rewrite_ios_failure_typeinfo) tmp-$@ > $@
 @ENABLE_DUAL_ABI_TRUE@	-rm -f tmp-$@

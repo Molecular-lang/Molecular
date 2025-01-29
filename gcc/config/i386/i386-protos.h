@@ -17,13 +17,13 @@ You should have received a copy of the GNU General Public License
 along with GCC; see the file COPYING3.  If not see
 <http://www.gnu.org/licenses/>.  */
 
-/* In i386-common.cc.  */
+/* In i386-common.ml.  */
 extern bool ix86_handle_option (struct gcc_options *opts,
 				struct gcc_options *opts_set ATTRIBUTE_UNUSED,
 				const struct cl_decoded_option *decoded,
 				location_t loc);
 
-/* Functions in i386.cc */
+/* Functions in i386.ml */
 extern bool ix86_target_stack_probe (void);
 extern bool ix86_can_use_return_insn_p (void);
 extern bool ix86_function_ms_hook_prologue (const_tree fn);
@@ -308,11 +308,11 @@ extern bool ix86_expand_vector_init_one_nonzero (bool, machine_mode, rtx,
 						 rtx, int);
 extern bool ix86_extract_perm_from_pool_constant (int*, rtx);
 
-/* In i386-c.cc  */
+/* In i386-c.ml  */
 extern void ix86_target_macros (void);
 extern void ix86_register_pragmas (void);
 
-/* In winnt.cc  */
+/* In winnt.ml  */
 extern void i386_pe_record_external_function (tree, const char *);
 extern bool i386_pe_binds_local_p (const_tree);
 extern const char *i386_pe_strip_name_encoding_full (const char *);
@@ -334,7 +334,7 @@ extern void i386_pe_seh_unwind_emit (FILE *, rtx_insn *);
 extern void i386_pe_seh_emit_except_personality (rtx);
 extern void i386_pe_seh_init_sections (void);
 
-/* In winnt-cxx.cc and winnt-stubs.cc  */
+/* In winnt-cxx.ml and winnt-stubs.ml  */
 extern void i386_pe_adjust_class_at_definition (tree);
 extern bool i386_pe_type_dllimport_p (tree);
 extern bool i386_pe_type_dllexport_p (tree);
@@ -432,6 +432,6 @@ extern rtl_opt_pass *make_pass_align_tight_loops (gcc::context *);
 extern bool ix86_has_no_direct_extern_access;
 extern bool ix86_rpad_gate ();
 
-/* In i386-expand.cc.  */
+/* In i386-expand.ml.  */
 bool ix86_check_builtin_isa_match (unsigned int, HOST_WIDE_INT*,
 				   HOST_WIDE_INT*);

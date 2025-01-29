@@ -256,7 +256,7 @@ extern tree_code minmax_from_comparison (tree_code, tree, tree,
 extern tree make_bit_field_ref (location_t, tree, tree, tree,
 				HOST_WIDE_INT, poly_int64, int, int);
 
-/* In gimple-fold.cc.  */
+/* In gimple-fold.ml.  */
 extern void clear_type_padding_in_mask (tree, unsigned char *);
 extern bool clear_padding_type_may_have_padding_p (tree);
 extern bool arith_overflowed_p (enum tree_code, const_tree, const_tree,

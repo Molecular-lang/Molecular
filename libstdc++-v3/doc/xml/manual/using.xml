@@ -1069,7 +1069,7 @@ first find the include directory for the compiler. One way to do
 this is:</para>
 
 <programlisting>
-g++ -v hello.cc
+g++ -v hello.ml
 
 #include &lt;...&gt; search starts here:
  /mnt/share/bld/H-x86-gcc.20071201/include/c++/4.3.0
@@ -1091,13 +1091,13 @@ thirty megabytes. </para>
 <para>How to use the resulting file.</para>
 
 <programlisting>
-g++ -I. -include stdc++.h  -H -g -O2 hello.cc
+g++ -I. -include stdc++.h  -H -g -O2 hello.ml
 </programlisting>
 
 <para>Verification that the PCH file is being used is easy:</para>
 
 <programlisting>
-g++ -Winvalid-pch -I. -include stdc++.h -H -g -O2 hello.cc -o test.exe
+g++ -Winvalid-pch -I. -include stdc++.h -H -g -O2 hello.ml -o test.exe
 ! ./stdc++.h.gch
 . /mnt/share/bld/H-x86-gcc.20071201/include/c++/4.3.0/iostream
 . /mnt/share/bld/H-x86-gcc.20071201include/c++/4.3.0/string
@@ -1741,7 +1741,7 @@ namespace gtk
       </para>
 
       <para>
-	<command>gcc -ffreestanding foo.cc -lsupc++</command>
+	<command>gcc -ffreestanding foo.ml -lsupc++</command>
       </para>
 
       <para>

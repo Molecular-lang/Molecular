@@ -842,7 +842,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
     operator=(const basic_streambuf&) = default;
 #endif
 
-  // Explicit specialization declarations, defined in src/streambuf.cc.
+  // Explicit specialization declarations, defined in src/streambuf.ml.
   template<>
     streamsize
     __copy_streambufs_eof(basic_streambuf<char>* __sbin,

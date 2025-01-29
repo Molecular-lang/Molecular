@@ -81,7 +81,7 @@
 2024-07-02  David Faust  <david.faust@oracle.com>
 
 	* btf.h (BTF_VOID_TYPEID, BTF_INIT_TYPEID): Move defines here,
-	from gcc/btfout.cc.
+	from gcc/btfout.ml.
 
 2024-05-29  Tobias Burnus  <tburnus@baylibre.com>
 

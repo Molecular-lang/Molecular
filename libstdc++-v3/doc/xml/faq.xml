@@ -966,10 +966,10 @@
 
     <literallayout class="normal">
     Compile your library components:
-    <command>g++ -fPIC -c a.cc</command>
-    <command>g++ -fPIC -c b.cc</command>
+    <command>g++ -fPIC -c a.ml</command>
+    <command>g++ -fPIC -c b.ml</command>
     ...
-    <command>g++ -fPIC -c z.cc</command>
+    <command>g++ -fPIC -c z.ml</command>
 
     Create your library:
     <command>g++ -fPIC -shared -rdynamic -o libfoo.so a.o b.o ... z.o</command>

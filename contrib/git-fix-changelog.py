@@ -20,7 +20,7 @@
 # Boston, MA 02110-1301, USA.
 #
 # The script tries to fix commit message where ChangeLog entries
-# can point to .cc renamed files.
+# can point to .ml renamed files.
 
 import argparse
 import os
@@ -35,7 +35,7 @@ verify_script = os.path.join(script_folder,
 
 
 def replace_file_in_changelog(lines, filename, fixed):
-    # consider all componenets of a path: gcc/ipa-icf.cc
+    # consider all componenets of a path: gcc/ipa-icf.ml
     while filename:
         for i, line in enumerate(lines):
             if filename in line:
@@ -53,7 +53,7 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=DESCRIPTION)
     args = parser.parse_args()
 
-    # Update commit message if change for a .cc file was taken
+    # Update commit message if change for a .ml file was taken
     r = subprocess.run(f'{verify_script} HEAD', shell=True, encoding='utf8',
                        stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     if r.returncode != 0:
@@ -65,7 +65,7 @@ if __name__ == '__main__':
 
         # Parse the following lines:
         # ERR: unchanged file mentioned in a ChangeLog \
-        # (did you mean "gcc/ipa-icf.cc"?): "gcc/ipa-icf.c"
+        # (did you mean "gcc/ipa-icf.ml"?): "gcc/ipa-icf.c"
         replaced = 0
         for line in lines:
             if ('unchanged file mentioned' in line and

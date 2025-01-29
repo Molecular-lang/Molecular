@@ -43,7 +43,7 @@ struct bitpack_d
   void *stream;
 };
 
-/* In data-streamer.cc  */
+/* In data-streamer.ml  */
 void bp_pack_var_len_unsigned (struct bitpack_d *, unsigned HOST_WIDE_INT);
 void bp_pack_var_len_int (struct bitpack_d *, HOST_WIDE_INT);
 void bp_pack_real_value (struct bitpack_d *, const REAL_VALUE_TYPE *);
@@ -52,7 +52,7 @@ unsigned HOST_WIDE_INT bp_unpack_var_len_unsigned (struct bitpack_d *);
 HOST_WIDE_INT bp_unpack_var_len_int (struct bitpack_d *);
 extern unsigned host_num_poly_int_coeffs;
 
-/* In data-streamer-out.cc  */
+/* In data-streamer-out.ml  */
 void streamer_write_zero (struct output_block *);
 void streamer_write_uhwi (struct output_block *, unsigned HOST_WIDE_INT);
 void streamer_write_hwi (struct output_block *, HOST_WIDE_INT);
@@ -78,7 +78,7 @@ void streamer_write_wide_int (struct output_block *, const wide_int &);
 void streamer_write_widest_int (struct output_block *, const widest_int &);
 void streamer_write_vrange (struct output_block *, const class vrange &);
 
-/* In data-streamer-in.cc  */
+/* In data-streamer-in.ml  */
 const char *streamer_read_string (class data_in *, class lto_input_block *);
 const char *streamer_read_indexed_string (class data_in *,
 					  class lto_input_block *,

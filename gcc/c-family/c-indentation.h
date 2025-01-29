@@ -1,4 +1,4 @@
-/* Definitions for c-indentation.cc.
+/* Definitions for c-indentation.ml.
    Copyright (C) 2015-2025 Free Software Foundation, Inc.
 
 This file is part of GCC.

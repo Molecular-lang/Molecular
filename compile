@@ -204,7 +204,7 @@ func_cl_wrapper ()
 	  set x "$@" "$1"
 	  shift
 	  ;;
-	*.cc | *.CC | *.cxx | *.CXX | *.[cC]++)
+	*.ml | *.CC | *.cxx | *.CXX | *.[cC]++)
 	  func_file_conv "$1"
 	  set x "$@" -Tp"$file"
 	  shift

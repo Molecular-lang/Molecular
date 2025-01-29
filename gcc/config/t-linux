@@ -16,14 +16,14 @@
 # along with GCC; see the file COPYING3.  If not see
 # <http://www.gnu.org/licenses/>.
 
-linux.o: $(srcdir)/config/linux.cc
+linux.o: $(srcdir)/config/linux.ml
 	  $(COMPILE) $<
 	  $(POSTCOMPILE)
 
-linux-d.o: $(srcdir)/config/linux-d.cc
+linux-d.o: $(srcdir)/config/linux-d.ml
 	  $(COMPILE) $<
 	  $(POSTCOMPILE)
 
-linux-rust.o: $(srcdir)/config/linux-rust.cc
+linux-rust.o: $(srcdir)/config/linux-rust.ml
 	  $(COMPILE) $<
 	  $(POSTCOMPILE)

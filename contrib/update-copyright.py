@@ -559,7 +559,7 @@ class GCCFilter (GenericFilter):
                 'math-68881.h',
 
                 # Weird ways to compose copyright year
-                'GmcOptions.cc',
+                'GmcOptions.ml',
                 'gen-evolution.awk',
                 'gen-cxxapi-file.py',
                 ])
@@ -598,7 +598,7 @@ class TestsuiteFilter (GenericFilter):
                 # Don't change the tests, which could be woend by anyone.
                 '.c',
                 '.C',
-                '.cc',
+                '.ml',
                 '.d',
                 '.h',
                 '.hs',

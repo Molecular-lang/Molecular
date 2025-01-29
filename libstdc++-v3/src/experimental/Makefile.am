@@ -39,7 +39,7 @@ endif
 headers =
 
 sources = \
-	contract.cc
+	contract.ml
 
 # vpath % $(top_srcdir)/src/experimental
 

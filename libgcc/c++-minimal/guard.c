@@ -1,4 +1,4 @@
-/* 'libstdc++-v3/libsupc++/guard.cc' for offload devices, until we have
+/* 'libstdc++-v3/libsupc++/guard.ml' for offload devices, until we have
    libstdc++-v3/libsupc++ proper.
 
    Copyright (C) 2002-2025 Free Software Foundation, Inc.
@@ -43,7 +43,7 @@ __cxa_guard_release(__guard*);
 void
 __cxa_guard_abort(__guard*);
 
-/* Copy'n'paste/edit from 'libstdc++-v3/libsupc++/guard.cc'.  */
+/* Copy'n'paste/edit from 'libstdc++-v3/libsupc++/guard.ml'.  */
 
 #undef _GLIBCXX_GUARD_TEST_AND_ACQUIRE
 #undef _GLIBCXX_GUARD_SET_AND_RELEASE

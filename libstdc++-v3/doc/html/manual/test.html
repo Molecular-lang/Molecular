@@ -56,7 +56,7 @@ regressions, ABI, and performance.
       instance, to test items related to <code class="code"> 21.3.6.1 -
       <code class="function">basic_string::find</code> [lib.string::find]</code>
       in the standard, the following was used:
-</p><pre class="programlisting">    21_strings/find.cc </pre><p>
+</p><pre class="programlisting">    21_strings/find.ml </pre><p>
       However, that practice soon became a liability as the test cases
       became huge and unwieldy, and testing new or extended
       functionality (like wide characters or named locales) became
@@ -66,12 +66,12 @@ regressions, ABI, and performance.
       above issues and gives finer grained results and more manageable
       error debugging. As an example, the test case quoted above
       becomes:
-</p><pre class="programlisting">    21_strings/basic_string/find/char/1.cc
-    21_strings/basic_string/find/char/2.cc
-    21_strings/basic_string/find/char/3.cc
-    21_strings/basic_string/find/wchar_t/1.cc
-    21_strings/basic_string/find/wchar_t/2.cc
-    21_strings/basic_string/find/wchar_t/3.cc</pre><p>
+</p><pre class="programlisting">    21_strings/basic_string/find/char/1.ml
+    21_strings/basic_string/find/char/2.ml
+    21_strings/basic_string/find/char/3.ml
+    21_strings/basic_string/find/wchar_t/1.ml
+    21_strings/basic_string/find/wchar_t/2.ml
+    21_strings/basic_string/find/wchar_t/3.ml</pre><p>
    </p><p>
       All new tests should be written with the policy of "one test
       case, one file" in mind.
@@ -79,16 +79,16 @@ regressions, ABI, and performance.
       In addition, there are some special names and suffixes that are
       used within the testsuite to designate particular kinds of
       tests.
-   </p><div class="variablelist"><dl class="variablelist"><dt><span class="term"><code class="filename">_xin.cc</code></span></dt><dd>
+   </p><div class="variablelist"><dl class="variablelist"><dt><span class="term"><code class="filename">_xin.ml</code></span></dt><dd>
       This test case expects some kind of interactive input in order
       to finish or pass. At the moment, the interactive tests are not
       run by default. Instead, they are run by hand, like:
       <pre class="programlisting">
-g++ 27_io/objects/char/3_xin.cc
+g++ 27_io/objects/char/3_xin.ml
 cat 27_io/objects/char/3_xin.in | a.out</pre></dd><dt><span class="term"><code class="filename">.in</code></span></dt><dd>
       This file contains the expected input for the corresponding <span class="emphasis"><em>
-      _xin.cc</em></span> test case.
-  </dd><dt><span class="term"><code class="filename">_neg.cc</code></span></dt><dd>
+      _xin.ml</em></span> test case.
+  </dd><dt><span class="term"><code class="filename">_neg.ml</code></span></dt><dd>
       This test case is expected to fail: it's a negative test. At the
       moment, these are almost always compile time errors.
   </dd><dt><span class="term"><code class="filename">char</code></span></dt><dd>
@@ -553,7 +553,7 @@ with specific options, and additional options for 32-bit x86:
 </pre><p>
    </p><p>
     More examples can be found in the
-    <code class="filename">libstdc++-v3/testsuite/*/*.cc</code> files.
+    <code class="filename">libstdc++-v3/testsuite/*/*.ml</code> files.
    </p></div><div class="section"><div class="titlepage"><div><div><h4 class="title"><a id="tests.dg.directives"></a>Directives Specific to Libstdc++ Tests</h4></div></div></div><p>
     In addition to the usual <a class="link" href="https://gcc.gnu.org/onlinedocs/gccint/Require-Support.html" target="_top">Variants
     of <code class="literal">dg-require-<em class="replaceable"><code>support</code></em></code></a>
@@ -619,8 +619,8 @@ only default variables.
   These files include the following functionality:
   </p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem"><p>
        <span class="emphasis"><em>testsuite_abi.h</em></span>,
-       <span class="emphasis"><em>testsuite_abi.cc</em></span>,
-       <span class="emphasis"><em>testsuite_abi_check.cc</em></span>
+       <span class="emphasis"><em>testsuite_abi.ml</em></span>,
+       <span class="emphasis"><em>testsuite_abi_check.ml</em></span>
        </p><p>
 	Creates the executable <span class="emphasis"><em>abi_check</em></span>.
 	Used to check correctness of symbol versioning, visibility of
@@ -629,7 +629,7 @@ only default variables.
 	can be found in the ABI documentation <a class="link" href="abi.html" title="ABI Policy and Guidelines">here</a>
        </p></li><li class="listitem"><p>
        <span class="emphasis"><em>testsuite_allocator.h</em></span>,
-       <span class="emphasis"><em>testsuite_allocator.cc</em></span>
+       <span class="emphasis"><em>testsuite_allocator.ml</em></span>
        </p><p>
 	Contains specialized allocators that keep track of construction
 	and destruction. Also, support for overriding global new and
@@ -644,7 +644,7 @@ only default variables.
 	POD.
        </p></li><li class="listitem"><p>
        <span class="emphasis"><em>testsuite_hooks.h</em></span>,
-       <span class="emphasis"><em>testsuite_hooks.cc</em></span>
+       <span class="emphasis"><em>testsuite_hooks.ml</em></span>
        </p><p>
        A large number of utilities, including:
        </p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: circle; "><li class="listitem"><p>VERIFY</p></li><li class="listitem"><p>set_memory_limits</p></li><li class="listitem"><p>verify_demangle</p></li><li class="listitem"><p>run_tests_wrapped_locale</p></li><li class="listitem"><p>run_tests_wrapped_env</p></li><li class="listitem"><p>try_named_locale</p></li><li class="listitem"><p>try_mkfifo</p></li><li class="listitem"><p>func_callback</p></li><li class="listitem"><p>counter</p></li><li class="listitem"><p>copy_tracker</p></li><li class="listitem"><p>copy_constructor</p></li><li class="listitem"><p>assignment_operator</p></li><li class="listitem"><p>destructor</p></li><li class="listitem"><p>pod_char, pod_int and associated char_traits specializations</p></li></ul></div></li><li class="listitem"><p>
@@ -700,13 +700,13 @@ only default variables.
 	 Ad Hoc
        </p><p>
 	 For example,
-	 <code class="filename">testsuite/23_containers/list/modifiers/3.cc</code>.
+	 <code class="filename">testsuite/23_containers/list/modifiers/3.ml</code>.
        </p></li><li class="listitem"><p>
 	 Policy Based Data Structures
        </p><p>
 	 For example, take the test
 	 functor <code class="classname">rand_reg_test</code> in
-	 in <code class="filename">testsuite/ext/pb_ds/regression/tree_no_data_map_rand.cc</code>. This uses <code class="classname">container_rand_regression_test</code> in
+	 in <code class="filename">testsuite/ext/pb_ds/regression/tree_no_data_map_rand.ml</code>. This uses <code class="classname">container_rand_regression_test</code> in
 <code class="filename">testsuite/util/regression/rand/assoc/container_rand_regression_test.h</code>.
 
        </p><p>
@@ -760,7 +760,7 @@ C++11 Requirements Test Sequence Descriptions
 	 conditional throw points.
        </p><p>
 	 The general form is demonstrated in
-	 <code class="filename">testsuite/23_containers/list/requirements/exception/basic.cc
+	 <code class="filename">testsuite/23_containers/list/requirements/exception/basic.ml
 	 </code>. The instantiating test object is <code class="classname">__gnu_test::basic_safety</code> and is detailed in <code class="filename">testsuite/util/exception/safety.h</code>.
        </p></li><li class="listitem"><p>
 	 Generation Prohibited
@@ -779,7 +779,7 @@ C++11 Requirements Test Sequence Descriptions
 	 death: first error fails.
        </p><p>
 	 The general form is demonstrated in
-	 <code class="filename">testsuite/23_containers/list/requirements/exception/generation_prohibited.cc
+	 <code class="filename">testsuite/23_containers/list/requirements/exception/generation_prohibited.ml
 	 </code>. The instantiating test object is <code class="classname">__gnu_test::generation_prohibited</code> and is detailed in <code class="filename">testsuite/util/exception/safety.h</code>.
        </p></li><li class="listitem"><p>
 	 Propagation Consistent
@@ -804,6 +804,6 @@ C++11 Requirements Test Sequence Descriptions
 	 conditional throw points.
        </p><p>
 	 The general form demonstrated in
-	 <code class="filename">testsuite/23_containers/list/requirements/exception/propagation_coherent.cc
+	 <code class="filename">testsuite/23_containers/list/requirements/exception/propagation_coherent.ml
 	 </code>. The instantiating test object is <code class="classname">__gnu_test::propagation_coherent</code> and is detailed in <code class="filename">testsuite/util/exception/safety.h</code>.
        </p></li></ul></div></div></div></div></div><div class="navfooter"><hr /><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="internals.html">Prev</a> </td><td width="20%" align="center"><a accesskey="u" href="appendix_porting.html">Up</a></td><td width="40%" align="right"> <a accesskey="n" href="abi.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">Porting to New Hardware or Operating Systems </td><td width="20%" align="center"><a accesskey="h" href="../index.html">Home</a></td><td width="40%" align="right" valign="top"> ABI Policy and Guidelines</td></tr></table></div></body></html>

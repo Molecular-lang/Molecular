@@ -35,7 +35,7 @@ else
 inst_sources =
 endif
 
-sources = text_encoding.cc
+sources = text_encoding.ml
 
 vpath % $(top_srcdir)/src/c++26
 

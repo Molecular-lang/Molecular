@@ -59,28 +59,28 @@ __gedf2:
 	bmi.d	.Lneg
 	bmsk_s	r12,r12,20
 	add1.f	0,r12,DBL0H	; clear z; set c iff NaN
-	add1.cc.f r12,r12,DBL1H	; clear z; set c iff NaN
+	add1.ml.f r12,r12,DBL1H	; clear z; set c iff NaN
 	bbit1	DBL0H,31,.Lneg
-	cmp.cc	DBL0H,DBL1H
+	cmp.ml	DBL0H,DBL1H
 	j_s.d	[blink]
 	cmp.eq	DBL0L,DBL1L
 	.balign 4
 .Lneg:	breq.d	DBL1H,0,.L0
 	add1.f	0,r12,DBL0H
-	add1.cc.f r12,r12,DBL1H
-	cmp.cc	DBL1H,DBL0H
+	add1.ml.f r12,r12,DBL1H
+	cmp.ml	DBL1H,DBL0H
 	j_s.d	[blink]
 	cmp.eq	DBL1L,DBL0L
 	.balign 4
 .L0:
 	bxor.f	0,DBL0H,31 ; check for high word of -0.
 	beq_s	.Lcheck_0
-	cmp.cc	DBL1H,DBL0H
+	cmp.ml	DBL1H,DBL0H
 	j_s.d	[blink]
 	cmp.eq	DBL1L,DBL0L
 .Lcheck_0:
 	; high words suggest DBL0 may be -0, DBL1 +0; check low words.
 	cmp_s	DBL1H,DBL0L
 	j_s.d	[blink]
-	cmp.cc	DBL1H,DBL1L
+	cmp.ml	DBL1H,DBL1L
 	ENDFUNC(__gedf2)

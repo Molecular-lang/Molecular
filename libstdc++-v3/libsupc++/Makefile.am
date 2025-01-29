@@ -45,75 +45,75 @@ if GLIBCXX_HOSTED
 endif
 
 sources = \
-	array_type_info.cc \
-	atexit_arm.cc \
-	atexit_thread.cc \
-	atomicity.cc \
-	bad_alloc.cc \
-	bad_array_length.cc \
-	bad_array_new.cc \
-	bad_cast.cc \
-	bad_typeid.cc \
-	class_type_info.cc \
-	del_op.cc \
-	del_ops.cc \
-	del_opnt.cc \
-	del_opv.cc \
-	del_opvs.cc \
-	del_opvnt.cc \
-	dyncast.cc \
-	eh_alloc.cc \
-	eh_arm.cc \
-	eh_aux_runtime.cc \
-	eh_call.cc \
-	eh_catch.cc \
-	eh_exception.cc \
-	eh_globals.cc \
-	eh_personality.cc \
-	eh_ptr.cc \
-	eh_term_handler.cc \
-	eh_terminate.cc \
-	eh_tm.cc \
-	eh_throw.cc \
-	eh_type.cc \
-	eh_unex_handler.cc \
-	enum_type_info.cc \
-	function_type_info.cc \
-	fundamental_type_info.cc \
-	guard.cc \
-	guard_error.cc \
-	hash_bytes.cc \
-	nested_exception.cc \
-	new_handler.cc \
-	new_op.cc \
-	new_opnt.cc \
-	new_opv.cc \
-	new_opvnt.cc \
-	new_opa.cc \
-	new_opant.cc \
-	new_opva.cc \
-	new_opvant.cc \
-	del_opa.cc \
-	del_opant.cc \
-	del_opsa.cc \
-	del_opva.cc \
-	del_opvant.cc \
-	del_opvsa.cc \
-	pbase_type_info.cc \
-	pmem_type_info.cc \
-	pointer_type_info.cc \
-	pure.cc \
-	si_class_type_info.cc \
-	tinfo.cc \
-	tinfo2.cc \
-	vec.cc \
-	vmi_class_type_info.cc \
-	vterminate.cc
+	array_type_info.ml \
+	atexit_arm.ml \
+	atexit_thread.ml \
+	atomicity.ml \
+	bad_alloc.ml \
+	bad_array_length.ml \
+	bad_array_new.ml \
+	bad_cast.ml \
+	bad_typeid.ml \
+	class_type_info.ml \
+	del_op.ml \
+	del_ops.ml \
+	del_opnt.ml \
+	del_opv.ml \
+	del_opvs.ml \
+	del_opvnt.ml \
+	dyncast.ml \
+	eh_alloc.ml \
+	eh_arm.ml \
+	eh_aux_runtime.ml \
+	eh_call.ml \
+	eh_catch.ml \
+	eh_exception.ml \
+	eh_globals.ml \
+	eh_personality.ml \
+	eh_ptr.ml \
+	eh_term_handler.ml \
+	eh_terminate.ml \
+	eh_tm.ml \
+	eh_throw.ml \
+	eh_type.ml \
+	eh_unex_handler.ml \
+	enum_type_info.ml \
+	function_type_info.ml \
+	fundamental_type_info.ml \
+	guard.ml \
+	guard_error.ml \
+	hash_bytes.ml \
+	nested_exception.ml \
+	new_handler.ml \
+	new_op.ml \
+	new_opnt.ml \
+	new_opv.ml \
+	new_opvnt.ml \
+	new_opa.ml \
+	new_opant.ml \
+	new_opva.ml \
+	new_opvant.ml \
+	del_opa.ml \
+	del_opant.ml \
+	del_opsa.ml \
+	del_opva.ml \
+	del_opvant.ml \
+	del_opvsa.ml \
+	pbase_type_info.ml \
+	pmem_type_info.ml \
+	pointer_type_info.ml \
+	pure.ml \
+	si_class_type_info.ml \
+	tinfo.ml \
+	tinfo2.ml \
+	vec.ml \
+	vmi_class_type_info.ml \
+	vterminate.ml
 
 if ENABLE_VTABLE_VERIFY
 if !VTV_CYGMIN
   vtv_sources = \
-	vtv_stubs.cc
+	vtv_stubs.ml
 endif
 endif
 
@@ -129,14 +129,14 @@ cp-demangle.o: cp-demangle.c
 	$(C_COMPILE) -DIN_GLIBCPP_V3 -Wno-error -c $<
 
 atomicity_file = ${glibcxx_srcdir}/$(ATOMICITY_SRCDIR)/atomicity.h
-atomicity.cc: ${atomicity_file}
-	$(LN_S) ${atomicity_file} ./atomicity.cc || true
+atomicity.ml: ${atomicity_file}
+	$(LN_S) ${atomicity_file} ./atomicity.ml || true
 
 if OS_IS_DARWIN
 # See PR 112397
-new_opvnt.lo: new_opvnt.cc
+new_opvnt.lo: new_opvnt.ml
 	$(LTCXXCOMPILE) -fno-reorder-blocks-and-partition -I. -c $<
-new_opvnt.o: new_opvnt.cc
+new_opvnt.o: new_opvnt.ml
 	$(CXXCOMPILE) -fno-reorder-blocks-and-partition -I. -c $<
 endif
 

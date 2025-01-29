@@ -592,7 +592,7 @@ PACKAGE_STRING=
 PACKAGE_BUGREPORT=
 PACKAGE_URL=
 
-ac_unique_file="tree.cc"
+ac_unique_file="tree.ml"
 # Factoring default headers for most tests.
 ac_includes_default="\
 #include <stdio.h>
@@ -1872,7 +1872,7 @@ Optional Packages:
                           Set the number of partitions to make for gimple and
                           generic when splitting match.pd. [default=10]
   --with-insnemit-partitions=num
-                          Set the number of partitions of insn-emit.cc for
+                          Set the number of partitions of insn-emit.ml for
                           genemit and genrecog to create. [default=10]
   --with-dwarf2           force the default debug format to be DWARF 2 (or
                           later)
@@ -7936,7 +7936,7 @@ fi
 
 
 
-# Specify the number of splits of insn-emit.cc and insn-recog.cc to generate.
+# Specify the number of splits of insn-emit.ml and insn-recog.ml to generate.
 
 # Check whether --with-insnemit-partitions was given.
 if test "${with_insnemit_partitions+set}" = set; then :
@@ -8482,7 +8482,7 @@ fi
   test -n "$AWK" && break
 done
 
-# We need awk to create options.cc and options.h.
+# We need awk to create options.ml and options.h.
 # Bail out if it's missing.
 case ${AWK} in
   "") as_fn_error $? "can't build without awk, bailing out" "$LINENO" 5 ;;
@@ -12345,7 +12345,7 @@ rm -f core conftest.err conftest.$ac_objext conftest.$ac_ext
 
 # On AIX 5.2, <ldfcn.h> conflicts with <fcntl.h>, as both define incompatible
 # FREAD and FWRITE macros.  Fortunately, for GCC's single usage of ldgetname
-# in collect2.cc, <fcntl.h> isn't visible, but the configure test below needs
+# in collect2.ml, <fcntl.h> isn't visible, but the configure test below needs
 # to undef these macros to get the correct value for HAVE_DECL_LDGETNAME.
 for ac_func in ldgetname
 do
@@ -12950,7 +12950,7 @@ if test x$md_file = x
 then md_file=$cpu_type/$cpu_type.md; fi
 
 if test x$out_file = x
-then out_file=$cpu_type/$cpu_type.cc; fi
+then out_file=$cpu_type/$cpu_type.ml; fi
 
 if test x"$tmake_file" = x
 then tmake_file=$cpu_type/t-$cpu_type
@@ -15047,8 +15047,8 @@ do
 done
 tmake_file="${tmake_file_}${omp_device_property_tmake_file}"
 
-out_object_file=`basename $out_file .cc`.o
-common_out_object_file=`basename $common_out_file .cc`.o
+out_object_file=`basename $out_file .ml`.o
+common_out_object_file=`basename $common_out_file .ml`.o
 
 tm_file_list="options.h"
 tm_include_list="options.h insn-constants.h"
@@ -34421,7 +34421,7 @@ _ACEOF
 
 
 # Generate gcc-driver-name.h containing GCC_DRIVER_NAME for the benefit
-# of jit/jit-playback.cc.
+# of jit/jit-playback.ml.
 gcc_driver_version=`eval "${get_gcc_base_ver} $srcdir/BASE-VER"`
 echo "gcc_driver_version: ${gcc_driver_version}"
 cat > gcc-driver-name.h <<EOF

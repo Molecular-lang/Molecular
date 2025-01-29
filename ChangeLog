@@ -1544,7 +1544,7 @@
 
 2022-01-17  Martin Liska  <mliska@suse.cz>
 
-	* MAINTAINERS: Rename .c names to .cc.
+	* MAINTAINERS: Rename .c names to .ml.
 
 2022-01-13  Jakub Jelinek  <jakub@redhat.com>
 

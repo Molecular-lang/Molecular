@@ -29,7 +29,7 @@ see the files COPYING3 and COPYING.RUNTIME respectively.  If not, see
 #include <stddef.h>
 #include <stdbool.h>
 
-/* This should be kept in sync with gcc/gimple-harden-control-flow.cc.  */
+/* This should be kept in sync with gcc/gimple-harden-control-flow.ml.  */
 #if __CHAR_BIT__ >= 28
 # define VWORDmode __QI__
 #elif __CHAR_BIT__ >= 14

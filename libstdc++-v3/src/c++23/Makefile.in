@@ -460,14 +460,14 @@ noinst_LTLIBRARIES = libc++23convenience.la
 # Let's install the interface units in the bits subdirectory.
 toolexeclib_DATA = libstdc++.modules.json
 includebitsdir = $(gxx_include_dir)/bits
-includebits_DATA = std.cc std.compat.cc
+includebits_DATA = std.ml std.compat.ml
 headers = 
 # XTEMPLATE_FLAGS =
 @ENABLE_EXTERN_TEMPLATE_FALSE@inst_sources = 
 
 # XTEMPLATE_FLAGS = -fno-implicit-templates
 @ENABLE_EXTERN_TEMPLATE_TRUE@inst_sources = 
-sources = stacktrace.cc print.cc
+sources = stacktrace.ml print.ml
 @GLIBCXX_HOSTED_FALSE@libc__23convenience_la_SOURCES = 
 @GLIBCXX_HOSTED_TRUE@libc__23convenience_la_SOURCES = $(sources)  $(inst_sources)
 
@@ -537,7 +537,7 @@ CXXLINK = \
 all: all-am
 
 .SUFFIXES:
-.SUFFIXES: .cc .lo .o .obj
+.SUFFIXES: .ml .lo .o .obj
 $(srcdir)/Makefile.in: @MAINTAINER_MODE_TRUE@ $(srcdir)/Makefile.am $(top_srcdir)/fragment.am $(am__configure_deps)
 	@for dep in $?; do \
 	  case '$(am__configure_deps)' in \
@@ -589,13 +589,13 @@ mostlyclean-compile:
 distclean-compile:
 	-rm -f *.tab.c
 
-.cc.o:
+.ml.o:
 	$(AM_V_CXX)$(CXXCOMPILE) -c -o $@ $<
 
-.cc.obj:
+.ml.obj:
 	$(AM_V_CXX)$(CXXCOMPILE) -c -o $@ `$(CYGPATH_W) '$<'`
 
-.cc.lo:
+.ml.lo:
 	$(AM_V_CXX)$(LTCXXCOMPILE) -c -o $@ $<
 
 mostlyclean-libtool:
@@ -839,9 +839,9 @@ stamp-module-manifest: libstdc++.modules.json.in
 	@$(STAMP) $@
 
 # Add the C library exports to both modules.
-std.cc: std.cc.in std-clib.cc.in
+std.ml: std.ml.in std-clib.ml.in
 	cat $^ > $@
-std.compat.cc: std.compat.cc.in std-clib.cc.in
+std.compat.ml: std.compat.ml.in std-clib.ml.in
 	cat $^ > $@
 
 # Also put the interface units in the build-includes bits directory.
@@ -855,9 +855,9 @@ all-local: stamp-module-manifest stamp-modules-bits
 vpath % $(top_srcdir)/src/c++23
 
 # Use C++26 so that std::filebuf::native_handle() is available.
-print.lo: print.cc
+print.lo: print.ml
 	$(LTCXXCOMPILE) -std=gnu++26 -c $<
-print.o: print.cc
+print.o: print.ml
 	$(CXXCOMPILE) -std=gnu++26 -c $<
 
 # Tell versions [3.59,3.63) of GNU make to not export all variables.

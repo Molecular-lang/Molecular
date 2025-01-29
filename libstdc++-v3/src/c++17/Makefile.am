@@ -28,11 +28,11 @@ noinst_LTLIBRARIES = libc++17convenience.la
 headers =
 
 if ENABLE_DUAL_ABI
-extra_string_inst_sources = cow-string-inst.cc
+extra_string_inst_sources = cow-string-inst.ml
 extra_fs_sources = \
-	cow-fs_dir.cc \
-	cow-fs_ops.cc \
-	cow-fs_path.cc
+	cow-fs_dir.ml \
+	cow-fs_ops.ml \
+	cow-fs_path.ml
 else
 extra_string_inst_sources =
 extra_fs_sources =
@@ -41,8 +41,8 @@ endif
 if ENABLE_EXTERN_TEMPLATE
 # XTEMPLATE_FLAGS = -fno-implicit-templates
 inst_sources = \
-	ostream-inst.cc \
-	string-inst.cc \
+	ostream-inst.ml \
+	string-inst.ml \
 	$(extra_string_inst_sources)
 else
 # XTEMPLATE_FLAGS =
@@ -50,12 +50,12 @@ inst_sources =
 endif
 
 sources = \
-	floating_from_chars.cc \
-	floating_to_chars.cc \
-	fs_dir.cc \
-	fs_ops.cc \
-	fs_path.cc \
-	memory_resource.cc \
+	floating_from_chars.ml \
+	floating_to_chars.ml \
+	fs_dir.ml \
+	fs_ops.ml \
+	fs_path.ml \
+	memory_resource.ml \
 	$(extra_fs_sources)
 
 vpath % $(top_srcdir)/src/c++17
@@ -67,13 +67,13 @@ libc__17convenience_la_SOURCES =
 endif
 
 if GLIBCXX_LDBL_ALT128_COMPAT
-floating_from_chars.lo: floating_from_chars.cc
+floating_from_chars.lo: floating_from_chars.ml
 	$(LTCXXCOMPILE) -mabi=ibmlongdouble $(LONG_DOUBLE_128_FLAGS) -c $<
-floating_from_chars.o: floating_from_chars.cc
+floating_from_chars.o: floating_from_chars.ml
 	$(CXXCOMPILE) -mabi=ibmlongdouble $(LONG_DOUBLE_128_FLAGS) -c $<
-floating_to_chars.lo: floating_to_chars.cc
+floating_to_chars.lo: floating_to_chars.ml
 	$(LTCXXCOMPILE) -mabi=ibmlongdouble $(LONG_DOUBLE_128_FLAGS) -c $<
-floating_to_chars.o: floating_to_chars.cc
+floating_to_chars.o: floating_to_chars.ml
 	$(CXXCOMPILE) -mabi=ibmlongdouble $(LONG_DOUBLE_128_FLAGS) -c $<
 endif
 

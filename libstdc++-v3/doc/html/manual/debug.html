@@ -155,7 +155,7 @@
   Annotating <code class="code">std::string</code> and <code class="code">std::wstring</code>
   reference counting can be done by disabling extern templates (by defining
   <code class="code">_GLIBCXX_EXTERN_TEMPLATE=-1</code>) or by rebuilding the
-  <code class="filename">src/string-inst.cc</code> file.
+  <code class="filename">src/string-inst.ml</code> file.
   Annotating the remaining atomic operations (at the time of writing these
   are in <code class="code">ios_base::Init::~Init</code>, <code class="code">locale::_Impl</code>,
   <code class="code">locale::facet</code> and <code class="code">thread::_M_start_thread</code>)

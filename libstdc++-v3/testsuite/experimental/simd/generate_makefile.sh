@@ -217,12 +217,12 @@ all_tests() {
   if [ -f testsuite_files_simd ]; then
     sed 's,^experimental/simd/tests/,,' testsuite_files_simd | while read file; do
       echo "$srcdir/$file"
-      echo "${file%.cc}"
+      echo "${file%.ml}"
     done
   else
-    for file in ${srcdir}/*.cc; do
+    for file in ${srcdir}/*.ml; do
       echo "$file"
-      name="${file%.cc}"
+      name="${file%.ml}"
       echo "${name##*/}"
     done
   fi
@@ -267,7 +267,7 @@ EOF
 EOF
     for i in $(seq 0 9); do
       cat <<EOF
-%-$type-$i.log: pch.h.gch \$(srcdir)/%.cc
+%-$type-$i.log: pch.h.gch \$(srcdir)/%.ml
 	@\$(DRIVER) \$(driveroptions) -t "$t" -a $i -n \$* \$(CXX) \$(CXXFLAGS)
 
 EOF

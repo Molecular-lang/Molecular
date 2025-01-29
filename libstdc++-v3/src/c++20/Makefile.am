@@ -30,13 +30,13 @@ headers =
 if ENABLE_EXTERN_TEMPLATE
 # XTEMPLATE_FLAGS = -fno-implicit-templates
 inst_sources = \
-	sstream-inst.cc
+	sstream-inst.ml
 else
 # XTEMPLATE_FLAGS =
 inst_sources =
 endif
 
-sources = tzdb.cc format.cc
+sources = tzdb.ml format.ml
 
 vpath % $(top_srcdir)/src/c++20
 
@@ -47,16 +47,16 @@ tzdata.zi.h: $(top_srcdir)/src/c++20/tzdata.zi
 	echo ')__libstdcxx__";' >> $@.tmp
 	mv $@.tmp $@
 
-tzdb.lo: tzdb.cc tzdata.zi.h
+tzdb.lo: tzdb.ml tzdata.zi.h
 	$(LTCXXCOMPILE) -I. -c $<
-tzdb.o: tzdb.cc tzdata.zi.h
+tzdb.o: tzdb.ml tzdata.zi.h
 	$(CXXCOMPILE) -I. -c $<
 endif
 
 # This needs access to std::text_encoding and to the internals of std::locale.
-format.lo: format.cc
+format.lo: format.ml
 	$(LTCXXCOMPILE) -std=gnu++26 -fno-access-control -c $<
-format.o: format.cc
+format.o: format.ml
 	$(CXXCOMPILE) -std=gnu++26 -fno-access-control -c $<
 
 if GLIBCXX_HOSTED

@@ -407,7 +407,7 @@ otherwise writes to stdout.'
         change_msg = ": Remove.\n"
 
     _, ext = os.path.splitext(d.filename)
-    if (not change_msg and ext in ['.c', '.cpp', '.C', '.cc', '.h', '.inc', '.def']
+    if (not change_msg and ext in ['.c', '.cpp', '.C', '.ml', '.h', '.inc', '.def']
         and not 'testsuite' in d.filename):
       fns = []
       for hunk in d.hunks:

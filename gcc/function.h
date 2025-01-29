@@ -274,7 +274,7 @@ struct GTY(()) function {
      the same uid.  This is used for condition coverage.  */
   hash_map <gcond*, unsigned> *GTY((skip)) cond_uids;
 
-  /* For function.cc.  */
+  /* For function.ml.  */
 
   /* Points to the FUNCTION_DECL of this function.  */
   tree decl;

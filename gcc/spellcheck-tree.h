@@ -22,7 +22,7 @@ along with GCC; see the file COPYING3.  If not see
 
 #include "spellcheck.h"
 
-/* spellcheck-tree.cc  */
+/* spellcheck-tree.ml  */
 
 extern edit_distance_t
 get_edit_distance (tree ident_s, tree ident_t);

@@ -5,64 +5,64 @@
 
 2024-12-20  Nathaniel Shead  <nathanieloshead@gmail.com>
 
-	* libcp1plugin.cc (plugin_add_namespace_alias): Call
+	* libcp1plugin.ml (plugin_add_namespace_alias): Call
 	do_namespace_alias with input_location.
 
 2024-09-20  David Malcolm  <dmalcolm@redhat.com>
 
 	PR other/116613
-	* context.cc: Include "diagnostic-format-text.h".
+	* context.ml: Include "diagnostic-format-text.h".
 	(plugin_print_error_function): Update first param from
 	diagnostic_context * to diagnostic_text_output_format &.
 
 2024-03-16  Francois-Xavier Coudert  <fxcoudert@gcc.gnu.org>
 
 	PR middle-end/111632
-	* libcc1plugin.cc: Fix include.
-	* libcp1plugin.cc: Fix include.
+	* libcc1plugin.ml: Fix include.
+	* libcp1plugin.ml: Fix include.
 
 2024-02-29  Tom Tromey  <tom@tromey.com>
 
 	PR libcc1/113977
-	* libcc1plugin.cc (plugin_finish_record_or_union): New function.
+	* libcc1plugin.ml (plugin_finish_record_or_union): New function.
 	(plugin_finish_record_or_union): Rewrite.
 	(plugin_init): Use GCC_C_FE_VERSION_2.
-	* libcc1.cc (c_vtable): Use GCC_C_FE_VERSION_2.
+	* libcc1.ml (c_vtable): Use GCC_C_FE_VERSION_2.
 	(gcc_c_fe_context): Check for GCC_C_FE_VERSION_2.
 
 2024-02-29  Tom Tromey  <tom@tromey.com>
 
-	* libcp1.cc (libcp1::libcp1): Use FE version number from context.
-	* libcc1.cc (libcc1::libcc1): Use FE version number from context.
+	* libcp1.ml (libcp1::libcp1): Use FE version number from context.
+	* libcc1.ml (libcc1::libcc1): Use FE version number from context.
 	(c_vtable): Use GCC_C_FE_VERSION_1.
 
 2024-02-29  Tom Tromey  <tom@tromey.com>
 
-	* libcc1plugin.cc (safe_lookup_builtin_type): Handle ERROR_MARK.
+	* libcc1plugin.ml (safe_lookup_builtin_type): Handle ERROR_MARK.
 	(plugin_int_type): Fall back to plugin_int_type_v0.
 	(plugin_float_type): Fall back to plugin_float_type_v0.
 
 2024-02-09  Marek Polacek  <polacek@redhat.com>
 
 	PR c++/98388
-	* libcp1plugin.cc (plugin_build_unary_expr): Pass tf_error to
+	* libcp1plugin.ml (plugin_build_unary_expr): Pass tf_error to
 	build_throw.
 
 2024-01-09  waffl3x  <waffl3x@protonmail.com>
 	    Jason Merrill  <jason@redhat.com>
 
 	PR c++/102609
-	* libcp1plugin.cc (plugin_pragma_push_user_expression): Don't use
+	* libcp1plugin.ml (plugin_pragma_push_user_expression): Don't use
 	DECL_NONSTATIC_MEMBER_FUNCTION_P.
 
 2023-12-06  David Malcolm  <dmalcolm@redhat.com>
 
-	* context.cc (plugin_print_error_function): Make diagnostic_info
+	* context.ml (plugin_print_error_function): Make diagnostic_info
 	param const.
 
 2023-11-16  Tom Tromey  <tom@tromey.com>
 
-	* libcc1plugin.cc (plugin_build_enum_type): Set
+	* libcc1plugin.ml (plugin_build_enum_type): Set
 	ENUM_UNDERLYING_TYPE.
 
 2023-10-22  Iain Sandoe  <iain@sandoe.co.uk>
@@ -99,18 +99,18 @@
 
 2023-05-18  Bernhard Reutner-Fischer  <aldot@gcc.gnu.org>
 
-	* libcc1plugin.cc (plugin_float_type): Ditto.
-	* libcp1plugin.cc (plugin_reactivate_decl): Ditto.
+	* libcc1plugin.ml (plugin_float_type): Ditto.
+	* libcp1plugin.ml (plugin_reactivate_decl): Ditto.
 	(plugin_get_float_type): Ditto.
 
 2022-11-01  Nathan Sidwell  <nathan@acm.org>
 
-	* libcp1plugin.cc (plugin_start_lambda_closure_class_type):
+	* libcp1plugin.ml (plugin_start_lambda_closure_class_type):
 	Initialize the per-scope, per-signature discriminator.
 
 2022-11-01  Nathan Sidwell  <nathan@acm.org>
 
-	* libcp1plugin.cc (plugin_start_closure): Adjust.
+	* libcp1plugin.ml (plugin_start_closure): Adjust.
 
 2022-10-12  Martin Liska  <mliska@suse.cz>
 
@@ -124,8 +124,8 @@
 2022-06-27  Sergei Trofimovich  <siarheit@google.com>
 
 	PR c++/106102
-	* libcc1plugin.cc: Include <memory> via "system.h".
-	* libcp1plugin.cc: Ditto.
+	* libcc1plugin.ml: Include <memory> via "system.h".
+	* libcp1plugin.ml: Ditto.
 
 2022-06-01  David Seifert  <soap@gentoo.org>
 
@@ -137,7 +137,7 @@
 	PR c++/51577
 	PR c++/83035
 	PR c++/100465
-	* libcp1plugin.cc (plugin_build_unary_expr): Adjust call to
+	* libcp1plugin.ml (plugin_build_unary_expr): Adjust call to
 	build_x_unary_op.
 	(plugin_build_binary_expr): Adjust call to build_x_binary_op.
 
@@ -152,12 +152,12 @@
 
 2021-06-28  Martin Sebor  <msebor@redhat.com>
 
-	* libcp1plugin.cc (record_decl_address): Replace a direct use
+	* libcp1plugin.ml (record_decl_address): Replace a direct use
 	of TREE_NO_WARNING with suppress_warning.
 
 2021-05-05  Tom Tromey  <tom@tromey.com>
 
-	* compiler.cc (make_regexp): Take const std::string.
+	* compiler.ml (make_regexp): Take const std::string.
 	(cc1_plugin::compiler_triplet_regexp::find): Update.
 
 2021-05-05  Tom Tromey  <tom@tromey.com>
@@ -173,11 +173,11 @@
 	(unmarshall): Add std::tuple overloads.
 	(callback): Remove.
 	(class invoker): New.
-	* libcp1plugin.cc (plugin_init): Update.
-	* libcp1.cc (libcp1::add_callbacks): Update.
-	* libcc1plugin.cc (plugin_init): Update.
-	* libcc1.cc (libcc1::add_callbacks): Update.
-	* connection.cc (cc1_plugin::connection::do_wait): Update.
+	* libcp1plugin.ml (plugin_init): Update.
+	* libcp1.ml (libcp1::add_callbacks): Update.
+	* libcc1plugin.ml (plugin_init): Update.
+	* libcc1.ml (libcc1::add_callbacks): Update.
+	* connection.ml (cc1_plugin::connection::do_wait): Update.
 
 2021-05-05  Tom Tromey  <tom@tromey.com>
 
@@ -185,7 +185,7 @@
 
 2021-05-05  Tom Tromey  <tom@tromey.com>
 
-	* libcp1.cc (libcp1): Change parameters.  Update.
+	* libcp1.ml (libcp1): Change parameters.  Update.
 	(libcp1_set_verbose, libcp1_set_arguments)
 	(libcp1_set_triplet_regexp, libcp1_set_driver_filename)
 	(libcp1_set_source_file, libcp1_set_print_callback, fork_exec)
@@ -193,7 +193,7 @@
 	(libcp1::add_callbacks): New method, extracted from
 	libcp1_compile.
 	(gcc_c_fe_context): Update.
-	* libcc1.cc (libcc1): Change parameters.  Update.
+	* libcc1.ml (libcc1): Change parameters.  Update.
 	(libcc1_set_verbose, libcc1_set_arguments)
 	(libcc1_set_triplet_regexp, libcc1_set_driver_filename)
 	(libcc1_set_source_file, libcc1_set_print_callback, fork_exec)
@@ -212,18 +212,18 @@
 
 2021-05-05  Tom Tromey  <tom@tromey.com>
 
-	* libcp1.cc (vtable): Use GCC_FE_VERSION_1.
+	* libcp1.ml (vtable): Use GCC_FE_VERSION_1.
 
 2021-05-05  Tom Tromey  <tom@tromey.com>
 
-	* libcp1.cc (struct libcp1): Derive from base_gdb_plugin.  Remove
+	* libcp1.ml (struct libcp1): Derive from base_gdb_plugin.  Remove
 	shared code.
 	(class libcp1_connection): Remove.
 	(rpc): Remove.
 	(libcp1_set_verbose, libcp1_compile): Update.
 	(cp_call_binding_oracle, cp_call_symbol_address)
 	(cp_call_enter_scope, cp_call_leave_scope): Update.
-	* libcc1.cc (struct libcc1): Derive from base_gdb_plugin.  Remove
+	* libcc1.ml (struct libcc1): Derive from base_gdb_plugin.  Remove
 	shared code.
 	(class libcc1_connection): Remove.
 	(c_call_binding_oracle, c_call_symbol_address): Update.
@@ -233,28 +233,28 @@
 
 2021-05-05  Tom Tromey  <tom@tromey.com>
 
-	* libcc1plugin.cc: Move code to context.cc.
-	* libcp1plugin.cc: Move code to context.cc.
+	* libcc1plugin.ml: Move code to context.ml.
+	* libcp1plugin.ml: Move code to context.ml.
 	* context.hh: New file.
-	* context.cc: New file.
+	* context.ml: New file.
 	* Makefile.in: Rebuild.
 	* Makefile.am (AM_CPPFLAGS): Add more gcc flags.
 	(CPPFLAGS_FOR_C, CPPFLAGS_FOR_CXX): Update.
-	(libcc1plugin_la_SOURCES): Add context.hh, context.cc.
+	(libcc1plugin_la_SOURCES): Add context.hh, context.ml.
 	(libcp1plugin_la_SOURCES): Likewise.
 
 2021-05-05  Tom Tromey  <tom@tromey.com>
 
-	* libcp1plugin.cc: Use static assert.
+	* libcp1plugin.ml: Use static assert.
 
 2021-05-05  Tom Tromey  <tom@tromey.com>
 
-	* libcp1plugin.cc (plugin_context::mark): Use foreach.
-	* libcc1plugin.cc (plugin_context::mark): Use foreach.
+	* libcp1plugin.ml (plugin_context::mark): Use foreach.
+	* libcc1plugin.ml (plugin_context::mark): Use foreach.
 
 2021-05-05  Tom Tromey  <tom@tromey.com>
 
-	* libcp1.cc (compiler, compiler_triplet_regexp)
+	* libcp1.ml (compiler, compiler_triplet_regexp)
 	(compiler_driver_filename): Remove.
 	(libcp1::libcp1): Update.
 	(make_regexp, libcp1::compiler::find)
@@ -262,7 +262,7 @@
 	(libcp1::compiler_driver_filename::find): Remove.
 	(libcp1_set_verbose, libcp1_set_arguments)
 	(libcp1_set_triplet_regexp, libcp1_set_driver_filename): Update.
-	* libcc1.cc (compiler, compiler_triplet_regexp)
+	* libcc1.ml (compiler, compiler_triplet_regexp)
 	(compiler_driver_filename): Remove.
 	(libcc1::libcc1): Update.
 	(make_regexp, libcc1::compiler::find)
@@ -270,19 +270,19 @@
 	(libcc1::compiler_driver_filename::find): Remove.
 	(libcc1_set_verbose, libcc1_set_arguments)
 	(libcc1_set_triplet_regexp, libcc1_set_driver_filename): Update.
-	* compiler.cc: New file.
+	* compiler.ml: New file.
 	* compiler.hh: New file.
 	* Makefile.in: Rebuild.
-	* Makefile.am (libcc1_la_SOURCES): Add compiler.hh, compiler.cc.
+	* Makefile.am (libcc1_la_SOURCES): Add compiler.hh, compiler.ml.
 
 2021-05-05  Tom Tromey  <tom@tromey.com>
 
-	* libcp1.cc (struct libcp1) <connection, compilerp>: Use
+	* libcp1.ml (struct libcp1) <connection, compilerp>: Use
 	unique_ptr.
 	(~libcp1): Remove.
 	(libcp1_compile, libcp1_set_triplet_regexp)
 	(libcp1_set_driver_filename): Update.
-	* libcc1.cc (struct libcc1) <connection, compilerp>: Use
+	* libcc1.ml (struct libcc1) <connection, compilerp>: Use
 	unique_ptr.
 	(~libcc1): Remove.
 	(libcc1_set_triplet_regexp, libcc1_set_driver_filename)
@@ -293,7 +293,7 @@
 	* rpc.hh (deleter): Move template and some specializations to
 	deleter.hh.
 	(argument_wrapper<const T *>): Use cc1_plugin::unique_ptr.
-	* marshall.cc (cc1_plugin::unmarshall): Use
+	* marshall.ml (cc1_plugin::unmarshall): Use
 	cc1_plugin::unique_ptr.
 	* marshall-cp.hh (deleter): New specializations.
 	(unmarshall): Use cc1_plugin::unique_ptr.
@@ -308,13 +308,13 @@
 
 2021-05-05  Tom Tromey  <tom@tromey.com>
 
-	* libcp1plugin.cc (plugin_build_function_type): Use std::vector.
-	* libcc1plugin.cc (plugin_build_function_type): Use std::vector.
+	* libcp1plugin.ml (plugin_build_function_type): Use std::vector.
+	* libcc1plugin.ml (plugin_build_function_type): Use std::vector.
 
 2021-05-05  Tom Tromey  <tom@tromey.com>
 
-	* libcp1.cc (rpc): Use variadic template.  Remove overloads.
-	* libcc1.cc (rpc): Use variadic template.  Remove overloads.
+	* libcp1.ml (rpc): Use variadic template.  Remove overloads.
+	* libcc1.ml (rpc): Use variadic template.  Remove overloads.
 
 2021-05-05  Tom Tromey  <tom@tromey.com>
 
@@ -333,15 +333,15 @@
 
 	* connection.hh (~connection): Use default.
 	(print): Inline.
-	* connection.cc (cc1_plugin::connection::~connection)
+	* connection.ml (cc1_plugin::connection::~connection)
 	(cc1_plugin::connection::print): Remove definitions.
 
 2021-05-05  Tom Tromey  <tom@tromey.com>
 
-	* libcp1.cc (class compiler_triplet_regexp)
+	* libcp1.ml (class compiler_triplet_regexp)
 	(class compiler_driver_filename, class libcp1_connection): Use
 	"override".
-	* libcc1.cc (class compiler_triplet_regexp)
+	* libcc1.ml (class compiler_triplet_regexp)
 	(class compiler_driver_filename, class libcc1_connection): Use
 	"override".
 
@@ -350,8 +350,8 @@
 	* marshall.hh (cc1_plugin::unmarshall): Use type traits.
 	* marshall-cp.hh (cc1_plugin::unmarshall): Remove overloads.
 	* marshall-c.hh: Remove.
-	* libcc1plugin.cc: Update includes.
-	* libcc1.cc: Update includes.
+	* libcc1plugin.ml: Update includes.
+	* libcc1.ml: Update includes.
 
 2021-05-03  H.J. Lu  <hjl.tools@gmail.com>
 
@@ -384,41 +384,41 @@
 2020-11-11  Patrick Palka  <ppalka@redhat.com>
 
 	PR c++/88115
-	* libcp1plugin.cc (plugin_build_unary_expr): Pass true to
+	* libcp1plugin.ml (plugin_build_unary_expr): Pass true to
 	cxx_sizeof_or_alignof_expr.
 
 2020-11-10  Marek Polacek  <polacek@redhat.com>
 
 	PR c++/97518
-	* libcp1plugin.cc (plugin_add_static_assert): Pass false to
+	* libcp1plugin.ml (plugin_add_static_assert): Pass false to
 	finish_static_assert.
 
 2020-11-06  Nathan Sidwell  <nathan@acm.org>
 
-	* libcc1plugin.cc (address_rewriter): Rename
+	* libcc1plugin.ml (address_rewriter): Rename
 	DECL_IS_BUILTIN->DECL_IS_UNDECLARED_BUILTIN.
-	* libcp1plugin.cc (supplement_binding): Likewise.
+	* libcp1plugin.ml (supplement_binding): Likewise.
 
 2020-10-14  Nathan Sidwell  <nathan@acm.org>
 
-	* libcp1plugin.cc (plugin_add_friend): Set DECL_UNIQUE_FRIEND_P.
+	* libcp1plugin.ml (plugin_add_friend): Set DECL_UNIQUE_FRIEND_P.
 
 2020-10-07  Nathan Sidwell  <nathan@acm.org>
 
-	* libcp1plugin.cc (supplement_binding): Rename
+	* libcp1plugin.ml (supplement_binding): Rename
 	DECL_BUILTIN_P.
 
 2020-10-02  Nathan Sidwell  <nathan@acm.org>
 
-	* libcp1plugin.cc (libcp1plugin.cc): Drop DECL_ANTICIPATED test.
+	* libcp1plugin.ml (libcp1plugin.ml): Drop DECL_ANTICIPATED test.
 
 2020-09-25  Nathan Sidwell  <nathan@acm.org>
 
-	* libcp1plugin.cc (supplement_binding): Use DECL_BULTIN_P.
+	* libcp1plugin.ml (supplement_binding): Use DECL_BULTIN_P.
 
 2020-09-24  Nathan Sidwell  <nathan@acm.org>
 
-	* libcp1plugin.cc (supplement_binding): Drop default args to
+	* libcp1plugin.ml (supplement_binding): Drop default args to
 	duplicate_decls.
 	(safe_pushtag): Drop scope parm.  Drop default args to pushtag.
 	(safe_pushdecl_maybe_friend): Rename to ...
@@ -429,26 +429,26 @@
 
 2020-09-10  Nathan Sidwell  <nathan@acm.org>
 
-	* libcp1plugin.cc (plugin_build_call_expr): Use DECL_LOCAL_DECL_P.
+	* libcp1plugin.ml (plugin_build_call_expr): Use DECL_LOCAL_DECL_P.
 
 2020-08-14  Nathan Sidwell  <nathan@acm.org>
 
-	* libcp1plugin.cc (plugin_build_dependent_expr): Rename
+	* libcp1plugin.ml (plugin_build_dependent_expr): Rename
 	lookup_name_real call.
 
 2020-08-14  Nathan Sidwell  <nathan@acm.org>
 
-	* libcp1plugin.cc (plugin_build_dependent_exp): Adjust
+	* libcp1plugin.ml (plugin_build_dependent_exp): Adjust
 	lookup_name_real call.
 
 2020-08-14  Nathan Sidwell  <nathan@acm.org>
 
-	* libcp1plugin.cc (plugin_build_dependent_expr): Adjust
+	* libcp1plugin.ml (plugin_build_dependent_expr): Adjust
 	lookup_name_real & lookup_qualified_name calls.
 
 2020-08-13  Nathan Sidwell  <nathan@acm.org>
 
-	* libcp1plugin.cc (plugin_build_dependent_expr): Likewise.
+	* libcp1plugin.ml (plugin_build_dependent_expr): Likewise.
 
 2020-07-30  H.J. Lu  <hjl.tools@gmail.com>
 
@@ -457,7 +457,7 @@
 
 2020-06-30  Nathan Sidwell  <nathan@acm.org>
 
-	* libcp1plugin.cc (plugin_build_decl): Adjust clone_function_decl
+	* libcp1plugin.ml (plugin_build_decl): Adjust clone_function_decl
 	call.
 
 2020-05-29  H.J. Lu  <hjl.tools@gmail.com>
@@ -482,12 +482,12 @@
 
 	PR c++/69448
 	PR c++/80471
-	* libcp1plugin.cc (plugin_get_expr_type): No need to explicitly set
+	* libcp1plugin.ml (plugin_get_expr_type): No need to explicitly set
 	AUTO_IS_DECLTYPE anymore.
 
 2020-01-07  Paolo Carlini  <paolo.carlini@oracle.com>
 
-	* libcp1plugin.cc (plugin_build_new_expr): Update build_new call.
+	* libcp1plugin.ml (plugin_build_new_expr): Update build_new call.
 
 2020-01-01  Jakub Jelinek  <jakub@redhat.com>
 
@@ -495,29 +495,29 @@
 
 2019-12-30  Paolo Carlini  <paolo.carlini@oracle.com>
 
-	* libcp1plugin.cc (plugin_build_unary_expr): Update delete_sanity
+	* libcp1plugin.ml (plugin_build_unary_expr): Update delete_sanity
 	call.
 
 2019-12-18  Paolo Carlini  <paolo.carlini@oracle.com>
 
-	* libcp1plugin.cc (plugin_build_unary_expr): Update build_throw
+	* libcp1plugin.ml (plugin_build_unary_expr): Update build_throw
 	and cxx_sizeof_or_alignof_expr calls.
 	(plugin_build_unary_type_expr): Likewise for
 	cxx_sizeof_or_alignof_type.
 
 2019-12-09  Paolo Carlini  <paolo.carlini@oracle.com>
 
-	* libcp1plugin.cc (plugin_build_cast_expr): Adjust build_cast
+	* libcp1plugin.ml (plugin_build_cast_expr): Adjust build_cast
 	declaration.
 
 2019-12-05  Paolo Carlini  <paolo.carlini@oracle.com>
 
-	* libcp1plugin.cc (plugin_build_expression_list_expr): Adjust
+	* libcp1plugin.ml (plugin_build_expression_list_expr): Adjust
 	build_functional_cast call.
 
 2019-11-25  Paolo Carlini  <paolo.carlini@oracle.com>
 
-	* libcp1plugin.cc (plugin_pragma_push_user_expression): Update
+	* libcp1plugin.ml (plugin_pragma_push_user_expression): Update
 	cp_build_indirect_ref call.
 
 2019-09-27  Maciej W. Rozycki  <macro@wdc.com>
@@ -526,12 +526,12 @@
 
 2019-05-21  Nathan Sidwell  <nathan@acm.org>
 
-	* libcp1plugin.cc (plugin_add_using_decl): Use
+	* libcp1plugin.ml (plugin_add_using_decl): Use
 	finish_nonmember_using_decl.
 
 2019-05-20  Nathan Sidwell  <nathan@acm.org>
 
-	* libcp1plugin.cc (plugin_add_using_namespace): Call renamed
+	* libcp1plugin.ml (plugin_add_using_namespace): Call renamed
 	finish_using_directive.
 
 2019-01-01  Jakub Jelinek  <jakub@redhat.com>
@@ -540,10 +540,10 @@
 
 2018-11-13  David Malcolm  <dmalcolm@redhat.com>
 
-	* libcc1plugin.cc: Replace "source_location" with "location_t".
+	* libcc1plugin.ml: Replace "source_location" with "location_t".
 	(plugin_context::get_source_location): Rename to...
 	(plugin_context::get_location_t): ...this.
-	* libcp1plugin.cc: Likewise.
+	* libcp1plugin.ml: Likewise.
 
 2018-10-31  Joseph Myers  <joseph@codesourcery.com>
 
@@ -571,83 +571,83 @@
 	cp-compiler-name.h
 	* Makefile.in: Regenerate.
 	* compiler-name.hh: New file.
-	* libcc1.cc: Don't include c-compiler-name.h.  Include
+	* libcc1.ml: Don't include c-compiler-name.h.  Include
 	compiler-name.hh.
-	* libcp1.cc: Don't include cp-compiler-name.h.  Include
+	* libcp1.ml: Don't include cp-compiler-name.h.  Include
 	compiler-name.hh.
 
 2017-11-01  Nathan Sidwell  <nathan@acm.org>
 
-	* libcp1plugin.cc (plugin_build_decl): Use
+	* libcp1plugin.ml (plugin_build_decl): Use
 	DECL_OVERLOADED_OPERATOR_CODE_RAW.
 
 2017-10-31  Nathan Sidwell  <nathan@acm.org>
 
-	* libcp1plugin.cc (plugin_build_decl): Use ovl_op_identifier.
+	* libcp1plugin.ml (plugin_build_decl): Use ovl_op_identifier.
 	Directly set operator code.
 	(plugin_build_dependent_expr): Use ovl_op_identifier.
 
 2017-10-04  Nathan Sidwell  <nathan@acm.org>
 
-	* libcp1plugin.cc (supplement_binding): Don't use
+	* libcp1plugin.ml (supplement_binding): Don't use
 	maybe_remove_implicit_alias.
 
 2017-07-20  Nathan Sidwell  <nathan@acm.org>
 
 	Remove TYPE_METHODS.
-	* libcp1plugin.cc (plugin_build_decl): Member fns are on TYPE_FIELDS.
+	* libcp1plugin.ml (plugin_build_decl): Member fns are on TYPE_FIELDS.
 
 2017-07-12  Nathan Sidwell  <nathan@acm.org>
 
-	* libcp1plugin.cc (plugin_build_decl): Use
+	* libcp1plugin.ml (plugin_build_decl): Use
 	DECL_CXX_{CON,DE}STRUCTOR directly.
 
 2017-07-05  Richard Sandiford  <richard.sandiford@linaro.org>
 
-	* libcp1plugin.cc (plugin_build_field): Use SET_DECL_MODE.
+	* libcp1plugin.ml (plugin_build_field): Use SET_DECL_MODE.
 
 2017-06-30  Nathan Sidwell  <nathan@acm.org>
 
-	* libcp1plugin.cc (plugin_build_decl): Use make_conv_op_name.
+	* libcp1plugin.ml (plugin_build_decl): Use make_conv_op_name.
 	(plugin_build_dependent_expr): Likewise.
 
 2017-06-26  Nathan Sidwell  <nathan@acm.org>
 
-	* libcp1plugin.cc (plugin_build_decl): Don't set
+	* libcp1plugin.ml (plugin_build_decl): Don't set
 	DECL_ASSIGNMENT_OPERATOR_P.
 
 2017-06-16  Nathan Sidwell  <nathan@acm.org>
 
-	* libcp1plugin.cc (plugin_build_decl): Adjust parm building.
+	* libcp1plugin.ml (plugin_build_decl): Adjust parm building.
 
 2017-05-26  Nathan Sidwell  <nathan@acm.org>
 
-	* libcp1plugin.cc (plugin_make_namespace_inline): Push onto linees.
+	* libcp1plugin.ml (plugin_make_namespace_inline): Push onto linees.
 
-	* libcp1plugin.cc (plugin_add_using_namespace): Call
+	* libcp1plugin.ml (plugin_add_using_namespace): Call
 	finish_namespace_using_directive.
 
 2017-05-25  Nathan Sidwell  <nathan@acm.org>
 
-	* libcp1plugin.cc (plugin_make_namespace_inline): Check and set
+	* libcp1plugin.ml (plugin_make_namespace_inline): Check and set
 	DECL_NAMESPACE_INLINE_P.
 
 2017-05-23  Nathan Sidwell  <nathan@acm.org>
 
-	* libcp1plugin.cc (plugin_add_using_decl): Call
+	* libcp1plugin.ml (plugin_add_using_decl): Call
 	finish_namespace_using_decl.  Use assert not unreachable.
 
 2017-05-11  Nathan Sidwell  <nathan@acm.org>
 
-	* libcp1plugin.cc (safe_pushdecl_maybe_friend): Call pushdecl.
+	* libcp1plugin.ml (safe_pushdecl_maybe_friend): Call pushdecl.
 
 2017-05-10  Nathan Sidwell  <nathan@acm.org>
 
-	* libcp1plugin.cc (plugin_build_decl): Adjust add_method call.
+	* libcp1plugin.ml (plugin_build_decl): Adjust add_method call.
 
 2017-04-15  Alexandre Oliva <aoliva@redhat.com>
 
-	* libcp1plugin.cc (plugin_build_decl): Call name_unnamed_type.
+	* libcp1plugin.ml (plugin_build_decl): Call name_unnamed_type.
 
 2017-01-30  Alexandre Oliva <aoliva@redhat.com>
 
@@ -661,7 +661,7 @@
 	(c-compiler-name.h): Rename all over from...
 	(compiler-name.h): ... this.  Create it atomically.
 	(marshall_c_source, marshall_cxx_source): New macros.
-	(libcc1plugin_la_SOURCES): Rename plugin.cc to libcc1plugin.cc.
+	(libcc1plugin_la_SOURCES): Rename plugin.ml to libcc1plugin.ml.
 	Add marshall_c_source expansion.
 	(libcc1plugin.lo_CPPFLAGS): New macro.
 	(libcp1plugin_la_LDFLAGS): Likewise.
@@ -676,8 +676,8 @@
 	* compiler-name.h: Rename all over to...
 	* c-compiler-name.h: ... this.  Define C_COMPILER_NAME instead
 	of COMPILER_NAME.
-	* plugin.cc: Rename all over to...
-	* libcc1plugin.cc: ... this.  Include marshall-c.hh.
+	* plugin.ml: Rename all over to...
+	* libcc1plugin.ml: ... this.  Include marshall-c.hh.
 	(address_rewriter): Drop cleaning up of VLA sizes.
 	(plugin_build_decl): Mark decls as external.
 	(plugin_tagbind): Propagate name to all variants.
@@ -695,7 +695,7 @@
 	(plugin_float_type_v0): Rename from...
 	(plugin_float_type): ... this.  New interface, new implementation.
 	(plugin_init): Bump handshake version.
-	* libcc1.cc: Include marshall-c.hh.  Drop gcc-interface.h.
+	* libcc1.ml: Include marshall-c.hh.  Drop gcc-interface.h.
 	(call_binding_oracle): Rename to...
 	(c_call_binding_oracle): ... this, into anonymous namespace.
 	(call_symbol_address): Rename to...
@@ -706,11 +706,11 @@
 	(libcc1_compile): Prefix callbacks with c_.
 	(gcc_c_fe_context): Accept GCC_C_FE_VERSION_1.
 	* libcc1.sym: Export gcc_cp_fe_context.
-	* libcp1.cc: New, mostly copied and adjusted from libcc1.cc.
-	* libcp1plugin.cc: New, initially copied from libcc1plugin.cc.
+	* libcp1.ml: New, mostly copied and adjusted from libcc1.ml.
+	* libcp1plugin.ml: New, initially copied from libcc1plugin.ml.
 	* libcp1plugin.sym: New.
 	* marshall-c.hh: New.  Move C-specific types from...
-	* marshall.cc: ... this.
+	* marshall.ml: ... this.
 	(cc1_plugin::marshall_array_start): New.
 	(cc1_plugin::marshall_array_elmts): New.
 	(cc1_plugin::marshall for gcc_type_array): Use the above.
@@ -720,7 +720,7 @@
 	* marshall.hh: Declare the new array building blocks.
 	Drop C-specific unmarshall declarations.
 	* marshall-cp.hh: New.
-	* names.cc (GCC_METHOD#): Add LANG:: to method names.
+	* names.ml (GCC_METHOD#): Add LANG:: to method names.
 	(LANG): Define while including gcc-c-fe.def and gcc-cp-fe.def.
 	* names.hh: Include gcc-c-fe.def and gcc-cp-fe.def in the
 	corresponding namespaces.
@@ -730,10 +730,10 @@
 
 2017-01-30  Jan Kratochvil <jan.kratochvil@redhat.com>
 
-	* findcomp.cc: Include system.h.
+	* findcomp.ml: Include system.h.
 	(search_dir): Return absolute filename.
 
-	* libcc1.cc (libcc1): Add class compiler with field compilerp,
+	* libcc1.ml (libcc1): Add class compiler with field compilerp,
 	class compiler_triplet_regexp and class
 	compiler_driver_filename.
 	(libcc1::libcc1): Initialize compilerp.
@@ -747,7 +747,7 @@
 	libcc1_set_arguments, libcc1_set_triplet_regexp and
 	libcc1_set_driver_filename.
 
-	* libcc1.cc: Include intl.h.
+	* libcc1.ml: Include intl.h.
 	(struct libcc1): Add field verbose.
 	(libcc1::libcc1): Initialize it.
 	(libcc1_set_verbose): New function.
@@ -758,7 +758,7 @@
 	(vtable): Use libcc1_compile_v0 and add libcc1_compile and
 	libcc1_set_verbose.
 
-	* libcc1.cc (vtable): Update to GCC_FE_VERSION_1.
+	* libcc1.ml (vtable): Update to GCC_FE_VERSION_1.
 	(gcc_c_fe_context): Accept also GCC_FE_VERSION_1.
 
 2017-01-17  Jakub Jelinek  <jakub@redhat.com>
@@ -777,7 +777,7 @@
  	    Alan Hayward  <alan.hayward@arm.com>
  	    David Sherwood  <david.sherwood@arm.com>
 
-	* plugin.cc (plugin_build_add_field): Use SET_DECL_MODE.
+	* plugin.ml (plugin_build_add_field): Use SET_DECL_MODE.
 
 2016-06-07  Rainer Orth  <ro@CeBiTec.Uni-Bielefeld.DE>
 
@@ -785,7 +785,7 @@
 
 2016-04-18  Michael Matz  <matz@suse.de>
 
-	* plugin.cc (plugin_finish_record_or_union): Use SET_TYPE_ALIGN.
+	* plugin.ml (plugin_finish_record_or_union): Use SET_TYPE_ALIGN.
 
 2016-04-11  Segher Boessenkool  <segher@kernel.crashing.org>
 
@@ -802,12 +802,12 @@
 
 2015-06-25  Richard Sandiford  <richard.sandiford@arm.com>
 
-	* plugin.cc (decl_addr_hasher): Inherit from free_ptr_hash
+	* plugin.ml (decl_addr_hasher): Inherit from free_ptr_hash
 	rather than typed_free_remove.  Remove redudant typedefs.
 
 2015-06-25  Richard Sandiford  <richard.sandiford@arm.com>
 
-	* plugin.cc (string_hasher): Inherit from nofree_ptr_hash rather
+	* plugin.ml (string_hasher): Inherit from nofree_ptr_hash rather
 	than typed_noop_remove.  Remove redudant typedefs.
 	(plugin_context): Use nofree_ptr_hash rather than pointer_hash.
 	(plugin_context::mark): Likewise.
@@ -820,7 +820,7 @@
 
 2015-04-18  Trevor Saunders  <tsaunders@mozilla.com>
 
-	* plugin.cc: Adjust for hash_table changes.
+	* plugin.ml: Adjust for hash_table changes.
 
 2015-04-15  Andreas Schwab  <schwab@suse.de>
 
@@ -830,12 +830,12 @@
 
 2015-01-30  Joseph Myers  <joseph@codesourcery.com>
 
-	* plugin.cc: All callers of fatal_error changed to pass
+	* plugin.ml: All callers of fatal_error changed to pass
 	input_location as first argument.
 
 2015-01-09  Michael Collison  <michael.collison@linaro.org>
 
-	* plugin.cc: Include hash-set.h, machmode.h, vec.h, double-int.h,
+	* plugin.ml: Include hash-set.h, machmode.h, vec.h, double-int.h,
 	input.h, alias.h, symtab.h, options.h, fold-const.h, wide-int.h and inchash.h
 	due to flattening of tree.h.
 
@@ -848,8 +848,8 @@
 
 	* configure.ac (libcc1_cv_lib_sockets): Check for -lsocket -lnsl.
 	* configure: Regenerate.
-	* connection.cc: Include <string.h>.
-	* libcc1.cc (libcc1_compile): Use AF_UNIX instead of AF_LOCAL.
+	* connection.ml: Include <string.h>.
+	* libcc1.ml (libcc1_compile): Use AF_UNIX instead of AF_LOCAL.
 
 2014-11-11  Francois-Xavier Coudert  <fxcoudert@gcc.gnu.org>
 
@@ -860,7 +860,7 @@
 
 	PR bootstrap/63699
 	PR bootstrap/63750
-	* plugin.cc: Don't include <string>.
+	* plugin.ml: Don't include <string>.
 
 2014-10-29  Jakub Jelinek  <jakub@redhat.com>
 	    Phil Muldoon  <pmuldoon@redhat.com>
@@ -889,24 +889,24 @@
 	    Tom Tromey  <tromey@redhat.com>
 
 	* aclocal.m4: New file.
-	* callbacks.cc: New file.
+	* callbacks.ml: New file.
 	* callbacks.hh: New file.
 	* cc1plugin-config.h.in: New file.
 	* configure: New file.
 	* configure.ac: New file.
-	* connection.cc: New file.
+	* connection.ml: New file.
 	* connection.hh: New file.
-	* findcomp.cc: New file.
+	* findcomp.ml: New file.
 	* findcomp.hh: New file.
-	* libcc1.cc: New file.
+	* libcc1.ml: New file.
 	* libcc1plugin.sym: New file.
 	* libcc1.sym: New file.
 	* Makefile.am: New file.
 	* Makefile.in: New file.
-	* marshall.cc: New file.
+	* marshall.ml: New file.
 	* marshall.hh: New file.
-	* names.cc: New file.
+	* names.ml: New file.
 	* names.hh: New file.
-	* plugin.cc: New file.
+	* plugin.ml: New file.
 	* rpc.hh: New file.
 	* status.hh: New file.

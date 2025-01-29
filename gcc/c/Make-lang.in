@@ -71,15 +71,15 @@ endif
 # compute checksum over all object files and the options
 # re-use the checksum from the prev-final stage so it passes
 # the bootstrap comparison and allows comparing of the cc1 binary
-cc1-checksum.cc : build/genchecksum$(build_exeext) checksum-options \
+cc1-checksum.ml : build/genchecksum$(build_exeext) checksum-options \
 	$(C_OBJS) $(BACKEND) $(LIBDEPS) 
 	if [ -f ../stage_final ] \
 	   && cmp -s ../stage_current ../stage_final; then \
-	  cp ../prev-gcc/cc1-checksum.cc cc1-checksum.cc; \
+	  cp ../prev-gcc/cc1-checksum.ml cc1-checksum.ml; \
 	else \
 	  build/genchecksum$(build_exeext) $(C_OBJS) $(BACKEND) $(LIBDEPS) \
-                     checksum-options > cc1-checksum.cc.tmp && 		 \
-	  $(srcdir)/../move-if-change cc1-checksum.cc.tmp cc1-checksum.cc; \
+                     checksum-options > cc1-checksum.ml.tmp && 		 \
+	  $(srcdir)/../move-if-change cc1-checksum.ml.tmp cc1-checksum.ml; \
 	fi
 
 cc1$(exeext): $(C_OBJS) cc1-checksum.o $(BACKEND) $(LIBDEPS)
@@ -131,10 +131,10 @@ c.all.cross:
 c.start.encap:
 c.rest.encap:
 c.srcinfo:
-c.srcextra: gengtype-lex.cc
+c.srcextra: gengtype-lex.ml
 	-cp -p $^ $(srcdir)
 c.tags: force
-	cd $(srcdir)/c; $(ETAGS) -o TAGS.sub *.cc *.h; \
+	cd $(srcdir)/c; $(ETAGS) -o TAGS.sub *.ml *.h; \
 	$(ETAGS) --include TAGS.sub --include ../TAGS.sub
 c.man:
 c.srcman:

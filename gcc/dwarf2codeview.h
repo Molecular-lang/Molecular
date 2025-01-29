@@ -87,7 +87,7 @@ along with GCC; see the file COPYING3.  If not see
 
 #define CV_PROP_FWDREF		0x80
 
-/* Debug Format Interface.  Used in dwarf2out.cc.  */
+/* Debug Format Interface.  Used in dwarf2out.ml.  */
 
 extern void codeview_debug_finish (void);
 extern void codeview_source_line (unsigned int, const char *);

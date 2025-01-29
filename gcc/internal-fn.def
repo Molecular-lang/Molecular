@@ -104,7 +104,7 @@ along with GCC; see the file COPYING3.  If not see
    group of functions to any integral mode (including vector modes).
 
    DEF_INTERNAL_INT_EXT_FN is like DEF_INTERNAL_INT_FN, except that it
-   has expand_##NAME defined in internal-fn.cc to override the
+   has expand_##NAME defined in internal-fn.ml to override the
    DEF_INTERNAL_INT_FN expansion behavior.
 
    DEF_INTERNAL_WIDENING_OPTAB_FN is a wrapper that defines five internal

@@ -59,9 +59,9 @@ remote_exec "build" "$blddir/scripts/extract_symvers" \
     [list $lib "current_symbols.txt"]
 
 # Build the abi_check program.
-if { [v3_target_compile "$srcdir/util/testsuite_abi_check.cc" "abi_check" \
+if { [v3_target_compile "$srcdir/util/testsuite_abi_check.ml" "abi_check" \
       "executable" [list "additional_flags=-w -fno-freestanding"]] != "" } {
-    error "could not compile testsuite_abi_check.cc"
+    error "could not compile testsuite_abi_check.ml"
 }
 
 remote_download "target" $baseline_file "baseline_symbols.txt"

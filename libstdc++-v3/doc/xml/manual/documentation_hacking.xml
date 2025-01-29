@@ -512,7 +512,7 @@
 
       <para>
 	Use either kind of grouping, as
-	appropriate. <filename>doxygroups.cc</filename> exists for this
+	appropriate. <filename>doxygroups.ml</filename> exists for this
 	purpose. See <filename class="headerfile">stl_iterator.h</filename>
 	for a good example of the <quote>other</quote> kind of grouping.
       </para>

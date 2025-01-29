@@ -351,7 +351,7 @@ aarch64*-*-*)
 	cxx_target_objs="aarch64-c.o"
 	d_target_objs="aarch64-d.o"
 	extra_objs="aarch64-builtins.o aarch-common.o aarch64-sve-builtins.o aarch64-sve-builtins-shapes.o aarch64-sve-builtins-base.o aarch64-sve-builtins-sve2.o aarch64-sve-builtins-sme.o cortex-a57-fma-steering.o aarch64-speculation.o aarch-bti-insert.o aarch64-cc-fusion.o aarch64-early-ra.o aarch64-ldp-fusion.o"
-	target_gtfiles="\$(srcdir)/config/aarch64/aarch64-protos.h \$(srcdir)/config/aarch64/aarch64-builtins.h \$(srcdir)/config/aarch64/aarch64-builtins.cc \$(srcdir)/config/aarch64/aarch64-sve-builtins.h \$(srcdir)/config/aarch64/aarch64-sve-builtins.cc"
+	target_gtfiles="\$(srcdir)/config/aarch64/aarch64-protos.h \$(srcdir)/config/aarch64/aarch64-builtins.h \$(srcdir)/config/aarch64/aarch64-builtins.ml \$(srcdir)/config/aarch64/aarch64-sve-builtins.h \$(srcdir)/config/aarch64/aarch64-sve-builtins.ml"
 	target_has_targetm_common=yes
 	;;
 alpha*-*-*)
@@ -381,7 +381,7 @@ arm*-*-*)
 	cxx_target_objs="arm-c.o"
 	d_target_objs="arm-d.o"
 	extra_options="${extra_options} arm/arm-tables.opt"
-	target_gtfiles="\$(srcdir)/config/arm/arm-builtins.cc \$(srcdir)/config/arm/arm-mve-builtins.h \$(srcdir)/config/arm/arm-mve-builtins.cc"
+	target_gtfiles="\$(srcdir)/config/arm/arm-builtins.ml \$(srcdir)/config/arm/arm-mve-builtins.h \$(srcdir)/config/arm/arm-mve-builtins.ml"
 	;;
 avr-*-*)
 	cpu_type=avr
@@ -416,7 +416,7 @@ i[34567]86-*-* | x86_64-*-*)
 	cxx_target_objs="i386-c.o"
 	d_target_objs="i386-d.o"
 	extra_objs="x86-tune-sched.o x86-tune-sched-bd.o x86-tune-sched-atom.o x86-tune-sched-core.o i386-options.o i386-builtins.o i386-expand.o i386-features.o"
-	target_gtfiles="\$(srcdir)/config/i386/i386-builtins.cc \$(srcdir)/config/i386/i386-expand.cc \$(srcdir)/config/i386/i386-options.cc"
+	target_gtfiles="\$(srcdir)/config/i386/i386-builtins.ml \$(srcdir)/config/i386/i386-expand.ml \$(srcdir)/config/i386/i386-options.ml"
 	extra_options="${extra_options} fused-madd.opt"
 	extra_headers="cpuid.h mmintrin.h mm3dnow.h xmmintrin.h emmintrin.h
 		       pmmintrin.h tmmintrin.h ammintrin.h smmintrin.h
@@ -541,8 +541,8 @@ powerpc*-*-*)
 		;;
 	esac
 	extra_options="${extra_options} g.opt fused-madd.opt rs6000/rs6000-tables.opt"
-	target_gtfiles="$target_gtfiles \$(srcdir)/config/rs6000/rs6000-logue.cc \$(srcdir)/config/rs6000/rs6000-call.cc"
-	target_gtfiles="$target_gtfiles \$(srcdir)/config/rs6000/rs6000-pcrel-opt.cc"
+	target_gtfiles="$target_gtfiles \$(srcdir)/config/rs6000/rs6000-logue.ml \$(srcdir)/config/rs6000/rs6000-call.ml"
+	target_gtfiles="$target_gtfiles \$(srcdir)/config/rs6000/rs6000-pcrel-opt.ml"
 	target_gtfiles="$target_gtfiles ./rs6000-builtins.h"
 	;;
 pru-*-*)
@@ -556,15 +556,15 @@ riscv*)
 	extra_objs="${extra_objs} thead.o riscv-target-attr.o riscv-zicfilp.o"
 	d_target_objs="riscv-d.o"
 	extra_headers="riscv_vector.h riscv_crypto.h riscv_bitmanip.h riscv_th_vector.h sifive_vector.h"
-	target_gtfiles="$target_gtfiles \$(srcdir)/config/riscv/riscv-vector-builtins.cc"
+	target_gtfiles="$target_gtfiles \$(srcdir)/config/riscv/riscv-vector-builtins.ml"
 	target_gtfiles="$target_gtfiles \$(srcdir)/config/riscv/riscv-vector-builtins.h"
 	;;
 rs6000*-*-*)
 	extra_options="${extra_options} g.opt fused-madd.opt rs6000/rs6000-tables.opt"
 	extra_objs="rs6000-string.o rs6000-p8swap.o rs6000-logue.o"
 	extra_objs="${extra_objs} rs6000-call.o rs6000-pcrel-opt.o"
-	target_gtfiles="$target_gtfiles \$(srcdir)/config/rs6000/rs6000-logue.cc \$(srcdir)/config/rs6000/rs6000-call.cc"
-	target_gtfiles="$target_gtfiles \$(srcdir)/config/rs6000/rs6000-pcrel-opt.cc"
+	target_gtfiles="$target_gtfiles \$(srcdir)/config/rs6000/rs6000-logue.ml \$(srcdir)/config/rs6000/rs6000-call.ml"
+	target_gtfiles="$target_gtfiles \$(srcdir)/config/rs6000/rs6000-pcrel-opt.ml"
 	;;
 sparc*-*-*)
 	cpu_type=sparc
@@ -617,7 +617,7 @@ if test -f ${srcdir}/config/${cpu_type}/${cpu_type}-rust.h
 then
 	tm_rust_file="${cpu_type}/${cpu_type}-rust.h"
 fi
-if test -f ${srcdir}/config/${cpu_type}/${cpu_type}-rust.cc
+if test -f ${srcdir}/config/${cpu_type}/${cpu_type}-rust.ml
 then
 	rust_target_objs="${rust_target_objs} ${cpu_type}-rust.o"
 fi
@@ -784,7 +784,7 @@ case ${target} in
   tm_defines="$tm_defines DEF_LD64=\\\"${def_ld64}\\\""
   tm_file="${tm_file} ${cpu_type}/darwin.h"
   tm_p_file="${tm_p_file} darwin-protos.h"
-  target_gtfiles="$target_gtfiles \$(srcdir)/config/darwin.cc"
+  target_gtfiles="$target_gtfiles \$(srcdir)/config/darwin.ml"
   extra_options="${extra_options} rpath.opt darwin.opt"
   c_target_objs="${c_target_objs} darwin-c.o"
   cxx_target_objs="${cxx_target_objs} darwin-c.o"
@@ -1078,7 +1078,7 @@ case ${target} in
   xmake_file=vms/x-vms
   tmake_file="vms/t-vms t-slibgcc"
   extra_objs="vms.o"
-  target_gtfiles="$target_gtfiles \$(srcdir)/config/vms/vms.cc"
+  target_gtfiles="$target_gtfiles \$(srcdir)/config/vms/vms.ml"
   tm_p_file="${tm_p_file} vms/vms-protos.h"
   xm_file="vms/xm-vms.h"
   c_target_objs="vms-c.o"
@@ -1281,8 +1281,8 @@ aarch64-*-mingw*)
 	tm_file="${tm_file} mingw/winnt.h"
 	tm_file="${tm_file} mingw/winnt-dll.h"
 	tmake_file="${tmake_file} aarch64/t-aarch64"
-	target_gtfiles="$target_gtfiles \$(srcdir)/config/mingw/winnt.cc"
-	target_gtfiles="$target_gtfiles \$(srcdir)/config/mingw/winnt-dll.cc"
+	target_gtfiles="$target_gtfiles \$(srcdir)/config/mingw/winnt.ml"
+	target_gtfiles="$target_gtfiles \$(srcdir)/config/mingw/winnt-dll.ml"
 	extra_options="${extra_options} mingw/cygming.opt mingw/mingw.opt"
 	extra_objs="${extra_objs} winnt.o winnt-dll.o"
 	c_target_objs="${c_target_objs} msformat-c.o"
@@ -1692,7 +1692,7 @@ bpf-*-*)
         use_collect2=no
         use_gcc_stdint=wrap
         extra_objs="btfext-out.o core-builtins.o"
-        target_gtfiles="$target_gtfiles \$(srcdir)/config/bpf/btfext-out.cc \$(srcdir)/config/bpf/core-builtins.cc"
+        target_gtfiles="$target_gtfiles \$(srcdir)/config/bpf/btfext-out.ml \$(srcdir)/config/bpf/core-builtins.ml"
         ;;
 cris-*-elf | cris-*-none)
 	tm_file="elfos.h newlib-stdint.h ${tm_file}"
@@ -1722,7 +1722,7 @@ csky-*-*)
 	fi
 	tm_file="csky/csky.h"
 	md_file="csky/csky.md"
-	out_file="csky/csky.cc"
+	out_file="csky/csky.ml"
 	tm_p_file="${tm_p_file} csky/csky-protos.h"
 	extra_options="${extra_options} csky/csky_tables.opt"
 
@@ -2187,8 +2187,8 @@ i[34567]86-*-cygwin*)
 	tm_file="${tm_file} mingw/winnt-dll.h"
 	xm_file=i386/xm-cygwin.h
 	tmake_file="${tmake_file} mingw/t-cygming t-slibgcc"
-	target_gtfiles="$target_gtfiles \$(srcdir)/config/mingw/winnt.cc"
-	target_gtfiles="$target_gtfiles \$(srcdir)/config/mingw/winnt-dll.cc"
+	target_gtfiles="$target_gtfiles \$(srcdir)/config/mingw/winnt.ml"
+	target_gtfiles="$target_gtfiles \$(srcdir)/config/mingw/winnt-dll.ml"
 	extra_options="${extra_options} mingw/cygming.opt i386/cygwin.opt"
 	extra_objs="${extra_objs} winnt.o winnt-stubs.o winnt-dll.o"
 	c_target_objs="${c_target_objs} msformat-c.o"
@@ -2208,8 +2208,8 @@ x86_64-*-cygwin*)
 	tm_file="${tm_file} mingw/winnt-dll.h"
 	xm_file=i386/xm-cygwin.h
 	tmake_file="${tmake_file} mingw/t-cygming t-slibgcc"
-	target_gtfiles="$target_gtfiles \$(srcdir)/config/mingw/winnt.cc"
-	target_gtfiles="$target_gtfiles \$(srcdir)/config/mingw/winnt-dll.cc"
+	target_gtfiles="$target_gtfiles \$(srcdir)/config/mingw/winnt.ml"
+	target_gtfiles="$target_gtfiles \$(srcdir)/config/mingw/winnt-dll.ml"
 	extra_options="${extra_options} mingw/cygming.opt i386/cygwin.opt"
 	extra_objs="${extra_objs} winnt.o winnt-stubs.o winnt-dll.o"
 	c_target_objs="${c_target_objs} msformat-c.o"
@@ -2288,8 +2288,8 @@ i[34567]86-*-mingw* | x86_64-*-mingw*)
 			;;
 	esac
         native_system_header_dir=/mingw/include
-	target_gtfiles="$target_gtfiles \$(srcdir)/config/mingw/winnt.cc"
-	target_gtfiles="$target_gtfiles \$(srcdir)/config/mingw/winnt-dll.cc"
+	target_gtfiles="$target_gtfiles \$(srcdir)/config/mingw/winnt.ml"
+	target_gtfiles="$target_gtfiles \$(srcdir)/config/mingw/winnt-dll.ml"
 	extra_options="${extra_options} mingw/cygming.opt mingw/mingw.opt"
 	case ${target} in
 		*-w64-*)
@@ -2381,7 +2381,7 @@ ia64-hp-*vms*)
 	;;
 iq2000*-*-elf*)
         tm_file="elfos.h newlib-stdint.h iq2000/iq2000.h"
-        out_file=iq2000/iq2000.cc
+        out_file=iq2000/iq2000.ml
         md_file=iq2000/iq2000.md
         ;;
 lm32-*-elf*)
@@ -3270,7 +3270,7 @@ s390x-*-linux*)
 	cxx_target_objs="${cxx_target_objs} s390-c.o"
 	md_file=s390/s390.md
 	extra_modes=s390/s390-modes.def
-	out_file=s390/s390.cc
+	out_file=s390/s390.ml
 	tmake_file="${tmake_file} s390/t-linux64 s390/t-s390"
 	;;
 s390x-ibm-tpf*)
@@ -3280,7 +3280,7 @@ s390x-ibm-tpf*)
 	cxx_target_objs="${cxx_target_objs} s390-c.o"
 	md_file=s390/s390.md
 	extra_modes=s390/s390-modes.def
-	out_file=s390/s390.cc
+	out_file=s390/s390.ml
 	thread_file='tpf'
 	extra_options="${extra_options} s390/tpf.opt"
 	tmake_file="${tmake_file} s390/t-s390"
@@ -3612,7 +3612,7 @@ xstormy16-*-elf)
 	tm_file="elfos.h newlib-stdint.h stormy16/stormy16.h"
 	tm_p_file=stormy16/stormy16-protos.h
 	md_file=stormy16/stormy16.md
-	out_file=stormy16/stormy16.cc
+	out_file=stormy16/stormy16.ml
 	extra_options=stormy16/stormy16.opt
 	tmake_file="stormy16/t-stormy16"
 	;;
@@ -3689,9 +3689,9 @@ fi
 
 if [ "$common_out_file" = "" ]; then
   if [ "$target_has_targetm_common" = "yes" ]; then
-    common_out_file="$cpu_type/$cpu_type-common.cc"
+    common_out_file="$cpu_type/$cpu_type-common.ml"
   else
-    common_out_file="default-common.cc"
+    common_out_file="default-common.ml"
   fi
 fi
 
@@ -6055,7 +6055,7 @@ case ${target} in
 		then
 			target_cpu_default2="\\\"$with_cpu\\\""
 		fi
-		out_file="${cpu_type}/${cpu_type}.cc"
+		out_file="${cpu_type}/${cpu_type}.ml"
 		c_target_objs="${c_target_objs} ${cpu_type}-c.o"
 		cxx_target_objs="${cxx_target_objs} ${cpu_type}-c.o"
 		d_target_objs="${d_target_objs} ${cpu_type}-d.o"

@@ -21,11 +21,11 @@ along with GCC; see the file COPYING3.  If not see
 #ifndef GCC_C_OBJC_COMMON
 #define GCC_C_OBJC_COMMON
 
-/* Implemented in c-objc-common.cc.  */
+/* Implemented in c-objc-common.ml.  */
 extern void c_register_features ();
 
 /* Lang hooks that are shared between C and ObjC are defined here.  Hooks
-   specific to C or ObjC go in c-lang.cc and objc/objc-lang.cc, respectively.  */
+   specific to C or ObjC go in c-lang.ml and objc/objc-lang.ml, respectively.  */
 
 #undef LANG_HOOKS_IDENTIFIER_SIZE
 #define LANG_HOOKS_IDENTIFIER_SIZE C_SIZEOF_STRUCT_LANG_IDENTIFIER

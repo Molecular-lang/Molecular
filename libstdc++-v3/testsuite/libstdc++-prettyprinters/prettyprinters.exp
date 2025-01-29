@@ -44,14 +44,14 @@ if {! [gdb_version_check]} {
 
 global DEFAULT_CXXFLAGS
 global PCH_CXXFLAGS
-gdb-dg-runtest [lsort [glob $srcdir/$subdir/*.cc]] \
+gdb-dg-runtest [lsort [glob $srcdir/$subdir/*.ml]] \
   "" "$DEFAULT_CXXFLAGS $PCH_CXXFLAGS"
 
 if { [check_effective_target_lto] } {
   append cxxflags " -flto"
   # Work around linker bug https://sourceware.org/PR20882
   regsub {^(.*)-Wl,--gc-sections(.*)$} $cxxldflags {\1\2} cxxldflags
-  gdb-dg-runtest [lsort [glob $srcdir/$subdir/*.cc]] \
+  gdb-dg-runtest [lsort [glob $srcdir/$subdir/*.ml]] \
     "" "$DEFAULT_CXXFLAGS -flto $PCH_CXXFLAGS"
 }
 

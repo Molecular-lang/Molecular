@@ -881,10 +881,10 @@ public:
 
   void on_escaped_function (tree fndecl);
 
-  /* In infinite-loop.cc */
+  /* In infinite-loop.ml */
   void detect_infinite_loops ();
 
-  /* In infinite-recursion.cc */
+  /* In infinite-recursion.ml */
   void detect_infinite_recursion (exploded_node *enode);
   exploded_node *find_previous_entry_to (function *top_of_stack_fun,
 					 exploded_node *enode) const;

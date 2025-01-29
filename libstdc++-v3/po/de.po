@@ -14,18 +14,18 @@ msgstr ""
 "Content-Type: text/plain; charset=ISO-8859-1\n"
 "Content-Transfer-Encoding: 8-bit\n"
 
-#: string_literals.cc:23
+#: string_literals.ml:23
 msgid "please"
 msgstr "bitte"
 
-#: string_literals.cc:24
+#: string_literals.ml:24
 msgid "thank you"
 msgstr "danke"
 
-#: string_literals.cc:27
+#: string_literals.ml:27
 msgid "true"
 msgstr "zutreffend"
 
-#: string_literals.cc:28
+#: string_literals.ml:28
 msgid "false"
 msgstr "falsch"

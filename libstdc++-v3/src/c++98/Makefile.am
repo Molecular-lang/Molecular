@@ -29,66 +29,66 @@ headers =
 
 if ENABLE_DUAL_ABI
 cow_string_host_sources = \
-	collate_members_cow.cc \
-	messages_members_cow.cc \
-	monetary_members_cow.cc \
-	numeric_members_cow.cc
+	collate_members_cow.ml \
+	messages_members_cow.ml \
+	monetary_members_cow.ml \
+	numeric_members_cow.ml
 endif
 
 # Source files linked in via configuration/make substitution for a
 # particular host.
 host_sources = \
 	$(cow_string_host_sources) \
-	codecvt_members.cc \
-	collate_members.cc \
-	messages_members.cc \
-	monetary_members.cc \
-	numeric_members.cc \
-	time_members.cc
+	codecvt_members.ml \
+	collate_members.ml \
+	messages_members.ml \
+	monetary_members.ml \
+	numeric_members.ml \
+	time_members.ml
 
-codecvt_members.cc: ${glibcxx_srcdir}/$(CCODECVT_CC)
+codecvt_members.ml: ${glibcxx_srcdir}/$(CCODECVT_CC)
 	$(LN_S) ${glibcxx_srcdir}/$(CCODECVT_CC) . || true
 
-collate_members.cc: ${glibcxx_srcdir}/$(CCOLLATE_CC)
+collate_members.ml: ${glibcxx_srcdir}/$(CCOLLATE_CC)
 	$(LN_S) ${glibcxx_srcdir}/$(CCOLLATE_CC) . || true
 
-messages_members.cc: ${glibcxx_srcdir}/$(CMESSAGES_CC)
+messages_members.ml: ${glibcxx_srcdir}/$(CMESSAGES_CC)
 	$(LN_S) ${glibcxx_srcdir}/$(CMESSAGES_CC) . || true
 
-monetary_members.cc: ${glibcxx_srcdir}/$(CMONEY_CC)
+monetary_members.ml: ${glibcxx_srcdir}/$(CMONEY_CC)
 	$(LN_S) ${glibcxx_srcdir}/$(CMONEY_CC) . || true
 
-numeric_members.cc: ${glibcxx_srcdir}/$(CNUMERIC_CC)
+numeric_members.ml: ${glibcxx_srcdir}/$(CNUMERIC_CC)
 	$(LN_S) ${glibcxx_srcdir}/$(CNUMERIC_CC) . || true
 
-time_members.cc: ${glibcxx_srcdir}/$(CTIME_CC)
+time_members.ml: ${glibcxx_srcdir}/$(CTIME_CC)
 	$(LN_S) ${glibcxx_srcdir}/$(CTIME_CC) . || true
 
 if ENABLE_DUAL_ABI
-collate_members_cow.cc: ${glibcxx_srcdir}/$(CCOLLATE_CC)
+collate_members_cow.ml: ${glibcxx_srcdir}/$(CCOLLATE_CC)
 	$(LN_S) ${glibcxx_srcdir}/$(CCOLLATE_CC) ./$@ || true
 
-messages_members_cow.cc: ${glibcxx_srcdir}/$(CMESSAGES_CC)
+messages_members_cow.ml: ${glibcxx_srcdir}/$(CMESSAGES_CC)
 	$(LN_S) ${glibcxx_srcdir}/$(CMESSAGES_CC) ./$@ || true
 
-monetary_members_cow.cc: ${glibcxx_srcdir}/$(CMONEY_CC)
+monetary_members_cow.ml: ${glibcxx_srcdir}/$(CMONEY_CC)
 	$(LN_S) ${glibcxx_srcdir}/$(CMONEY_CC) ./$@ || true
 
-numeric_members_cow.cc: ${glibcxx_srcdir}/$(CNUMERIC_CC)
+numeric_members_cow.ml: ${glibcxx_srcdir}/$(CNUMERIC_CC)
 	$(LN_S) ${glibcxx_srcdir}/$(CNUMERIC_CC) ./$@ || true
 endif
 
 # Source files linked in via configuration/make substitution for a
 # particular host, but with ad hoc naming rules.
 host_sources_extra = \
-	c++locale.cc
+	c++locale.ml
 
-c++locale.cc: ${glibcxx_srcdir}/$(CLOCALE_CC)
+c++locale.ml: ${glibcxx_srcdir}/$(CLOCALE_CC)
 	$(LN_S) ${glibcxx_srcdir}/$(CLOCALE_CC) ./$@ || true
 
 if ENABLE_DUAL_ABI
 cxx11_abi_sources = \
-	cow-istream-string.cc
+	cow-istream-string.ml
 else
 cxx11_abi_sources =
 endif
@@ -96,46 +96,46 @@ endif
 if ENABLE_EXTERN_TEMPLATE
 # XTEMPLATE_FLAGS = -fno-implicit-templates
 inst_sources = \
-	allocator-inst.cc \
-	concept-inst.cc \
-	ext-inst.cc \
-	misc-inst.cc
+	allocator-inst.ml \
+	concept-inst.ml \
+	ext-inst.ml \
+	misc-inst.ml
 else
 # XTEMPLATE_FLAGS =
 inst_sources =
 endif
 
-parallel_sources = parallel_settings.cc
+parallel_sources = parallel_settings.ml
 
 # Sources present in the src directory, always present.
 sources = \
-	bitmap_allocator.cc \
-	pool_allocator.cc \
-	mt_allocator.cc \
-	codecvt.cc \
-	complex_io.cc \
-	globals_io.cc \
-	hash_tr1.cc \
-	hashtable_tr1.cc \
-	ios_failure.cc \
-	ios_init.cc \
-	ios_locale.cc \
-	list.cc \
-	list-aux.cc \
-	list-aux-2.cc \
-	list_associated.cc \
-	list_associated-2.cc \
-	locale.cc \
-	locale_facets.cc \
-	math_stubs_float.cc \
-	math_stubs_long_double.cc \
-	stdexcept.cc \
-	strstream.cc \
-	tree.cc \
-	istream.cc \
-	istream-string.cc \
-	streambuf.cc \
-	valarray.cc \
+	bitmap_allocator.ml \
+	pool_allocator.ml \
+	mt_allocator.ml \
+	codecvt.ml \
+	complex_io.ml \
+	globals_io.ml \
+	hash_tr1.ml \
+	hashtable_tr1.ml \
+	ios_failure.ml \
+	ios_init.ml \
+	ios_locale.ml \
+	list.ml \
+	list-aux.ml \
+	list-aux-2.ml \
+	list_associated.ml \
+	list_associated-2.ml \
+	locale.ml \
+	locale_facets.ml \
+	math_stubs_float.ml \
+	math_stubs_long_double.ml \
+	stdexcept.ml \
+	strstream.ml \
+	tree.ml \
+	istream.ml \
+	istream-string.ml \
+	streambuf.ml \
+	valarray.ml \
 	${cxx11_abi_sources} \
 	${host_sources} \
 	${host_sources_extra} \
@@ -151,53 +151,53 @@ libc__98convenience_la_SOURCES =
 endif
 
 # Use special rules to compile with -fimplicit-templates.
-c++locale.lo: c++locale.cc
+c++locale.lo: c++locale.ml
 	$(LTCXXCOMPILE) -fimplicit-templates -c $<
-c++locale.o: c++locale.cc
+c++locale.o: c++locale.ml
 	$(CXXCOMPILE) -fimplicit-templates -c $<
 
 if ENABLE_DUAL_ABI
 GLIBCXX_ABI_FLAGS = -D_GLIBCXX_USE_CXX11_ABI=@glibcxx_cxx98_abi@
 # Use special rules to compile with the non-default string ABI.
-collate_members_cow.lo: collate_members_cow.cc
+collate_members_cow.lo: collate_members_cow.ml
 	$(LTCXXCOMPILE) $(GLIBCXX_ABI_FLAGS) -fimplicit-templates -c $<
-collate_members_cow.o: collate_members_cow.cc
+collate_members_cow.o: collate_members_cow.ml
 	$(CXXCOMPILE) $(GLIBCXX_ABI_FLAGS) -fimplicit-templates -c $<
-messages_members_cow.lo: messages_members_cow.cc
+messages_members_cow.lo: messages_members_cow.ml
 	$(LTCXXCOMPILE) $(GLIBCXX_ABI_FLAGS) -fimplicit-templates -c $<
-messages_members_cow.o: messages_members_cow.cc
+messages_members_cow.o: messages_members_cow.ml
 	$(CXXCOMPILE) $(GLIBCXX_ABI_FLAGS) -fimplicit-templates -c $<
-monetary_members_cow.lo: monetary_members_cow.cc
+monetary_members_cow.lo: monetary_members_cow.ml
 	$(LTCXXCOMPILE) $(GLIBCXX_ABI_FLAGS) -fimplicit-templates -c $<
-monetary_members_cow.o: monetary_members_cow.cc
+monetary_members_cow.o: monetary_members_cow.ml
 	$(CXXCOMPILE) $(GLIBCXX_ABI_FLAGS) -fimplicit-templates -c $<
-numeric_members_cow.lo: numeric_members_cow.cc
+numeric_members_cow.lo: numeric_members_cow.ml
 	$(LTCXXCOMPILE) $(GLIBCXX_ABI_FLAGS) -fimplicit-templates -c $<
-numeric_members_cow.o: numeric_members_cow.cc
+numeric_members_cow.o: numeric_members_cow.ml
 	$(CXXCOMPILE) $(GLIBCXX_ABI_FLAGS) -fimplicit-templates -c $<
 endif
 
 # Use special rules for the deprecated source files so that they find
 # deprecated include files.
 GLIBCXX_INCLUDE_DIR=$(glibcxx_builddir)/include
-strstream.lo: strstream.cc
+strstream.lo: strstream.ml
 	$(LTCXXCOMPILE) -I$(GLIBCXX_INCLUDE_DIR)/backward -Wno-deprecated -c $<
-strstream.o: strstream.cc
+strstream.o: strstream.ml
 	$(CXXCOMPILE) -I$(GLIBCXX_INCLUDE_DIR)/backward -Wno-deprecated -c $<
 
 # Use special rules for the concept-checking instantiations so that all
 # the generated template functions are also instantiated.  Force the checks
 # to be on so that the instantiations are actually seen.
-concept-inst.lo: concept-inst.cc
+concept-inst.lo: concept-inst.ml
 	$(LTCXXCOMPILE) -D_GLIBCXX_CONCEPT_CHECKS -fimplicit-templates -c $<
-concept-inst.o: concept-inst.cc
+concept-inst.o: concept-inst.ml
 	$(CXXCOMPILE) -D_GLIBCXX_CONCEPT_CHECKS -fimplicit-templates -c $<
 
 # Use special rules for parallel mode compilation.
 PARALLEL_FLAGS = -D_GLIBCXX_PARALLEL
-parallel_settings.lo: parallel_settings.cc
+parallel_settings.lo: parallel_settings.ml
 	$(LTCXXCOMPILE) $(PARALLEL_FLAGS) -c $<
-parallel_settings.o: parallel_settings.cc
+parallel_settings.o: parallel_settings.ml
 	$(CXXCOMPILE) $(PARALLEL_FLAGS) -c $<
 
 # AM_CXXFLAGS needs to be in each subdirectory so that it can be

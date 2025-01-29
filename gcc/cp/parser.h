@@ -448,17 +448,17 @@ struct GTY(()) cp_parser {
   location_t innermost_linkage_specification_location;
 
   /* Pointer to state for parsing omp_loops.  Managed by
-     cp_parser_omp_for_loop in parser.cc and not used outside that file.  */
+     cp_parser_omp_for_loop in parser.ml and not used outside that file.  */
   struct omp_for_parse_data * GTY((skip)) omp_for_parse_state;
 
   /* Non-null only when parsing the body of an OpenMP metadirective.
-     Managed by cp_parser_omp_metadirective in parser.cc and not used
+     Managed by cp_parser_omp_metadirective in parser.ml and not used
      outside that file.  */
   struct omp_metadirective_parse_data * GTY((skip))
     omp_metadirective_state;
 };
 
-/* In parser.cc  */
+/* In parser.ml  */
 extern void debug (cp_token &ref);
 extern void debug (cp_token *ptr);
 extern void cp_lexer_debug_tokens (vec<cp_token, va_gc> *);

@@ -1076,7 +1076,7 @@
 		an <classname>std::priority_queue</classname> object is always
 		proportional to the maximal number of values it ever contained,
 		and not to the number of values that it currently
-		contains. (See <filename>performance/priority_queue_text_pop_mem_usage.cc</filename>.)
+		contains. (See <filename>performance/priority_queue_text_pop_mem_usage.ml</filename>.)
 		This implementation of binary heaps acts very differently than
 		other underlying data structures (See also pairing heaps).
 	      </para>
@@ -1800,56 +1800,56 @@
 	  <listitem>
 	    <para>
 	      Basic use of maps:
-	      <filename>basic_map.cc</filename>
+	      <filename>basic_map.ml</filename>
 	    </para>
 	  </listitem>
 
 	  <listitem>
 	    <para>
 	      Basic use of sets:
-	      <filename>basic_set.cc</filename>
+	      <filename>basic_set.ml</filename>
 	    </para>
 	  </listitem>
 
 	  <listitem>
 	    <para>
 	      Conditionally erasing values from an associative container object:
-	      <filename>erase_if.cc</filename>
+	      <filename>erase_if.ml</filename>
 	    </para>
 	  </listitem>
 
 	  <listitem>
 	    <para>
 	      Basic use of multimaps:
-	      <filename>basic_multimap.cc</filename>
+	      <filename>basic_multimap.ml</filename>
 	    </para>
 	  </listitem>
 
 	  <listitem>
 	    <para>
 	      Basic use of multisets:
-	      <filename>basic_multiset.cc</filename>
+	      <filename>basic_multiset.ml</filename>
 	    </para>
 	  </listitem>
 
 	  <listitem>
 	    <para>
 	      Basic use of priority queues:
-	      <filename>basic_priority_queue.cc</filename>
+	      <filename>basic_priority_queue.ml</filename>
 	    </para>
 	  </listitem>
 
 	  <listitem>
 	    <para>
 	      Splitting and joining priority queues:
-	      <filename>priority_queue_split_join.cc</filename>
+	      <filename>priority_queue_split_join.ml</filename>
 	    </para>
 	  </listitem>
 
 	  <listitem>
 	    <para>
 	      Conditionally erasing values from a priority queue:
-	      <filename>priority_queue_erase_if.cc</filename>
+	      <filename>priority_queue_erase_if.ml</filename>
 	    </para>
 	  </listitem>
 	</itemizedlist>
@@ -1863,21 +1863,21 @@
 	    <para>
 	      Using <classname>container_traits</classname> to query
 	      about underlying data structure behavior:
-	      <filename>assoc_container_traits.cc</filename>
+	      <filename>assoc_container_traits.ml</filename>
 	    </para>
 	  </listitem>
 
 	  <listitem>
 	    <para>
 	      A non-compiling example showing wrong use of finding keys in
-	      hash-based containers: <filename>hash_find_neg.cc</filename>
+	      hash-based containers: <filename>hash_find_neg.ml</filename>
 	    </para>
 	  </listitem>
 	  <listitem>
 	    <para>
 	      Using <classname>container_traits</classname>
 	      to query about underlying data structure behavior:
-	      <filename>priority_queue_container_traits.cc</filename>
+	      <filename>priority_queue_container_traits.ml</filename>
 	    </para>
 	  </listitem>
 
@@ -1900,7 +1900,7 @@
 		<para>
 		  Setting the initial size of a hash-based container
 		  object:
-		  <filename>hash_initial_size.cc</filename>
+		  <filename>hash_initial_size.ml</filename>
 		</para>
 	      </listitem>
 
@@ -1908,14 +1908,14 @@
 		<para>
 		  A non-compiling example showing how not to resize a
 		  hash-based container object:
-		  <filename>hash_resize_neg.cc</filename>
+		  <filename>hash_resize_neg.ml</filename>
 		</para>
 	      </listitem>
 
 	      <listitem>
 		<para>
 		  Resizing the size of a hash-based container object:
-		  <filename>hash_resize.cc</filename>
+		  <filename>hash_resize.ml</filename>
 		</para>
 	      </listitem>
 
@@ -1923,14 +1923,14 @@
 		<para>
 		  Showing an illegal resize of a hash-based container
 		  object:
-		  <filename>hash_illegal_resize.cc</filename>
+		  <filename>hash_illegal_resize.ml</filename>
 		</para>
 	      </listitem>
 
 	      <listitem>
 		<para>
 		  Changing the load factors of a hash-based container
-		  object: <filename>hash_load_set_change.cc</filename>
+		  object: <filename>hash_load_set_change.ml</filename>
 		</para>
 	      </listitem>
 	    </itemizedlist>
@@ -1945,7 +1945,7 @@
 		<para>
 		  Using a modulo range-hashing function for the case of an
 		  unknown skewed key distribution:
-		  <filename>hash_mod.cc</filename>
+		  <filename>hash_mod.ml</filename>
 		</para>
 	      </listitem>
 
@@ -1953,21 +1953,21 @@
 		<para>
 		  Writing a range-hashing functor for the case of a known
 		  skewed key distribution:
-		  <filename>shift_mask.cc</filename>
+		  <filename>shift_mask.ml</filename>
 		</para>
 	      </listitem>
 
 	      <listitem>
 		<para>
 		  Storing the hash value along with each key:
-		  <filename>store_hash.cc</filename>
+		  <filename>store_hash.ml</filename>
 		</para>
 	      </listitem>
 
 	      <listitem>
 		<para>
 		  Writing a ranged-hash functor:
-		  <filename>ranged_hash.cc</filename>
+		  <filename>ranged_hash.ml</filename>
 		</para>
 	      </listitem>
 	    </itemizedlist>
@@ -1987,14 +1987,14 @@
 	      <listitem>
 		<para>
 		  Joining two tree-based container objects:
-		  <filename>tree_join.cc</filename>
+		  <filename>tree_join.ml</filename>
 		</para>
 	      </listitem>
 
 	      <listitem>
 		<para>
 		  Splitting a PATRICIA trie container object:
-		  <filename>trie_split.cc</filename>
+		  <filename>trie_split.ml</filename>
 		</para>
 	      </listitem>
 
@@ -2002,7 +2002,7 @@
 		<para>
 		  Order statistics while joining two tree-based container
 		  objects:
-		  <filename>tree_order_statistics_join.cc</filename>
+		  <filename>tree_order_statistics_join.ml</filename>
 		</para>
 	      </listitem>
 	    </itemizedlist>
@@ -2016,7 +2016,7 @@
 	      <listitem>
 		<para>
 		  Using trees for order statistics:
-		  <filename>tree_order_statistics.cc</filename>
+		  <filename>tree_order_statistics.ml</filename>
 		</para>
 	      </listitem>
 
@@ -2024,7 +2024,7 @@
 		<para>
 		  Augmenting trees to support operations on line
 		  intervals:
-		  <filename>tree_intervals.cc</filename>
+		  <filename>tree_intervals.ml</filename>
 		</para>
 	      </listitem>
 	    </itemizedlist>
@@ -2037,7 +2037,7 @@
 	      <listitem>
 		<para>
 		  Using a PATRICIA trie for DNA strings:
-		  <filename>trie_dna.cc</filename>
+		  <filename>trie_dna.ml</filename>
 		</para>
 	      </listitem>
 
@@ -2045,7 +2045,7 @@
 		<para>
 		  Using a PATRICIA
 		  trie for finding all entries whose key matches a given prefix:
-		  <filename>trie_prefix_search.cc</filename>
+		  <filename>trie_prefix_search.ml</filename>
 		</para>
 	      </listitem>
 	    </itemizedlist>
@@ -2060,7 +2060,7 @@
 	    <listitem>
 	      <para>
 		Cross referencing an associative container and a priority
-		queue: <filename>priority_queue_xref.cc</filename>
+		queue: <filename>priority_queue_xref.ml</filename>
 	      </para>
 	    </listitem>
 
@@ -2069,7 +2069,7 @@
 		Cross referencing a vector and a priority queue using a
 		very simple version of Dijkstra's shortest path
 		algorithm:
-		<filename>priority_queue_dijkstra.cc</filename>
+		<filename>priority_queue_dijkstra.ml</filename>
 	      </para>
 	    </listitem>
 	  </itemizedlist>
@@ -2504,11 +2504,11 @@
 	  In the first example above, then, one would use an associative
 	  container mapping each user to an associative container which
 	  maps each application id to a start time (see
-	  <filename>example/basic_multimap.cc</filename>); in the second
+	  <filename>example/basic_multimap.ml</filename>); in the second
 	  example, one would use an associative container mapping
 	  each <classname>int</classname> to some size-type indicating the
 	  number of times it logically occurs
-	  (see <filename>example/basic_multiset.cc</filename>.
+	  (see <filename>example/basic_multiset.ml</filename>.
 	</para>
 
 	<para>

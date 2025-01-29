@@ -30,80 +30,80 @@ headers =
 # Source files linked in via configuration/make substitution for a
 # particular host.
 host_sources = \
-	ctype_configure_char.cc \
-	ctype_members.cc
+	ctype_configure_char.ml \
+	ctype_members.ml
 
-ctype_configure_char.cc: ${glibcxx_srcdir}/$(OS_INC_SRCDIR)/ctype_configure_char.cc
-	$(LN_S) ${glibcxx_srcdir}/$(OS_INC_SRCDIR)/ctype_configure_char.cc . || true
+ctype_configure_char.ml: ${glibcxx_srcdir}/$(OS_INC_SRCDIR)/ctype_configure_char.ml
+	$(LN_S) ${glibcxx_srcdir}/$(OS_INC_SRCDIR)/ctype_configure_char.ml . || true
 
-ctype_members.cc: ${glibcxx_srcdir}/$(CCTYPE_CC)
+ctype_members.ml: ${glibcxx_srcdir}/$(CCTYPE_CC)
 	$(LN_S) ${glibcxx_srcdir}/$(CCTYPE_CC) . || true
 
 # Source files linked in via configuration/make substitution for a
 # particular host, but with ad hoc naming rules.
 host_sources_extra = \
-	basic_file.cc
+	basic_file.ml
 
-basic_file.cc: ${glibcxx_srcdir}/$(BASIC_FILE_CC)
+basic_file.ml: ${glibcxx_srcdir}/$(BASIC_FILE_CC)
 	$(LN_S) ${glibcxx_srcdir}/$(BASIC_FILE_CC) ./$@ || true
 
 if ENABLE_DUAL_ABI
 cxx11_abi_sources = \
-	cow-locale_init.cc \
-	cow-shim_facets.cc \
-	cxx11-hash_tr1.cc \
-	cxx11-ios_failure.cc \
-	cxx11-shim_facets.cc \
-	cxx11-stdexcept.cc
+	cow-locale_init.ml \
+	cow-shim_facets.ml \
+	cxx11-hash_tr1.ml \
+	cxx11-ios_failure.ml \
+	cxx11-shim_facets.ml \
+	cxx11-stdexcept.ml
 else
 cxx11_abi_sources =
 endif
 
 sources_freestanding = \
-	limits.cc \
-	placeholders.cc
+	limits.ml \
+	placeholders.ml
 
 sources = \
-	assert_fail.cc \
-	chrono.cc \
-	codecvt.cc \
-	condition_variable.cc \
-	cow-stdexcept.cc \
-	cow-system_error.cc \
-	ctype.cc \
-	debug.cc \
-	functexcept.cc \
-	functional.cc \
-	futex.cc \
-	future.cc \
-	hash_c++0x.cc \
-	hashtable_c++0x.cc \
-	ios.cc \
-	ios_errcat.cc \
-	locale_init.cc \
-	localename.cc \
-	mutex.cc \
-	random.cc \
-	regex.cc  \
-	shared_ptr.cc \
-	snprintf_lite.cc \
-	system_error.cc \
-	thread.cc \
+	assert_fail.ml \
+	chrono.ml \
+	codecvt.ml \
+	condition_variable.ml \
+	cow-stdexcept.ml \
+	cow-system_error.ml \
+	ctype.ml \
+	debug.ml \
+	functexcept.ml \
+	functional.ml \
+	futex.ml \
+	future.ml \
+	hash_c++0x.ml \
+	hashtable_c++0x.ml \
+	ios.ml \
+	ios_errcat.ml \
+	locale_init.ml \
+	localename.ml \
+	mutex.ml \
+	random.ml \
+	regex.ml  \
+	shared_ptr.ml \
+	snprintf_lite.ml \
+	system_error.ml \
+	thread.ml \
 	${cxx11_abi_sources} \
 	${host_sources} \
 	${host_sources_extra}
 
 if ENABLE_DUAL_ABI
 extra_string_inst_sources = \
-	cow-fstream-inst.cc \
-	cow-sstream-inst.cc \
-	cow-string-inst.cc \
-	cow-string-io-inst.cc \
-	cow-wstring-inst.cc \
-	cow-wstring-io-inst.cc \
-	cxx11-locale-inst.cc \
-	cxx11-wlocale-inst.cc \
-	sso_string.cc
+	cow-fstream-inst.ml \
+	cow-sstream-inst.ml \
+	cow-string-inst.ml \
+	cow-string-io-inst.ml \
+	cow-wstring-inst.ml \
+	cow-wstring-io-inst.ml \
+	cxx11-locale-inst.ml \
+	cxx11-wlocale-inst.ml \
+	sso_string.ml
 else
 extra_string_inst_sources =
 endif
@@ -112,20 +112,20 @@ if ENABLE_EXTERN_TEMPLATE
 # XTEMPLATE_FLAGS = -fno-implicit-templates
 inst_sources = \
 	$(extra_string_inst_sources) \
-	ext11-inst.cc \
-	fstream-inst.cc \
-	ios-inst.cc \
-	iostream-inst.cc \
-	istream-inst.cc \
-	locale-inst.cc \
-	ostream-inst.cc \
-	sstream-inst.cc \
-	streambuf-inst.cc \
-	string-inst.cc \
-	string-io-inst.cc \
-	wlocale-inst.cc \
-	wstring-inst.cc \
-	wstring-io-inst.cc
+	ext11-inst.ml \
+	fstream-inst.ml \
+	ios-inst.ml \
+	iostream-inst.ml \
+	istream-inst.ml \
+	locale-inst.ml \
+	ostream-inst.ml \
+	sstream-inst.ml \
+	streambuf-inst.ml \
+	string-inst.ml \
+	string-io-inst.ml \
+	wlocale-inst.ml \
+	wstring-inst.ml \
+	wstring-io-inst.ml
 else
 # XTEMPLATE_FLAGS =
 inst_sources =
@@ -143,41 +143,41 @@ libc__11convenience_la_SOURCES = \
 endif
 
 
-# Use special rules for the hashtable.cc file so that all
+# Use special rules for the hashtable.ml file so that all
 # the generated template functions are also instantiated.
-hashtable_c++0x.lo: hashtable_c++0x.cc
+hashtable_c++0x.lo: hashtable_c++0x.ml
 	$(LTCXXCOMPILE) -fimplicit-templates -c $<
-hashtable_c++0x.o: hashtable_c++0x.cc
+hashtable_c++0x.o: hashtable_c++0x.ml
 	$(CXXCOMPILE) -fimplicit-templates -c $<
 
 # Use special rules for source files that require -fchar8_t.
-codecvt.lo: codecvt.cc
+codecvt.lo: codecvt.ml
 	$(LTCXXCOMPILE) -fchar8_t -c $<
-codecvt.o: codecvt.cc
+codecvt.o: codecvt.ml
 	$(CXXCOMPILE) -fchar8_t -c $<
-limits.lo: limits.cc
+limits.lo: limits.ml
 	$(LTCXXCOMPILE) -fchar8_t -c $<
-limits.o: limits.cc
+limits.o: limits.ml
 	$(CXXCOMPILE) -fchar8_t -c $<
-locale_init.lo: locale_init.cc
+locale_init.lo: locale_init.ml
 	$(LTCXXCOMPILE) -fchar8_t -c $<
-locale_init.o: locale_init.cc
+locale_init.o: locale_init.ml
 	$(CXXCOMPILE) -fchar8_t -c $<
-localename.lo: localename.cc
+localename.lo: localename.ml
 	$(LTCXXCOMPILE) -fchar8_t -c $<
-localename.o: localename.cc
+localename.o: localename.ml
 	$(CXXCOMPILE) -fchar8_t -c $<
 
 if ENABLE_DUAL_ABI
 # Rewrite the type info for __ios_failure.
 rewrite_ios_failure_typeinfo = sed -e '/^_*_ZTISt13__ios_failure:/,/_ZTVN10__cxxabiv120__si_class_type_infoE/s/_ZTVN10__cxxabiv120__si_class_type_infoE/_ZTVSt19__iosfail_type_info/'
 
-cxx11-ios_failure-lt.s: cxx11-ios_failure.cc
+cxx11-ios_failure-lt.s: cxx11-ios_failure.ml
 	$(LTCXXCOMPILE) -gno-as-loc-support -S $< -o tmp-cxx11-ios_failure-lt.s
 	-test -f tmp-cxx11-ios_failure-lt.o && mv -f tmp-cxx11-ios_failure-lt.o tmp-cxx11-ios_failure-lt.s
 	$(rewrite_ios_failure_typeinfo) tmp-$@ > $@
 	-rm -f tmp-$@
-cxx11-ios_failure.s: cxx11-ios_failure.cc
+cxx11-ios_failure.s: cxx11-ios_failure.ml
 	$(CXXCOMPILE) -gno-as-loc-support -S $< -o tmp-$@
 	$(rewrite_ios_failure_typeinfo) tmp-$@ > $@
 	-rm -f tmp-$@

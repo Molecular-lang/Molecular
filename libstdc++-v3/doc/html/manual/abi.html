@@ -286,7 +286,7 @@ compatible.
 int main()
 { std::cout &lt;&lt; "hello" &lt;&lt; std::endl; return 0; }
 
-%g++ hello.cc -o hello.out
+%g++ hello.ml -o hello.out
 
 %ldd hello.out
 	libstdc++.so.5 =&gt; /usr/lib/libstdc++.so.5 (0x00764000)
@@ -304,7 +304,7 @@ of the name, then the executable is versioned. Here's an example:
 </p><p>
 On Solaris 2, you can use <code class="code">pvs -r</code> instead:
 </p><pre class="programlisting">
-%g++ hello.cc -o hello.out
+%g++ hello.ml -o hello.out
 
 %pvs -r hello.out
         libstdc++.so.6 (GLIBCXX_3.4, GLIBCXX_3.4.12);
@@ -346,8 +346,8 @@ Calling Conventions and APIs</a>
 	For non-templatized types, such as much of <code class="code">class
 	locale</code>, the appropriate standard C++ include, say
 	<code class="code">locale</code>, can contain full declarations, while
-	various source files (say <code class="code"> locale.cc, locale_init.cc,
-	localename.cc</code>) contain definitions.
+	various source files (say <code class="code"> locale.ml, locale_init.ml,
+	localename.ml</code>) contain definitions.
       </p></dd><dt><span class="term">Extern template on required types</span></dt><dd><p>
        For parts of the standard that have an explicit list of
        required instantiations, the GNU extension syntax <code class="code"> extern
@@ -457,23 +457,23 @@ GCC 3.3, and uses io, exceptions, locale, etc. The dependent library
 libb is a C++ shared library compiled with GCC 3.4, and also uses io,
 exceptions, locale, etc.
 </p><p> As above, libone is constructed as follows: </p><pre class="programlisting">
-%$bld/H-x86-gcc-3.4.0/bin/g++ -fPIC -DPIC -c a.cc
+%$bld/H-x86-gcc-3.4.0/bin/g++ -fPIC -DPIC -c a.ml
 
 %$bld/H-x86-gcc-3.4.0/bin/g++ -shared -Wl,-soname -Wl,libone.so.1 -Wl,-O1 -Wl,-z,defs a.o -o libone.so.1.0.0
 
 %ln -s libone.so.1.0.0 libone.so
 
-%$bld/H-x86-gcc-3.4.0/bin/g++ -c a.cc
+%$bld/H-x86-gcc-3.4.0/bin/g++ -c a.ml
 
 %ar cru libone.a a.o
 </pre><p> And, libtwo is constructed as follows: </p><pre class="programlisting">
-%$bld/H-x86-gcc-3.3.3/bin/g++ -fPIC -DPIC -c b.cc
+%$bld/H-x86-gcc-3.3.3/bin/g++ -fPIC -DPIC -c b.ml
 
 %$bld/H-x86-gcc-3.3.3/bin/g++ -shared -Wl,-soname -Wl,libtwo.so.1 -Wl,-O1 -Wl,-z,defs b.o -o libtwo.so.1.0.0
 
 %ln -s libtwo.so.1.0.0 libtwo.so
 
-%$bld/H-x86-gcc-3.3.3/bin/g++ -c b.cc
+%$bld/H-x86-gcc-3.3.3/bin/g++ -c b.ml
 
 %ar cru libtwo.a b.o
 </pre><p> ...with the resulting libraries looking like </p><pre class="screen">

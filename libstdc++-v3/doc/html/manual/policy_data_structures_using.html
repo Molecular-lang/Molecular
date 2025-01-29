@@ -382,101 +382,101 @@
 	testsuite.
       </p><div class="section"><div class="titlepage"><div><div><h4 class="title"><a id="pbds.using.examples.basic"></a>Intermediate Use</h4></div></div></div><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem"><p>
 	      Basic use of maps:
-	      <code class="filename">basic_map.cc</code>
+	      <code class="filename">basic_map.ml</code>
 	    </p></li><li class="listitem"><p>
 	      Basic use of sets:
-	      <code class="filename">basic_set.cc</code>
+	      <code class="filename">basic_set.ml</code>
 	    </p></li><li class="listitem"><p>
 	      Conditionally erasing values from an associative container object:
-	      <code class="filename">erase_if.cc</code>
+	      <code class="filename">erase_if.ml</code>
 	    </p></li><li class="listitem"><p>
 	      Basic use of multimaps:
-	      <code class="filename">basic_multimap.cc</code>
+	      <code class="filename">basic_multimap.ml</code>
 	    </p></li><li class="listitem"><p>
 	      Basic use of multisets:
-	      <code class="filename">basic_multiset.cc</code>
+	      <code class="filename">basic_multiset.ml</code>
 	    </p></li><li class="listitem"><p>
 	      Basic use of priority queues:
-	      <code class="filename">basic_priority_queue.cc</code>
+	      <code class="filename">basic_priority_queue.ml</code>
 	    </p></li><li class="listitem"><p>
 	      Splitting and joining priority queues:
-	      <code class="filename">priority_queue_split_join.cc</code>
+	      <code class="filename">priority_queue_split_join.ml</code>
 	    </p></li><li class="listitem"><p>
 	      Conditionally erasing values from a priority queue:
-	      <code class="filename">priority_queue_erase_if.cc</code>
+	      <code class="filename">priority_queue_erase_if.ml</code>
 	    </p></li></ul></div></div><div class="section"><div class="titlepage"><div><div><h4 class="title"><a id="pbds.using.examples.query"></a>Querying with <code class="classname">container_traits</code> </h4></div></div></div><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem"><p>
 	      Using <code class="classname">container_traits</code> to query
 	      about underlying data structure behavior:
-	      <code class="filename">assoc_container_traits.cc</code>
+	      <code class="filename">assoc_container_traits.ml</code>
 	    </p></li><li class="listitem"><p>
 	      A non-compiling example showing wrong use of finding keys in
-	      hash-based containers: <code class="filename">hash_find_neg.cc</code>
+	      hash-based containers: <code class="filename">hash_find_neg.ml</code>
 	    </p></li><li class="listitem"><p>
 	      Using <code class="classname">container_traits</code>
 	      to query about underlying data structure behavior:
-	      <code class="filename">priority_queue_container_traits.cc</code>
+	      <code class="filename">priority_queue_container_traits.ml</code>
 	    </p></li></ul></div></div><div class="section"><div class="titlepage"><div><div><h4 class="title"><a id="pbds.using.examples.container"></a>By Container Method</h4></div></div></div><p></p><div class="section"><div class="titlepage"><div><div><h5 class="title"><a id="pbds.using.examples.container.hash"></a>Hash-Based</h5></div></div></div><div class="section"><div class="titlepage"><div><div><h6 class="title"><a id="pbds.using.examples.container.hash.resize"></a>size Related</h6></div></div></div><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem"><p>
 		  Setting the initial size of a hash-based container
 		  object:
-		  <code class="filename">hash_initial_size.cc</code>
+		  <code class="filename">hash_initial_size.ml</code>
 		</p></li><li class="listitem"><p>
 		  A non-compiling example showing how not to resize a
 		  hash-based container object:
-		  <code class="filename">hash_resize_neg.cc</code>
+		  <code class="filename">hash_resize_neg.ml</code>
 		</p></li><li class="listitem"><p>
 		  Resizing the size of a hash-based container object:
-		  <code class="filename">hash_resize.cc</code>
+		  <code class="filename">hash_resize.ml</code>
 		</p></li><li class="listitem"><p>
 		  Showing an illegal resize of a hash-based container
 		  object:
-		  <code class="filename">hash_illegal_resize.cc</code>
+		  <code class="filename">hash_illegal_resize.ml</code>
 		</p></li><li class="listitem"><p>
 		  Changing the load factors of a hash-based container
-		  object: <code class="filename">hash_load_set_change.cc</code>
+		  object: <code class="filename">hash_load_set_change.ml</code>
 		</p></li></ul></div></div><div class="section"><div class="titlepage"><div><div><h6 class="title"><a id="pbds.using.examples.container.hash.hashor"></a>Hashing Function Related</h6></div></div></div><p></p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem"><p>
 		  Using a modulo range-hashing function for the case of an
 		  unknown skewed key distribution:
-		  <code class="filename">hash_mod.cc</code>
+		  <code class="filename">hash_mod.ml</code>
 		</p></li><li class="listitem"><p>
 		  Writing a range-hashing functor for the case of a known
 		  skewed key distribution:
-		  <code class="filename">shift_mask.cc</code>
+		  <code class="filename">shift_mask.ml</code>
 		</p></li><li class="listitem"><p>
 		  Storing the hash value along with each key:
-		  <code class="filename">store_hash.cc</code>
+		  <code class="filename">store_hash.ml</code>
 		</p></li><li class="listitem"><p>
 		  Writing a ranged-hash functor:
-		  <code class="filename">ranged_hash.cc</code>
+		  <code class="filename">ranged_hash.ml</code>
 		</p></li></ul></div></div></div><div class="section"><div class="titlepage"><div><div><h5 class="title"><a id="pbds.using.examples.container.branch"></a>Branch-Based</h5></div></div></div><div class="section"><div class="titlepage"><div><div><h6 class="title"><a id="pbds.using.examples.container.branch.split"></a>split or join Related</h6></div></div></div><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem"><p>
 		  Joining two tree-based container objects:
-		  <code class="filename">tree_join.cc</code>
+		  <code class="filename">tree_join.ml</code>
 		</p></li><li class="listitem"><p>
 		  Splitting a PATRICIA trie container object:
-		  <code class="filename">trie_split.cc</code>
+		  <code class="filename">trie_split.ml</code>
 		</p></li><li class="listitem"><p>
 		  Order statistics while joining two tree-based container
 		  objects:
-		  <code class="filename">tree_order_statistics_join.cc</code>
+		  <code class="filename">tree_order_statistics_join.ml</code>
 		</p></li></ul></div></div><div class="section"><div class="titlepage"><div><div><h6 class="title"><a id="pbds.using.examples.container.branch.invariants"></a>Node Invariants</h6></div></div></div><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem"><p>
 		  Using trees for order statistics:
-		  <code class="filename">tree_order_statistics.cc</code>
+		  <code class="filename">tree_order_statistics.ml</code>
 		</p></li><li class="listitem"><p>
 		  Augmenting trees to support operations on line
 		  intervals:
-		  <code class="filename">tree_intervals.cc</code>
+		  <code class="filename">tree_intervals.ml</code>
 		</p></li></ul></div></div><div class="section"><div class="titlepage"><div><div><h6 class="title"><a id="pbds.using.examples.container.branch.trie"></a>trie</h6></div></div></div><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem"><p>
 		  Using a PATRICIA trie for DNA strings:
-		  <code class="filename">trie_dna.cc</code>
+		  <code class="filename">trie_dna.ml</code>
 		</p></li><li class="listitem"><p>
 		  Using a PATRICIA
 		  trie for finding all entries whose key matches a given prefix:
-		  <code class="filename">trie_prefix_search.cc</code>
+		  <code class="filename">trie_prefix_search.ml</code>
 		</p></li></ul></div></div></div><div class="section"><div class="titlepage"><div><div><h5 class="title"><a id="pbds.using.examples.container.priority_queue"></a>Priority Queues</h5></div></div></div><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem"><p>
 		Cross referencing an associative container and a priority
-		queue: <code class="filename">priority_queue_xref.cc</code>
+		queue: <code class="filename">priority_queue_xref.ml</code>
 	      </p></li><li class="listitem"><p>
 		Cross referencing a vector and a priority queue using a
 		very simple version of Dijkstra's shortest path
 		algorithm:
-		<code class="filename">priority_queue_dijkstra.cc</code>
+		<code class="filename">priority_queue_dijkstra.ml</code>
 	      </p></li></ul></div></div></div></div></div><div class="navfooter"><hr /><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="policy_data_structures.html">Prev</a> </td><td width="20%" align="center"><a accesskey="u" href="policy_data_structures.html">Up</a></td><td width="40%" align="right"> <a accesskey="n" href="policy_data_structures_design.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">Chapter 21. Policy-Based Data Structures </td><td width="20%" align="center"><a accesskey="h" href="../index.html">Home</a></td><td width="40%" align="right" valign="top"> Design</td></tr></table></div></body></html>

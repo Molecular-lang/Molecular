@@ -70,7 +70,7 @@ if {[info exists tests_file] && [file exists $tests_file]} {
 
     # Find all the tests.
     foreach s $subdirs {
-	set subdir_tests [find $s *.cc]
+	set subdir_tests [find $s *.ml]
 	set subdir_tests_c [find $s *.c]
 	foreach e $subdir_tests_c {
 	    lappend subdir_tests $e
@@ -122,7 +122,7 @@ if [check_vect_support_and_set_flags] {
   lappend DEFAULT_VECTCFLAGS "-O2"
   lappend DEFAULT_VECTCFLAGS "-Wno-psabi"
   et-dg-runtest dg-runtest [lsort \
-    [glob -nocomplain $srcdir/experimental/simd/*.cc]] \
+    [glob -nocomplain $srcdir/experimental/simd/*.ml]] \
     "$DEFAULT_VECTCFLAGS" "$DEFAULT_CXXFLAGS $PCH_CXXFLAGS"
 }
 

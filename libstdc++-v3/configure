@@ -592,7 +592,7 @@ PACKAGE_STRING='package-unused version-unused'
 PACKAGE_BUGREPORT=''
 PACKAGE_URL=''
 
-ac_unique_file="src/shared/hashtable-aux.cc"
+ac_unique_file="src/shared/hashtable-aux.ml"
 # Factoring default headers for most tests.
 ac_includes_default="\
 #include <stdio.h>
@@ -15920,8 +15920,8 @@ ac_compiler_gnu=$ac_cv_cxx_compiler_gnu
        if $CXX $CXXFLAGS $CPPFLAGS -x c++-header conftest.h \
 			  -o conftest.h.gch 1>&5 2>&1 &&
 		echo '#error "pch failed"' > conftest.h &&
-	  echo '#include "conftest.h"' > conftest.cc &&
-	       $CXX -c $CXXFLAGS $CPPFLAGS conftest.cc 1>&5 2>&1 ;
+	  echo '#include "conftest.h"' > conftest.ml &&
+	       $CXX -c $CXXFLAGS $CPPFLAGS conftest.ml 1>&5 2>&1 ;
        then
 	 glibcxx_cv_prog_CXX_pch=yes
        else
@@ -16611,7 +16611,7 @@ fi
     stdio*)
       CSTDIO_H=config/io/c_io_stdio.h
       BASIC_FILE_H=config/io/basic_file_stdio.h
-      BASIC_FILE_CC=config/io/basic_file_stdio.cc
+      BASIC_FILE_CC=config/io/basic_file_stdio.ml
 
       if test "x$enable_cstdio" = "xstdio_pure" ; then
 	{ $as_echo "$as_me:${as_lineno-$LINENO}: result: stdio (without POSIX read/write)" >&5
@@ -16794,16 +16794,16 @@ $as_echo_n "checking for C locale to use... " >&6; }
 $as_echo "generic" >&6; }
 
       CLOCALE_H=config/locale/generic/c_locale.h
-      CLOCALE_CC=config/locale/generic/c_locale.cc
-      CCODECVT_CC=config/locale/generic/codecvt_members.cc
-      CCOLLATE_CC=config/locale/generic/collate_members.cc
-      CCTYPE_CC=config/locale/generic/ctype_members.cc
+      CLOCALE_CC=config/locale/generic/c_locale.ml
+      CCODECVT_CC=config/locale/generic/codecvt_members.ml
+      CCOLLATE_CC=config/locale/generic/collate_members.ml
+      CCTYPE_CC=config/locale/generic/ctype_members.ml
       CMESSAGES_H=config/locale/generic/messages_members.h
-      CMESSAGES_CC=config/locale/generic/messages_members.cc
-      CMONEY_CC=config/locale/generic/monetary_members.cc
-      CNUMERIC_CC=config/locale/generic/numeric_members.cc
+      CMESSAGES_CC=config/locale/generic/messages_members.ml
+      CMONEY_CC=config/locale/generic/monetary_members.ml
+      CNUMERIC_CC=config/locale/generic/numeric_members.ml
       CTIME_H=config/locale/generic/time_members.h
-      CTIME_CC=config/locale/generic/time_members.cc
+      CTIME_CC=config/locale/generic/time_members.ml
       CLOCALE_INTERNAL_H=config/locale/generic/c++locale_internal.h
       ;;
     darwin)
@@ -16811,16 +16811,16 @@ $as_echo "generic" >&6; }
 $as_echo "darwin" >&6; }
 
       CLOCALE_H=config/locale/generic/c_locale.h
-      CLOCALE_CC=config/locale/generic/c_locale.cc
-      CCODECVT_CC=config/locale/generic/codecvt_members.cc
-      CCOLLATE_CC=config/locale/generic/collate_members.cc
-      CCTYPE_CC=config/locale/darwin/ctype_members.cc
+      CLOCALE_CC=config/locale/generic/c_locale.ml
+      CCODECVT_CC=config/locale/generic/codecvt_members.ml
+      CCOLLATE_CC=config/locale/generic/collate_members.ml
+      CCTYPE_CC=config/locale/darwin/ctype_members.ml
       CMESSAGES_H=config/locale/generic/messages_members.h
-      CMESSAGES_CC=config/locale/generic/messages_members.cc
-      CMONEY_CC=config/locale/generic/monetary_members.cc
-      CNUMERIC_CC=config/locale/generic/numeric_members.cc
+      CMESSAGES_CC=config/locale/generic/messages_members.ml
+      CMONEY_CC=config/locale/generic/monetary_members.ml
+      CNUMERIC_CC=config/locale/generic/numeric_members.ml
       CTIME_H=config/locale/generic/time_members.h
-      CTIME_CC=config/locale/generic/time_members.cc
+      CTIME_CC=config/locale/generic/time_members.ml
       CLOCALE_INTERNAL_H=config/locale/generic/c++locale_internal.h
       ;;
     vxworks)
@@ -16828,16 +16828,16 @@ $as_echo "darwin" >&6; }
 $as_echo "vxworks" >&6; }
 
       CLOCALE_H=config/locale/generic/c_locale.h
-      CLOCALE_CC=config/locale/generic/c_locale.cc
-      CCODECVT_CC=config/locale/generic/codecvt_members.cc
-      CCOLLATE_CC=config/locale/generic/collate_members.cc
-      CCTYPE_CC=config/locale/vxworks/ctype_members.cc
+      CLOCALE_CC=config/locale/generic/c_locale.ml
+      CCODECVT_CC=config/locale/generic/codecvt_members.ml
+      CCOLLATE_CC=config/locale/generic/collate_members.ml
+      CCTYPE_CC=config/locale/vxworks/ctype_members.ml
       CMESSAGES_H=config/locale/generic/messages_members.h
-      CMESSAGES_CC=config/locale/generic/messages_members.cc
-      CMONEY_CC=config/locale/generic/monetary_members.cc
-      CNUMERIC_CC=config/locale/generic/numeric_members.cc
+      CMESSAGES_CC=config/locale/generic/messages_members.ml
+      CMONEY_CC=config/locale/generic/monetary_members.ml
+      CNUMERIC_CC=config/locale/generic/numeric_members.ml
       CTIME_H=config/locale/generic/time_members.h
-      CTIME_CC=config/locale/generic/time_members.cc
+      CTIME_CC=config/locale/generic/time_members.ml
       CLOCALE_INTERNAL_H=config/locale/generic/c++locale_internal.h
       ;;
     dragonfly)
@@ -16845,16 +16845,16 @@ $as_echo "vxworks" >&6; }
 $as_echo "dragonfly or freebsd" >&6; }
 
       CLOCALE_H=config/locale/dragonfly/c_locale.h
-      CLOCALE_CC=config/locale/dragonfly/c_locale.cc
-      CCODECVT_CC=config/locale/dragonfly/codecvt_members.cc
-      CCOLLATE_CC=config/locale/dragonfly/collate_members.cc
-      CCTYPE_CC=config/locale/dragonfly/ctype_members.cc
+      CLOCALE_CC=config/locale/dragonfly/c_locale.ml
+      CCODECVT_CC=config/locale/dragonfly/codecvt_members.ml
+      CCOLLATE_CC=config/locale/dragonfly/collate_members.ml
+      CCTYPE_CC=config/locale/dragonfly/ctype_members.ml
       CMESSAGES_H=config/locale/generic/messages_members.h
-      CMESSAGES_CC=config/locale/generic/messages_members.cc
-      CMONEY_CC=config/locale/dragonfly/monetary_members.cc
-      CNUMERIC_CC=config/locale/dragonfly/numeric_members.cc
+      CMESSAGES_CC=config/locale/generic/messages_members.ml
+      CMONEY_CC=config/locale/dragonfly/monetary_members.ml
+      CNUMERIC_CC=config/locale/dragonfly/numeric_members.ml
       CTIME_H=config/locale/dragonfly/time_members.h
-      CTIME_CC=config/locale/dragonfly/time_members.cc
+      CTIME_CC=config/locale/dragonfly/time_members.ml
       CLOCALE_INTERNAL_H=config/locale/generic/c++locale_internal.h
       ;;
 
@@ -16918,16 +16918,16 @@ fi
 
 
       CLOCALE_H=config/locale/gnu/c_locale.h
-      CLOCALE_CC=config/locale/gnu/c_locale.cc
-      CCODECVT_CC=config/locale/gnu/codecvt_members.cc
-      CCOLLATE_CC=config/locale/gnu/collate_members.cc
-      CCTYPE_CC=config/locale/gnu/ctype_members.cc
+      CLOCALE_CC=config/locale/gnu/c_locale.ml
+      CCODECVT_CC=config/locale/gnu/codecvt_members.ml
+      CCOLLATE_CC=config/locale/gnu/collate_members.ml
+      CCTYPE_CC=config/locale/gnu/ctype_members.ml
       CMESSAGES_H=config/locale/gnu/messages_members.h
-      CMESSAGES_CC=config/locale/gnu/messages_members.cc
-      CMONEY_CC=config/locale/gnu/monetary_members.cc
-      CNUMERIC_CC=config/locale/gnu/numeric_members.cc
+      CMESSAGES_CC=config/locale/gnu/messages_members.ml
+      CMONEY_CC=config/locale/gnu/monetary_members.ml
+      CNUMERIC_CC=config/locale/gnu/numeric_members.ml
       CTIME_H=config/locale/gnu/time_members.h
-      CTIME_CC=config/locale/gnu/time_members.cc
+      CTIME_CC=config/locale/gnu/time_members.ml
       CLOCALE_INTERNAL_H=config/locale/gnu/c++locale_internal.h
       ;;
     ieee_1003.1-2001)
@@ -16935,16 +16935,16 @@ fi
 $as_echo "IEEE 1003.1" >&6; }
 
       CLOCALE_H=config/locale/ieee_1003.1-2001/c_locale.h
-      CLOCALE_CC=config/locale/ieee_1003.1-2001/c_locale.cc
-      CCODECVT_CC=config/locale/generic/codecvt_members.cc
-      CCOLLATE_CC=config/locale/generic/collate_members.cc
-      CCTYPE_CC=config/locale/generic/ctype_members.cc
+      CLOCALE_CC=config/locale/ieee_1003.1-2001/c_locale.ml
+      CCODECVT_CC=config/locale/generic/codecvt_members.ml
+      CCOLLATE_CC=config/locale/generic/collate_members.ml
+      CCTYPE_CC=config/locale/generic/ctype_members.ml
       CMESSAGES_H=config/locale/ieee_1003.1-2001/messages_members.h
-      CMESSAGES_CC=config/locale/ieee_1003.1-2001/messages_members.cc
-      CMONEY_CC=config/locale/generic/monetary_members.cc
-      CNUMERIC_CC=config/locale/generic/numeric_members.cc
+      CMESSAGES_CC=config/locale/ieee_1003.1-2001/messages_members.ml
+      CMONEY_CC=config/locale/generic/monetary_members.ml
+      CNUMERIC_CC=config/locale/generic/numeric_members.ml
       CTIME_H=config/locale/generic/time_members.h
-      CTIME_CC=config/locale/generic/time_members.cc
+      CTIME_CC=config/locale/generic/time_members.ml
       CLOCALE_INTERNAL_H=config/locale/generic/c++locale_internal.h
       ;;
     newlib)
@@ -16952,16 +16952,16 @@ $as_echo "IEEE 1003.1" >&6; }
 $as_echo "newlib" >&6; }
 
       CLOCALE_H=config/locale/generic/c_locale.h
-      CLOCALE_CC=config/locale/generic/c_locale.cc
-      CCODECVT_CC=config/locale/generic/codecvt_members.cc
-      CCOLLATE_CC=config/locale/generic/collate_members.cc
-      CCTYPE_CC=config/locale/newlib/ctype_members.cc
+      CLOCALE_CC=config/locale/generic/c_locale.ml
+      CCODECVT_CC=config/locale/generic/codecvt_members.ml
+      CCOLLATE_CC=config/locale/generic/collate_members.ml
+      CCTYPE_CC=config/locale/newlib/ctype_members.ml
       CMESSAGES_H=config/locale/generic/messages_members.h
-      CMESSAGES_CC=config/locale/generic/messages_members.cc
-      CMONEY_CC=config/locale/generic/monetary_members.cc
-      CNUMERIC_CC=config/locale/generic/numeric_members.cc
+      CMESSAGES_CC=config/locale/generic/messages_members.ml
+      CMONEY_CC=config/locale/generic/monetary_members.ml
+      CNUMERIC_CC=config/locale/generic/numeric_members.ml
       CTIME_H=config/locale/generic/time_members.h
-      CTIME_CC=config/locale/generic/time_members.cc
+      CTIME_CC=config/locale/generic/time_members.ml
       CLOCALE_INTERNAL_H=config/locale/generic/c++locale_internal.h
       ;;
   esac
@@ -51163,7 +51163,7 @@ fi
 
 # Now, set up compatibility support, if any.
 # In addition, need this to deal with std::size_t mangling in
-# src/compatibility.cc.  In a perfect world, could use
+# src/compatibility.ml.  In a perfect world, could use
 # typeid(std::size_t).name()[0] to do direct substitution.
 { $as_echo "$as_me:${as_lineno-$LINENO}: checking for size_t as unsigned int" >&5
 $as_echo_n "checking for size_t as unsigned int... " >&6; }
@@ -54298,7 +54298,7 @@ $as_echo "7.1.0" >&6; }
   fi
 
 
-# For libsupc++/eh_alloc.cc defaults.
+# For libsupc++/eh_alloc.ml defaults.
 
   eh_pool_static=
   eh_pool_nobjs=
@@ -54329,7 +54329,7 @@ fi
 
 
 
-# For src/c++20/tzdb.cc defaults.
+# For src/c++20/tzdb.ml defaults.
 
 
 # Check whether --with-libstdcxx-zoneinfo was given.
@@ -54423,7 +54423,7 @@ _ACEOF
   fi
 
 
-# For src/c++11/shared_ptr.cc alignment.
+# For src/c++11/shared_ptr.ml alignment.
 
 
   ac_ext=cpp
@@ -54472,7 +54472,7 @@ ac_compiler_gnu=$ac_cv_c_compiler_gnu
 
 
 
-# For using init_priority in ios_init.cc
+# For using init_priority in ios_init.ml
 
 
   ac_ext=cpp
